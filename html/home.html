@@ -26,7 +26,7 @@
             padding-bottom: 40px;
         }
         div.bg {
-            background-image: url("image.jpg");
+            background-image: url("image/image.jpg");
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-position: center;
@@ -93,6 +93,24 @@
         
     </style>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1번 Box 클릭
+            document.querySelector("li.L1").addEventListener("dblclick", (ev) => {
+                location.href = "search.html";
+            })
+            
+            // 2번 Box 클릭
+            document.querySelector("li.L2").addEventListener("dblclick", (ev) => {
+                location.href = "map.html";
+            })
+            
+            // 3번 Box 클릭
+            document.querySelector("li.L3").addEventListener("dblclick", (ev) => {
+                location.href = "3번Box.html";
+            })
+        })
+    </script>
     
 </head>
 <body>
@@ -105,17 +123,17 @@
     <div class="main_01">
         <h1>ABOUT</h1>
         <ul class="icons">
-            <a href=""></a>
-            <li>
-            <section class="a1">
-                종목으로 검색
-            </section>
-            <section class="a2">
-                <span style="color:#e9efed"><i class="fas fa-search fa-spin fa-10x" ></i></span>
-            </section>    
+            
+            <li class="L1">
+                <section class="a1">
+                    종목으로 검색
+                </section>
+                <section class="a2">
+                    <span style="color:#e9efed"><i class="fas fa-search fa-spin fa-10x" ></i></span>
+                </section>    
             </li>
             <a href=""></a>
-            <li>
+            <li class="L2">
                 <section class="b1">
                     위치로 검색
                 </section>
@@ -125,7 +143,7 @@
                   
                 </section>   
             </li>
-            <li>3번</li>
+            <li class="L3">3번</li>
         </ul>
 
     </div>   
