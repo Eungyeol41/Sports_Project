@@ -157,8 +157,26 @@
         }
         
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1번 Box 클릭
+            document.querySelector("li.L1").addEventListener("dblclick", (ev) => {
+                location.href = "search.html";
+            })
+            
+            // 2번 Box 클릭
+            document.querySelector("li.L2").addEventListener("dblclick", (ev) => {
+                location.href = "map.html";
+            })
+            
+            // 3번 Box 클릭
+            document.querySelector("li.L3").addEventListener("dblclick", (ev) => {
+                location.href = "3번Box.html";
+            })
+        })
+    </script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    
+    <link href="html/">
 </head>
 <body>
     <h1>Sports Facility Center</h1>
