@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>검색하기</title>
     <style>
         * {
-            
+
             margin: 0;
             padding: 0;
             border: 0;
@@ -16,19 +17,23 @@
             vertical-align: baseline;
 
         }
+
         h1 {
             padding: 30px;
             text-align: center;
             font-size: 30px;
         }
 
-        table {      
+        table {
             margin-left: auto;
             margin-right: auto;
             width: 50%;
 
         }
-        table,td,th {
+
+        table,
+        td,
+        th {
             border-collapse: separate;
             border-spacing: 1px;
             line-height: 1.5;
@@ -38,9 +43,10 @@
             padding: 15px;
             /* background-color: #ddd; */
             font-weight: bold;
-            
-            
+
+
         }
+
         th {
             width: 150px;
             padding: 10px;
@@ -55,37 +61,43 @@
             padding-right: 40px;
             vertical-align: top;
             border-bottom: 1px solid #ccc;
-            letter-spacing : 5px;   
+            letter-spacing: 5px;
         }
 
-        input {
-            
-        }
-        
+        input {}
+
         button {
             width: 40%;
             height: 40px;
         }
+
         button:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
- 
-        
+
+
         /* caption { // 표 제목 붙이기
             padding: 10px;
             margin-bottom: 20px;
             font-size: 20px;
         } */
-        
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("button").addEventListener("click", (ev) => {
+                location.href = "search_result.html"
+            })
+        });
+    </script>
 </head>
+
 <body>
     <h1>광주광역시 체육시설 찾아보기</h1>
     <table>
         <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
         <tr>
             <th>이용료</th>
-            <td><input type="radio" name="ra" value="무료">무료
+            <td><input type="radio" name="ra" value="무료" checked>무료
                 <input type="radio" name="ra" value="유료">유료
                 <input type="radio" name="ra" value="유/무료">유/무료
             </td>
@@ -97,12 +109,12 @@
                 <input type="checkbox" name="ch" value="남구">남구
                 <input type="checkbox" name="ch" value="북구">북구
                 <input type="checkbox" name="ch" value="광산구">광산구
-                <input type="checkbox" name="ch" value="전체">전체        
+                <input type="checkbox" name="ch" value="전체">전체
             </td>
         </tr>
         <tr>
             <th>지역(동)</th>
-            <td id="t3"><input type="text" size="20" style="padding: 10px; border: 1px solid #ddd;" name="dong"></td>           
+            <td id="t3"><input type="text" size="20" style="padding: 10px; border: 1px solid #ddd;" name="dong"></td>
         </tr>
         <tr>
             <th>검색어</th>
@@ -112,18 +124,19 @@
             <!-- 드롭다운 사용하기 -->
             <th>종목</th>
             <td>
-                <select name="input" size=1 style="width: 150px; border: 1px solid #ddd;" >
+                <select name="input" size=1 style="width: 150px; border: 1px solid #ddd;">
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
                     <option value=4>4</option>
                 </select>
             </td>
-        </tr>    
+        </tr>
         <tr>
             <td colspan="2"><button type="button" style="float:right;">검색</button></td>
         </tr>
     </table>
-    
+
 </body>
+
 </html>

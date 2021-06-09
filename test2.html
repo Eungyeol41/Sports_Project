@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        border-collapse: collapse;
+        list-style: none;
+     
+     
+        }
+        body, html{
+            
+            
+        }
+        h1 {
+            background-color: white;
+            text-align: center;
+            height: 80%;
+            padding-top: 30px;
+            padding-bottom: 40px;
+            font-size: 50px;
+            color: rgb(184, 189, 255);
+            text-shadow: 2px 2px 2px rgb(78, 78, 78);
+            overflow: hidden;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 80px;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            overflow: hidden;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        h3 {
+
+            text-align: center;
+            height: 80%;
+            padding-top: 30px;
+            padding-bottom: 40px;
+            font-size: 50px;
+            color: rgb(146, 221, 255);
+            text-shadow: 2px 2px 2px rgb(78, 78, 78);
+            overflow: hidden;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        div.D {
+            color: rgb(44, 76, 255);
+            font-size: 500px;
+            text-align: center;
+            
+        }
+        div.bg {
+            background-image: url("image/패턴1.png");
+            background-color: rgb(62, 129, 255);
+           
+            
+            background-position: center;
+            width : 100%;
+            display: block;
+            overflow: hidden;
+            margin : auto;
+            height: 700px;
+           
+               
+        }
+        div.bg_text {
+            color: black;
+            text-align: center;
+            margin-top: 200px;
+            font-size: 50px;
+        }
+        div.main_01 {
+            text-align: center;
+    
+            background-color: #e9efed;
+
+        }
+        .icons {
+            display: flex;
+            width: 1280px;
+            height: 400px;
+            margin: auto;
+        }
+        .icons > li {
+            flex: 1;
+            height: 300px;
+            background-color: #5871c4;
+            font-size: 24px;
+            color: #e9efed;
+            
+            
+        }
+
+        .icons > li:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        /*
+        .icons > li :nth-child(1) {
+            margin-right: 20px;
+        }
+        .icons > li :nth-child(2) {
+            margin-right: 20px;
+        }
+
+        */
+
+        .icons > li > section.a2 {
+            margin : 2rem auto 2rem auto;
+            font-size: 20px;
+            align-items: center;
+        }
+        .icons > li > section.b2 {
+            margin : 2rem auto 2rem auto;
+            font-size: 20px;
+            align-items: center;
+        }
+
+        
+
+        section.a2{
+            padding: 40px;
+            
+            
+        }section.b2{
+            padding: 40px;
+            
+        }
+        section.a2:hover {
+            opacity: 50%;
+            cursor: pointer;
+                
+        }
+        section.b2:hover{
+            opacity: 50%;
+            cursor: pointer;
+            
+        }
+        section.bottom{
+            background-color: rgb(167, 245, 255);
+            color: white;
+            
+            border: 30px;
+            font-size: 20px;
+        }
+        
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1번 Box 클릭
+            document.querySelector("li.L1").addEventListener("dblclick", (ev) => {
+                location.href = "search.html";
+            })
+            
+            // 2번 Box 클릭
+            document.querySelector("li.L2").addEventListener("dblclick", (ev) => {
+                location.href = "map.html";
+            })
+            
+            // 3번 Box 클릭
+            document.querySelector("li.L3").addEventListener("dblclick", (ev) => {
+                location.href = "3번Box.html";
+            })
+        })
+    </script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link href="html/">
+</head>
+<body>
+    <h1>Sports Facility Center</h1>
+    <div class="bg">
+        
+        <div class="D">H</div>
+        <div class="bg_text">
+           
+        </div>
+    </div>
+    <div class="main_01">
+        <h3>ABOUT</h3>
+        <ul class="icons">
+            <li class="art1">
+            <section class="a1">
+                
+            </section>
+            <section class="a2">
+                <span style="color:#e9efed"><i class="fas fa-search fa-5x" ></i></span>
+            </section>    
+            </li>
+            <a href=""></a>
+            <li>
+                <section class="b1">
+                    
+                </section>
+                <section class="b2">
+                    <span style="color:#e9efed">
+                    <i class="fas fa-map-marked-alt fa-5x" ></i>
+                  
+                </section>   
+            </li>
+            <li>3번</li>
+        </ul>
+
+    </div>   
+    <section class="bottom">num5268@gmail.com</section>
+</body>
+</html>
