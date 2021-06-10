@@ -1,233 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        body
-        {
-            margin:0 auto;
-            padding:0;
-            background-color:rgb(231, 224, 192);
-        
-        }
-        
-        li
-        {
-            list-style:none;
-        }
-        
-        a
-        {
-            text-decoration:none;
-            color:black;
-        
-        }
-        a:hover
-        {
-        
-            color:hotpink;
-        
-        
-        }
-        
-        
-        span
-        {
-            font-size:1.5em;
-        }
-        
-        #header
-        {
-            min-width:800%;
-            height:100px;
-            border-bottom:1px solid black;
-            overflow:hidden;
-            padding:10px 10px;
-            line-height:30px;
-        }
-        
-        #header div
-        {
-            float:left;
-            font-family: 'Lobster', cursive;
-            
-            text-align:center;
-            font-size:1.5em;
-            color:black;
-                   text-align:center;
-                   margin-left:550px;
-                    color:black;
-        
-        }
-        #header div:nth-child(3)
-        {
-            float:left;
-            margin-top:20px;
-        
-        }
-        #nav
-        {
-        
-            min-width:800%;
-            height:50px;
-            border:1px solid black;
-        
-        
-        }
-        
-        #nav ul
-        {
-            overflow:hidden;
-        }
-        #nav ul li
-        {
-            display:block;
-            padding:0 120px;
-            border-right:1px solid black;
-            float:left;
-            box-sizing:border-box;  
-        
-        }
-        #nav ul li a:hover
-        {
-            color:red;
-            opacity:0.7;
-        
-        }
-        #nav ul li:last-child
-        {
-            border:none;
-        }
-        
-        #content
-        {
-            min-width:800%;
-            margin-top:10px;
-            height:300px;
-        
-            overflow:hidden;
-            position:relative;
-        
-        }
-        #content div:nth-child(1)
-        {
-            margin:20px;
-            float:left;
-        
-        }
-        #content div:nth-child(2)
-        {
-            margin-left:20px;
-            float:left;
-            white-space:nowrap;
-        
-        }
-        #content div:nth-child(3)
-        {
-        
-            float:right;
-            position:absolute;
-            left:1000px;
-            top:0px;
-        
-        }
-        #content div p
-        {
-            line-height:50px;
-        }
-        
-        audio
-        {
-            max-width:200px;
-            height:50px;
-            
-        }
-        #footer
-        {
-            min-width:800px;
-            margin-top:10px;
-            height:100px;
-            border-top:1px solid black;
-            overflow:hidden;
-        }
-        #footer div:nth-child(1)
-        {
-            float:left;
-        }
-        #footer div:last-child
-        {
-            margin-left:30px;
-            font-weight:bold;
-            line-height:35px;
-            font-size:1.5em;
-            float:left;
-            font-family: 'Nanum Brush Script', cursive;
-        }
-        
-        
-        
-        
-        </style>
-        </head>
-        <body>
-        <div id ="header">
-        
-            <div>
-                <h1><a href="./main.html">My Hobbies</a></h1>
-            </div>
-        
-        
-        </div>
-        
-        
-        <div id="nav">
-            <ul>
-                <li><a href="./music.html">Music</a></li>
-                <li><a href="./movie.html">Movie</a></li>
-                <li><a href="./sports.html">Sports</a></li>
-                <li><a href="./trip.html">travel</a></li>
-            </ul>
-        
-        </div>
-        
-        <div id="search">
-        
-            <div>
-                
-            </div>
-        
-        </div>
-        
-        
-        <div id="content">
-            <div>
-                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMTdfMjIz%2FMDAxNTQ1MDI1MTQwMDYy.aK7FI6-4Pu8nmPzXrCLLTJ471S-R0V4lkVF1XJBoh8wg.oU9I5Yx59Ep1uEfh1hmXDpiB2Qz-1IVAo6h5mRFbkc0g.PNG.wdb10004%2F1919.png&type=b400" width="200px" height="200px">
-            </div>
-        
-            <div>
-               
-            </div>
-            <div>
-                <audio src="music/BGM.mp3" autoplay controls ></audio>
-            </div>
-        
-        </div>
-        
-        <div id="footer">
-            <div>
-                <a href="http://www.kmu.ac.kr/uni/main/main.jsp" target="_blank"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMTdfMjIz%2FMDAxNTQ1MDI1MTQwMDYy.aK7FI6-4Pu8nmPzXrCLLTJ471S-R0V4lkVF1XJBoh8wg.oU9I5Yx59Ep1uEfh1hmXDpiB2Qz-1IVAo6h5mRFbkc0g.PNG.wdb10004%2F1919.png&type=b400" width="300px" height="100px"></a>
-            </div>
-            <div>
-                <p>
-                    이름: 홍 길 동<br>
-                    소속: 취미 공유 사이트 
-                </p>    
-            </div>
-        
-        
-        </div>
-</body>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      h2 {
+        font-size: 40px;
+        margin: 50px 5px 20px 0px;
+
+        text-align: left;
+        border-bottom: 1px solid gray;
+      }
+      section.article#map {
+        float: left;
+        margin-left: 0;
+      }
+      article#map {
+        background: url(../image/위치그냥\ 이미지1.png) no-repeat;
+        background-size: cover;
+        color: green;
+        width: 100vh;
+        height: 100vh;
+        box-sizing: border-box;
+        margin-right: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2>
+      <p>
+        <i class="fas fa-compact-disc"></i>지도에 표시된 위치를 클릭해서
+        체육시설을 찾을 수 있음
+      </p>
+      <nav></nav>
+    </header>
+    <section>
+      <article id="map">asdasd</article>
+    </section>
+    <footer></footer>
+  </body>
 </html>

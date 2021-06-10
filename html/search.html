@@ -1,142 +1,156 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>검색하기</title>
     <style>
-        * {
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
 
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
+      h1 {
+        padding: 30px;
+        text-align: center;
+        font-size: 30px;
+      }
 
-        }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
 
-        h1 {
-            padding: 30px;
-            text-align: center;
-            font-size: 30px;
-        }
+      table,
+      td,
+      th {
+        border-collapse: separate;
+        border-spacing: 1px;
+        line-height: 1.5;
+        /* border-collapse: collapse; */
+        /* border : 1px solid black; */
+        border-top: 1px solid #ccc;
+        padding: 15px;
+        /* background-color: #ddd; */
+        font-weight: bold;
+      }
 
-        table {
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
+      th {
+        width: 150px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #ddd;
+      }
 
-        }
+      td {
+        width: 350px;
+        padding-right: 40px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        letter-spacing: 5px;
+      }
 
-        table,
-        td,
-        th {
-            border-collapse: separate;
-            border-spacing: 1px;
-            line-height: 1.5;
-            /* border-collapse: collapse; */
-            /* border : 1px solid black; */
-            border-top: 1px solid #ccc;
-            padding: 15px;
-            /* background-color: #ddd; */
-            font-weight: bold;
+      input {
+      }
 
+      button {
+        width: 40%;
+        height: 40px;
+      }
 
-        }
+      button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
 
-        th {
-            width: 150px;
-            padding: 10px;
-            font-weight: bold;
-            vertical-align: top;
-            border-bottom: 1px solid #ccc;
-            background: #ddd;
-        }
-
-        td {
-            width: 350px;
-            padding-right: 40px;
-            vertical-align: top;
-            border-bottom: 1px solid #ccc;
-            letter-spacing: 5px;
-        }
-
-        input {}
-
-        button {
-            width: 40%;
-            height: 40px;
-        }
-
-        button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-
-        /* caption { // 표 제목 붙이기
+      /* caption { // 표 제목 붙이기
             padding: 10px;
             margin-bottom: 20px;
             font-size: 20px;
         } */
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector("button").addEventListener("click", (ev) => {
-                location.href = "search_result.html"
-            })
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("button").addEventListener("click", (ev) => {
+          location.href = "search_result.html";
         });
+      });
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>광주광역시 체육시설 찾아보기</h1>
     <table>
-        <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
-        <tr>
-            <th>이용료</th>
-            <td><input type="radio" name="ra" value="무료" checked>무료
-                <input type="radio" name="ra" value="유료">유료
-                <input type="radio" name="ra" value="유/무료">유/무료
-            </td>
-        </tr>
-        <tr>
-            <th>지역(구)</th>
-            <td><input type="checkbox" name="ch" value="동구">동구
-                <input type="checkbox" name="ch" value="서구">서구
-                <input type="checkbox" name="ch" value="남구">남구
-                <input type="checkbox" name="ch" value="북구">북구
-                <input type="checkbox" name="ch" value="광산구">광산구
-                <input type="checkbox" name="ch" value="전체">전체
-            </td>
-        </tr>
-        <tr>
-            <th>지역(동)</th>
-            <td id="t3"><input type="text" size="20" style="padding: 10px; border: 1px solid #ddd;" name="dong"></td>
-        </tr>
-        <tr>
-            <th>검색어</th>
-            <td id="t4"><input type="text" size="20" style="padding: 10px; border: 1px solid #ddd;" name="search"></td>
-        </tr>
-        <tr>
-            <!-- 드롭다운 사용하기 -->
-            <th>종목</th>
-            <td>
-                <select name="input" size=1 style="width: 150px; border: 1px solid #ddd;">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"><button type="button" style="float:right;">검색</button></td>
-        </tr>
+      <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
+      <tr>
+        <th>이용료</th>
+        <td>
+          <input type="radio" name="ra" value="무료" checked />무료
+          <input type="radio" name="ra" value="유료" />유료
+          <input type="radio" name="ra" value="유/무료" />유/무료
+        </td>
+      </tr>
+      <tr>
+        <th>지역(구)</th>
+        <td>
+          <input type="checkbox" name="ch" value="동구" /> 동구
+          <input type="checkbox" name="ch" value="서구" />서구
+          <input type="checkbox" name="ch" value="남구" />남구
+          <input type="checkbox" name="ch" value="북구" />북구
+          <input type="checkbox" name="ch" value="광산구" />광산구
+          <input type="checkbox" name="ch" value="전체" />전체
+        </td>
+      </tr>
+      <tr>
+        <th>지역(동)</th>
+        <td id="t3">
+          <input
+            type="text"
+            size="20"
+            style="padding: 10px; border: 1px solid #ddd"
+            name="dong"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>검색어</th>
+        <td id="t4">
+          <input
+            type="text"
+            size="20"
+            style="padding: 10px; border: 1px solid #ddd"
+            name="search"
+          />
+        </td>
+      </tr>
+      <tr>
+        <!-- 드롭다운 사용하기 -->
+        <th>종목</th>
+        <td>
+          <select
+            name="input"
+            size="1"
+            style="width: 150px; border: 1px solid #ddd"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button" style="float: right">검색</button>
+        </td>
+      </tr>
     </table>
-
-</body>
-
+  </body>
 </html>
