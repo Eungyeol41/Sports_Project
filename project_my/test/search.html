@@ -10,6 +10,7 @@
         margin: 0;
         padding: 0;
         border: 0;
+        box-sizing: border-box;
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
@@ -68,37 +69,39 @@
       }
 
 /* 여기서부터는 슬라이드 */
-      /* div.section.input {
+div.section.input {
         display: none;
+        transition: 0.5s;
       }
-      div.section.slidewrap {
-        max-width: 1200px;
-        margin: 0px auto;
+      div.section div.slidewrap {
+        max-width: 1100px;
+        margin: 15px auto;
         overflow: hidden;
         
       }
-      div.section .slidelist {
+      div.section ul.slidelist {
         white-space:nowrap;
-        줄바꿈 없애기 
+        /* 줄바꿈 없애기  */
 
         font-size: 0;
       }
-      div.section.slidelist > li {
+      div.section ul.slidelist > li {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         width: 100%;
         transition: all 0.5s;
       }
-      div.section.slidelist > li > a {
+      div.section ul.slidelist > li > a {
         display: block;
         position: relative; 
-        자율배치 위함
+        /* 자율배치 위함 */
       }
-      div.section.slidelist > li > a img {
-        width: 1000px;
+      div.section ul.slidelist > li > a img {
+        width: 100%;
+        margin: 33px;
 
       }
-      div.section.slidelist label {
+      div.section ul.slidelist label {
         position: absolute;
         z-index: 10;
         top:50%;
@@ -107,15 +110,21 @@
         cursor:pointer;
 
       }
-      div.slidelist.left {
+      ul.slidelist label.left {
         left:30px;
+        /* right:30px; */
+        
         background: url("../image/left-arrow.png") center center / 100% no-repeat;
       }
-      div.slidelist.right {
+      ul.slidelist label.right {   
         right:30px;
+      
         background: url("../image/right-arrow.png") center center / 100% no-repeat;
       } 
-      */
+      .section [id='slide01']:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+      .section [id='slide02']:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+      .section [id='slide03']:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+     
       
       /* caption { // 표 제목 붙이기
             padding: 10px;
@@ -201,9 +210,9 @@
       </tr>
     </table>
 
-    <!-- <h1>검색 결과</h1>
+    <h1>검색 결과</h1>
     <div class="section">
-      <input type="radio" name="slide" id="slide1" checked>
+      <input type="radio" name="slide" id="slide1" checked="">
       <input type="radio" name="slide" id="slide2">
       <input type="radio" name="slide" id="slide3">
 
@@ -212,27 +221,36 @@
           <li>
             <a>
               <label for="slide03" class="left"></label>
-              <img src="../image/city-5637906_1920.jpg" style="width: 300px; height: auto;">
+              <img src="../image/전대스포츠센터.png" style="width: 300px;">
+              <img src="../image/염주종합체육관.png" style="width: 300px;">
+              <img src="../image/첨단스포츠센터.png" style="width: 300px;" >
               <label for="slide02" class="right"></label>
             </a>
           </li>
           <li>
             <a>
               <label for="slide01" class="left"></label>
-              <img src="../image/computer-1185626_1920.jpg" style="width: 300px; height: auto;">
+              <img src="../image/첨단스포츠센터.png" >
               <label for="slide03" class="right"></label>
             </a>
           </li>
           <li>
             <a>
               <label for="slide02" class="left"></label>
-              <img src="/image/image.jpg" style="width: 300px; height: auto;">
+              <img src="../image/image.jpg" >
               <label for="slide01" class="right"></label>
             </a>
           </li>
         </ul>
 
       </div>
-    </div> -->
+    </div>
   </body>
+  <script>
+      
+    document.querySelector("#slide1").addEventListener("click", (ev) => {
+      document.querySelector("#slide2").style.transform = "translateX(-100%)";
+
+    })
+  </script>
 </html>
