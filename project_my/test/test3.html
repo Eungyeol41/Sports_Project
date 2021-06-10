@@ -69,28 +69,20 @@
       div.menu_nav {
         display: flex;
         justify-content: space-around;
-        padding: 10px;
       }
       div.menu_nav div {
         width: 300px;
         height: 300px;
         margin-top: 200px;
       }
-      div.box1 {
-        background: url(../image/computer-1185626_1920.jpg) no-repeat;
-        border: 5px solid rgba(208, 234, 255, 0.5);
-        background-size: 100% 100%;
 
-        position: relative;
-      }
       div.text1 {
-
         position: absolute;
         /* text-align: center; */
         /* padding: 5px 10px; */
         /* bottom: 5px; */
         top: -110px;
-        visibility: hidden; 
+        visibility: hidden;
         /* visibility: hidden; 영역을 차지하면서 숨김 */
       }
       div.box1:hover {
@@ -102,12 +94,21 @@
 
       div.box1:hover .text1 {
         visibility: visible;
+        transition: 0.5s;
         /* text-align: center; */
         /* 보이게 하기 */
       }
+      div.box1 {
+        background: url(../image/computer-1185626_1920.jpg) no-repeat;
+        border: 5px solid rgba(208, 234, 255, 0.5);
+        background-size: 100% 100%;
+
+        position: relative;
+      }
       div.box2 {
-        background: rgb(20, 188, 255);
-        border: 10px solid rgb(125, 203, 255);
+        background: url(../image/map-3578213_1920.jpg) no-repeat;
+        border: 5px solid rgba(208, 234, 255, 0.5);
+        background-size: cover;
       }
       div.box3 {
         background: rgb(20, 188, 255);
@@ -118,12 +119,16 @@
         text-align: center;
         font-size: 80px;
       }
+      div.text1:hover {
+        transition: 0.5s;
+      }
       footer#main_footer {
         box-sizing: border-box;
-        width: 100%;
+        width: 50% auto;
         height: 100px;
+        text-align: center;
 
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(169, 203, 255);
       }
     </style>
     <script>
@@ -135,7 +140,7 @@
 
         // 2번 Box 클릭
         document.querySelector("div.box2").addEventListener("click", () => {
-          location.href = "map.html";
+          location.href = "test4.html";
         });
 
         // 3번 Box 클릭
@@ -159,12 +164,9 @@
       <article id="art1">Think Diffent</article>
     </section>
     <div class="menu_nav">
-
       <div class="box1">
         <div class="text1">search</div>
       </div>
-
-      <div class="box1">text</div>
       <div class="box2"></div>
       <div class="box3"></div>
     </div>
