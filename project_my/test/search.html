@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +12,7 @@
       margin: 0;
       padding: 0;
       border: 0;
+      box-sizing: border-box;
       font-size: 100%;
       font: inherit;
       vertical-align: baseline;
@@ -65,7 +67,7 @@
     }
 
     button {
-      width: 20%;
+      width: 40%;
       height: 40px;
     }
 
@@ -76,11 +78,12 @@
     /* 여기서부터는 슬라이드 */
     div.section.input {
       display: none;
+      transition: 0.5s;
     }
 
-    div.section ul.slidewrap {
-      max-width: 1200px;
-      margin: 0px auto;
+    div.section div.slidewrap {
+      max-width: 1100px;
+      margin: 15px auto;
       overflow: hidden;
 
     }
@@ -88,12 +91,13 @@
     div.section ul.slidelist {
       white-space: nowrap;
       /* 줄바꿈 없애기  */
+
       font-size: 0;
     }
 
     div.section ul.slidelist>li {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
       width: 100%;
       transition: all 0.5s;
     }
@@ -105,7 +109,8 @@
     }
 
     div.section ul.slidelist>li>a img {
-      width: 1000px;
+      width: 100%;
+      margin: 33px;
 
     }
 
@@ -119,16 +124,35 @@
 
     }
 
-    div ul.slidelist.left {
+    ul.slidelist label.left {
       left: 30px;
+      /* right:30px; */
+
       background: url("../image/left-arrow.png") center center / 100% no-repeat;
     }
 
-    div ul.slidelist.right {
+    ul.slidelist label.right {
       right: 30px;
+
       background: url("../image/right-arrow.png") center center / 100% no-repeat;
     }
 
+<<<<<<< HEAD
+=======
+    .section [id='slide01']:checked~.slidewrap .slidelist>li {
+      transform: translateX(0%);
+    }
+
+    .section [id='slide02']:checked~.slidewrap .slidelist>li {
+      transform: translateX(-100%);
+    }
+
+    .section [id='slide03']:checked~.slidewrap .slidelist>li {
+      transform: translateX(-200%);
+    }
+
+
+>>>>>>> ae3f2bd17d626638fe81848b759c3820d426d768
     /* caption { // 표 제목 붙이기
             padding: 10px;
             margin-bottom: 20px;
@@ -140,6 +164,7 @@
       document.querySelector("button").addEventListener("click", (ev) => {
         location.href = "search_result.html";
       });
+<<<<<<< HEAD
 
       document.querySelector("input[name=ch_all]").addEventListener("change", function (e) {
         e.preventDefault();
@@ -166,6 +191,8 @@
       }
 
     }
+=======
+>>>>>>> ae3f2bd17d626638fe81848b759c3820d426d768
   </script>
 </head>
 
@@ -189,27 +216,37 @@
         <input type="checkbox" name="ch" value="남구" /> 남구
         <input type="checkbox" name="ch" value="북구" /> 북구
         <input type="checkbox" name="ch" value="광산구" /> 광산구
+<<<<<<< HEAD
         <input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
+=======
+        <input type="checkbox" name="ch" value="전체" /> 전체
+>>>>>>> ae3f2bd17d626638fe81848b759c3820d426d768
       </td>
     </tr>
     <tr>
       <th>지역(동)</th>
       <td id="t3">
-        <input type="search" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
+        <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
       </td>
     </tr>
     <tr>
       <th>검색어</th>
       <td id="t4">
-        <input type="search" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
+        <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
       </td>
     </tr>
     <tr>
       <!-- 드롭다운 사용하기 -->
       <th>종목</th>
       <td>
+<<<<<<< HEAD
         <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd">
           <option value="1">--- 종목 ---</option>
+=======
+        <select name="input" size="1" style="width: 230px; border: 1px solid #ddd">
+
+          <option value="1">1</option>
+>>>>>>> ae3f2bd17d626638fe81848b759c3820d426d768
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
@@ -225,30 +262,32 @@
 
   <h1>검색 결과</h1>
   <div class="section">
-    <input type="radio" name="slide" id="slide1" checked>
-    <input type="radio" name="slide" id="slide2">
-    <input type="radio" name="slide" id="slide3">
+    <input class="slide" type="radio" name="slide" id="slide01" checked="">
+    <input class="slide" type="radio" name="slide" id="slide02">
+    <input class="slide" type="radio" name="slide" id="slide03">
 
     <div class="slidewrap">
       <ul class="slidelist">
         <li>
           <a>
             <label for="slide03" class="left"></label>
-            <img src="../image/city-5637906_1920.jpg" style="width: 300px; height: auto;">
+            <img src="../image/전대스포츠센터.png" style="width: 300px;">
+            <img src="../image/염주종합체육관.png" style="width: 300px;">
+            <img src="../image/첨단스포츠센터.png" style="width: 300px;">
             <label for="slide02" class="right"></label>
           </a>
         </li>
         <li>
           <a>
             <label for="slide01" class="left"></label>
-            <img src="../image/computer-1185626_1920.jpg" style="width: 300px; height: auto;">
+            <img src="../image/첨단스포츠센터.png">
             <label for="slide03" class="right"></label>
           </a>
         </li>
         <li>
           <a>
             <label for="slide02" class="left"></label>
-            <img src="/image/image.jpg" style="width: 300px; height: auto;">
+            <img src="../image/image.jpg">
             <label for="slide01" class="right"></label>
           </a>
         </li>
@@ -256,5 +295,298 @@
 
     </div>
   </div>
+</body>
+<script>
+      document.querySelector("input.slide").addEventListener("click", (ev) => {
+
+        let className = ev.target.className;
+        if (className === "")
+
+          document.querySelector("#slide02").style.transform = "translateX(-100%)";
+
+      })
+</script>
 
 </html>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>검색하기</title>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      h1 {
+        padding: 30px;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+
+      table,
+      td,
+      th {
+        border-collapse: separate;
+        border-spacing: 1px;
+        line-height: 1.5;
+        /* border-collapse: collapse; */
+        /* border : 1px solid black; */
+        border-top: 1px solid #ccc;
+        padding: 15px;
+        /* background-color: #ddd; */
+        font-weight: bold;
+      }
+
+      th {
+        width: 150px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #ddd;
+      }
+
+      td {
+        width: 350px;
+        padding-right: 40px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        letter-spacing: 5px;
+      }
+
+      button {
+        width: 40%;
+        height: 40px;
+      }
+
+      button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      /* 슬라이드 */
+      {id=slide}
+      div.section.input {
+        display: none;
+      }
+      div.section div.slidewrap {
+        max-width: 1100px;
+        margin: 15px auto;
+        overflow: hidden;
+      }
+      div.section ul.slidelist {
+        white-space: nowrap;
+        /* 줄바꿈 없애기  */
+
+        font-size: 0;
+      }
+      div.section ul.slidelist > li {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        transition: all 0.5s;
+      }
+      div.section ul.slidelist > li > a {
+        display: block;
+        position: relative;
+        /* 자율배치 위함 */
+      }
+      div.section ul.slidelist > li > a img {
+        width: 100%;
+        margin: 33px;
+      }
+      div.section .slide_control [class*="control"] label {
+        position: absolute;
+        z-index: 10;
+        top: 95%;
+        transform: translateY(-80%);
+        padding: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      div.section .slide_control [class*="control"] label.left {
+        left: 10%;
+      }
+      div.section .slide_control [class*="control"] label.right {
+        right: 10%;
+      }
+
+      [name="slide"] {
+        display: none;
+      }
+      #slide01:checked ~ .slidelist .slideitem {
+        left: 0;
+      }
+      #slide02:checked ~ .slidelist .slideitem {
+        left: -100%;
+      }
+      #slide03:checked ~ .slidelist .slideitem {
+        left: -200%;
+      }
+
+      .slide-control [class*="control"] {
+        display: none;
+      }
+      #slide01:checked ~ .slide-control .control01 {
+        display: block;
+      }
+      #slide02:checked ~ .slide-control .control02 {
+        display: block;
+      }
+      #slide03:checked ~ .slide-control .control03 {
+        display: block;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("button").addEventListener("click", (ev) => {
+          location.href = "search_result.html";
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>광주광역시 체육시설 찾아보기</h1>
+    <table>
+      <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
+      <tr>
+        <th>이용료</th>
+        <td>
+          <input type="radio" name="ra" value="무료" checked />무료
+          <input type="radio" name="ra" value="유료" />유료
+          <input type="radio" name="ra" value="유/무료" />유/무료
+        </td>
+      </tr>
+
+      <tr>
+        <th>지역(구)</th>
+        <td>
+          <input type="checkbox" name="ch" value="동구" />동구
+          <input type="checkbox" name="ch" value="서구" />서구
+          <input type="checkbox" name="ch" value="남구" />남구
+          <input type="checkbox" name="ch" value="북구" />북구
+          <input type="checkbox" name="ch" value="광산구" />광산구
+          <input type="checkbox" name="ch" value="전체" />전체
+        </td>
+      </tr>
+      <tr>
+        <th>지역(동)</th>
+        <td id="t3">
+          <input
+            type="text"
+            size="20"
+            style="padding: 10px; border: 1px solid #ddd"
+            name="dong"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>검색어</th>
+        <td id="t4">
+          <input
+            type="text"
+            size="20"
+            style="padding: 10px; border: 1px solid #ddd"
+            name="search"
+          />
+        </td>
+      </tr>
+      <tr>
+        <!-- 드롭다운 사용하기 -->
+
+        <th>종목</th>
+        <td>
+          <select
+            name="input"
+            size="1"
+            style="width: 230px; border: 1px solid #ddd"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button" style="float: right">검색</button>
+        </td>
+      </tr>
+    </table>
+
+    <h1>검색 결과</h1>
+    <div class="section">
+      <section class="ra">
+        <input type="radio" name="slide" id="slide01" checked="" />
+        <input type="radio" name="slide" id="slide02" />
+        <input type="radio" name="slide" id="slide03" />
+      </section>
+
+      <div class="slidewrap">
+        <ul class="slidelist">
+          <li class="slideitem">
+            <a>
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+            </a>
+          </li>
+          <li class="slideitem">
+            <a>
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+            </a>
+          </li>
+          <li class="slideitem">
+            <a>
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+            </a>
+          </li>
+        </ul>
+        <div class="slide_control">
+          <div class="control01">
+            <label for="slide03" class="left">
+              <i class="fas fa-chevron-left fa-7x"></i>
+            </label>
+            <label for="slide02" class="right">
+              <i class="fas fa-chevron-right fa-7x"></i>
+            </label>
+          </div>
+          <div class="control02">
+            <label for="slide01" class="left">
+              <i class="fas fa-chevron-left fa-7x"></i>
+            </label>
+            <label for="slide03" class="right">
+              <i class="fas fa-chevron-right fa-7x"></i>
+            </label>
+          </div>
+          <div class="control03">
+            <label for="slide02" class="left"></label>
+            <label for="slide01" class="right"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+>>>>>>> 7e32c2343b69a5790fec71c5bd6c01aac7829ea8
