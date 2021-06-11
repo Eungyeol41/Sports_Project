@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test3</title>
 
+    <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
     <style>
       * {
         box-sizing: border-box;
@@ -19,24 +20,22 @@
 
       nav#main_nav h1 {
         color: rgb(0, 65, 185);
-        font-size: 40px;
+        font-size: 50px;
         font-weight: 900;
-        padding: -2px 10px 5px 20px;
+        padding: 2px 10px 5px 20px;
         width: 50%;
         box-sizing: border-box;
         text-align: center;
-        font-size: 50px;
-        font-weight: 1000;
+        
       }
       nav#main_nav {
-        position: fixed;
-        top: 0;
-        left: 0;
+        
         width: 100%;
         background-color: rgba(121, 121, 121, 0.5);
         display: flex;
         padding: 10px;
         color: rgb(0, 65, 185);
+        position: absolute;
       }
       li {
         list-style: none;
@@ -52,9 +51,17 @@
         text-align: center;
         font-weight: 800;
         text-transform: uppercase;
-        color: rgb(110, 110, 110);
-        text-shadow: 2px 2px 2px rgb(170, 170, 170);
+        font-size: 60px;
+        color:rgb(0, 119, 255);
+        text-shadow: 2px 2px 2px rgb(2, 0, 143);
         overflow: hidden;
+      }
+      section#contents > article#shape {
+        color: rgb(15, 15, 15);
+        top: 300px;
+        margin-left: 50%;
+        position: absolute;
+        
       }
 
       section#contents article {
@@ -62,68 +69,126 @@
         line-height: 100vh;
         background-size: cover;
         background-attachment: fixed;
+        top: 0;
       }
       article#art1 {
         background: url(../image/시티편집본2.png) no-repeat;
+        top: 0;
       }
       div.menu_nav {
         display: flex;
-        justify-content: space-around;
-        padding: 10px;
+        justify-content: center
       }
       div.menu_nav div {
-        width: 300px;
-        height: 300px;
-        margin-top: 200px;
+        width: 250px;
+        height: 250px;
+        margin: 150px 40px 150px 40px;
+        
       }
-      div.box1 {
-        background: url(../image/computer-1185626_1920.jpg) no-repeat;
-        border: 5px solid rgba(208, 234, 255, 0.5);
-        background-size: 100% 100%;
-
-        position: relative;
-      }
-      div.text1 {
-
+      div.menu_nav p {
+        color: rgb(43, 43, 43);
+        font-size: 60px;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         position: absolute;
-        /* text-align: center; */
-        /* padding: 5px 10px; */
-        /* bottom: 5px; */
-        top: -110px;
-        visibility: hidden; 
+        top: 105%;
+        text-shadow: 3px 3px 3px rgb(119, 119, 119);
+      }
+
+      div.box1 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
         /* visibility: hidden; 영역을 차지하면서 숨김 */
       }
       div.box1:hover {
-        background-size: 110% 110%;
-        opacity: 70%;
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+        
         cursor: pointer;
         transition: 0.5s;
       }
 
-      div.box1:hover .text1 {
+      div.box1:hover h1 {
         visibility: visible;
+        transition: 0.5s;
         /* text-align: center; */
         /* 보이게 하기 */
       }
+      div.box2 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
+        /* visibility: hidden; 영역을 차지하면서 숨김 */
+      }
+      div.box2:hover {
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+        
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      div.box2:hover h1 {
+        visibility: visible;
+        transition: 0.5s;
+        /* text-align: center; */
+        /* 보이게 하기 */
+      }
+      div.box3 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
+        word-spacing: 5px;
+        /* visibility: hidden; 영역을 차지하면서 숨김 */
+      }
+      div.box3:hover {
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+        
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      div.box3:hover h1 {
+        visibility: visible;
+        transition: 0.5s;
+        /* text-align: center; */
+        /* 보이게 하기 */
+      }
+      div.box1 {
+        background: url(../image/검색2.png) no-repeat;
+        
+        background-size: 100% 100%;
+        position: relative;
+      }
       div.box2 {
-        background: rgb(20, 188, 255);
-        border: 10px solid rgb(125, 203, 255);
+        background: url(../image/맵이미지2.png) no-repeat;
+        background-size: 100% 100%;
       }
       div.box3 {
-        background: rgb(20, 188, 255);
-        border: 10px solid rgb(125, 203, 255);
+        background: url(../image/물음표.jpg) no-repeat;
+        background-size: cover;
+        
       }
-      div.text1 {
-        color: rgb(238, 251, 255);
-        text-align: center;
-        font-size: 80px;
-      }
+      
       footer#main_footer {
         box-sizing: border-box;
-        width: 100%;
+        width: 50% auto;
         height: 100px;
-
-        background-color: rgb(255, 255, 255);
+        text-align: center;
+        position: relative;
+        background: linear-gradient(rgb(255, 255, 255) , #50C8FF 80%);
+      }
+      footer h2 {
+        padding-top: 50px;
+        color: white;
       }
     </style>
     <script>
@@ -135,7 +200,7 @@
 
         // 2번 Box 클릭
         document.querySelector("div.box2").addEventListener("click", () => {
-          location.href = "map.html";
+          location.href = "test4.html";
         });
 
         // 3번 Box 클릭
@@ -157,17 +222,23 @@
     </nav>
     <section id="contents">
       <article id="art1">Think Diffent</article>
+      <article id="shape"><i class="fas fa-angle-down size"></i></article>
     </section>
     <div class="menu_nav">
-
+      <p>PROJECT</p>
       <div class="box1">
-        <div class="text1">search</div>
+        <h1>search</h1>
       </div>
-
-      <div class="box1">text</div>
-      <div class="box2"></div>
-      <div class="box3"></div>
+      <div class="box2">
+        <h1>map</h1>
+      </div>
+      <div class="box3">
+        <h1>question</h1>
+      </div>
     </div>
-    <footer id="main_footer">개인정보보호 및 주소 등</footer>
+    <footer id="main_footer">
+      <h2>개인정보보호 및 주소 등 &copy; project403@gmail.com</h2>
+    </footer>
+      
   </body>
 </html>

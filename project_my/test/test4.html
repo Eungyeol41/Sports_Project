@@ -1,233 +1,128 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        body
-        {
-            margin:0 auto;
-            padding:0;
-            background-color:rgb(231, 224, 192);
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      header.main_head {
+        padding: 0;
+        width: 24.9%;
+        height: 100vh;
+        position: absolute;
+        position: fixed;
+        background: linear-gradient(rgb(42, 205, 255), rgb(255, 255, 255) 70%);
+        overflow: auto;
+        box-shadow: 5px 3px 3px rgb(114, 114, 114);
+      }
+      h2 {
+        font-size: 40px;
+        margin: 50px 0px 20px 0px;
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid gray;
+        width: 25% auto;
         
-        }
+        color: white;
+       
+      }
+      p{
+        margin-left: 40px;
+        font-size: 15px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        padding: 20px 60px 10px 60px ;
+      }
+      form#main_sch {
+        height: 100px;
+        width: 100%;
+        text-align: center;
+       
+
+      }
+      form#main_sch input#sch {
+        border-radius: 10px;
         
-        li
-        {
-            list-style:none;
-        }
+        height: 40px;
+        padding-left: 15px;
+        font-size: 20px;
+        border-style: none;
+        width: 300px;
+        display: block;
+        outline: 0;
+        margin: 30px auto;
+    
+        transition: 0.3s;
         
-        a
-        {
-            text-decoration:none;
-            color:black;
+      }
+      form#main_sch input#sch:hover {
+        border-style: none;
+      }
+      form#main_sch input#sch:visited{
+        border-style: outset;
+      }
+      .map {
+        position: absolute;
+        position: relative;
+        margin: 0 auto;
+        max-width: 80%;
+        width: 100%;
+        right: 0;
+        float: right;
         
-        }
-        a:hover
-        {
+
+      }
+      .map > div {
+        width: 100%;
+        padding-bottom: 56.25%;
+
+      }
+      .map > div iframe {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 74.9%;
+        height: 150%;
+        position: fixed;
+
+      }
+    
+    </style>
+  </head>
+  <body>
+    <header class="main_head">
+      <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2>
+        <p><i class="fas fa-compact-disc"></i> 지도에 표시된 위치를 클릭해서 찾거나 검색으로 조회가능</p>
         
-            color:hotpink;
-        
-        
-        }
-        
-        
-        span
-        {
-            font-size:1.5em;
-        }
-        
-        #header
-        {
-            min-width:800%;
-            height:100px;
-            border-bottom:1px solid black;
-            overflow:hidden;
-            padding:10px 10px;
-            line-height:30px;
-        }
-        
-        #header div
-        {
-            float:left;
-            font-family: 'Lobster', cursive;
-            
-            text-align:center;
-            font-size:1.5em;
-            color:black;
-                   text-align:center;
-                   margin-left:550px;
-                    color:black;
-        
-        }
-        #header div:nth-child(3)
-        {
-            float:left;
-            margin-top:20px;
-        
-        }
-        #nav
-        {
-        
-            min-width:800%;
-            height:50px;
-            border:1px solid black;
-        
-        
-        }
-        
-        #nav ul
-        {
-            overflow:hidden;
-        }
-        #nav ul li
-        {
-            display:block;
-            padding:0 120px;
-            border-right:1px solid black;
-            float:left;
-            box-sizing:border-box;  
-        
-        }
-        #nav ul li a:hover
-        {
-            color:red;
-            opacity:0.7;
-        
-        }
-        #nav ul li:last-child
-        {
-            border:none;
-        }
-        
-        #content
-        {
-            min-width:800%;
-            margin-top:10px;
-            height:300px;
-        
-            overflow:hidden;
-            position:relative;
-        
-        }
-        #content div:nth-child(1)
-        {
-            margin:20px;
-            float:left;
-        
-        }
-        #content div:nth-child(2)
-        {
-            margin-left:20px;
-            float:left;
-            white-space:nowrap;
-        
-        }
-        #content div:nth-child(3)
-        {
-        
-            float:right;
-            position:absolute;
-            left:1000px;
-            top:0px;
-        
-        }
-        #content div p
-        {
-            line-height:50px;
-        }
-        
-        audio
-        {
-            max-width:200px;
-            height:50px;
-            
-        }
-        #footer
-        {
-            min-width:800px;
-            margin-top:10px;
-            height:100px;
-            border-top:1px solid black;
-            overflow:hidden;
-        }
-        #footer div:nth-child(1)
-        {
-            float:left;
-        }
-        #footer div:last-child
-        {
-            margin-left:30px;
-            font-weight:bold;
-            line-height:35px;
-            font-size:1.5em;
-            float:left;
-            font-family: 'Nanum Brush Script', cursive;
-        }
-        
-        
-        
-        
-        </style>
-        </head>
-        <body>
-        <div id ="header">
-        
-            <div>
-                <h1><a href="./main.html">My Hobbies</a></h1>
-            </div>
-        
-        
-        </div>
-        
-        
-        <div id="nav">
-            <ul>
-                <li><a href="./music.html">Music</a></li>
-                <li><a href="./movie.html">Movie</a></li>
-                <li><a href="./sports.html">Sports</a></li>
-                <li><a href="./trip.html">travel</a></li>
-            </ul>
-        
-        </div>
-        
-        <div id="search">
-        
-            <div>
-                
-            </div>
-        
-        </div>
-        
-        
-        <div id="content">
-            <div>
-                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMTdfMjIz%2FMDAxNTQ1MDI1MTQwMDYy.aK7FI6-4Pu8nmPzXrCLLTJ471S-R0V4lkVF1XJBoh8wg.oU9I5Yx59Ep1uEfh1hmXDpiB2Qz-1IVAo6h5mRFbkc0g.PNG.wdb10004%2F1919.png&type=b400" width="200px" height="200px">
-            </div>
-        
-            <div>
-               
-            </div>
-            <div>
-                <audio src="music/BGM.mp3" autoplay controls ></audio>
-            </div>
-        
-        </div>
-        
-        <div id="footer">
-            <div>
-                <a href="http://www.kmu.ac.kr/uni/main/main.jsp" target="_blank"><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMTdfMjIz%2FMDAxNTQ1MDI1MTQwMDYy.aK7FI6-4Pu8nmPzXrCLLTJ471S-R0V4lkVF1XJBoh8wg.oU9I5Yx59Ep1uEfh1hmXDpiB2Qz-1IVAo6h5mRFbkc0g.PNG.wdb10004%2F1919.png&type=b400" width="300px" height="100px"></a>
-            </div>
-            <div>
-                <p>
-                    이름: 홍 길 동<br>
-                    소속: 취미 공유 사이트 
-                </p>    
-            </div>
-        
-        
-        </div>
-</body>
+        <form id="main_sch">
+          <input type="text" name="sch" id="sch" placeholder="검색창에 입력" />
+        </form>
+      <nav></nav>
+    </header>
+    
+    <div class="map">
+      <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.650058766783!2d126.90700625108096!3d35.16534716560123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35718c5fa5b8ea2b%3A0x597154f944eceed8!2z6rSR7KO87Jet!5e0!3m2!1sko!2skr!4v1623333195620!5m2!1sko!2skr" 
+        style="border:0;"
+        allowfullscreen="" 
+        loading="lazy"></iframe>
+      </div>
+    </div>
+    <section>
+      <article></article>
+    </section>
+    <footer></footer>
+  </body>
 </html>
