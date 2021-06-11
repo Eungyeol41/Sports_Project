@@ -1,127 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     /* 리셋 CSS */
-    * {margin:0;padding:0;box-sizing:border-box;}
-    ul, li {list-style:none;}
-    
-    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    ul,
+    li {
+      list-style: none;
+    }
+
     .section {
-        max-width:700px;
-        margin:0 auto;
-        position:relative;
-        }
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
     .section .slidelist {
-        position:relative;
-        white-space:nowrap;
-        font-size:0;
-        overflow:hidden;
-        }
+      position: relative;
+      white-space: nowrap;
+      font-size: 0;
+      overflow: hidden;
+    }
     .section .slidelist .slideitem {
-        position:relative;
-        display:inline-block;
-        vertical-align:middle;
-        background-color:#fff;
-        width:100%;
-        transition:all 1s;
-        }
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      width: 100%;
+      transition: all 1s;
+    }
     .section .slidelist .slideitem > a {
-        display:block;
-        width:auto;
-        position:relative;
-        }
+      display: block;
+      width: auto;
+      position: relative;
+    }
     .section .slidelist .slideitem > a img {
-        max-width:100%;
-        }
-    
+      max-width: 100%;
+    }
+
     .section .slide-control [class*="control"] label {
-        position:absolute;
-        z-index:10;
-        top:50%;
-        transform:translateY(-50%);
-        padding:20px;
-        border-radius:50%;
-        cursor:pointer;
-        }
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
     .section .slide-control [class*="control"] label.prev {
-        left:-50px;
-        background:#333 url('../image/left-arrow.png') center center / 50% no-repeat;
-        }
+      left: -50px;
+      background: #333 url("../image/left-arrow.png") center center / 50%
+        no-repeat;
+    }
     .section .slide-control [class*="control"] label.next {
-        right:-50px;
-        background:#333 url('../image/right-arrow.png') center center / 50% no-repeat;
-        }
-    
-    [name="slide"] {display:none;}
+      right: -50px;
+      background: #333 url("../image/right-arrow.png") center center / 50%
+        no-repeat;
+    }
+
+    [name="slide"] {
+      display: none;
+    }
     #slide01:checked ~ .slidelist .slideitem {
-        left:0;
-        }
+      left: 0;
+    }
     #slide02:checked ~ .slidelist .slideitem {
-        left:-100%;
-        }
+      left: -100%;
+    }
     #slide03:checked ~ .slidelist .slideitem {
-        left:-200%;
-        }
+      left: -200%;
+    }
     #slide04:checked ~ .slidelist .slideitem {
-        left:-300%;
-        }
-    
-    .slide-control [class*="control"] {display:none;}
-    #slide01:checked ~ .slide-control .control01 {display:block;}
-    #slide02:checked ~ .slide-control .control02 {display:block;}
-    #slide03:checked ~ .slide-control .control03 {display:block;}
-    #slide04:checked ~ .slide-control .control04 {display:block;}
-    
-    </style>
+      left: -300%;
+    }
 
-    <body>
-        <div class="section">
-        <input type="radio" name="slide" id="slide01" checked="">
-        <input type="radio" name="slide" id="slide02">
-        <input type="radio" name="slide" id="slide03">
-        <input type="radio" name="slide" id="slide04">
-        <ul class="slidelist">
-            <li class="slideitem">
-                <a><img src="../image/computer-1185626_1920.jpg"></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="../image/시티편집본2.png"></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="../image/image.jpg"></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="../image/map-3578213_1920.jpg"></a>
-            </li>
-            
-        </ul>
-        <div class="slide-control">
-            <div class="control01">
-                <label for="slide04" class="prev"></label>
-                <label for="slide02" class="next"></label>
-            </div>
-            <div class="control02">
-                <label for="slide01" class="prev"></label>
-                <label for="slide03" class="next"></label>
-            </div>
-            <div class="control03">
-                <label for="slide02" class="prev"></label>
-                <label for="slide04" class="next"></label>
-            </div>
-            <div class="control04">
-                <label for="slide03" class="prev"></label>
-                <label for="slide01" class="next"></label>
-            </div>
+    .slide-control [class*="control"] {
+      display: none;
+    }
+    #slide01:checked ~ .slide-control .control01 {
+      display: block;
+    }
+    #slide02:checked ~ .slide-control .control02 {
+      display: block;
+    }
+    #slide03:checked ~ .slide-control .control03 {
+      display: block;
+    }
+    #slide04:checked ~ .slide-control .control04 {
+      display: block;
+    }
+  </style>
+  <body>
+    <div class="section">
+      <input type="radio" name="slide" id="slide01" checked="" />
+      <input type="radio" name="slide" id="slide02" />
+      <input type="radio" name="slide" id="slide03" />
+      <input type="radio" name="slide" id="slide04" />
+      <ul class="slidelist">
+        <li class="slideitem">
+          <a><img src="../image/computer-1185626_1920.jpg" /></a>
+        </li>
+        <li class="slideitem">
+          <a><img src="../image/시티편집본2.png" /></a>
+        </li>
+        <li class="slideitem">
+          <a><img src="../image/image.jpg" /></a>
+        </li>
+        <li class="slideitem">
+          <a><img src="../image/map-3578213_1920.jpg" /></a>
+        </li>
+      </ul>
+      <div class="slide-control">
+        <div class="control01">
+          <label for="slide04" class="prev"></label>
+          <label for="slide02" class="next"></label>
         </div>
+        <div class="control02">
+          <label for="slide01" class="prev"></label>
+          <label for="slide03" class="next"></label>
+        </div>
+        <div class="control03">
+          <label for="slide02" class="prev"></label>
+          <label for="slide04" class="next"></label>
+        </div>
+        <div class="control04">
+          <label for="slide03" class="prev"></label>
+          <label for="slide01" class="next"></label>
+        </div>
+      </div>
     </div>
-
-    
-</body>
+  </body>
 </html>
