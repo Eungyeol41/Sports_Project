@@ -59,6 +59,11 @@
       letter-spacing: 5px;
     }
 
+    select.sports {
+      letter-spacing: 5px;
+      text-align-last: center;
+    }
+
     button {
       width: 20%;
       height: 40px;
@@ -124,11 +129,6 @@
       background: url("../image/right-arrow.png") center center / 100% no-repeat;
     }
 
-    select.sports {
-      letter-spacing: 5px;
-      text-align-last: center;
-    }
-
     /* caption { // 표 제목 붙이기
             padding: 10px;
             margin-bottom: 20px;
@@ -140,8 +140,32 @@
       document.querySelector("button").addEventListener("click", (ev) => {
         location.href = "search_result.html";
       });
+
+      document.querySelector("input[name=ch_all]").addEventListener("change", function (e) {
+        e.preventDefault();
+        let list = document.querySelectorAll("input[name=ch]");
+        for (let i = 0; i < list.length; i++) {
+          list[i].checked = this.checked;
+        }
+      });
+
     });
 
+    function checkSelectAll() {
+      // 전체 체크박스
+      const checkbox = document.querySelectorAll('input[name="ch"]');
+      // 선택된 체크박스
+      const checked = document.querySelectorAll('input[name="ch"]:checked');
+      // select all 체크박스
+      const selectAll = document.querySelector('input[name="ch_all"]');
+
+      if (checkboxes.length === checked.length) {
+        selectAll.checked = true;
+      } else {
+        selectAll.checked = false;
+      }
+
+    }
   </script>
 </head>
 
@@ -165,7 +189,7 @@
         <input type="checkbox" name="ch" value="남구" /> 남구
         <input type="checkbox" name="ch" value="북구" /> 북구
         <input type="checkbox" name="ch" value="광산구" /> 광산구
-        <input id="all" type="checkbox" name="ch" value="전체" /> 전체
+        <input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
       </td>
     </tr>
     <tr>
@@ -185,7 +209,7 @@
       <th>종목</th>
       <td>
         <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd">
-          <option value="1">종목</option>
+          <option value="1">--- 종목 ---</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
