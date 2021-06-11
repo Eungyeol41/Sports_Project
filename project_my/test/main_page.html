@@ -6,92 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test3</title>
 
-    <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+    </style>
     <style>
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       body {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
+
+        font-family: "Nanum Gothic", sans-serif;
+        font-family: "Nanum Pen Script", cursive;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      div#main_head {
+        height: 100px;
+        width: 100%;
+        background-color: rgba(169, 213, 255, 0.5);
+        box-sizing: border-box;
+        position: absolute;
       }
 
       nav#main_nav h1 {
-        color: rgb(0, 65, 185);
+        color: rgba(255, 255, 255);
         font-size: 50px;
         font-weight: 900;
-        padding: 2px 10px 5px 20px;
+        padding: 10px 15px;
         width: 50%;
         box-sizing: border-box;
         text-align: center;
-        
       }
       nav#main_nav {
-        
         width: 100%;
-        background-color: rgba(121, 121, 121, 0.5);
         display: flex;
-        padding: 10px;
         color: rgb(0, 65, 185);
+        position: relative;
+      }
+      nav#main_nav ul {
         position: absolute;
+        right: 10%;
       }
       li {
         list-style: none;
       }
       nav#main_nav li {
-        margin: 20px;
+        text-align: right;
         float: left;
-        padding: 8px;
+        padding: 30px 30px 0px 0px;
+
+        font-family: ;
+        right: 0;
       }
 
-      section#contents {
-        font-size: 80px;
-        text-align: center;
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 60px;
-        color:rgb(0, 119, 255);
-        text-shadow: 2px 2px 2px rgb(2, 0, 143);
-        overflow: hidden;
-      }
-      section#contents > article#shape {
-        color: rgb(15, 15, 15);
-        top: 300px;
-        margin-left: 50%;
-        position: absolute;
-        
-      }
-
-      section#contents article {
+      section#contents div.art1 {
         height: 100vh;
         line-height: 100vh;
         background-size: cover;
         background-attachment: fixed;
         top: 0;
       }
-      article#art1 {
+      div.art1 {
         background: url(../image/시티편집본2.png) no-repeat;
         top: 0;
       }
       div.menu_nav {
         display: flex;
-        justify-content: center
+        justify-content: center;
+        padding: 100px;
       }
       div.menu_nav div {
         width: 250px;
         height: 250px;
+
         margin: 150px 40px 150px 40px;
-        
       }
       div.menu_nav p {
         color: rgb(43, 43, 43);
         font-size: 60px;
         text-align: center;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         position: absolute;
-        top: 105%;
+        top: 120%;
         text-shadow: 3px 3px 3px rgb(119, 119, 119);
       }
 
@@ -106,7 +109,7 @@
       }
       div.box1:hover {
         box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
-        
+
         cursor: pointer;
         transition: 0.5s;
       }
@@ -128,7 +131,7 @@
       }
       div.box2:hover {
         box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
-        
+
         cursor: pointer;
         transition: 0.5s;
       }
@@ -151,7 +154,7 @@
       }
       div.box3:hover {
         box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
-        
+
         cursor: pointer;
         transition: 0.5s;
       }
@@ -164,7 +167,7 @@
       }
       div.box1 {
         background: url(../image/검색2.png) no-repeat;
-        
+
         background-size: 100% 100%;
         position: relative;
       }
@@ -175,32 +178,33 @@
       div.box3 {
         background: url(../image/물음표.jpg) no-repeat;
         background-size: cover;
-        
       }
-      
+
       footer#main_footer {
         box-sizing: border-box;
         width: 50% auto;
         height: 100px;
         text-align: center;
         position: relative;
-        background: linear-gradient(rgb(255, 255, 255) , #50C8FF 80%);
+        background: linear-gradient(rgb(255, 255, 255), #50c8ff 80%);
       }
-      footer h2 {
+      footer h3 {
+        font-size: 15px;
         padding-top: 50px;
         color: white;
+        margin-bottom: 0;
       }
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // 1번 Box 클릭
         document.querySelector("div.box1").addEventListener("click", () => {
-          location.href = "search.html";
+          location.href = "search_page.html";
         });
 
         // 2번 Box 클릭
         document.querySelector("div.box2").addEventListener("click", () => {
-          location.href = "test4.html";
+          location.href = "map_page.html";
         });
 
         // 3번 Box 클릭
@@ -211,18 +215,19 @@
     </script>
   </head>
   <body>
-    <nav id="main_nav">
-      <h1>Mr.tset</h1>
-      <ul>
-        <li class="art1 active">THINK</li>
-        <li class="art2">RAISE</li>
-        <li class="art3">LIFE</li>
-        <li class="art4">WANT</li>
-      </ul>
-    </nav>
+    <div id="main_head">
+      <nav id="main_nav">
+        <h1>GPC</h1>
+        <ul>
+          <li>Search</li>
+          <li>Map</li>
+          <li>Login</li>
+          <li>Join</li>
+        </ul>
+      </nav>
+    </div>
     <section id="contents">
-      <article id="art1">Think Diffent</article>
-      <article id="shape"><i class="fas fa-angle-down size"></i></article>
+      <div class="art1"></div>
     </section>
     <div class="menu_nav">
       <p>PROJECT</p>
@@ -237,8 +242,7 @@
       </div>
     </div>
     <footer id="main_footer">
-      <h2>개인정보보호 및 주소 등 &copy; project403@gmail.com</h2>
+      <h3>개인정보보호 및 주소 등 &copy; project403@gmail.com</h3>
     </footer>
-      
   </body>
 </html>
