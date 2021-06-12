@@ -28,7 +28,7 @@
       table {
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 70%;
       }
 
       table,
@@ -63,12 +63,15 @@
       }
 
       button {
-        width: 40%;
+        width: 20%;
         height: 40px;
       }
 
       button:hover {
         background-color: rgba(0, 0, 0, 0.1);
+      }
+      select.sprots {
+        padding-left: 60px;
       }
 
       /* 여기서부터는 슬라이드 */
@@ -132,18 +135,43 @@
       .section [id="slide03"]:checked ~ .slidewrap .slidelist > li {
         transform: translateX(-200%);
       }
-
-      /* caption { // 표 제목 붙이기
-            padding: 10px;
-            margin-bottom: 20px;
-            font-size: 20px;
-        } */
     </style>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("button").addEventListener("click", (ev) => {
-          location.href = "search_result.html";
-        });
+     
+    document.addEventListener("DOMContentLoaded", () => {
+      // document.querySelector("button#btn_search").addEventListener("click", (ev) => {
+      //   location.href = "search_result.html";
+      // });
+
+      //document.querySelector("input[name=ch_all]").addEventListener("change", (e)=> {
+      // e.preventDefault();
+      //  let list = document.querySelectorAll("input[name=ch]");
+      //  for (let i = 0; i < list.length; i++) {
+      //   list[i].checked = this.checked;
+      //  }
+      //});
+
+      document.querySelectorAll("input#ch_all").addEventListener("click", (ev)=> {
+        const checkbox = document.querySelectorAll('input[name="ch"]');
+        const checked = document.querySelectorAll('input[name="ch"]:checked');
+        const selectAll = document.querySelector('input[name="ch_all"]');
+
+        if(checkbox.length === checked.length) {
+          selectAll.checked = true;
+        } else {
+          selectAll.checked = false;
+        }
+      });
+
+      document.querySelector("input[name=ch_all]").addEventListener("change", function (e) {
+        e.preventDefault();
+        let list = document.querySelectorAll("input[name=ch]");
+        for (let i = 0; i < list.length; i++) {
+          list[i].checked = this.checked;
+        }
+      });
+
+    });  
     </script>
   </head>
 
@@ -154,55 +182,41 @@
       <tr>
         <th>이용료</th>
         <td>
-          <input type="radio" name="ra" value="무료" checked />무료
-          <input type="radio" name="ra" value="유료" />유료
-          <input type="radio" name="ra" value="유/무료" />유/무료
+          <input id="ra" type="radio" name="ra" value="무료" checked /> 무료
+          <input id="ra" type="radio" name="ra" value="유료" /> 유료
+          <input id="ra" type="radio" name="ra" value="유/무료" /> 유/무료
         </td>
       </tr>
       <tr>
         <th>지역(구)</th>
         <td>
-          <input type="checkbox" name="ch" value="동구" />동구
-          <input type="checkbox" name="ch" value="서구" />서구
-          <input type="checkbox" name="ch" value="남구" />남구
-          <input type="checkbox" name="ch" value="북구" />북구
-          <input type="checkbox" name="ch" value="광산구" />광산구
-          <input type="checkbox" name="ch" value="전체" />전체
+          <input id="ch" type="checkbox" name="ch" value="동구" /> 동구
+          <input id="ch" type="checkbox" name="ch" value="서구" /> 서구
+          <input id="ch" type="checkbox" name="ch" value="남구" /> 남구
+          <input id="ch" type="checkbox" name="ch" value="북구" /> 북구
+          <input id="ch" type="checkbox" name="ch" value="광산구" /> 광산구
+          <input id="ch_all" type="checkbox" name="ch_all" value="전체" /> 전체
         </td>
       </tr>
       <tr>
         <th>지역(동)</th>
         <td id="t3">
-          <input
-            type="text"
-            size="20"
-            style="padding: 10px; border: 1px solid #ddd"
-            name="dong"
-          />
+          <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
         </td>
       </tr>
       <tr>
         <th>검색어</th>
         <td id="t4">
-          <input
-            type="text"
-            size="20"
-            style="padding: 10px; border: 1px solid #ddd"
-            name="search"
-          />
+          <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
         </td>
       </tr>
       <tr>
         <!-- 드롭다운 사용하기 -->
         <th>종목</th>
         <td>
-          <select
-            name="input"
-            size="1"
-            style="width: 230px; border: 1px solid #ddd"
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
+          <select class="sprots" name="input" size="1" style="width: 230px; border: 1px solid #ddd" >
+            <option value="1">--- 종목 ---</option>
+            <option value="2">배드민턴</option>
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
@@ -210,7 +224,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button type="button" style="float: right">검색</button>
+          <button id="btn_search" type="button" style="float: right">검색</button>
         </td>
       </tr>
     </table>
@@ -250,9 +264,4 @@
       </div>
     </div>
   </body>
-  <script>
-    document.querySelector("#slide1").addEventListener("click", (ev) => {
-      document.querySelector("#slide2").style.transform = "translateX(-100%)";
-    });
-  </script>
 </html>
