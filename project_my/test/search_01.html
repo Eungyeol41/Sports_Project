@@ -71,11 +71,11 @@
         background-color: rgba(0, 0, 0, 0.1);
       }
       /* 슬라이드 */
-      {id=slide}
+      [id=slide]
       div.section.input {
         display: none;
       }
-      div.section div.slidewrap {
+      div.section  {
         max-width: 1100px;
         margin: 15px auto;
         overflow: hidden;
@@ -104,7 +104,7 @@
       div.section .slide_control [class*="control"] label {
         position: absolute;
         z-index: 10;
-        top: 95%;
+        top: 115%;
         transform: translateY(-80%);
         padding: 20px;
         border-radius: 50%;
@@ -124,7 +124,7 @@
       #slide01:checked ~ .slidelist .slideitem {
         left: 0;
       }
-      #slide02:checked ~ .slidelist .slideitem {
+       #slide02:checked ~ .slidelist .slideitem {
         left: -100%;
       }
       #slide03:checked ~ .slidelist .slideitem {
@@ -137,10 +137,10 @@
       #slide01:checked ~ .slide-control .control01 {
         display: block;
       }
-      #slide02:checked ~ .slide-control .control02 {
+       #slide02:checked ~ .slide-control .control02 {
         display: block;
       }
-      #slide03:checked ~ .slide-control .control03 {
+       #slide03:checked ~ .slide-control .control03 {
         display: block;
       }
     </style>
@@ -165,7 +165,6 @@
           <input type="radio" name="ra" value="유/무료" />유/무료
         </td>
       </tr>
-
       <tr>
         <th>지역(구)</th>
         <td>
@@ -231,32 +230,49 @@
         <input type="radio" name="slide" id="slide03" />
       </section>
 
-      <div class="slidewrap">
+      <!-- <div class="slidewrap"> -->
         <ul class="slidelist">
-          <li class="slideitem1">
+          <li class="slideitem">
+            <a>
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+            </a>
+            <a>
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+            </a>
+            
+          </li>
+          <li class="slideitem" >
+            <a>
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+            </a>
             <a>
               <img src="../image/전대스포츠센터.png" style="width: 300px" />
               <img src="../image/염주종합체육관.png" style="width: 300px" />
               <img src="../image/첨단스포츠센터.png" style="width: 300px" />
             </a>
           </li>
-          <li class="slideitem2" >
+          <li class="slideitem" >
+            <a>
+              <img src="../image/염주종합체육관.png" style="width: 300px" />
+              <img src="../image/전대스포츠센터.png" style="width: 300px" />
+              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
+            </a>
             <a>
               <img src="../image/첨단스포츠센터.png" style="width: 300px" />
               <img src="../image/염주종합체육관.png" style="width: 300px" />
               <img src="../image/전대스포츠센터.png" style="width: 300px" />
             </a>
           </li>
-          <li class="slideitem3" >
-            <a>
-              <img src="../image/염주종합체육관.png" style="width: 300px" />
-              <img src="../image/전대스포츠센터.png" style="width: 300px" />
-              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
-            </a>
-          </li>
+          
         </ul>
         
-        <div class="slide_control">
+        <!-- <div class="slide_control">
           <div class="control01">
             <label for="slide03" class="left">
               <i class="fas fa-chevron-left fa-7x" onclick="left();"></i>
@@ -265,8 +281,8 @@
               <i class="fas fa-chevron-right fa-7x" onclick="right();"></i>
             </label>
           </div>
-        </div>
-        <!-- <div class="slide_control">
+        </div> -->
+        <div class="slide_control">
           <div class="control01">
             <label for="slide03" class="left">
               <i class="fas fa-chevron-left fa-7x"></i>
@@ -284,24 +300,28 @@
             </label>
           </div>
           <div class="control03">
-            <label for="slide02" class="left"></label>
-            <label for="slide01" class="right"></label>
+            <label for="slide02" class="left">
+              <i class="fas fa-chevron-left fa-7x"></i>
+            </label>   
+            <label for="slide01" class="right">
+              <i class="fas fa-chevron-right fa-7x"></i>
+            </label>
           </div>
-        </div> -->
-      </div>
+        </div>
+      <!-- </div> -->
     </div>
   
   </body>
 </html>
-<script>
+<!-- <script>
 
   document.querySelector(".left").addEventListener("click", (ev)=> {
 
     console.log("click");
   })
-</script>
+</script> -->
 
-<script type= text/javascript>
+<!-- <script type= text/javascript>
 
   var page = 1;
 
@@ -312,21 +332,21 @@
     item.style.display = 'none';
 
 
-    // $(".slideitem"+page).css("display","none");
-    // page--;
-    // $(".slideitem"+page).css("display","block");
-    // console.log("PAGE : " + page);
+    $(".slideitem"+page).css("display","none");
+    page--;
+    $(".slideitem"+page).css("display","block");
+    console.log("PAGE : " + page);
 
   }
 
   function right() {
 
    
-    // $(".slideitem"+page).css("display","none");
-    // page++;
-    // $(".slideitem"+page).css("display","block");
-    // console.log("PAGE : " + page);
+    $(".slideitem"+page).css("display","none");
+    page++;
+    $(".slideitem"+page).css("display","block");
+    console.log("PAGE : " + page);
 
   }
 
-</script>
+</script> -->

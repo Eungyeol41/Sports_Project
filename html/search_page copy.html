@@ -15,25 +15,21 @@
         font: inherit;
         vertical-align: baseline;
       }
-      body {
-        /* background-color: #b3d8eb; */
-      }
-
       h1 {
         padding: 30px;
         text-align: center;
         font-size: 30px;
       }
 
-      table {
+      table.search {
         margin-left: auto;
         margin-right: auto;
         width: 70%;
       }
 
-      table,
+      table.search,
       td,
-      th {
+      th.search {
         border-collapse: separate;
         border-spacing: 1px;
         line-height: 1.5;
@@ -45,7 +41,7 @@
         font-weight: bold;
       }
 
-      th {
+      th.search {
         width: 150px;
         padding: 10px;
         font-weight: bold;
@@ -70,78 +66,47 @@
       button {
         width: 20%;
         height: 40px;
-        color: #e9efed;
-        background-color: #77aacf;
-        
       }
 
       button:hover {
-        box-shadow: 5px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* 결과 리스트 */
+      table.list, th.list, tr.list {
+        box-sizing: border-box;
+      }
+            
+      table.list {
+        width:80%;
+        margin:0px auto;	
+        border-top : 1px solid #ccc;
+        border-collapse: collapse;
+        margin-top: 50px;
+      }	
+            
+      th.list {	
+        padding : 15px 10px; 
+        border-top : 1px solid #ccc;
+        text-align: center
+      }
+            
+      tr.first {
+        background-color: gainsboro;
+      }
+
+      tr.list:not(.first) {
+        background-color: whitesmoke;
+      }
+      tr.list:hover:not(.first) {
+        background-color: lightsteelblue;
+        cursor: pointer; 
+        color:  #296cff;
+      }
+      th.list:nth-child(1) {
+        border-right: 1px dashed lavender;
       }
       
-      
-
-      /* 여기서부터는 슬라이드 */
-      div.section.input {
-        display: none;
-        transition: 0.5s;
-      }
-      div.section div.slidewrap {
-        max-width: 1100px;
-        margin: 15px auto;
-        overflow: hidden;
-      }
-      div.section ul.slidelist {
-        white-space: nowrap;
-        /* 줄바꿈 없애기  */
-
-        font-size: 0;
-      }
-      div.section ul.slidelist > li {
-        display: inline-block;
-        vertical-align: top;
-        width: 100%;
-        transition: all 0.5s;
-      }
-      div.section ul.slidelist > li > a {
-        display: block;
-        position: relative;
-        /* 자율배치 위함 */
-      }
-      div.section ul.slidelist > li > a img {
-        width: 100%;
-        margin: 33px;
-      }
-      div.section ul.slidelist label {
-        position: absolute;
-        z-index: 10;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 50px;
-        cursor: pointer;
-      }
-      ul.slidelist label.left {
-        left: 30px;
-        /* right:30px; */
-
-        background: url("../image/left-arrow.png") center center / 100%
-          no-repeat;
-      }
-      ul.slidelist label.right {
-        right: 30px;
-
-        background: url("../image/right-arrow.png") center center / 100%
-          no-repeat;
-      }
-      .section [id="slide01"]:checked ~ .slidewrap .slidelist > li {
-        transform: translateX(0%);
-      }
-      .section [id="slide02"]:checked ~ .slidewrap .slidelist > li {
-        transform: translateX(-100%);
-      }
-      .section [id="slide03"]:checked ~ .slidewrap .slidelist > li {
-        transform: translateX(-200%);
-      }
     </style>
     <script>
 
@@ -158,6 +123,9 @@
       }
 
       document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelector("button#btn_search").addEventListener("click", ()=> {
+          location.href="board.html";
+        });
         document.querySelector('input[name="ch_all"]').addEventListener("change", function(e) {
           
           e.preventDefault();
@@ -165,7 +133,7 @@
           for(let i = 0; i < list.length; i++) {
             list[i].checked = this.checked;
           }
-        })
+        });
 
         let objs = document.querySelectorAll("input#ch");
         for(let i=0; i<objs.length ; i++){
@@ -182,38 +150,23 @@
         } 
       });
 
-      function getCheckboxValue() {
-        // 선택된 목록 가져오기
-        const query = 'input[name="ch"]:checked';
-        const selectedEls = document.querySelectorAll(query);
-          
-        // 선택된 목록에서 value 찾기
-        let result = '';
-        selectedEls.forEach((ev) => {
-          result += ev.value + ' ';
-        });
-          
-        // 출력
-        document.getElementById('btn_search').innerText = result;
-      };
-
     </script>
   </head>
 
   <body>
     <h1>광주광역시 체육시설 찾아보기</h1>
-    <table>
+    <table class="search">
       <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
-      <tr>
-        <th>이용료</th>
+      <tr class="search">
+        <th class="search">이용료</th>
         <td>
           <input id="ra" type="radio" name="ra" value="무료" checked /> 무료
           <input id="ra" type="radio" name="ra" value="유료" /> 유료
           <input id="ra" type="radio" name="ra" value="유/무료" /> 유/무료
         </td>
       </tr>
-      <tr>
-        <th>지역(구)</th>
+      <tr class="search">
+        <th class="search">지역(구)</th>
         <td>
           <input id="ch" type="checkbox" name="ch" value="동구" /> 동구
           <input id="ch" type="checkbox" name="ch" value="서구" /> 서구
@@ -223,21 +176,21 @@
           <input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
         </td>
       </tr>
-      <tr>
-        <th>지역(동)</th>
+      <tr class="search">
+        <th class="search">지역(동)</th>
         <td id="t3">
           <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
         </td>
       </tr>
-      <tr>
-        <th>검색어</th>
+      <tr class="search">
+        <th class="search">검색어</th>
         <td id="t4">
           <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
         </td>
       </tr>
-      <tr>
+      <tr class="search">
         <!-- 드롭다운 사용하기 -->
-        <th>종목</th>
+        <th class="search">종목</th>
         <td>
           <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd" >
             <option value="1">--- 종목 ---</option>
@@ -247,46 +200,56 @@
           </select>
         </td>
       </tr>
-      <tr>
+      <tr class="search">
         <td colspan="2">
           <button id="btn_search" type="button" style="float: right" >검색</button>
         </td>
       </tr>
     </table>
 
-    <h1>검색 결과</h1>
-    <div class="section">
-      <input type="radio" name="slide" id="slide1" checked="" />
-      <input type="radio" name="slide" id="slide2" />
-      <input type="radio" name="slide" id="slide3" />
-
-      <div class="slidewrap">
-        <ul class="slidelist">
-          <li>
-            <a>
-              <label for="slide03" class="left"></label>
-              <img src="../image/전대스포츠센터.png" style="width: 300px" />
-              <img src="../image/염주종합체육관.png" style="width: 300px" />
-              <img src="../image/첨단스포츠센터.png" style="width: 300px" />
-              <label for="slide02" class="right"></label>
-            </a>
-          </li>
-          <li>
-            <a>
-              <label for="slide01" class="left"></label>
-              <img src="../image/첨단스포츠센터.png" />
-              <label for="slide03" class="right"></label>
-            </a>
-          </li>
-          <li>
-            <a>
-              <label for="slide02" class="left"></label>
-              <img src="../image/image.jpg" />
-              <label for="slide01" class="right"></label>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <table class="list">
+      <tr class="list first">
+          <th class="list">번호</th>
+          <th class="list">시설 이름</th>
+          <th class="list">전화번호</th>
+          <th class="list">종목</th>
+          <th class="list">위치</th>
+      </tr>
+      <tr class="list">
+          <th class="list">1</th>
+          <th class="list">염주 종합체육관</th>
+          <th class="list">062) 604 - 1400</th>
+          <th class="list">핸드볼, 농구, 배드민턴, 탁구, 배구</th>
+          <th class="list">광주광역시 서구 금화로 278</th>
+      </tr>
+      <tr class="list">
+          <th class="list">2</th>
+          <th class="list">수완 인라인롤러경기장</th>
+          <th class="list"></th>
+          <th class="list">인라인스케이트</th>
+          <th class="list">광주광역시 광산구 장덕로96번길 15</th>
+      </tr>
+      <tr class="list">
+          <th class="list">3</th>
+          <th class="list">광주여대시립유니버시아드체육관</th>
+          <th class="list"></th>
+          <th class="list">배구, 농구, 핸드볼, 탁구, 배드민턴, 리듬체조</th>
+          <th class="list">광주광역시 광산구 광주여대길 45</th>
+      </tr>
+      <tr class="list">
+          <th class="list">4</th>
+          <th class="list">첨단 인라인스케이트장</th>
+          <th class="list"></th>
+          <th class="list">인라인스케이트</th>
+          <th class="list">광주 광산구 쌍암동</th>
+      </tr>
+      <tr class="list">
+          <th class="list">5</th>
+          <th class="list">인공암벽장</th>
+          <th class="list"></th>
+          <th class="list">인공 야외 암벽</th>
+          <th class="list">광주광역시 서구 상무시민공원 내 위치</th>
+      </tr>
+  </table>
   </body>
 </html>
