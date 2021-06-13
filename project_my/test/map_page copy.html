@@ -19,12 +19,25 @@
       header.main_head {
         padding: 0;
         width: 24.9%;
+        /* text-align: center; */
         height: 100%;
-        position: fixed;
+        /* position: ; */
         background: linear-gradient(rgb(42, 205, 255), rgb(215, 233, 255) 90%);
         overflow: hidden;
         box-shadow: 5px 3px 3px rgb(114, 114, 114);
       }
+      div.head1 {
+        /* position: absolute; */
+        background-color: yellow;
+      }
+      div.head2 {
+        position: relative;
+        background-color: blue;
+      }
+      div.head3 {
+        background-color: red;
+      }
+
       h2 {
         font-size: 40px;
         margin: 50px 0px 20px 0px;
@@ -34,6 +47,7 @@
         width: 25% auto;
         white-space: nowrap;
         color: white;
+        /* position: relative; */
       }
       p {
         margin-left: 40px;
@@ -43,11 +57,13 @@
         color: white;
         padding: 20px 60px 10px 60px;
         white-space: nowrap;
+        /* position: relative; */
       }
       form#main_sch {
         height: 40px;
         width: 100%;
-        position: relative;
+        /* position: relative; */
+        
       }
       form#main_sch input#sch {
         border-radius: 10px;
@@ -116,17 +132,22 @@
   </head>
   <body>
     <header class="main_head">
-      <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2>
-      <p>
-        <i class="fas fa-compact-disc"></i> 지도에 표시된 위치를 <br />클릭해서
-        찾거나 <br />검색으로 조회가능
-      </p>
-
+      <div class="head1">
+        <div class="head2">
+        <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2>
+          <p>
+            <i class="fas fa-compact-disc"></i> 지도에 표시된 위치를 <br />클릭해서
+            찾거나 <br />검색으로 조회가능
+          </p>
+        </div>
+      <div class="head3">
       <form id="main_sch">
         <input type="text" name="sch" id="sch" placeholder="검색창에 입력" />
         <button><i class="fas fa-search"></i></button>
       </form>
-      <nav></nav>
+    </div>
+      <!-- <nav></nav> -->
+    </div>
     </header>
 
     <div class="map">
