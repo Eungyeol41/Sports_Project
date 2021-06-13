@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>검색하기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      h1 {
+        padding: 30px;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      table.search {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+      }
+
+      table.search,
+      td,
+      th.search {
+        border-collapse: separate;
+        border-spacing: 1px;
+        line-height: 1.5;
+        /* border-collapse: collapse; */
+        /* border : 1px solid black; */
+        border-top: 1px solid #ccc;
+        padding: 15px;
+        /* background-color: #ddd; */
+        font-weight: bold;
+      }
+
+      th.search {
+        width: 150px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #ddd;
+      }
+
+      td {
+        width: 350px;
+        padding-right: 40px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        letter-spacing: 5px;
+      }
+
+      select.sports {
+        letter-spacing: 5px;
+        text-align-last: center;
+      }
+      
+      button {
+        width: 20%;
+        height: 40px;
+      }
+
+      button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* 결과 리스트 */
+      table.list, th.list, tr.list {
+        box-sizing: border-box;
+      }
+            
+      table.list {
+        width:80%;
+        margin:0px auto;	
+        border-top : 1px solid #ccc;
+        border-collapse: collapse;
+        margin-top: 50px;
+      }	
+            
+      th.list {	
+        padding : 15px 10px; 
+        border-top : 1px solid #ccc;
+        text-align: center
+      }
+            
+      tr.first {
+        background-color: gainsboro;
+      }
+
+      tr.list:not(.first) {
+        background-color: whitesmoke;
+      }
+      tr.list:hover:not(.first) {
+        background-color: lightsteelblue;
+        cursor: pointer; 
+        color:  #296cff;
+      }
+      th.list:nth-child(1) {
+        border-right: 1px dashed lavender;
+      }
+      
+    </style>
+    <script>
+
+      function checkSelectAll() {
+        const checkbox = document.querySelectorAll('input[name="ch"]');
+        const checked = document.querySelectorAll('input[name="ch"]:checked');
+        const selectAll = document.querySelector('input[name="ch_all"]');
+
+        if(checkbox.length === checked.length) {
+          selectAll.checked = true;
+        } else {
+          selectAll.checked = false;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelector("button#btn_search").addEventListener("click", ()=> {
+          location.href="board.html";
+        });
+        document.querySelector('input[name="ch_all"]').addEventListener("change", function(e) {
+          
+          e.preventDefault();
+          let list = document.querySelectorAll('input[name="ch"]');
+          for(let i = 0; i < list.length; i++) {
+            list[i].checked = this.checked;
+          }
+        });
+
+        let objs = document.querySelectorAll("input#ch");
+        for(let i=0; i<objs.length ; i++){
+          objs[i].addEventListener("click", ()=> {
+            let selectAll = document.querySelector("input#all");
+            for (let j = 0; j < objs.length; j++) {
+              if (objs[j].checked === false) {
+                selectAll.checked = false;
+                return;
+              };
+            };
+            selectAll.checked = true;                                   
+          }, false);
+        } 
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <h1>광주광역시 체육시설 찾아보기</h1>
+    <table class="search">
+      <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
+      <tr class="search">
+        <th class="search">이용료</th>
+        <td>
+          <input id="ra" type="radio" name="ra" value="무료" checked /> 무료
+          <input id="ra" type="radio" name="ra" value="유료" /> 유료
+          <input id="ra" type="radio" name="ra" value="유/무료" /> 유/무료
+        </td>
+      </tr>
+      <tr class="search">
+        <th class="search">지역(구)</th>
+        <td>
+          <input id="ch" type="checkbox" name="ch" value="동구" /> 동구
+          <input id="ch" type="checkbox" name="ch" value="서구" /> 서구
+          <input id="ch" type="checkbox" name="ch" value="남구" /> 남구
+          <input id="ch" type="checkbox" name="ch" value="북구" /> 북구
+          <input id="ch" type="checkbox" name="ch" value="광산구" /> 광산구
+          <input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
+        </td>
+      </tr>
+      <tr class="search">
+        <th class="search">지역(동)</th>
+        <td id="t3">
+          <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
+        </td>
+      </tr>
+      <tr class="search">
+        <th class="search">검색어</th>
+        <td id="t4">
+          <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
+        </td>
+      </tr>
+      <tr class="search">
+        <!-- 드롭다운 사용하기 -->
+        <th class="search">종목</th>
+        <td>
+          <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd" >
+            <option value="1">--- 종목 ---</option>
+            <option value="2">배드민턴</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </td>
+      </tr>
+      <tr class="search">
+        <td colspan="2">
+          <button id="btn_search" type="button" style="float: right" >검색</button>
+        </td>
+      </tr>
+    </table>
+
+    <table class="list">
+      <tr class="list first">
+          <th class="list">번호</th>
+          <th class="list">시설 이름</th>
+          <th class="list">전화번호</th>
+          <th class="list">종목</th>
+          <th class="list">위치</th>
+      </tr>
+      <tr class="list">
+          <th class="list">1</th>
+          <th class="list">염주 종합체육관</th>
+          <th class="list">062) 604 - 1400</th>
+          <th class="list">핸드볼, 농구, 배드민턴, 탁구, 배구</th>
+          <th class="list">광주광역시 서구 금화로 278</th>
+      </tr>
+      <tr class="list">
+          <th class="list">2</th>
+          <th class="list">수완 인라인롤러경기장</th>
+          <th class="list"></th>
+          <th class="list">인라인스케이트</th>
+          <th class="list">광주광역시 광산구 장덕로96번길 15</th>
+      </tr>
+      <tr class="list">
+          <th class="list">3</th>
+          <th class="list">광주여대시립유니버시아드체육관</th>
+          <th class="list"></th>
+          <th class="list">배구, 농구, 핸드볼, 탁구, 배드민턴, 리듬체조</th>
+          <th class="list">광주광역시 광산구 광주여대길 45</th>
+      </tr>
+      <tr class="list">
+          <th class="list">4</th>
+          <th class="list">첨단 인라인스케이트장</th>
+          <th class="list"></th>
+          <th class="list">인라인스케이트</th>
+          <th class="list">광주 광산구 쌍암동</th>
+      </tr>
+      <tr class="list">
+          <th class="list">5</th>
+          <th class="list">인공암벽장</th>
+          <th class="list"></th>
+          <th class="list">인공 야외 암벽</th>
+          <th class="list">광주광역시 서구 상무시민공원 내 위치</th>
+      </tr>
+  </table>
+  </body>
+</html>
