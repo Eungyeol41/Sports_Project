@@ -62,6 +62,11 @@
         letter-spacing: 5px;
       }
 
+      select.sports {
+        letter-spacing: 5px;
+        text-align-last: center;
+      }
+      
       button {
         width: 20%;
         height: 40px;
@@ -71,10 +76,7 @@
         background-color: rgba(0, 0, 0, 0.1);
       }
       
-      select.sports {
-      letter-spacing: 5px;
-      text-align-last: center;
-    }
+      
 
       /* 여기서부터는 슬라이드 */
       div.section.input {
@@ -139,21 +141,8 @@
       }
     </style>
     <script>
-     
-    document.addEventListener("DOMContentLoaded", () => {
-      // document.querySelector("button#btn_search").addEventListener("click", (ev) => {
-      //   location.href = "search_result.html";
-      // });
 
-      //document.querySelector("input[name=ch_all]").addEventListener("change", (e)=> {
-      // e.preventDefault();
-      //  let list = document.querySelectorAll("input[name=ch]");
-      //  for (let i = 0; i < list.length; i++) {
-      //   list[i].checked = this.checked;
-      //  }
-      //});
-
-      document.querySelectorAll("input[name=ch_all]").addEventListener("click", ()=> {
+      function checkSelectAll() {
         const checkbox = document.querySelectorAll('input[name="ch"]');
         const checked = document.querySelectorAll('input[name="ch"]:checked');
         const selectAll = document.querySelector('input[name="ch_all"]');
@@ -163,17 +152,48 @@
         } else {
           selectAll.checked = false;
         }
+      }
+
+      document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelector('input[name="ch_all"]').addEventListener("change", function(e) {
+          
+          e.preventDefault();
+          let list = document.querySelectorAll('input[name="ch"]');
+          for(let i = 0; i < list.length; i++) {
+            list[i].checked = this.checked;
+          }
+        })
+
+        let objs = document.querySelectorAll("input#ch");
+        for(let i=0; i<objs.length ; i++){
+          objs[i].addEventListener("click", ()=> {
+            let selectAll = document.querySelector("input#all");
+            for (let j = 0; j < objs.length; j++) {
+              if (objs[j].checked === false) {
+                selectAll.checked = false;
+                return;
+              };
+            };
+            selectAll.checked = true;                                   
+          }, false);
+        } 
       });
 
-      document.querySelector("input[name=ch_all]").addEventListener("click", (e) => {
-        e.preventDefault();
-        let list = document.querySelectorAll("input[name=ch]");
-        for (let i = 0; i < list.length; i++) {
-          list[i].checked = this.checked;
-        }
-      });
+      function getCheckboxValue() {
+        // 선택된 목록 가져오기
+        const query = 'input[name="ch"]:checked';
+        const selectedEls = document.querySelectorAll(query);
+          
+        // 선택된 목록에서 value 찾기
+        let result = '';
+        selectedEls.forEach((ev) => {
+          result += ev.value + ' ';
+        });
+          
+        // 출력
+        document.getElementById('btn_search').innerText = result;
+      };
 
-    });  
     </script>
   </head>
 
@@ -197,7 +217,7 @@
           <input id="ch" type="checkbox" name="ch" value="남구" /> 남구
           <input id="ch" type="checkbox" name="ch" value="북구" /> 북구
           <input id="ch" type="checkbox" name="ch" value="광산구" /> 광산구
-          <input id="ch_all" type="checkbox" name="ch_all" value="전체" /> 전체
+          <input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
         </td>
       </tr>
       <tr>
@@ -216,7 +236,7 @@
         <!-- 드롭다운 사용하기 -->
         <th>종목</th>
         <td>
-          <select class="sprots" name="input" size="1" style="width: 230px; border: 1px solid #ddd" >
+          <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd" >
             <option value="1">--- 종목 ---</option>
             <option value="2">배드민턴</option>
             <option value="3">3</option>
@@ -226,7 +246,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button id="btn_search" type="button" style="float: right">검색</button>
+          <button id="btn_search" type="button" style="float: right" onclick="getCheckboxValue()">검색</button>
         </td>
       </tr>
     </table>
