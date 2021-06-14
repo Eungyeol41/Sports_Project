@@ -1,122 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <title>목록 게시판</title>
-        <style>
-            h2 {
-                margin: 30px auto;
-                text-align: center;
-                
-            }
-            * {
-                box-sizing: border-box;
-            }
-            
-            table {
-                width:80%;
-                margin:0px auto;	
-                border-top : 1px solid #ccc;
-                border-collapse: collapse;
-            }	
-            
-            th {	
-                padding : 15px 10px; 
-                border-top : 1px solid #ccc;
-                text-align: center;
-            }
-            
-            tr.first {
-                background-color: gainsboro;
-            }
 
-            tr:not(.first) {
-                background-color: whitesmoke;
-            }
-            tr:hover:not(.first) {
-                background-color: lightsteelblue;
-                cursor: pointer; 
-                color:  #296cff;
-            }
-            th:nth-child(1) {
-                border-right: 1px dashed lavender;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 게시판</title>
+    <style>
+        h2 {
+            margin: 30px auto;
+            text-align: center;
 
-            div {
-                display: inline-block;
-                margin: 10px;
-                margin-right: 50px;
-            }
-            
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 80%;
+            margin: 0px auto;
+            border-top: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 15px 10px;
+            border-top: 1px solid #ccc;
+            text-align: center;
+        }
+
+        tr.first {
+            background-color: gainsboro;
+        }
+
+        tr:not(.first) {
+            background-color: whitesmoke;
+        }
+
+        tr:hover:not(.first) {
+            background-color: lightsteelblue;
+            cursor: pointer;
+            color: #296cff;
+        }
+
+        th:nth-child(1) {
+            border-right: 1px dashed lavender;
+        }
+
+        div.button {
+            margin: 30px auto;
+            text-align: center;
+        }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", ()=>{
-	        document.querySelector("table").addEventListener("click",()=> {
-                location.href="search_detail.html";
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("table").addEventListener("click", () => {
+                location.href = "search_detail.html";
             });
 
-            document.querySelector("button").addEventListener("click", (ev)=> {
+            document.querySelector("button").addEventListener("click", (ev) => {
                 let className = ev.target.className;
-                if(className == "btn_home") {
+                if (className == "btn_home") {
                     location.href = "../project_my/test/main_page.html";
-                } else if(className == "btn_search") {
-                    location.href = "search_page copy.html";
+                } else if (className == "btn_search") {
+                    location.href = "search_page_1.html";
                 }
             })
         });
     </script>
-    </head>
-    <body>
-        <h2>검색 결과</h2>
-        <table>
-            <tr class="first">
-                <th>번호</th>
-                <th>시설 이름</th>
-                <th>전화번호</th>
-                <th>종목</th>
-                <th>위치</th>
-            </tr>
-            <tr>
-                <th>1</th>
-                <th>염주 종합체육관</th>
-                <th>062) 604 - 1400</th>
-                <th>핸드볼, 농구, 배드민턴, 탁구, 배구</th>
-                <th>광주광역시 서구 금화로 278</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>수완 인라인롤러경기장</th>
-                <th></th>
-                <th>인라인스케이트</th>
-                <th>광주광역시 광산구 장덕로96번길 15</th>
-            </tr>
-            <tr>
-                <th>3</th>
-                <th>광주여대시립유니버시아드체육관</th>
-                <th></th>
-                <th>배구, 농구, 핸드볼, 탁구, 배드민턴, 리듬체조</th>
-                <th>광주광역시 광산구 광주여대길 45</th>
-            </tr>
-            <tr>
-                <th>4</th>
-                <th>첨단 인라인스케이트장</th>
-                <th></th>
-                <th>인라인스케이트</th>
-                <th>광주 광산구 쌍암동</th>
-            </tr>
-            <tr>
-                <th>5</th>
-                <th>인공암벽장</th>
-                <th></th>
-                <th>인공 야외 암벽</th>
-                <th>광주광역시 서구 상무시민공원 내 위치</th>
-            </tr>
-        </table>
-        <div>
-            <button class="btn_home">Home으로</button>
-            <button class="btn_search">검색창으로</button>    
-        </div>
-    </body>
+</head>
+
+<body>
+    <h2>검색 결과</h2>
+    <table>
+        <tr class="first">
+            <th>번호</th>
+            <th>시설 이름</th>
+            <th>전화번호</th>
+            <th>종목</th>
+            <th>위치</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>염주 종합체육관</th>
+            <th>062) 604 - 1400</th>
+            <th>핸드볼, 농구, 배드민턴, 탁구, 배구</th>
+            <th>광주광역시 서구 금화로 278</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>수완 인라인롤러경기장</th>
+            <th></th>
+            <th>인라인스케이트</th>
+            <th>광주광역시 광산구 장덕로96번길 15</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>광주여대시립유니버시아드체육관</th>
+            <th></th>
+            <th>배구, 농구, 핸드볼, 탁구, 배드민턴, 리듬체조</th>
+            <th>광주광역시 광산구 광주여대길 45</th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <th>첨단 인라인스케이트장</th>
+            <th></th>
+            <th>인라인스케이트</th>
+            <th>광주 광산구 쌍암동</th>
+        </tr>
+        <tr>
+            <th>5</th>
+            <th>인공암벽장</th>
+            <th></th>
+            <th>인공 야외 암벽</th>
+            <th>광주광역시 서구 상무시민공원 내 위치</th>
+        </tr>
+    </table>
+    <div class="button">
+        <button type="button" class="btn_home">Home으로</button>
+        <button type="button" class="btn_search">검색창으로</button>
+    </div>
+</body>
+
 </html>
