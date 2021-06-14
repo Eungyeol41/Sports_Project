@@ -1,160 +1,244 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>시설 상세 정보</title>
     <style>
-        /* dt,
+      /* dt,
         dd {
             display: inline-block;
         } */
 
-        dt {
-        display:table-cell;
-        vertical-align:middle;
+      body {
+        background-color: #fffcf0;
+      }
+      dt {
+        display: table-cell;
+        vertical-align: middle;
         width: 30%;
-        padding-right:5px;
+        padding-right: 5px;
         float: left;
-        }
-        
-        dd {
-         display:table-cell;
-        vertical-align:middle;
+      }
+
+      dd {
+        display: table-cell;
+        vertical-align: middle;
         width: 70%;
         margin: 0;
         /* float: left; */
-        }   
+      }
 
-        dl {
-
-         display:table-cell;
-        vertical-align:middle;
+      dl {
+        display: table-cell;
+        vertical-align: middle;
         width: 70%;
         margin: 0;
         float: left;
-        }   
-    
+      }
 
-        /* header{
+      /* header{
             flex-direction: column;
             height: 100%;
         } */
 
-        table,
-        tr,
-        td {
-            border: 1px solid darkblue;
-            border-collapse: collapse;
-            text-align: center;
-            padding: 5px;
-            margin: 5px;
-        }
-
-        dt.border {
-            border-right: 1px solid darkcyan;
-        }
-
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div>
-        <h2>첨단전천후배드민턴장</h2>
-       
-        <dl>
-            <dt class="border">이용료</dt>
-            <dd>
-                유료 - 대관료
-                <table>
-                    <tr>
-                        <td rowspan="6"><div>실내 배드민턴장</div></td>
-                        <td colspan="2" rowspan="2"><div>체육행사</div></td>
-                        <td><div>주간</div></td>
-                        <td><div>45,000</div></td>
-                        <td><div>30,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>야간</div></td>
-                        <td><div>90,000</div></td>
-                        <td><div>60,000</div></td>
-                    </tr>
-                    <tr>
-                        <td colspan="1" rowspan="4"><div>체육 행사 이외</div></td>
-                        <td rowspan="2"><div>영리</div></td>
-                        <td><div>주간</div></td>
-                        <td><div>150,000</div></td>
-                        <td><div>100,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>야간</div></td>
-                        <td><div>225,000</div></td>
-                        <td><div>150,000</div></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2"><div>비영리</div></td>
-                        <td><div>주간</div></td>
-                        <td><div>90,000</div></td>
-                        <td><div>60,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>야간</div></td>
-                        <td><div>135,000</div></td>
-                        <td><div>90,000</div></td>
-                    </tr>
-                </table>
-                - 이용료
-                <table>
-                    <tr>
-                        <td rowspan="6"><div>실내 배드민턴장</div></td>
-                        <td rowspan="3"><div>개인</div></td>
-                        <td><div>일반</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>2,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>군경, 청소년</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>1,300</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>어린이</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>1,000</div></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3"><div>회원</div></td>
-                        <td><div>일반</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>40,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>군경, 청소년</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>30,000</div></td>
-                    </tr>
-                    <tr>
-                        <td><div>어린이</div></td>
-                        <td><div>1회 2시간</div></td>
-                        <td><div>20,000</div></td>
-                    </tr>
-                </table>
-            </dd>
-        </dl>
-        <dl>
-            <dt class="border">이용 가능 시간</dt>
-            <dd>※ 준비 및 마무리 시간 포함됨<br>※ 시설 운영 및 기타 사정으로 인해서 변경 가능함.
-                <br>주중(월 ~ 금) 09:00 ~ 18:00<br>주말(토, 일) 09:00 ~ 18:00
-            </dd>
-            <dd></dd>
-            <!-- <dl>
+      <h2>첨단전천후배드민턴장</h2>
+
+      <dl>
+        <dt class="border">이용료</dt>
+        <dd>
+          유료 - 대관료
+          <table>
+            <tr>
+              <td rowspan="6">
+                <div>실내 배드민턴장</div>
+              </td>
+              <td colspan="2" rowspan="2">
+                <div>체육행사</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>45,000</div>
+              </td>
+              <td>
+                <div>30,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+              <td>
+                <div>60,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" rowspan="4">
+                <div>체육 행사 이외</div>
+              </td>
+              <td rowspan="2">
+                <div>영리</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>150,000</div>
+              </td>
+              <td>
+                <div>100,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>225,000</div>
+              </td>
+              <td>
+                <div>150,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                <div>비영리</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+              <td>
+                <div>60,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>135,000</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+            </tr>
+          </table>
+          - 이용료
+          <table>
+            <tr>
+              <td rowspan="6">
+                <div>실내 배드민턴장</div>
+              </td>
+              <td rowspan="3">
+                <div>개인</div>
+              </td>
+              <td>
+                <div>일반</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>2,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>군경, 청소년</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>1,300</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>어린이</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>1,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3">
+                <div>회원</div>
+              </td>
+              <td>
+                <div>일반</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>40,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>군경, 청소년</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>30,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>어린이</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>20,000</div>
+              </td>
+            </tr>
+          </table>
+        </dd>
+      </dl>
+      <dl>
+        <dt class="border">이용 가능 시간</dt>
+        <dd>
+          ※ 준비 및 마무리 시간 포함됨<br />※ 시설 운영 및 기타 사정으로 인해서
+          변경 가능함. <br />주중(월 ~ 금) 09:00 ~ 18:00<br />주말(토, 일) 09:00
+          ~ 18:00
+        </dd>
+        <dd></dd>
+        <!-- <dl>
                 <dd /><dd /><dd />
                 
             </dl> -->
-            <!-- <dl>
+        <!-- <dl>
                 <dd /><dd /><dd /><dd />
                 <dt>주중(월 ~ 금)</dt>
                 <dd>09:00 ~ 18:00</dd>
@@ -165,38 +249,39 @@
                 <dt>주말(토, 일)</dt>
                 <dd>09:00 ~ 18:00</dd>
             </dl> -->
-        </dl>
-        <dl>
-            <dt class="border">종목 (종류)</dt>
-            <dd>배드민턴 (실내)</dd>
-        </dl>
-        <dl>
-            <dt class="border">전화번호</dt>
-            <dd>062) 960 - 9923</dd>
-        </dl>
+      </dl>
+      <dl>
+        <dt class="border">종목 (종류)</dt>
+        <dd>배드민턴 (실내)</dd>
+      </dl>
+      <dl>
+        <dt class="border">전화번호</dt>
+        <dd>062) 960 - 9923</dd>
+      </dl>
 
+      <dl>
+        <dt class="border">이용</dt>
+        <dd>누구나 가능</dd>
+      </dl>
+      <dl>
+        <dt class="border">위치</dt>
+        <dd>광주 광산구 산월동 819-8</dd>
+      </dl>
+      <dl>
+        <dt class="border">문의</dt>
+        <dd>광주광역시 광산구 시설관리공단</dd>
+        <dd>062) 960 - 9923</dd>
+      </dl>
+      <div class="map">
         <dl>
-            <dt class="border">이용</dt>
-            <dd>누구나 가능</dd>
+          <div id="map"></div>
+          <a
+            href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
+            type="button"
+            >길찾기</a
+          >
         </dl>
-        <dl>
-            <dt class="border">위치</dt>
-            <dd>광주 광산구 산월동 819-8</dd>
-        </dl>
-        <dl>
-            <dt class="border">문의</dt>
-            <dd>광주광역시 광산구 시설관리공단</dd>
-            <dd>062) 960 - 9923</dd>
-        </dl>
-        <div class="map">
-            <dl>
-                <div id="map"></div>
-                <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
-                    type="button">길찾기</a>
-            </dl>
-        </div>
+      </div>
     </div>
-    
-</body>
-
+  </body>
 </html>
