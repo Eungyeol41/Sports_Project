@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <style> 
+    @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+    </style>
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      @font-face {
+      font-family: 'InfinitySans-RegularA1';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+
+      }
+
+
+      div.head {
+        height: 100vh;
+        width: 350px;
+        /* background-color: white; */
+        background-color: white;
+        position: absolute;
+        z-index: 3;
+      }
+      header.main_head {
+        padding: 0;
+        width: 350px;
+        height: 200px;
+        position: fixed;
+        background-color: #dedcee;
+        overflow: hidden;
+      }
+      header.main_head div {
+        color: #4b4570;
+        /* float: right; */
+        padding: 10px;
+        font-size: 14px;
+      }
+      div.check {
+       text-align: right;
+       font-family: 'InfinitySans-RegularA1'
+       
+       
+      }
+      div.check input#ch2 {
+         margin-left: 15px; 
+         border: hidden;
+      }
+        
+    
+      h2 {
+        font-size: 40px;
+        margin: 50px 0px 20px 0px;
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgb(255, 255, 255);
+        width: 25% auto;
+        white-space: nowrap;
+        color: white;
+      }
+      p {
+        margin-left: 40px;
+        font-size: 15px;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        padding: 20px 60px 10px 60px;
+        white-space: nowrap;
+      }
+      form#main_sch {
+        height: 40px;
+        width: 100%;
+        position: relative;
+        margin-top: 70px;
+        
+      }
+      form#main_sch span.icon {
+        position: absolute;
+        top: 10px;
+        left: 280px;
+        /* font-size: 30px; */
+        /* transform: translateY(-50); */
+
+      }
+
+      form#main_sch input#sch {
+        /* background-image: ; */
+        
+        border: hidden;
+        border-radius: 10px;
+        position: sticky;
+        height: 40px;
+        padding-left: 15px;
+        font-size: 20px;  
+        width: 300px;
+        display: block;
+        outline: 0;
+        margin: 30px auto;
+        font-family: 'InfinitySans-RegularA1'
+        transition: 0.3s;
+      }
+      /* form#main_sch button {
+        width: 100px;
+        height: 40px;
+        border: 1px soild #dedcee;
+        border: none;
+        border-left: 2px solid rgba(200, 200, 200, 0.8);
+        background-color: rgb(255, 255, 255);
+        font-size: 1em;
+        color: #636363;
+        position: inherit;
+        border-radius: 0 10px 10px 0px;
+        left: 280px;
+        top: -50px;
+        transform: translate(-50%, -50%);
+        margin: 0% auto;
+      }  */
+      input form#main_sch input#sch:hover {
+        border-style: none;
+      }
+      form#main_sch input#sch:visited {
+        border-style: outset;
+      }
+      .map {
+        position: absolute;
+        position: relative;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 50%;
+        right: 0;
+        float: right;
+      }
+      .map > .root_daum_roughmap {
+        width: 100%;
+        padding-bottom: 56.25%;
+      }
+      .map > .root_daum_roughmap .wrap_map {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+      }
+      .map .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <header class="main_head">
+        <div class="check">
+          <input type="checkbox" name="ch" id="ch1"> 현 지도에서 검색</input>
+          <input type="checkbox" name="ch" id="ch2" /> 현위치 주변</input></div>
+        <!-- <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2> -->
+        <!-- <p> 
+          <i class="fas fa-compact-disc"></i> 지도에 표시된 위치를
+          <br />클릭해서 찾거나 <br />검색으로 조회가능
+        </p> -->
+
+        <form id="main_sch">
+          <input type="search" name="sch" id="sch" placeholder="검색창에 입력"/>
+          <span class="icon"><i class="fas fa-search fa-1x"></i></span>
+        </form>
+        <nav></nav>
+      </header>
+    </div>
+
+    <div class="map">
+      <!-- * 카카오맵 - 지도퍼가기 -->
+      <!-- 1. 지도 노드 -->
+      <div
+        id="daumRoughmapContainer1623384796369"
+        class="root_daum_roughmap root_daum_roughmap_landing"
+      ></div>
+    </div>
+    <!--
+          2. 설치 스크립트
+          * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+        -->
+    <script
+      charset="UTF-8"
+      class="daum_roughmap_loader_script"
+      src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"
+    ></script>
+
+    <!-- 3. 실행 스크립트 -->
+    <script charset="UTF-8">
+      new daum.roughmap.Lander({
+        timestamp: "1623384796369",
+        key: "266yc",
+      }).render();
+    </script>
+    <section>
+      <article></article>
+    </section>
+    <footer></footer>
+  </body>
+  <script>
+    document.querySelector("span.icon").addEventListener("click", () => {
+      location.href = "board.html";
+    });
+  </script>
+</html>
