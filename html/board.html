@@ -53,18 +53,19 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", ()=>{
+            // 시설별 상세사항
 	        document.querySelector("table").addEventListener("click",()=> {
                 location.href="search_detail.html";
             });
 
-            document.querySelector("button").addEventListener("click", (ev)=> {
-                let className = ev.target.className;
-                if(className == "btn_home") {
-                    location.href = "../project_my/test/main_page.html";
-                } else if(className == "btn_search") {
-                    location.href = "search_page copy.html";
-                }
-            })
+            //Home으로
+            document.querySelector("button.home").addEventListener("click", ()=> {
+                location.href = "../project_my/test/main_page.html";
+            });
+            // 검색창으로
+            document.querySelector("button.btn_search").addEventListener("click", ()=> {
+                location.href="search_detail.html";
+            });
         });
     </script>
     </head>
@@ -115,8 +116,8 @@
             </tr>
         </table>
         <div>
-            <button class="btn_home">Home으로</button>
-            <button class="btn_search">검색창으로</button>    
+            <button type="button" class="btn_home">Home으로</button>
+            <button type="button" class="btn_search">검색창으로</button>    
         </div>
     </body>
 </html>
