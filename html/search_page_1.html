@@ -143,14 +143,10 @@
         document.querySelector("table.list").addEventListener("click", () => {
           location.href = "search_detail copy.html";
         });
-        document
-          .querySelector("button#btn_search")
-          .addEventListener("click", () => {
+        document.querySelector("button#btn_search").addEventListener("click", () => {
             location.href = "board.html";
           });
-        document
-          .querySelector('input[name="ch_all"]')
-          .addEventListener("change", function (e) {
+        document.querySelector('input[name="ch_all"]').addEventListener("change", function (e) {
             e.preventDefault();
             let list = document.querySelectorAll('input[name="ch"]');
             for (let i = 0; i < list.length; i++) {
@@ -160,9 +156,7 @@
 
         let objs = document.querySelectorAll("input#ch");
         for (let i = 0; i < objs.length; i++) {
-          objs[i].addEventListener(
-            "click",
-            () => {
+          objs[i].addEventListener("click",() => {
               let selectAll = document.querySelector("input#all");
               for (let j = 0; j < objs.length; j++) {
                 if (objs[j].checked === false) {
@@ -171,9 +165,7 @@
                 }
               }
               selectAll.checked = true;
-            },
-            false
-          );
+            }, false);
         }
       });
     </script>
