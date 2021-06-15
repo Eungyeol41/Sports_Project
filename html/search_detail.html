@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>시설 상세 정보</title>
   <style>
-    /* dt,
-        dd {
-            display: inline-block;
-        } */
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
 
     @font-face {
       font-family: 'InfinitySans-RegularA1';
@@ -19,14 +20,36 @@
       font-style: normal;
 
     }
+    div#map {
+      margin: 0;
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+      button {
+        border: none;
+        width: 10%;
+        height: 40px;
+        margin-right: 25%;
+        font-weight: bold;
+        right: 20%;
+      }
+
+      button:hover {
+        background-color: #dedcee;
+      }
 
     table.main {
       font-family: 'InfinitySans-RegularA1';
       margin: auto;
-      padding: 40px;
+      padding: 40px 0 40px 80px;
       width: 50%;
       white-space: nowrap;
-      /* left: px; */
+
     }
 
     table.main th {
@@ -43,6 +66,7 @@
       text-align: center;
       padding: 25px 0 25px 0;
       font-family: 'InfinitySans-RegularA1';
+      font-size: ;
     }
 
 
@@ -89,6 +113,12 @@
 <body>
   <div>
     <h2>첨단전천후배드민턴장</h2>
+    <div id="map">
+    <button>
+      <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
+        type="button">시설 위치 찾기</a>
+    </button>
+    </div>
     <table class=main>
       <tr>
         <th rowspan="2">이용료</th>
@@ -296,13 +326,8 @@
   </tr>
   </table>
   <div class="map">
-    <dl>
-      <div id="map"></div>
-      <button>
-        <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
-          type="button">시설 위치 찾기</a>
-      </button>
-    </dl>
+
+  
   </div>
   </div>
 </body>

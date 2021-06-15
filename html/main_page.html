@@ -1,111 +1,116 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test3</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+    </style>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>test3</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
-  </style>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        font-family: "Roboto Condensed", sans-serif;
+      }
 
-    body {
-      font-family: "Noto Sans KR", sans-serif;
-      font-family: "Roboto Condensed", sans-serif;
-    }
+      nav#main_nav {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        height: 70px;
+        background-color: #fffcf0;
+      }
 
-    nav#main_nav {
-      width: 100%;
-      display: flex;
-      position: absolute;
-      top: 0;
-      z-index: 3;
-      height: 70px;
-      background-color: #fffcf0;
-    }
+      nav#main_nav h1 {
+        color: rgb(56, 56, 56);
+        text-shadow: 1px 1px 1px;
+        font-size: 40px;
+        font-weight: 900;
+        padding: 0px 0px 5px 5px;
+        margin: 5px;
+        width: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+      }
 
-    nav#main_nav h1 {
-      color: rgb(56, 56, 56);
-      text-shadow: 1px 1px 1px;
-      font-size: 40px;
-      font-weight: 900;
-      padding: 0px 0px 5px 5px;
-      margin: 5px;
-      width: 20px;
-      box-sizing: border-box;
-      text-align: center;
-      font-family: "Roboto", sans-serif;
-    }
+      nav#main_nav img {
+        width: 70px;
+        height: 50px;
+        margin: 10px 10px 10px 60px;
+      }
 
-    nav#main_nav img {
-      width: 70px;
-      height: 50px;
-      margin: 10px 10px 10px 60px;
-    }
+      nav#main_nav ul {
+        right: 10px;
+        position: absolute;
+      }
 
-    nav#main_nav ul {
-      right: 10px;
-      position: absolute;
-    }
+      li {
+        list-style: none;
+      }
 
-    li {
-      list-style: none;
-    }
+      nav#main_nav li {
+        float: left;
+        padding: 20px 30px 0px 0px;
+        color: rgb(0, 0, 0);
+      }
 
-    nav#main_nav li {
-      float: left;
-      padding: 20px 30px 0px 0px;
-      color: rgb(0, 0, 0);
-    }
+      nav#main_nav li:nth-child(2) {
+        margin-right: 470px;
+      }
 
-    nav#main_nav li:nth-child(2) {
-      margin-right: 470px;
-    }
+      section.contents > h2 {
+        color: #6a60a9;
+        font-size: 70px;
+        text-align: center;
+        transform: translate(0, 100px);
+        text-shadow: 3px 3px 3px rgb(119, 119, 119);
+        font-family: "Open Sans", sans-serif;
+      }
 
-    section.contents>h2 {
-      color: #6a60a9;
-      font-size: 70px;
-      text-align: center;
-      transform: translate(0, 100px);
-      text-shadow: 3px 3px 3px rgb(119, 119, 119);
-      font-family: "Open Sans", sans-serif;
-    }
+      section.contents > p {
+        color: #4b4570;
+        text-align: center;
+        position: relative;
+        top: 120px;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px 0.5;
+      }
 
-    section.contents>p {
-      color: #4b4570;
-      text-align: center;
-      position: relative;
-      top: 120px;
-      font-size: 20px;
-      font-weight: bold;
-      text-shadow: 1px 1px 1px 0.5;
-    }
+      section.contents {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+      }
 
-    section.contents {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-    }
+      section.contents {
+        background-size: cover;
+        top: 0;
+        height: 100vh;
+        position: absolute;
+        background-color: #dedcee;
+      }
 
-    section.contents {
-      background-size: cover;
-      top: 0;
-      height: 100vh;
-      position: absolute;
-      background-color: #dedcee;
-    }
-
-    /* section.contents div#img1::before {
+      /* section.contents div#img1::before {
         content: "";
         opacity: 0.5;
         position: absolute;
@@ -117,212 +122,211 @@
         height: 100vh;
       } */
 
-    div.main_box {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      top: 80px;
-    }
+      div.main_box {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 80px;
+      }
 
-    div.main_box div {
-      width: 250px;
-      height: 250px;
+      div.main_box div {
+        width: 250px;
+        height: 250px;
 
-      margin: 150px 40px 150px 40px;
-    }
+        margin: 150px 40px 150px 40px;
+      }
 
-    div>div#box1 h1 {
-      position: relative;
-      text-align: center;
-      color: white;
-      font-size: 60px;
-      visibility: hidden;
-      margin: 50px auto;
-      /* visibility: hidden; 영역을 차지하면서 숨김 */
-    }
+      div > div#box1 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
+        /* visibility: hidden; 영역을 차지하면서 숨김 */
+      }
 
-    div>div#box1:hover {
-      box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+      div > div#box1:hover {
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
 
-      cursor: pointer;
-      transition: 0.5s;
-    }
+        cursor: pointer;
+        transition: 0.5s;
+      }
 
-    div>div#box1:hover h1 {
-      visibility: visible;
-      transition: 0.5s;
-      /* text-align: center; */
-      /* 보이게 하기 */
-    }
+      div > div#box1:hover h1 {
+        visibility: visible;
+        transition: 0.5s;
+        /* text-align: center; */
+        /* 보이게 하기 */
+      }
 
-    div#box2 h1 {
-      position: relative;
-      text-align: center;
-      color: white;
-      font-size: 60px;
-      visibility: hidden;
-      margin: 50px auto;
-      /* visibility: hidden; 영역을 차지하면서 숨김 */
-    }
+      div#box2 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
+        /* visibility: hidden; 영역을 차지하면서 숨김 */
+      }
 
-    div#box2:hover {
-      box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+      div#box2:hover {
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
 
-      cursor: pointer;
-      transition: 0.5s;
-    }
+        cursor: pointer;
+        transition: 0.5s;
+      }
 
-    div#box2:hover h1 {
-      visibility: visible;
-      transition: 0.5s;
-      /* text-align: center; */
-      /* 보이게 하기 */
-    }
+      div#box2:hover h1 {
+        visibility: visible;
+        transition: 0.5s;
+        /* text-align: center; */
+        /* 보이게 하기 */
+      }
 
-    div#box3 h1 {
-      position: relative;
-      text-align: center;
-      color: white;
-      font-size: 60px;
-      visibility: hidden;
-      margin: 50px auto;
-      word-spacing: 5px;
-      /* visibility: hidden; 영역을 차지하면서 숨김 */
-    }
+      div#box3 h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        visibility: hidden;
+        margin: 50px auto;
+        word-spacing: 5px;
+        /* visibility: hidden; 영역을 차지하면서 숨김 */
+      }
 
-    div#box3:hover {
-      box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
+      div#box3:hover {
+        box-shadow: 250px 0 0 0 rgba(0, 0, 0, 0.6) inset;
 
-      cursor: pointer;
-      transition: 0.5s;
-    }
+        cursor: pointer;
+        transition: 0.5s;
+      }
 
-    div#box3:hover h1 {
-      visibility: visible;
-      transition: 0.5s;
-      /* text-align: center; */
-      /* 보이게 하기 */
-    }
+      div#box3:hover h1 {
+        visibility: visible;
+        transition: 0.5s;
+        /* text-align: center; */
+        /* 보이게 하기 */
+      }
 
-    div#box1 {
-      background-color: rgba(0, 0, 0, 0.3);
-      background-size: 100% 100%;
-      position: relative;
-    }
+      div#box1 {
+        background-color: rgba(0, 0, 0, 0.3);
+        background-size: 100% 100%;
+        position: relative;
+      }
 
-    div#box2 {
-      background-color: rgba(0, 0, 0, 0.3);
-      background-size: 100% 100%;
-      position: relative;
-    }
+      div#box2 {
+        background-color: rgba(0, 0, 0, 0.3);
+        background-size: 100% 100%;
+        position: relative;
+      }
 
-    div#box3 {
-      background-color: rgba(0, 0, 0, 0.3);
-      background-size: 100% 100%;
-      position: relative;
-    }
+      div#box3 {
+        background-color: rgba(0, 0, 0, 0.3);
+        background-size: 100% 100%;
+        position: relative;
+      }
 
-    div#box1 i {
-      color: white;
-      position: relative;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -55%);
-    }
+      div#box1 i {
+        color: white;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -55%);
+      }
 
-    div#box2 i {
-      color: white;
-      position: relative;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -60%);
-    }
+      div#box2 i {
+        color: white;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -60%);
+      }
 
-    div#box3 i {
-      color: white;
-      position: relative;
-      left: 50%;
-      top: 50%;
-      transform: translate(-40%, -55%);
-    }
+      div#box3 i {
+        color: white;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-40%, -55%);
+      }
 
-    section.contents>h3 {
-      color: white;
-      height: 20px;
+      section.contents > h3 {
+        color: white;
+        height: 20px;
 
-      display: inline-block;
-      position: absolute;
-      bottom: 0;
-    }
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+      }
 
-    footer {
-      color: white;
-      background-color: rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      height: 21px;
-      width: 100%;
-      bottom: 1px;
-      position: absolute;
-      text-align: center;
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1번 Box 클릭
-      document.querySelector("div#box1").addEventListener("click", () => {
-        location.href = "search_page.html";
+      footer {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        height: 21px;
+        width: 100%;
+        bottom: 1px;
+        position: absolute;
+        text-align: center;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1번 Box 클릭
+        document.querySelector("div#box1").addEventListener("click", () => {
+          location.href = "search_page.html";
+        });
+
+        // 2번 Box 클릭
+        document.querySelector("div#box2").addEventListener("click", () => {
+          location.href = "map_page.html";
+        });
+
+        // 3번 Box 클릭
+        document.querySelector("div#box3").addEventListener("click", () => {
+          location.href = "3번Box.html";
+        });
       });
+    </script>
+  </head>
 
-      // 2번 Box 클릭
-      document.querySelector("div#box2").addEventListener("click", () => {
-        location.href = "map_page.html";
-      });
-
-      // 3번 Box 클릭
-      document.querySelector("div#box3").addEventListener("click", () => {
-        location.href = "3번Box.html";
-      });
-    });
-  </script>
-</head>
-
-<body>
-  <header>
-    <nav id="main_nav">
-      <img src="../project_my/image/로고2.png">
-      <h1> </h1>
-      <ul>
-        <li>Search</li>
-        <li>Map</li>
-        <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
-        <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
-        <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
-      </ul>
-    </nav>
-  </header>
-  <div id="s_left"></div>
-  <div id="s_right"></div>
-  <section class="contents">
-    <h2>B A S I C</h2>
-    <p>"배우는 길에 있어서는, 이제 그만하자고 끝을 맺을 때가 없는 것이다.</p>
-    <p>사람은 그 일생을 통하여 배워야 하고,</p>
-    <p>배우지 않으면 어두운 밤에 길을 걷는 사람처럼 길을 잃고 말 것이다."</p>
-    <div class="main_box">
-      <div id="box1">
-        <i class="fas fa-search fa-7x"></i>
-        <h1>search</h1>
+  <body>
+    <header>
+      <nav id="main_nav">
+        <img src="../project_my/image/로고2.png" />
+        <h1></h1>
+        <ul>
+          <li>Search</li>
+          <li>Map</li>
+          <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
+          <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
+          <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="s_left"></div>
+    <div id="s_right"></div>
+    <section class="contents">
+      <h2>B A S I C</h2>
+      <p>"배우는 길에 있어서는, 이제 그만하자고 끝을 맺을 때가 없는 것이다.</p>
+      <p>사람은 그 일생을 통하여 배워야 하고,</p>
+      <p>배우지 않으면 어두운 밤에 길을 걷는 사람처럼 길을 잃고 말 것이다."</p>
+      <div class="main_box">
+        <div id="box1">
+          <i class="fas fa-search fa-7x"></i>
+          <h1>search</h1>
+        </div>
+        <div id="box2">
+          <i class="fas fa-map-marked-alt fa-7x"></i>
+          <h1>map</h1>
+        </div>
+        <div id="box3">
+          <i class="fas fa-edit fa-7x"></i>
+          <h1>Q&A</h1>
+        </div>
       </div>
-      <div id="box2">
-        <i class="fas fa-map-marked-alt fa-7x"></i>
-        <h1>map</h1>
-      </div>
-      <div id="box3">
-        <i class="fas fa-edit fa-7x"></i>
-        <h1>Q&A</h1>
-      </div>
-    </div>
-    <footer>&copy;num5268@gamil.com</footer>
-  </section>
-</body>
-
+      <footer>&copy;num5268@gamil.com</footer>
+    </section>
+  </body>
 </html>
