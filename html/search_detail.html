@@ -14,21 +14,79 @@
       crossorigin="anonymous"
     ></script>
     <link href="../css/menu_nav.css" rel="stylesheet" />
+
     <style>
       dt,
       dd {
         display: inline-block;
       }
 
-      table,
-      tr,
-      td {
-        border: 1px solid darkblue;
+    @font-face {
+      font-family: 'InfinitySans-RegularA1';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+
+    }
+    div#map {
+      margin: 0;
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+      button {
+        border: none;
+        width: 10%;
+        height: 40px;
+        margin-right: 25%;
+        font-weight: bold;
+        right: 20%;
+      }
+
+      button:hover {
+        background-color: #dedcee;
+      }
+
+    table.main {
+      font-family: 'InfinitySans-RegularA1';
+      margin: auto;
+      padding: 40px 0 40px 80px;
+      width: 50%;
+      white-space: nowrap;
+
+    }
+
+    table.main th {
+      /* border-top :hidden; */
+      border-right: 1px solid black;
+      background-color: #dedcee;
+    }
+
+    table.main td {
+      padding-left: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 25px 0 25px 0;
+      font-family: 'InfinitySans-RegularA1';
+    }
+
+
+
+    /* table.main  {
+        margin: auto;
+        border: 1px solid black;
         border-collapse: collapse;
+        background-color: yellow;
         text-align: center;
         padding: 5px;
         margin: 5px;
-      }
+      } */
 
       dt.border {
         border-right: 1px solid darkcyan;
@@ -52,138 +110,255 @@
         <dd>
           유료 - 대관료
           <table>
-            <tr>
-              <td rowspan="6"><div>실내 배드민턴장</div></td>
-              <td colspan="2" rowspan="2"><div>체육행사</div></td>
-              <td><div>주간</div></td>
-              <td><div>45,000</div></td>
-              <td><div>30,000</div></td>
-            </tr>
-            <tr>
-              <td><div>야간</div></td>
-              <td><div>90,000</div></td>
-              <td><div>60,000</div></td>
-            </tr>
-            <tr>
-              <td colspan="1" rowspan="4"><div>체육 행사 이외</div></td>
-              <td rowspan="2"><div>영리</div></td>
-              <td><div>주간</div></td>
-              <td><div>150,000</div></td>
-              <td><div>100,000</div></td>
-            </tr>
-            <tr>
-              <td><div>야간</div></td>
-              <td><div>225,000</div></td>
-              <td><div>150,000</div></td>
-            </tr>
-            <tr>
-              <td rowspan="2"><div>비영리</div></td>
-              <td><div>주간</div></td>
-              <td><div>90,000</div></td>
-              <td><div>60,000</div></td>
-            </tr>
-            <tr>
-              <td><div>야간</div></td>
-              <td><div>135,000</div></td>
-              <td><div>90,000</div></td>
-            </tr>
-          </table>
-          - 이용료
-          <table>
-            <tr>
-              <td rowspan="6"><div>실내 배드민턴장</div></td>
-              <td rowspan="3"><div>개인</div></td>
-              <td><div>일반</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>2,000</div></td>
-            </tr>
-            <tr>
-              <td><div>군경, 청소년</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>1,300</div></td>
-            </tr>
-            <tr>
-              <td><div>어린이</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>1,000</div></td>
-            </tr>
-            <tr>
-              <td rowspan="3"><div>회원</div></td>
-              <td><div>일반</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>40,000</div></td>
-            </tr>
-            <tr>
-              <td><div>군경, 청소년</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>30,000</div></td>
-            </tr>
-            <tr>
-              <td><div>어린이</div></td>
-              <td><div>1회 2시간</div></td>
-              <td><div>20,000</div></td>
-            </tr>
-          </table>
-        </dd>
-      </dl>
-      <dl>
-        <dt class="border">이용 가능 시간</dt>
-        <dd>※ 준비 및 마무리 시간 포함됨</dd>
-        <dl>
-          <dd />
-          <dd />
-          <dd />
-          <dd>※ 시설 운영 및 기타 사정으로 인해서 변경 가능함.</dd>
-        </dl>
-        <dl>
-          <dd />
-          <dd />
-          <dd />
-          <dd />
-          <dt>주중(월 ~ 금)</dt>
-          <dd>09:00 ~ 18:00</dd>
-        </dl>
-        <dl>
-          <dd />
-          <dd />
-          <dd />
-          <dd />
-          <dt>주말(토, 일)</dt>
-          <dd>09:00 ~ 18:00</dd>
-        </dl>
-      </dl>
-      <dl>
-        <dt class="border">종목 (종류)</dt>
-        <dd>배드민턴 (실내)</dd>
-      </dl>
-      <dl>
-        <dt class="border">전화번호</dt>
-        <dd>062) 960 - 9923</dd>
-      </dl>
+    table.t1 tr td {
+      font-family: 'InfinitySans-RegularA1';
+      margin: auto;
+      border: 1px solid black;
+      /* border-collapse: collapse; */
+      text-align: center;
+      padding: 5px;
+      margin: 5px;
+    }
 
-      <dl>
-        <dt class="border">이용</dt>
-        <dd>누구나 가능</dd>
-      </dl>
-      <dl>
-        <dt class="border">위치</dt>
-        <dd>광주 광산구 산월동 819-8</dd>
-      </dl>
-      <dl>
-        <dt class="border">문의</dt>
-        <dd>광주광역시 광산구 시설관리공단</dd>
-        <dd>062) 960 - 9923</dd>
-      </dl>
-      <div class="map">
-        <dl>
-          <div id="map"></div>
-          <a
-            href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
-            type="button"
-            >길찾기</a
-          >
-        </dl>
-      </div>
+    table.t2 tr td {
+      font-family: 'InfinitySans-RegularA1';
+      margin: auto;
+      border: 1px solid black;
+      /* border-collapse: collapse; */
+      text-align: center;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    /* body {
+        background-color: #fffcf0;*/
+
+    td#p {
+      padding: 20px 0 20px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h2>첨단전천후배드민턴장</h2>
+    <div id="map">
+    <button>
+      <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
+        type="button">시설 위치 찾기</a>
+    </button>
     </div>
-  </body>
+    <table class=main>
+      <tr>
+        <th rowspan="2">이용료</th>
+        <td>
+          <div style="font-weight: bold;">유료 - 대관료</div><br>
+          <table class="t1" style="border-collapse: collapse;">
+            <tr>
+              <td rowspan="6">
+                <div>실내 배드민턴장</div>
+              </td>
+              <td colspan="2" rowspan="2">
+                <div>체육행사</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>45,000</div>
+              </td>
+              <td>
+                <div>30,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+              <td>
+                <div>60,000</div>
+              </td>
+
+            <tr>
+              <td colspan="1" rowspan="4">
+                <div>체육 행사 이외</div>
+              </td>
+              <td rowspan="2">
+                <div>영리</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>150,000</div>
+              </td>
+              <td>
+                <div>100,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>225,000</div>
+              </td>
+              <td>
+                <div>150,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                <div>비영리</div>
+              </td>
+              <td>
+                <div>주간</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+              <td>
+                <div>60,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>야간</div>
+              </td>
+              <td>
+                <div>135,000</div>
+              </td>
+              <td>
+                <div>90,000</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div style="font-weight: bold;">이용료</div><br>
+          <table class="t2" style="border-collapse: collapse;">
+            <tr>
+              <td rowspan="6">
+                <div>실내 배드민턴장</div>
+              </td>
+              <td rowspan="3">
+                <div>개인</div>
+              </td>
+              <td>
+                <div>일반</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>2,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>군경, 청소년</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>1,300</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>어린이</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>1,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3">
+                <div>회원</div>
+              </td>
+              <td>
+                <div>일반</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>40,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>군경, 청소년</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>30,000</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>어린이</div>
+              </td>
+              <td>
+                <div>1회 2시간</div>
+              </td>
+              <td>
+                <div>20,000</div>
+  </div>
+  </td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+    <th>이용가능시간</th>
+    <td id="p">
+      <div>※ 준비 및 마무리 시간 포함됨<br>
+        ※ 시설 운영 및 기타 사정으로 인해서 변경 가능함.<br>
+        주중(월 ~ 금) 09:00 ~ 18:00 <br>
+        주말(토, 일) 09:00 ~ 18:00
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th>종목 (종류)</th>
+    <td>배드민턴 (실내)</td>
+  </tr>
+  <tr>
+    <th>전화번호</th>
+    <td>062) 960 - 9923</td>
+  </tr>
+  <tr>
+    <th>이용</th>
+    <td>누구나 가능</td>
+  </tr>
+  <tr>
+    <th>위치</th>
+    <td>광주 광산구 산월동 819-8</td>
+  </tr>
+  <tr>
+    <th>문의</th>
+    <td>광주광역시 광산구 시설관리공단 <br>
+      062) 960 - 9923
+    </td>
+  </tr>
+  </table>
+  <div class="map">
+
+  
+  </div>
+  </div>
+</body>
+
 </html>
