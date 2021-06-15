@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>목록 게시판</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="../css/menu_nav.css" rel="stylesheet" />
     <style>
       h2 {
         margin: 30px auto;
@@ -58,13 +64,9 @@
         
       } */
       div.button {
-
-     
         text-align: center;
-        
-        /* padding: 10px; */
-        
 
+        /* padding: 10px; */
       }
       button {
         border: none;
@@ -79,7 +81,6 @@
       }
     </style>
     <script>
-
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("table").addEventListener("click", () => {
           location.href = "search_detail copy.html";
@@ -98,6 +99,14 @@
   </head>
 
   <body>
+    <nav id="main_nav">
+      <img src="../project_my/image/로고2.png" />
+      <ul>
+        <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
+        <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
+        <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+      </ul>
+    </nav>
     <h2>검색 결과</h2>
     <table>
       <tr class="first">
