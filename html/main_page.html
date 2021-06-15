@@ -66,10 +66,11 @@
       float: left;
       padding: 20px 30px 0px 0px;
       color: rgb(0, 0, 0);
+      cursor: pointer;
     }
 
     nav#main_nav li:nth-child(2) {
-      margin-right: 470px;
+      margin-right: 380px;
     }
 
     section.contents>h2 {
@@ -256,21 +257,33 @@
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // nav에 로고 클릭하면 main화면으로 이동
+      document.querySelector("img").addEventListener("click", ()=> {
+        alert("Home으로 이동합니다.");
+      });
+      // nav에 Search와 Map 연결
+      document.querySelector("li#search").addEventListener("click", ()=> {
+        alert("검색창으로 이동합니다.");
+      });
+      document.querySelector("li#map").addEventListener("click", ()=> {
+        alert("지도로 이동합니다.");
+      });
+
       // 1번 Box 클릭
       document.querySelector("div#box1").addEventListener("click", () => {
-        alert("검색창으로 이동!");
+        alert("검색창으로 이동합니다.");
         location.href = "search_page.html";
       });
 
       // 2번 Box 클릭
       document.querySelector("div#box2").addEventListener("click", () => {
-        alert("지도 보기로 이동!");
+        alert("지도 보기로 이동합니다.");
         location.href = "map_page.html";
       });
 
       // 3번 Box 클릭
       document.querySelector("div#box3").addEventListener("click", () => {
-        alert("Q&A으로 이동!");
+        alert("Q&A으로 이동합니다.");
         location.href = "3번Box.html";
       });
     });
@@ -283,11 +296,11 @@
       <img src="../project_my/image/로고2.png" />
       <h1></h1>
       <ul>
-        <li>Search</li>
-        <li>Map</li>
-        <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
-        <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
-        <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+        <li id="search">Search</li>
+        <li id="map">Map</li>
+        <li id="instgram">instagram <i class="fab fa-instagram fa-lg"></i></li>
+        <li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+        <li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
       </ul>
     </nav>
   </header>

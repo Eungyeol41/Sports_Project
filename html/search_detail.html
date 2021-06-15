@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
   <title>시설 상세 정보</title>
   <style>
     * {
@@ -13,12 +14,65 @@
       border: 0;
     }
 
+    body {
+      padding-top: 70px;
+    }
+
     @font-face {
       font-family: 'InfinitySans-RegularA1';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
       font-weight: normal;
       font-style: normal;
 
+    }
+
+    nav#main_nav {
+      width: 100%;
+      display: flex;
+      position: absolute;
+      top: 0;
+      z-index: 3;
+      height: 70px;
+      background-color: #fffcf0;
+    }
+
+    nav#main_nav h1 {
+      color: rgb(56, 56, 56);
+      text-shadow: 1px 1px 1px;
+      font-size: 40px;
+      font-weight: 900;
+      padding: 0px 0px 5px 5px;
+      margin: 5px;
+      width: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    nav#main_nav img {
+      width: 70px;
+      height: 50px;
+      margin: 10px 10px 10px 60px;
+    }
+
+    nav#main_nav ul {
+      right: 10px;
+      position: absolute;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    nav#main_nav li {
+      float: left;
+      padding: 20px 30px 0px 0px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+
+    nav#main_nav li:nth-child(2) {
+      margin-right: 700px;
     }
 
     div#map {
@@ -96,12 +150,25 @@
   </style>
   <script>
     document.querySelector("button.btn_search").addEventListener("click", () => {
-      alert("시설 위치 지도로 이동!");
+      alert("시설 위치 지도로 이동합니다.");
     })
   </script>
 </head>
 
 <body>
+  <header>
+    <nav id="main_nav">
+      <img src="../project_my/image/로고2.png" />
+      <h1></h1>
+      <ul>
+        <li>Search</li>
+        <li>Map</li>
+        <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
+        <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
+        <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+      </ul>
+    </nav>
+  </header>
   <div>
     <h2>첨단전천후배드민턴장</h2>
     <div id="map">
