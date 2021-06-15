@@ -140,9 +140,11 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("table.list").addEventListener("click", () => {
+        alert("시설 상세정보로 이동!");
         location.href = "search_detail.html";
       });
       document.querySelector("button#btn_search").addEventListener("click", () => {
+        alert("검색 결과로 이동!");
         location.href = "board.html";
       });
       document.querySelector('input[name="ch_all"]').addEventListener("change", function (e) {
