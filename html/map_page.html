@@ -27,15 +27,33 @@
       width: 350px;
       height: 200px;
       position: fixed;
-      background-color: rgb(0, 119, 255);
+      background-color: #dedcee;
       overflow: hidden;
     }
 
     header.main_head div {
       color: white;
-      float: right;
+      /* float: right; */
       padding: 10px;
       font-size: 13px;
+    }
+    header.main_head div {
+      color: #4b4570;
+      /* float: right; */
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    div.check {
+      text-align: right;
+      font-family: 'InfinitySans-RegularA1'
+
+
+    }
+
+    div.check input#ch2 {
+      margin-left: 15px;
+      border: hidden;
     }
 
     h2 {
@@ -63,7 +81,7 @@
       height: 40px;
       width: 100%;
       position: relative;
-      margin-top: 70px;
+      margin-top: 50px;
     }
 
     form#main_sch input#sch {
@@ -139,8 +157,10 @@
 <body>
   <div class="head">
     <header class="main_head">
-      <div><input type="checkbox" name="ch" id="ch1" /> 현 지도에서 검색</div>
-      <div><input type="checkbox" name="ch" id="ch2" /> 현위치 주변</div>
+      <div class="check">
+        <input type="checkbox" name="ch" id="ch1"> 현 지도에서 검색</input>
+        <input type="checkbox" name="ch" id="ch2" /> 현위치 주변</input>
+      </div>
       <!-- <h2><i class="fas fa-map-marker-alt"></i> 위치로 보기</h2> -->
       <!-- <p> 
           <i class="fas fa-compact-disc"></i> 지도에 표시된 위치를
