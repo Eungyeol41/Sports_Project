@@ -94,6 +94,11 @@
       padding: 20px 0 20px 20px;
     }
   </style>
+  <script>
+    document.querySelector("button.btn_search").addEventListener("click", () => {
+      alert("시설 위치 지도로 이동!");
+    })
+  </script>
 </head>
 
 <body>
@@ -102,7 +107,7 @@
     <div id="map">
       <button>
         <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
-          type="button">시설 위치 찾기</a>
+          type="button" class="btn_search">시설 위치 찾기</a>
       </button>
     </div>
     <table class=main>
