@@ -11,6 +11,26 @@ nav#main_nav {
   height: 70px;
   background-color: #fffcf0;
 }
+nav#main_nav li:nth-child(2) {
+  text-align: center;
+  transform: translateX(-50%);
+  padding-right: 50px;
+  position: absolute;
+  right: 200%;
+}
+nav#main_nav li:hover:nth-child(2) {
+  cursor: pointer;
+}
+nav#main_nav li:nth-child(1) {
+  text-align: center;
+  transform: translateX(-50%);
+  position: absolute;
+  right: 230%;
+  padding-right: 40px;
+}
+nav#main_nav li:hover:nth-child(1) {
+  cursor: pointer;
+}
 
 /* nav#main_nav h1 {
   color: rgb(56, 56, 56);
@@ -28,9 +48,6 @@ nav#main_nav img {
 }
 
 nav#main_nav ul {
-  right: 10px;
-  position: absolute;
-  display: flex;
 }
 li {
   list-style: none;

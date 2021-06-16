@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     ></script>
     <link href="../css/menu_nav.css" rel="stylesheet" />
+    <script src="../js/navscript.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
     </style>
@@ -59,6 +60,9 @@
         height: 50px;
         margin: 10px 10px 10px 60px;
       }
+      nav#main_nav img:hover {
+        cursor: pointer;
+      }
 
       nav#main_nav ul {
         right: 10px;
@@ -75,34 +79,47 @@
         color: rgb(0, 0, 0);
       }
 
-      nav#main_nav li:nth-child(2) {
-        margin-right: 470px;
-      }
-
       section.contents > h2 {
         height: 220px;
         color: #ffffff;
         font-size: 60px;
         text-align: center;
-        transform: translate(0, 140px);
+        transform: translate(0, 180px);
         text-shadow: 1px 1px 1px rgb(99, 99, 99);
         font-family: "Noto Sans KR", sans-serif;
       }
 
-      section.contents > p {
-        color: #4b4570;
-        text-align: center;
+      p {
+        color: #ffffff;
+        text-align: right;
         position: relative;
-        top: 80px;
+        transform: translate(-5%, -40%);
         font-size: 20px;
-        font-weight: bold;
         text-shadow: 1px 1px 1px 0.5;
+        top: 60%;
+      }
+      p.text1 {
+        text-align: center;
+        font-size: 25px;
+        transform: translateY(-150px);
       }
 
       section.contents {
         height: 100vh;
         width: 100%;
         position: relative;
+        overflow: hidden;
+      }
+      section.contents > div.sq_box {
+        background-color: rgba(152, 118, 207, 0.3);
+        height: 3000px;
+        width: 2000px;
+
+        transform: translate(-50%, -50%);
+        transform: rotate(70deg);
+        position: absolute;
+        top: -10%;
+        left: 10%;
         overflow: hidden;
       }
 
@@ -130,7 +147,7 @@
         justify-content: center;
         position: fixed;
         left: 50%;
-        top: 30%;
+        top: 20%;
         transform: translateX(-50%);
       }
 
@@ -138,7 +155,7 @@
         width: 250px;
         height: 250px;
 
-        margin: 150px 40px 150px 40px;
+        margin: 150px 20px;
       }
 
       div > div#box1 h1 {
@@ -269,10 +286,11 @@
         color: white;
         background-color: rgba(0, 0, 0, 0.3);
         display: inline-block;
-        height: 21px;
+        height: 25px;
         width: 100%;
-        text-align: center;
+        text-align: right;
         position: absolute;
+        padding-right: 30px;
         bottom: 0;
       }
     </style>
@@ -312,10 +330,9 @@
     <div id="s_left"></div>
     <div id="s_right"></div>
     <section class="contents">
-      <h2>광주 체육센터 검색 사이트</h2>
-      <p>"배우는 길에 있어서는, 이제 그만하자고 끝을 맺을 때가 없는 것이다.</p>
-      <p>사람은 그 일생을 통하여 배워야 하고,</p>
-      <p>배우지 않으면 어두운 밤에 길을 걷는 사람처럼 길을 잃고 말 것이다."</p>
+      <h2>FIRST PROJECT GBC</h2>
+      <div class="sq_box"></div>
+
       <div class="main_box">
         <div id="box1">
           <i class="fas fa-search fa-7x"></i>
@@ -330,7 +347,13 @@
           <h1>Q&A</h1>
         </div>
       </div>
-      <footer>&copy;num5268@gamil.com</footer>
+
+      <p class="text1">
+        우리 주변에 체육시설을 감색과 위치, 지도를 사용해<br />
+        빠르고 정확하게 찾을 수 있게 도와드립니다
+      </p>
+
+      <footer>CopyRight&copy;GPC2021@gamil.com</footer>
     </section>
   </body>
 </html>

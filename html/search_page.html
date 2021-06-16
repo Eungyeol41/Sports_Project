@@ -9,6 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/ce0a08be66.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="../css/menu_nav.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+    </style>
     <style>
       * {
         margin: 0;
@@ -142,11 +150,13 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("table.list").addEventListener("click", () => {
+          alert("시설 상세정보로 이동!");
           location.href = "search_detail.html";
         });
         document
           .querySelector("button#btn_search")
           .addEventListener("click", () => {
+            alert("검색 결과로 이동!");
             location.href = "board.html";
           });
         document
@@ -181,6 +191,16 @@
   </head>
 
   <body>
+    <nav id="main_nav">
+      <img src="../project_my/image/로고2.png" />
+      <ul>
+        <li>Search</li>
+        <li>Map</li>
+        <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
+        <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
+        <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+      </ul>
+    </nav>
     <h1>광주광역시 체육시설 찾아보기</h1>
     <table class="search">
       <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
@@ -302,4 +322,3 @@
     </table>
   </body>
 </html>
->>>>>>> d9c6bd7e9309919ab1689c690693fd46c30745e0
