@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 : 1 문의하기</title>
+    <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0%;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+
+        nav#main_nav {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 3;
+            height: 70px;
+            background-color: #fffcf0;
+        }
+
+        nav#main_nav ul {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        li {
+            list-style: none;
+            align-items: center;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+
+        nav#main_nav li {
+            padding: 5px 12px;
+            color: rgba(0, 0, 0, 0.6);
+            display: flex;
+        }
+
+        nav#main_nav img {
+            width: 70px;
+            height: 50px;
+        }
+
+        li:first-child {
+            margin-right: auto;
+        }
+
+        li:nth-child(4) {
+            margin-left: auto;
+        }
+
+        div {
+            margin: 20px auto;
+            padding: 10px 0 30px 0;
+        }
+
+        div.h2,
+        div.table,
+        div.button {
+            display: flex;
+            justify-content: center;
+        }
+
+        table,
+        tr,
+        th {
+            border: 1px solid #6a60a9;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 6px;
+        }
+
+        table,
+        tr {
+            width: 60%;
+        }
+
+        th.sec1 {
+            background-color: #dedcee;
+        }
+
+        input,
+        textarea {
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        button {
+            border: none;
+            width: 10%;
+            height: 40px;
+            font-weight: bold;
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        button:hover {
+            background-color: #dedcee;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("button#enter").addEventListener("click", () => {
+                alert("1대 1 문의 페이지로 이동합니다.");
+                location.href = "Q&A_list.html";
+            });
+            document.querySelector("button#reset").addEventListener("click", () => {
+                alert("쓴 내용이 모두 삭제됩니다.");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav id="main_nav">
+            <ul>
+                <li><img src="../project_my/image/로고2.png" /></li>
+                <li id="search">Search</li>
+                <li id="map">Map</li>
+                <li id="instgram">instagram <i class="fab fa-instagram fa-lg"></i></li>
+                <li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+                <li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div class="h2">
+            <h2>문의사항</h2>
+        </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th class="sec1">제목</th>
+                    <th><input type="text"></th>
+                </tr>
+                <tr>
+                    <th class="sec1">글쓴이</th>
+                    <th><input type="text"></th>
+                </tr>
+                <tr>
+                    <th class="sec1">E-mail</th>
+                    <th><input type="email"></th>
+                </tr>
+                <tr>
+                    <th class="sec1">시설 이름</th>
+                    <th><input type="text"></th>
+                </tr>
+                <tr>
+                    <th class="sec1">문의 내용</th>
+                    <th><textarea rows="5"></textarea></th>
+                </tr>
+
+            </table>
+        </div>
+        <div class="button">
+            <button id="enter">등록</button>
+            <button id="reset" type="reset">다시 쓰기</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -26,7 +26,6 @@
 
     nav#main_nav {
       width: 100%;
-      display: flex;
       position: absolute;
       top: 0;
       z-index: 3;
@@ -34,44 +33,44 @@
       background-color: #fffcf0;
     }
 
-    nav#main_nav h1 {
-      color: rgb(56, 56, 56);
-      text-shadow: 1px 1px 1px;
-      font-size: 40px;
-      font-weight: 900;
-      padding: 0px 0px 5px 5px;
-      margin: 5px;
-      width: 20px;
-      box-sizing: border-box;
-      text-align: center;
-      font-family: "Roboto", sans-serif;
+    nav#main_nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    li {
+      list-style: none;
+      align-items: center;
+    }
+
+    li:hover {
+      cursor: pointer;
+    }
+
+    nav#main_nav li {
+      padding: 5px 12px;
+      color: rgb(0, 0, 0);
+      display: flex;
     }
 
     nav#main_nav img {
       width: 70px;
       height: 50px;
-      margin: 10px 10px 10px 60px;
     }
 
-    nav#main_nav ul {
-      right: 10px;
-      position: absolute;
+    li:first-child {
+      margin-right: auto;
     }
 
-    li {
-      list-style: none;
+    li:nth-child(4) {
+      margin-left: auto;
     }
 
-    nav#main_nav li {
-      float: left;
-      padding: 20px 30px 0px 0px;
-      color: rgb(0, 0, 0);
-      cursor: pointer;
-    }
 
-    nav#main_nav li:nth-child(2) {
-      margin-right: 380px;
-    }
+
+
 
     section.contents>h2 {
       color: #6a60a9;
@@ -284,7 +283,7 @@
       // 3번 Box 클릭
       document.querySelector("div#box3").addEventListener("click", () => {
         alert("Q&A으로 이동합니다.");
-        location.href = "Q&A.html";
+        location.href = "3번Box.html";
       });
     });
   </script>
@@ -293,9 +292,8 @@
 <body>
   <header>
     <nav id="main_nav">
-      <img src="../project_my/image/로고2.png" />
-      <h1></h1>
       <ul>
+        <li><img src="../project_my/image/로고2.png" /></li>
         <li id="search">Search</li>
         <li id="map">Map</li>
         <li id="instgram">instagram <i class="fab fa-instagram fa-lg"></i></li>
