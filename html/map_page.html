@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title></title>
   <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
+  <link href="../css/map_page_css.css" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -14,115 +15,7 @@
       margin: 0;
     }
 
-    div.head {
-      height: 100vh;
-      width: 350px;
-      background-color: white;
-      position: fixed;
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-      z-index: 3;
-    }
-
-    header.main_head {
-      padding: 0;
-      width: 350px;
-      height: 150px;
-      position: fixed;
-      background-color: #dedcee;
-      overflow: hidden;
-    }
-
-    header.main_head div {
-      color: white;
-      /* float: right; */
-      padding: 10px;
-      font-size: 13px;
-    }
-    header.main_head div {
-      color: #4b4570;
-      /* float: right; */
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    div.check {
-      text-align: right;
-      font-family: 'InfinitySans-RegularA1'
-
-
-    }
-
-    div.check input#ch2 {
-      margin-left: 15px;
-      border: hidden;
-    }
-
-    h2 {
-      font-size: 40px;
-      margin: 50px 0px 20px 0px;
-      text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgb(255, 255, 255);
-      width: 25% auto;
-      white-space: nowrap;
-      color: white;
-    }
-
-    p {
-      margin-left: 40px;
-      font-size: 15px;
-      margin: 0 auto;
-      text-align: center;
-      color: white;
-      padding: 20px 60px 10px 60px;
-      white-space: nowrap;
-    }
-
-    form#main_sch {
-      height: 40px;
-      width: 100%;
-      position: relative;
-      margin-top: 50px;
-    }
-
-    form#main_sch input#sch {
-      border-radius: 10px;
-      position: sticky;
-      height: 40px;
-      padding-left: 15px;
-      font-size: 20px;
-      border-style: none;
-      width: 300px;
-      display: block;
-      outline: 0;
-      margin: 30px auto;
-
-      transition: 0.3s;
-    }
-
-    form#main_sch button {
-      width: 100px;
-      height: 40px;
-      border: none;
-      border-left: 2px solid rgba(200, 200, 200, 0.8);
-      background-color: rgb(255, 255, 255);
-      font-size: 1em;
-      color: #636363;
-      position: inherit;
-      border-radius: 0 10px 10px 0px;
-      left: 280px;
-      top: -50px;
-      transform: translate(-50%, -50%);
-      margin: 0% auto;
-    }
-
-    input form#main_sch input#sch:hover {
-      border-style: none;
-    }
-
-    form#main_sch input#sch:visited {
-      border-style: outset;
-    }
+   
 
     .map {
       position: absolute;
@@ -154,15 +47,7 @@
     }
     
      
-      div.head article > img {
-        position:absolute;
-        top: 11%;
-        width: 360px;
-        height: 500px;
-        transform: translateX(-10px);
-        overflow: hidden;
-        z-index: -2;
-      }
+      
 
   </style>
 </head>
@@ -220,6 +105,7 @@
 </body>
 <script>
   document.querySelector("button#btn_map").addEventListener("click", () => {
+    alert("검색 결과로 이동합니다.");
     location.href = "board.html";
   });
 </script>

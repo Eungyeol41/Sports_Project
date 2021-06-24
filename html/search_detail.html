@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
   <title>시설 상세 정보</title>
   <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
@@ -42,18 +43,18 @@
       color: black;
     }
 
-      button {
-        border: none;
-        width: 10%;
-        height: 40px;
-        margin-right: 25%;
-        font-weight: bold;
-        right: 20%;
-      }
+    button {
+      border: none;
+      width: 10%;
+      height: 40px;
+      margin-right: 25%;
+      font-weight: bold;
+      right: 20%;
+    }
 
-      button:hover {
-        background-color: #dedcee;
-      }
+    button:hover {
+      background-color: #dedcee;
+    }
 
 
     table.main {
@@ -72,7 +73,7 @@
     }
 
     table.main td {
-      padding-left: 20px;
+      padding-left: 20px 0 20px 20ps;
     }
 
     h2 {
@@ -105,6 +106,11 @@
       padding: 20px 0 20px 20px;
     }
   </style>
+  <script>
+    document.querySelector("button.btn_search").addEventListener("click", () => {
+      alert("시설 위치 지도로 이동합니다.");
+    })
+  </script>
 </head>
 
 <body>
@@ -121,10 +127,10 @@
   <div>
     <h2>첨단전천후배드민턴장</h2>
     <div id="map">
-    <button>
-      <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
-        type="button">시설 위치 찾기</a>
-    </button>
+      <button>
+        <a href="http://map.daum.net/link/to/%EA%B4%91%EC%A3%BC+%EA%B4%91%EC%82%B0%EA%B5%AC+%EC%82%B0%EC%9B%94%EB%8F%99+819-8,35.21325761566636,126.85281730352263"
+          type="button" class="btn_search">시설 위치 찾기</a>
+      </button>
     </div>
     <table class=main>
       <tr>
@@ -334,7 +340,7 @@
   </table>
   <div class="map">
 
-  
+
   </div>
   </div>
 </body>
