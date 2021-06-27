@@ -14,14 +14,21 @@
       crossorigin="anonymous"
     ></script>
     <link href="../css/menu_nav.css" rel="stylesheet" />
+    <link href="../css/layout_css.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
     </style>
     <style>
-      h2 {
+
+      tr:hover:not(.first) {
+        background-color: #dedcee;
+        cursor: pointer;
+        color: darkblue;
+      }
+      /* h1 {
         margin: 30px auto;
         text-align: center;
-      }
+      } */
 
       * {
         box-sizing: border-box;
@@ -33,36 +40,7 @@
         font-family: "Roboto Condensed", sans-serif;
       }
 
-      table {
-        width: 80%;
-        margin: 0px auto;
-        border-top: 1px solid #6a60a9;
-        border-collapse: collapse;
-      }
 
-      th {
-        padding: 15px 10px;
-        border-top: 1px solid #6a60a9;
-        text-align: center;
-      }
-
-      tr.first {
-        background-color: #dedcee;
-      }
-
-      tr:not(.first) {
-        background-color: whitesmoke;
-      }
-
-      tr:hover:not(.first) {
-        background-color: #dedcee;
-        cursor: pointer;
-        color: darkblue;
-      }
-
-      th:nth-child(1) {
-        border-right: 1px dashed lavender;
-      }
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -85,10 +63,10 @@
         <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
       </ul>
     </nav>
-    <h2>검색 결과</h2>
-    <table>
-      <tr class="first">
-        <th>번호</th>
+    <h1>검색 결과</h1>
+    <table class="list">
+      <tr class="list first">
+        <th >번호</th>
         <th>시설 이름</th>
         <th>전화번호</th>
         <th>종목</th>

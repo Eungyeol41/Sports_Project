@@ -1,0 +1,15 @@
+use sports;
+
+create table tbl_sport (
+	sp_seq	BIGINT	auto_increment PRIMARY KEY,
+	sp_local	VARCHAR(5),		
+	sp_center	VARCHAR(10)	NOT NULL	,
+	sp_sport	VARCHAR(10)	NOT NULL	,
+	sp_money	VARCHAR(10)	,
+	sp_tel	VARCHAR(20)		,
+	sp_place	VARCHAR(50)	,	
+	sp_others	VARCHAR(50)		
+);
+
+select * FROM tbl_sport;
+
