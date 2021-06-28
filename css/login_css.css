@@ -1,0 +1,16 @@
+form#login_form {
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    margin: 50px auto;
+    /* background-color: #fffcf0; */
+    animation-name : aniTopDown;
+    animation-duration:0.8s;
+  
+}
+form#login_form h2 {
+    text-align: center;
+    margin: 30px auto;
+    padding-top: 20px;
+    color: #6a60a9;
+}

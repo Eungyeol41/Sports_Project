@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+ 
+        form#join_form {
+            width: 600px;
+            height: 600px;
+            text-align: center;
+            margin: 50px auto;
+        
+        }
+
+        form#join_form h2 {
+            text-align: center;
+            margin: 30px auto;
+            padding-top: 20px;
+            color: #6a60a9;
+        }
+
+        form#join_form label {
+            display: inline-block;
+            margin: 20px auto;
+            /* padding : 0px 10px 0px 10px; */
+            width: 120px;
+        }
+
+        form#join_form input {
+            outline: 0;
+            /* display: block; */
+            width: 200px;
+            margin: 15px auto;
+            padding: 14px 10px;
+            border: none;
+            border-bottom: 2px solid black;
+            background: none;
+            /* text-align: center; */
+            
+        }
+
+        form#join_form input:focus {
+            outline: none;
+        }
+
+        form#join_form button {
+            outline: none;
+            background: none;
+            cursor: pointer;
+            background-color: #dedcee;
+            font-weight: bold;
+            border: none;
+            padding: 5px 10px;
+          
+        }
+        form#join_form button#over {
+            display: inline-block;
+            /* transform: translateY(-50); */
+        }
+
+        form#join_form button#join {
+            display: block;
+            margin: 20px auto;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <form id="join_form">
+        <h2>회원가입</h1>
+        <div>
+        <label>ID</label>
+        <input name="id" type="text" id="id" placeholder="ID를 입력하세요">
+        <button type="button" id="over">중복확인</button></input>
+        </div>
+        <div>
+        <label>Password</label>
+        <input name="password" type="password" placeholder="Password를 입력하세요"/>
+        </div>
+        <div>
+        <label>Password 확인</label>
+        <input name="password" type="password" placeholder="Password를 한번 더 입력하세요"/>
+        </div>
+        <div>
+        <label>E_mail</label>
+        <input name="e_mail" type="email" placeholder="E_mail를 입력하세요"/>
+        </div>
+        <div>
+        <label>Tel</label>
+        <input name="tel" type="tel" placeholder="전화번호를 입력하세요"/>
+        </div>
+        <button type="submit" id="join">회원가입 완료</button>
+    </form>
+
+</body>
+</html>
