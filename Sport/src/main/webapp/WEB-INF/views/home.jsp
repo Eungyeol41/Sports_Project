@@ -27,6 +27,7 @@
     </style>
 
     <style>
+      
       * {
         box-sizing: border-box;
         margin: 0;
@@ -37,22 +38,23 @@
         font-family: "Noto Sans KR", sans-serif;
         font-family: "Roboto Condensed", sans-serif;
       }
+      
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // 1번 Box 클릭
         document.querySelector("div#box1").addEventListener("click", () => {
-          location.href = "search_page.html";
+          location.href = "${rootPath}/";
         });
 
         // 2번 Box 클릭
         document.querySelector("div#box2").addEventListener("click", () => {
-          location.href = "map_page.html";
+          location.href = "${rootPath}/";
         });
 
         // 3번 Box 클릭
         document.querySelector("div#box3").addEventListener("click", () => {
-          location.href = "3번Box.html";
+          location.href = "${rootPath}/";
         });
       });
     </script>
@@ -65,7 +67,7 @@
         <ul>
           <li>Search</li>
           <li>Map</li>
-          <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
+          <li>Instagram <i class="fab fa-instagram fa-lg"></i></li>
           <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
           <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
         </ul>
@@ -80,11 +82,11 @@
       <div class="main_box">
         <div id="box1">
           <i class="fas fa-search fa-7x"></i>
-          <h1>search</h1>
+          <h1>Search</h1>
         </div>
         <div id="box2">
           <i class="fas fa-map-marked-alt fa-7x"></i>
-          <h1>map</h1>
+          <h1>Map</h1>
         </div>
         <div id="box3">
           <i class="fas fa-edit fa-7x"></i>
@@ -97,7 +99,7 @@
         빠르고 정확하게 찾을 수 있게 도와드립니다
       </p>
 
-      <footer>CopyRight&copy;GPC2021@gamil.com</footer>
+      <footer>CopyRight&copy;GPC2021@gmail.com</footer>
     </section>
   </body>
 </html>
