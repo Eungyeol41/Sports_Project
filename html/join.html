@@ -10,9 +10,9 @@
         form#join_form {
             width: 600px;
             height: 600px;
-            text-align: center;
             margin: 50px auto;
-        
+         position: relative;
+         background-color: rgba(0, 0, 0, 0.3);
         }
 
         form#join_form h2 {
@@ -23,10 +23,12 @@
         }
 
         form#join_form label {
-            display: inline-block;
-            margin: 20px auto;
+            display: flex;
+            flex: auto;
+            margin-left: 50px;
+            width: 30px;
             /* padding : 0px 10px 0px 10px; */
-            width: 120px;
+            
         }
 
         form#join_form input {
@@ -38,8 +40,10 @@
             border: none;
             border-bottom: 2px solid black;
             background: none;
-            /* text-align: center; */
+            text-align: center; 
+            display: inline-block;
             
+
         }
 
         form#join_form input:focus {
@@ -58,7 +62,9 @@
         }
         form#join_form button#over {
             display: inline-block;
-            /* transform: translateY(-50); */
+            position: absolute;
+            transform: translateX(50px);
+
         }
 
         form#join_form button#join {
