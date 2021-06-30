@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +13,11 @@
             text-align: center;
             margin: 50px auto;
             /* background-color: #fffcf0; */
-            animation-name : aniTopDown;
-            animation-duration:0.8s;
-          
+            animation-name: aniTopDown;
+            animation-duration: 0.8s;
+
         }
+
         form#login_form h2 {
             text-align: center;
             margin: 30px auto;
@@ -35,6 +37,7 @@
             /* text-align: center; */
             transition: 0.3s;
         }
+
         form#login_form input:focus {
             outline: none;
         }
@@ -55,7 +58,7 @@
             background-color: #dedcee;
             font-weight: bold;
             border: none;
-            
+
         }
 
         form#login_form div.btn {
@@ -66,47 +69,45 @@
 
         form#login_form button#btn_id_pw {
             border: none;
-        
-        }
-        form#login_form button#btn_join {
-            border: none;
-        
+
         }
 
-        
+        form#login_form button#btn_join {
+            border: none;
+
+        }
+
+
         @keyframes aniTopDown {
             from {
-                top:-300px;
+                top: -300px;
                 opacity: 0;
             }
-            
+
             to {
-                top:50%;
+                top: 50%;
                 opacity: 1;
             }
         }
-
-
-        
     </style>
 </head>
+
 <body>
     <form id="login_form">
         <!-- <div class="msg">${MSG}</div> -->
         <h2>Login</h2>
         <div>
-        <!-- <label>ID</label> -->    
-        <input name="username" id="username" placeholder="사용자 ID"/>
+            <input type="search" name="username" id="username" placeholder="사용자 ID" />
         </div>
         <div>
-        <!-- <label>Password</label> -->
-        <input type="password" name="Password" id="Password" placeholder="비밀번호"/>
+            <input type="password" name="password" id="password" placeholder="비밀번호" />
         </div>
         <button type="button" id="btn_login">Login</button>
         <div class="btn">
-        <button type="button" id="btn_id_pw">ID/PW 찾기</button> 
-        <button id="btn_join" type="button">회원가입</button>
+            <button type="button" id="btn_id_pw">ID/PW 찾기</button>
+            <button id="btn_join" type="button">회원가입</button>
         </div>
     </form>
 </body>
+
 </html>
