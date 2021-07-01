@@ -10,10 +10,11 @@
 <link href="${rootPath}/static/css/login.css?ver=2021-07-01-001" rel="stylesheet" />
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header.jspf" %>
 	<form id="login_form">
 		<h2>Login</h2>
 		<div>
-			<input type="search" name="username" id="username"
+			<input type="text" name="username" id="username"
 				placeholder="사용자 ID" />
 		</div>
 		<div>
@@ -27,4 +28,10 @@
 		</div>
 	</form>
 </body>
+<script>
+	let modal = document.querySelector("form.modal");
+	document.querySelector("button").addEventListener("click", ()=> {
+		modal.classList.toggle("show-modal");
+	})
+</script>
 </html>

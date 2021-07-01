@@ -17,7 +17,7 @@
 </header>
 <script>
 	document.querySelector("nav#main_nav img").addEventListener("click", () => {
-		location.href = "";
+		location.href = "${rootPath}/";
 	});
 	
 	document.querySelector("li#search").addEventListener("click", () => {
