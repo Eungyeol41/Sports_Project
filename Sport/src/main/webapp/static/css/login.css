@@ -23,6 +23,19 @@ form#login_form {
 	animation-duration: 0.8s;
 }
 
+span.close-button {
+	float: right;
+	width: 1.5rem;
+	line-height: 1.5rem;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 0.25rem;
+}
+
+span.close-button:hover {
+	background-color: darkgray;
+}
+
 form#login_form h2 {
 	text-align: center;
 	margin: 30px auto;
@@ -86,4 +99,11 @@ to {
 	top: 50%;
 	opacity: 1;
 }
+
+}
+.show-modal {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1.0);
+	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }

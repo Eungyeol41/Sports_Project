@@ -7,15 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link href="${rootPath}/static/css/login.css?ver=2021-07-01-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/login.css?ver=2021-07-01-003"
+	rel="stylesheet" />
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.jspf" %>
+	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<form id="login_form">
+		<span class="close-button">&times;</span>
 		<h2>Login</h2>
 		<div>
-			<input type="text" name="username" id="username"
-				placeholder="사용자 ID" />
+			<input type="text" name="username" id="username" placeholder="사용자 ID" />
 		</div>
 		<div>
 			<input type="password" name="password" id="password"
@@ -30,8 +31,21 @@
 </body>
 <script>
 	let modal = document.querySelector("form.modal");
-	document.querySelector("button").addEventListener("click", ()=> {
+	
+	document.querySelector("li#login").addEventListener("click", ()=> {
 		modal.classList.toggle("show-modal");
 	})
+	
+	document.querySelector("span.close-button").addEventListener("click", ()=> {
+		modal.classList.toggle("show-modal");
+	})
+	
+	window.addEventListener("click", (e)=> {
+		if(e.target === modal) {
+			modal.classList.toggle("show-modal");
+		}
+	}) 
+	
+	
 </script>
 </html>

@@ -39,7 +39,7 @@ body {
 	<div id="s_left"></div>
 	<div id="s_right"></div>
 	<section class="contents">
-		<h2>FIRST PROJECT GBC</h2>
+		<h2>FIRST PROJECT GPC</h2>
 		<div class="sq_box"></div>
 
 		<div class="main_box">
