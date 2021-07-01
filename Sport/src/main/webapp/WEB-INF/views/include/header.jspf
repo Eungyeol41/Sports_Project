@@ -28,11 +28,12 @@
 		location.href = "${rootPath}/map";
 	});
 	
-	document.querySelector("li#login").addEventListener("click", () => {
-		location.href = "${rootPath}/user";
-	});
+	document.querySelector("li#login").addEventListener("click", ()=> {
+		modal.classList.toggle("show-modal");
+	})
 	
 	document.querySelector("li#join").addEventListener("click", () => {
 		location.href = "${rootPath}/user/join";
 	});
+	
 </script>

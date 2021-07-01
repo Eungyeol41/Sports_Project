@@ -12,29 +12,28 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
-	<form id="login_form">
-		<span class="close-button">&times;</span>
-		<h2>Login</h2>
-		<div>
-			<input type="text" name="username" id="username" placeholder="사용자 ID" />
-		</div>
-		<div>
-			<input type="password" name="password" id="password"
-				placeholder="비밀번호" />
-		</div>
-		<button type="button" id="btn_login">Login</button>
-		<div class="btn">
-			<button type="button" id="btn_id_pw">ID/PW 찾기</button>
-			<button id="btn_join" type="button">회원가입</button>
-		</div>
-	</form>
+	<div class="modal">
+		<form class="modal-content" id="login_form">
+			<span class="close-button">&times;</span>
+			<h2>Login</h2>
+			<div>
+				<input type="text" name="username" id="username"
+					placeholder="사용자 ID" />
+			</div>
+			<div>
+				<input type="password" name="password" id="password"
+					placeholder="비밀번호" />
+			</div>
+			<button type="button" id="btn_login">Login</button>
+			<div class="btn">
+				<button type="button" id="btn_id_pw">ID/PW 찾기</button>
+				<button id="btn_join" type="button">회원가입</button>
+			</div>
+		</form>
+	</div>
 </body>
 <script>
 	let modal = document.querySelector("form.modal");
-	
-	document.querySelector("li#login").addEventListener("click", ()=> {
-		modal.classList.toggle("show-modal");
-	})
 	
 	document.querySelector("span.close-button").addEventListener("click", ()=> {
 		modal.classList.toggle("show-modal");
