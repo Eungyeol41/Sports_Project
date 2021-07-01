@@ -1,1 +1,6 @@
+com\team\sport\controller\MapController.class
 com\team\sport\controller\HomeController.class
+com\team\sport\controller\SearchController.class
+com\team\sport\controller\QnAController.class
+com\team\sport\model\UserVO.class
+com\team\sport\controller\UserController.class
