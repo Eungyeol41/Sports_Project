@@ -86,6 +86,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <nav id="main_nav">
     <img src="../project_my/image/로고2.png" />
     <ul>
@@ -194,6 +195,9 @@
       <th>광주광역시 서구 상무시민공원 내 위치</th>
     </tr>
   </table>
+=======
+	<%@ include file="/WEB-INF/views/include/header.jspf" %>
+>>>>>>> 3da9b34d953f1fbb276f06e9369a951776273c12
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,11 @@
     <title>회원가입</title>
     <style>
         form#join_form {
-            width: 600px;
-            height: 600px;
+            width: 80%;
+            height: 50%;
+            text-align: center;
             margin: 50px auto;
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.3);
+
         }
 
         form#join_form h2 {
@@ -23,12 +23,10 @@
         }
 
         form#join_form label {
-            display: flex;
-            flex: auto;
-            margin-left: 50px;
-            width: 30px;
+            display: inline-block;
+            margin: 20px auto;
             /* padding : 0px 10px 0px 10px; */
-
+            width: 8%;
         }
 
         form#join_form input {
@@ -40,9 +38,7 @@
             border: none;
             border-bottom: 2px solid black;
             background: none;
-            text-align: center;
-            display: inline-block;
-
+            /* text-align: center; */
 
         }
 
@@ -63,24 +59,27 @@
 
         form#join_form button#over {
             display: inline-block;
-            position: absolute;
-            transform: translateX(50px);
-
+            /* transform: translateY(-50); */
         }
 
         form#join_form button#join {
             display: block;
             margin: 20px auto;
         }
+
+        input#id {
+
+            width: 8% !important;
+        }
     </style>
 </head>
 
 <body>
     <form id="join_form">
-        <h2>회원가입</h1>
+        <h2>Sign_Up</h1>
             <div>
                 <label>ID</label>
-                <input name="id" type="search" id="id" placeholder="ID를 입력하세요">
+                <input name="id" type="text" id="id" placeholder="ID를 입력하세요">
                 <button type="button" id="over">중복확인</button></input>
             </div>
             <div>
@@ -99,7 +98,7 @@
                 <label>Tel</label>
                 <input name="tel" type="tel" placeholder="전화번호를 입력하세요" />
             </div>
-            <button type="button" id="join">회원가입 완료</button>
+            <button type="submit" id="join">등록</button>
     </form>
 
 </body>
