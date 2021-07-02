@@ -1,103 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="rootPath" value="${pageContext.request.contextPath}" />    
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test3</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/ce0a08be66.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="${rootPath}/static/css/menu_nav.css?ver=2021-06-25-001"
-    	 rel="stylesheet" />
-    <link href="${rootPath}/static/css/main_home_css.css?ver=2021-06-25-001" rel="stylesheet" />
-    <script src="${rootPath}/static/js/navscript.js?ver=2021-06-25-001"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
-    </style>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Main Page</title>
 
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
 
-      body {
-        font-family: "Noto Sans KR", sans-serif;
-        font-family: "Roboto Condensed", sans-serif;
-      }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
+<link href="${rootPath}/static/css/main_home_css.css?ver=2021-06-25-001" rel="stylesheet" />
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap") ;
+</style>
+
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
+}
+</style>
+</head>
+
+<body>
+	<%@ include file="/WEB-INF/views/include/header.jspf" %>
+	
+	<div id="s_left"></div>
+	<div id="s_right"></div>
+	<section class="contents">
+		<h2>FIRST PROJECT GPC</h2>
+		<div class="sq_box"></div>
+
+		<div class="main_box">
+			<div id="box1">
+				<i class="fas fa-search fa-7x"></i>
+				<h1>Search</h1>
+			</div>
+			<div id="box2">
+				<i class="fas fa-map-marked-alt fa-7x"></i>
+				<h1>Map</h1>
+			</div>
+			<div id="box3">
+				<i class="fas fa-edit fa-7x"></i>
+				<h1>Q&A</h1>
+			</div>
+		</div>
+
+		<p class="text1">
+			우리 주변에 체육시설을 검색과 위치, 지도를 사용해<br /> 빠르고 정확하게 찾을 수 있게 도와드립니다
+		</p>
+
+		<footer>CopyRight&copy;GPC2021@gmail.com</footer>
+	</section>
+</body>
+<script>
         // 1번 Box 클릭
         document.querySelector("div#box1").addEventListener("click", () => {
-          location.href = "search_page.html";
+          location.href = "${rootPath}/search";
         });
 
         // 2번 Box 클릭
         document.querySelector("div#box2").addEventListener("click", () => {
-          location.href = "map_page.html";
+          location.href = "${rootPath}/map";
         });
 
         // 3번 Box 클릭
         document.querySelector("div#box3").addEventListener("click", () => {
-          location.href = "3번Box.html";
+          location.href = "${rootPath}/QnA";
         });
-      });
     </script>
-  </head>
-
-  <body>
-    <header>
-      <nav id="main_nav">
-        <img src="${rootPath}/static/images/로고2.png" />
-        <ul>
-          <li>Search</li>
-          <li>Map</li>
-          <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
-          <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
-          <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
-        </ul>
-      </nav>
-    </header>
-    <div id="s_left"></div>
-    <div id="s_right"></div>
-    <section class="contents">
-      <h2>FIRST PROJECT GBC</h2>
-      <div class="sq_box"></div>
-
-      <div class="main_box">
-        <div id="box1">
-          <i class="fas fa-search fa-7x"></i>
-          <h1>search</h1>
-        </div>
-        <div id="box2">
-          <i class="fas fa-map-marked-alt fa-7x"></i>
-          <h1>map</h1>
-        </div>
-        <div id="box3">
-          <i class="fas fa-edit fa-7x"></i>
-          <h1>Q&A</h1>
-        </div>
-      </div>
-
-      <p class="text1">
-        우리 주변에 체육시설을 검색과 위치, 지도를 사용해<br />
-        빠르고 정확하게 찾을 수 있게 도와드립니다
-      </p>
-
-      <footer>CopyRight&copy;GPC2021@gamil.com</footer>
-    </section>
-  </body>
 </html>
