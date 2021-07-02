@@ -46,37 +46,15 @@ user_name	VARCHAR(50)	NOT NULL,
 user_email	VARCHAR(50)	NOT NULL	
 );
 
-insert into tbl_all_list(
-select * from tbl_all_list;
-
-alter table tbl_all_list
-add foreign key(al_name)
-references tbl_detail(dt_name);
-
-alter table tbl_all_list drop foreign key al_code;
-
-drop table tbl_all_list;
-drop table tbl_detail;
-drop table tbl_all_list;
-drop table tbl_all_list;
-drop table tbl_all_list;
+-- alter table tbl_all_list DROP CONSTRAINT fk_detail;
 
 ALTER TABLE tbl_all_list
 ADD CONSTRAINT fk_detail
 FOREIGN KEY(al_code)
 REFERENCES tbl_detail(dt_code);
 
-ALTER TABLE tbl_detail
-add FOREIGN KEY(dt_code)
-REFERENCES tbl_all_list(al_code);
 
-select * from information_schema.table_constraints where table_name = 'tbl_all_list';
-select * from information_schema.table_constraints where constraint_schema = 'db_sports';
-
-
-
-
-drop view view_상세페이지;
+DROP VIEW view_상세페이지;
 CREATE VIEW view_상세페이지 AS 
 (
 	SELECT 
@@ -90,6 +68,6 @@ CREATE VIEW view_상세페이지 AS
             DT.dt_money AS dt_money
     FROM tbl_detail AS DT
 		LEFT JOIN tbl_all_list AS AL
-			ON DT.dt_name = AL.al_name
+			ON DT.dt_code = AL.al_code
 );    
 select * from view_상세페이지;
