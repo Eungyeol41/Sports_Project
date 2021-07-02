@@ -1,0 +1,7 @@
+use db_sports;
+
+
+DROP USER 'spUser'@'192.168.0.%';
+CREATE USER 'spUser'@'192.168.5.85' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON *.* TO 'spUser'@'192.168.5.85';
+FLUSH PRIVILEGES; 
