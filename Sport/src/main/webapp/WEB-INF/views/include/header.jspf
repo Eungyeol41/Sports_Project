@@ -10,7 +10,7 @@
 			<li id="search">Search</li>
 			<li id="map">Map</li>
 			<li id="instagram">Instagram <i class="fab fa-instagram fa-lg"></i></li>
-			<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+			<li id="login" data-remote="WEB-INF/views/user/join.jsp">Login <i class="fas fa-user-circle fa-lg"></i></li>
 			<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
 		</ul>
 	</nav>
@@ -27,8 +27,10 @@
 	document.querySelector("li#map").addEventListener("click", () => {
 		location.href = "${rootPath}/map";
 	});
-	
+
+	let modal = document.querySelector("form.modal");
 	document.querySelector("li#login").addEventListener("click", ()=> {
+		load(li.data("remote"));
 		modal.classList.toggle("show-modal");
 	})
 	

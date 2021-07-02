@@ -18,11 +18,11 @@
 			<h2>Login</h2>
 			<div>
 				<input type="text" name="username" id="username"
-					placeholder="사용자 ID" />
+					placeholder="사용자 ID" required="required" />
 			</div>
 			<div>
 				<input type="password" name="password" id="password"
-					placeholder="비밀번호" />
+					placeholder="비밀번호" required="required" />
 			</div>
 			<button type="button" id="btn_login">Login</button>
 			<div class="btn">
@@ -33,7 +33,7 @@
 	</div>
 </body>
 <script>
-	let modal = document.querySelector("form.modal");
+	
 	
 	document.querySelector("span.close-button").addEventListener("click", ()=> {
 		modal.classList.toggle("show-modal");
