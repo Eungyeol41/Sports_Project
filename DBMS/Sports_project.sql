@@ -8,6 +8,7 @@ sp_district	VARCHAR(20)	NOT NULL	,
 sp_search	VARCHAR(500)		,
 sp_sport	VARCHAR(100)		
 );
+
 create table tbl_all_list (
 al_seq	BIGINT		PRIMARY KEY,
 al_code	CHAR(4)	NOT NULL	,
@@ -17,6 +18,7 @@ al_sport	VARCHAR(50)	NOT NULL	,
 al_addr	VARCHAR(500)	NOT NULL	,
 al_free	VARCHAR(20)		
 );
+
 DROP TABLE tbl_sp_search;
 DROP TABLE tbl_all_list;
 DROP TABLE tbl_detail;
