@@ -89,10 +89,10 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String mypage() {
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update() {
 		
-		return "user/mypage";
+		return "user/update";
 	}
 	
 }
