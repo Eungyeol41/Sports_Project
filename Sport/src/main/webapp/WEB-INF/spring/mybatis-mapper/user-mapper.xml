@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.team.sport.dao.UserDao">
+
+	<select id="findById" resultType="UserVO">
+		SELECT user_id, user_pw FROM tbl_user
+		WEHRE user_id = #{user_id} AND user_pw = #{user_pw}
+	</select>
+ 	
+ 	<insert id="insert" parameterType="UserVO">
+ 		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email)
+ 		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="UserVO">
+ 		UPDATE tbl_user(user_id, user_pw, user_tel, user_name, user_email) 
+ 		SET #{user_pw},#{user_tel}, #{user_name}, #{user_email}
+ 		WHERE user_id = #{user_id} 
+ 	</update>
+ 	
+ 	<delete id="delete">
+ 		DELETE FROM tbl_user
+ 		WHERE user_id = #{user_id}
+ 	</delete>
+ 	
+ </mapper>

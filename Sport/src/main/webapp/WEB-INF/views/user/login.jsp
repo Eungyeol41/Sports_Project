@@ -15,14 +15,13 @@
 	<div class="modal">
 		<form class="modal-content" id="login_form">
 			<span class="close-button">&times;</span>
+			<div class="msg">${MSG}</div>
 			<h2>Login</h2>
 			<div>
-				<input type="text" name="username" id="username"
-					placeholder="사용자 ID" required="required" />
+				<input type="text" name="user_id" id="username" maxlength="15" placeholder="사용자 ID" required="required" />
 			</div>
 			<div>
-				<input type="password" name="password" id="password"
-					placeholder="비밀번호" required="required" />
+				<input type="password" name="user_pw" id="password" placeholder="비밀번호" required="required" />
 			</div>
 			<button type="button" id="btn_login">Login</button>
 			<div class="btn">
