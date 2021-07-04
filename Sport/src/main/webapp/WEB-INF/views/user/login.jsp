@@ -23,6 +23,10 @@
 			<div>
 				<input type="password" name="user_pw" id="password" placeholder="비밀번호" required="required" />
 			</div>
+			<div>
+				<input type="checkbox">ID 저장
+				<input type="checkbox">자동 로그인
+			</div>
 			<button type="button" id="btn_login">Login</button>
 			<div class="btn">
 				<button type="button" id="btn_id_pw">ID/PW 찾기</button>
