@@ -28,10 +28,11 @@
 		location.href = "${rootPath}/map";
 	});
 
-	let modal = document.querySelector("form.modal");
+	/* let modal = document.querySelector("form.modal"); */
 	document.querySelector("li#login").addEventListener("click", ()=> {
-		load(li.data("remote"));
-		modal.classList.toggle("show-modal");
+		/* load(li.data("remote")); */
+		/* modal.classList.toggle("show-modal"); */
+		location.href = "${rootPath}/user/login"
 	})
 	
 	document.querySelector("li#join").addEventListener("click", () => {

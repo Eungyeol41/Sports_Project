@@ -13,8 +13,8 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<div class="modal">
-		<form class="modal-content" id="login_form">
-			<span class="close-button">&times;</span>
+		<form id="login_form">
+			<!-- <span class="close-button">&times;</span> -->
 			<div class="msg">${MSG}</div>
 			<h2>Login</h2>
 			<div>
@@ -25,9 +25,9 @@
 				<input type="password" name="user_pw" id="password"
 					placeholder="비밀번호" required="required" />
 			</div>
-			<div>
-				<input type="checkbox">ID 저장 <input type="checkbox">자동
-				로그인
+			<div class="check">
+				<input id="id_save" type="checkbox">ID 저장 
+				<input id="auto_login" type="checkbox">자동 로그인
 			</div>
 			<button type="button" id="btn_login">Login</button>
 			<div class="btn">

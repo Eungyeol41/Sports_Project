@@ -134,10 +134,11 @@
   </style>
 </head>
 
-  <script>
-   var rootPath = "${rootPath}"
-	</script>
-	<script src="${rootPath}/static/js/search.js?ver=2021-07-04-04"></script>
+<script>
+	var rootPath = "${rootPath}"
+</script>
+<script src="${rootPath}/static/js/search.js?ver=2021-07-05-001"></script>
+
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>
   <h1>광주광역시 체육시설 찾아보기</h1>
