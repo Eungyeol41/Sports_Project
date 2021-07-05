@@ -79,7 +79,7 @@
 			return false;
 		}
 		
-		
+		document.querySelector("form#join_form").submit();
 	})
 	
 </script>

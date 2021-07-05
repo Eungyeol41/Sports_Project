@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-01-001" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <header>
 	<nav id="main_nav">
 		<img src="${rootPath}/static/images/logo.png" />
@@ -10,8 +11,16 @@
 			<li id="search">Search</li>
 			<li id="map">Map</li>
 			<li id="instagram">Instagram <i class="fab fa-instagram fa-lg"></i></li>
-			<li id="login" data-remote="WEB-INF/views/user/join.jsp">Login <i class="fas fa-user-circle fa-lg"></i></li>
-			<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+
+			<c:if test="${not empty USER}">
+				<li id="mypage">${USER.user_id}님, 반갑습니다</li>
+				<li id="logout">LogOut</li>
+			</c:if>
+			
+			<c:if test="${empty USER}">
+				<li id="login" data-remote="WEB-INF/views/user/join.jsp">Login <i class="fas fa-user-circle fa-lg"></i></li>
+				<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+			</c:if>
 		</ul>
 	</nav>
 </header>
@@ -37,6 +46,10 @@
 	
 	document.querySelector("li#join").addEventListener("click", () => {
 		location.href = "${rootPath}/user/join";
-	});
+	})
+	
+	document.querySelector("li#logout").addEventListener("click", ()=> {
+		location.href = "{$rootPath}/user/logout";
+	})
 	
 </script>

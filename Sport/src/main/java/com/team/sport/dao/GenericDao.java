@@ -6,9 +6,8 @@ public interface GenericDao<VO,PK> {
 	
 	public List<VO> selectAll();
 	public VO findById(PK pk);
-	public Integer insert(VO vo);
-	public Integer update(VO vo);
-	public Integer delete(PK pk);
-	
+	public int insert(VO vo);
+	public int update(VO vo);
+	public int delete(PK pk);
 	
 }
