@@ -39,29 +39,46 @@
 <script>
 	document.querySelector("button#join").addEventListener("click", ()=> {
 		
-		let id = document.getElementById("id").value
-		let password = document.getElementById("password").value
-		let password_ch = document.getElementById("password_ch").value
-		
-		if(id.length < 3 || id.length > 15) {
+		if(id.value === "") {
+			alert("ID는 꼭 입력해주세요!")
+			id.focus();
+			return false;
+		}
+		if(id.value.length < 3 || id.value.length > 15) {
 			alert("ID는 3 ~ 15글자 내에서 입력해야합니다.");
 			id.focus();
 			return false;
 		}
 		
-		if(password < 3 || password > 20) {
+		if(password.value === "") {
+			alert("비밀번호는 꼭 입력해주세요!")
+			password.focus();
+			return false;
+		}
+		if(password.value < 3 || password.value > 20) {
 			alert("비밀번호는 3 ~ 20글자 내에서 입력해야합니다.")
 			password.focus();
 			return false;
 		}
 		
-		if(password != password_ch) {
+		if(password.value != password_ch.value) {
 			alert("비밀번호가 일치하지 않습니다!!!")
 			password_ch.focus();
 			return false;
 		}
 	
-		document.querySelector("form#join_form").submit();
+		if(email.value === "") {
+			alert("Email은 꼭 써주세요!")
+			email.focus();
+			return false;
+		}
+		
+		if(tel.value === "") {
+			alert("전화번호는 꼭 입력해주세요!")
+			tel.focus();
+			return false;
+		}
+		
 		
 	})
 	

@@ -1,8 +1,9 @@
   let urlPath = `${rootPath}`;
+  
     function checkSelectAll() {
         const checkbox = document.querySelectorAll('input[name="ch"]');
-    const checked = document.querySelectorAll('input[name="ch"]:checked');
-    const selectAll = document.querySelector('input[name="ch_all"]');
+    	const checked = document.querySelectorAll('input[name="ch"]:checked');
+    	const selectAll = document.querySelector('input[name="ch_a-ll"]');
 
     if (checkbox.length === checked.length) {
         selectAll.checked = true;
