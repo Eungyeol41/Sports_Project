@@ -2,34 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- <mapper namespace="com.biz.dbms.dao.BBsDao">
- 
- 	<select id="selectAll" resultType="SearchVO">
- 		SELECT * FROM tbl_sp_search
- 		ORDER BY sp_seq
- 	</select>
- 	<select id="selectMoney" resultType="SearchVO">
- 		SELECT sp_money FROM tbl_sp_search
- 		
- 	</select>
- 	<select id="selectDistric" resultType="SearchVO">
- 		SELECT * FROM tbl_sp_search
- 		ORDER BY sp_distric
- 	</select>
- 	<select id="selectSearch" resultType="SearchVO">
- 		SELECT * FROM tbl_sp_search
- 		ORDER BY sp_search
- 	</select>
- 	<select id="selectSport" resultType="SearchVO">
- 		SELECT * FROM tbl_sp_search
- 		ORDER BY sp_sport
- 	</select>
- 	<select id="findById" resultType="SearchVO">
- 		
- 	</select>
- 	<insert id="insert"></insert>
- 	<update id="update"></update>
- 	<delete id="delete"></delete>
- 
- </mapper> 
+
+<mapper namespace="com.biz.dbms.dao.BBsDao">
+
+	<select id="selectMoney" resultType="SearchVO">
+		SELECT * FROM TBL_SP_SEARCH
+		WHERE SP_MONEY = #{sp_money} AND sp_distric = #{sp_distric}
+	</select>
+
+	<insert id="insert"></insert>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+
+</mapper> 

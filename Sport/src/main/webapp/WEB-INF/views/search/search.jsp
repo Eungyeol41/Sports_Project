@@ -17,6 +17,7 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
   </style>
+  
   <style>
     * {
       margin: 0;
@@ -133,6 +134,10 @@
   </style>
 </head>
 
+  <script>
+   var rootPath = "${rootPath}"
+	</script>
+	<script src="${rootPath}/static/js/search.js?ver=2021-07-04-04"></script>
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>
   <h1>광주광역시 체육시설 찾아보기</h1>
