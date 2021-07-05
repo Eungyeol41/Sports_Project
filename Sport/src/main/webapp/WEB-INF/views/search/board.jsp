@@ -15,7 +15,6 @@
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
 <link href="../css/menu_nav.css" rel="stylesheet" />
-<link href="../css/layout_css.css" rel="stylesheet" />
 <style>
 @import
 	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
@@ -40,12 +39,62 @@ body {
 	font-family: "Noto Sans KR", sans-serif;
 	font-family: "Roboto Condensed", sans-serif;
 }
+button {
+    width: 10%;
+    height: 40px;
+    font-weight: bold;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+
+  button:hover {
+    background-color: #dedcee;
+    cursor: pointer;
+
+  }
+
+  table {
+    width: 80%;
+    margin: 0px auto;
+    border-top: 1px solid #6a60a9;
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 15px 10px;
+    border-top: 1px solid #6a60a9;
+    text-align: center;
+  }
+
+  tr.first {
+    background-color: #dedcee;
+  }
+
+  tr:not(.first) {
+    background-color: whitesmoke;
+  }
+
+
+  th:nth-child(1) {
+    border-right: 1px dashed lavender;
+  }
+
+
+  h1 {
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
 </style>
+<script>
+   var rootPath = "${rootPath}"
+	</script>
 <script>
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("table").addEventListener("click", () => {
-          alert("시설 상세 페이지로 이동!");
-          location.href = "search_detail.html";
+          location.href = "${rootPath}/search/detail";
         });
       });
     </script>
