@@ -76,7 +76,7 @@ body {
 
         // 3번 Box 클릭
         document.querySelector("div#box3").addEventListener("click", () => {
-          location.href = "${rootPath}/QnA";
+          location.href = "${rootPath}/qna";
         });
     </script>
 </html>

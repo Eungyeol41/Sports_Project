@@ -61,10 +61,12 @@ button#write {
 	/* justify-items: left; */
 	margin-left: auto;
 }
+
 table th {
+	
 }
 
-table th#text{
+table th#text {
 	max-width: 0%;
 	text-overflow: ellipsis;
 }
@@ -84,18 +86,29 @@ table th#text{
 			<th>번호</th>
 			<th>제목</th>
 			<th>시설이름</th>
+			<th>e_mail</th>
 			<th>아이디</th>
 			<th class="text">문의내용</th>
 		</tr>
-		<c:forEach items="${QNA}" var="qna">
-			<tr data-seq="${qna.qna_seq}">
-				<th>${qna.qna_seq}</th>
-				<th>${qna.qna_name}</th>
-				<th>${qna.qna_title}</th>
-				<th>${qna.qna_id}</th>
-				<th class="text">${qna.qna_text}</th>	
-			</tr>
-		</c:forEach>
+		<c:choose>
+			<c:when test="${empty QNA}">
+				<tr>
+					<td colspan="6">데이터가 없음</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${QNA}" var="qna" varStatus="index">
+					<tr data-seq="${qna.qna_seq}">
+						<th>${index.count}</th>
+						<th>${qna.qna_title}</th>
+						<th>${qna.qna_name}</th>
+						<th>${qna.qna_email}</th>
+						<th>${qna.qna_id}</th>
+						<th class="text">${qna.qna_text}</th>
+					</tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</table>
 </body>
 <script>

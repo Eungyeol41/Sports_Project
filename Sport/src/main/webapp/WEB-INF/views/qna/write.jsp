@@ -82,38 +82,73 @@ button:hover {
 		<div class="h2">
 			<h2>문의사항</h2>
 		</div>
-		<form method="POST">
+		<form id="insert" method="POST">
 			<div class="table">
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th><input type="text"></th>
+						<th><input name="qna_title" id="qna_title" type="text"></th>
 					</tr>
 					<tr>
-						<th class="sec1">글쓴이</th>
-						<th><input type="text"></th>
+						<th class="sec1">ID</th>
+						<th><input name="qna_id" id="qna_id" type="text"></th>
+					</tr>
+					<tr>
+						<th class="sec1">email</th>
+						<th><input name="qna_email" id="qna_email" type="email"></th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th><input type="text"></th>
+						<th><input name="qna_name" id="qna_name" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th><textarea rows="5"></textarea></th>
+						<th><textarea rows="5" name="qna_text" id="qna_text"></textarea></th>
 					</tr>
 				</table>
 			</div>
 		</form>
 		<div class="button">
-			<button id="enter" type="submit">등록</button>
+			<button class="enter" type="button">등록</button>
 			<button id="reset" type="reset">다시 쓰기</button>
 		</div>
 	</div>
 
 </body>
 <script>
-document.querySelector("button#enter").addEventListener("click", (e) => {
-	location.href="${rootPath}/qna"
+
+let doc = document
+const qna_submit = () => {
+
+	let qna_id = doc.querySelector("input#qna_id")
+	let qna_title = doc.querySelector("input#qna_title")
+	let qna_name = doc.querySelector("input#qna_name")
+	let qna_text = doc.querySelector("input#qna_text")
+	let qna_email = doc.querySelector("input#qna_email")
+	
+	doc.querySelector("form#insert").submit();
+	
+}
+doc.querySelector("button.enter").addEventListener("click",()=> {
+	qna_submit();
 })
+/*
+doc.querySelector("form#insert").addEventListener("click", (e) => {
+	let target = e.target
+	
+	if(target.tagName === "BUTTON") {
+		if(target.className.includes("enter")){
+			qna_submit();
+		}
+	}
+	
+})
+*/
+	
+	
+//document.querySelector("button#enter").addEventListener("click", (e) => {
+//document.querySelector("form#insert").submit();
+
+//})
 </script>
 </html>

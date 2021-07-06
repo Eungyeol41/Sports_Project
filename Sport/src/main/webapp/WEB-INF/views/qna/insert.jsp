@@ -100,19 +100,23 @@ button:hover {
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th><input type="text" value="${QNA.qna_title}"></th>
+						<th><input name="qna_title" id="qna_title" type="text" value="${QNA.qna_title}"></th>
 					</tr>
 					<tr>
-						<th class="sec1">글쓴이</th>
-						<th><input type="text" value="${QNA.qna_id}"></th>
+						<th class="sec1">ID</th>
+						<th><input name="qna_id" id="qna_id" type="text" value="${QNA.qna_id}"></th>
+					</tr>
+					<tr>
+						<th class="sec1">email</th>
+						<th><input name="qna_email" id="qna_email" type="email" value="${QNA.qna_email}"></th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th><input type="text" value="${QNA.qna_name}"></th>
+						<th><input name="qna_name" id="qna_name" type="text" value="${QNA.qna_name}"></th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th><input type="text" value="${QNA.qna_text}"></th>
+						<th><textarea rows="5" name="qna_text" id="qna_text" >${QNA.qna_text}</textarea></th>
 					</tr>
 				</table>
 

@@ -98,7 +98,11 @@ button:hover {
 					<th>${QNA.qna_title}</th>
 				</tr>
 				<tr>
-					<th class="sec1">글쓴이</th>
+					<th class="sec1">ID</th>
+					<th>${QNA.qna_id}</th>
+				</tr>
+				<tr>
+					<th class="sec1">email</th>
 					<th>${QNA.qna_id}</th>
 				</tr>
 				<tr>

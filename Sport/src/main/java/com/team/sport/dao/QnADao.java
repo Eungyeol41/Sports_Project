@@ -1,5 +1,11 @@
 package com.team.sport.dao;
 
-public class QnADao {
+import java.util.List;
+
+import com.team.sport.model.QnAVO;
+
+public interface QnADao extends GenericDao<QnAVO, Long> {
+	
+	public QnAVO detail(Long seq);
 
 }
