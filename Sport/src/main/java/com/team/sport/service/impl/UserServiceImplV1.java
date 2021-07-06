@@ -18,7 +18,7 @@ public class UserServiceImplV1 implements UserService{
 	public UserVO login(String user_id, String user_pw) {
 		// TODO Login
 		
-		UserVO vo = userDao.findById(user_id, user_pw);
+		UserVO vo = userDao.login(user_id, user_pw);
 		
 		if(vo == null) return null;
 		

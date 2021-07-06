@@ -49,7 +49,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(String user_id, String user_pw, HttpSession hSession, Model model) {
+	public String login(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, HttpSession hSession, Model model) {
 		log.debug("ID : {}", user_id);
 		log.debug("비밀번호 : {}", user_pw);
 		

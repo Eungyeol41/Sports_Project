@@ -13,16 +13,16 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<div class="modal">
-		<form id="login_form">
+		<form id="login_form" method="POST">
 			<!-- <span class="close-button">&times;</span> -->
 			<div class="msg">${MSG}</div>
 			<h2>Login</h2>
 			<div>
-				<input type="text" name="user_id" id="username" maxlength="15"
+				<input type="text" name="user_id" id="user_id" maxlength="15"
 					placeholder="사용자 ID" required="required" />
 			</div>
 			<div>
-				<input type="password" name="user_pw" id="password"
+				<input type="password" name="user_pw" id="user_pw"
 					placeholder="비밀번호" required="required" />
 			</div>
 			<div class="check">
@@ -40,8 +40,8 @@
 <script>
 	
 	document.querySelector("button#btn_login").addEventListener("click", ()=> {
-		let user_id = document.querySelector("input#username")
-		let user_pw = document.querySelector("input#password")
+		let user_id = document.querySelector("input#user_id").value
+		let user_pw = document.querySelector("input#user_pw").value
 		
 		if(user_id.length < 3 || user_id.length > 15) {
 			alert("ID는 3 ~ 15글자 내에서 입력해야합니다.");
