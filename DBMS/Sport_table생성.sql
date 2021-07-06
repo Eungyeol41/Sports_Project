@@ -40,8 +40,7 @@ qna_email	VARCHAR(50)		NOT NULL
 
 DROP TABLE tbl_user;
 create table tbl_user(
-user_seq	BIGINT		AUTO_INCREMENT	PRIMARY KEY,
-user_id		VARCHAR(15)	NOT NULL,
+user_id		VARCHAR(15)	PRIMARY KEY,
 user_pw		VARCHAR(20)	NOT NULL,
 user_tel	VARCHAR(20)	NOT NULL,	
 user_name	VARCHAR(50)	NOT NULL,	

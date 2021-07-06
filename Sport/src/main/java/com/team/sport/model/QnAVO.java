@@ -1,5 +1,16 @@
 package com.team.sport.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class QnAVO {
 	
 	private Long qna_seq; //	BIGINT SEQ
