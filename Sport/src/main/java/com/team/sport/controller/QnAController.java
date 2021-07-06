@@ -1,11 +1,14 @@
 package com.team.sport.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.sport.dao.QnADao;
 import com.team.sport.model.QnAVO;
@@ -32,11 +35,21 @@ public class QnAController {
 		
 		return "/qna/list";
 	}
-//	@RequestMapping(value = "/list", method = RequestMethod.GET)
-//	public String list(Model model) {
+//	@RequestMapping(value = "/list", method = RequestMethod.POST)
+//	public String list(@RequestParam(defaultValue = "text") String search_option,
+//			@RequestParam(defaultValue = "")String keyword) { //option 1번 text , 기본값 keyword
 //		
-//		List<QnAVO> qnaList = qnaService.selectAll();
-//		model.addAttribute("QNA", qnaList);
+//		QnAVO vo = new QnAVO();
+//		List<QnAVO> qnaList = qnaService.selectAll(search_option, keyword);
+//		
+//		Map<String, Object> map = new HashMap<>();
+//		
+//		map.put("search_option", search_option);
+//		map.put("keyword", keyword);
+//		
+//		qnaList.add(map);
+//		
+//
 //		
 //		return "/qna/list";
 //	}
@@ -73,7 +86,15 @@ public class QnAController {
 	public String update(QnAVO vo) {
 		
 		Integer res = qnaService.update(vo);
+		
 		return "redirect:/qna";
+		
+	}
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String delete(Long seq) {
+		
+		Integer res = qnaService.delete(seq);
+		return null;
 		
 	}
 }

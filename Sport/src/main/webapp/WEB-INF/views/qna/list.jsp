@@ -76,10 +76,28 @@ table th#text {
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>1 대 1 문의 게시판</h1>
-	<div class="btn">
-		<input type="search" value="" placeholder="id를 입력하세요">
-		<button id="search" type="button">검색</button>
-		<button id="write" type="button">글쓰기</button>
+	<%--
+	<form method="POST"></form>
+	<div class="se_Type">
+		<div id="sc">
+		 
+			<select name="search_option">
+				<option value="title"
+					<c:if test="${map.search_option == 'title'}">selected</c:if>>제목</option>
+				<option value="text"
+				<c:if test="${map.search_option == 'text'}">selected</c:if>>내용</option>
+				<option value="id"
+				<c:if test="${map.search_option == 'id'}">selected</c:if>>ID</option>
+			</select> 
+			<input name="keyword" type="search" value="${map.keyword}" placeholder="검색하세요">
+			
+		</div>
+		--%>
+		<div id="btn">
+		<input type="search" placeholder="id를 입력하세요">
+			<button id="search" type="submit">검색</button>
+			<button id="write" type="button">글쓰기</button>
+		</div>
 	</div>
 	<table class="list">
 		<tr class="first">
@@ -126,6 +144,10 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 document.querySelector("button#write").addEventListener("click", (e) => {
 	alert("글쓰기 화면으로 이동합니다.");
 	location.href="${rootPath}/qna/write"
+})
+
+document.querySelector("div.se_Type").addEventListener("click", (e) => {
+	
 })
 </script>
 </html>

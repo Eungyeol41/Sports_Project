@@ -19,6 +19,9 @@ public class QnAVO {
 	private String qna_name; //	VARCHAR(500) 시설이름
 	private String qna_text; //	VARCHAR(3000) 문의내용
 	private String qna_email; //	VARCHAR(50) 이메일
+	
+//	private String search_option;
+//	private String keyword;
 
 
 }
