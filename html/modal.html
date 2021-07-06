@@ -1,179 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal</title>
 
-<head>
-    <meta charset="utf-8">
-    <title>Popup Demo</title>
     <style>
-        body {
-            text-align: center;
-            display: block;
-            margin: 0 auto;
-            font-size: 16px;
-            color: #999;
-        }
+      .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 30px;
-            color: #216182;
-        }
+        width: 100%;
+        height: 100%;
 
-        label {
-            display: block;
-            margin-top: 20px;
-            letter-spacing: 2px;
-        }
+        display: none;
 
-        form {
-            margin: 0 auto;
-            width: 459px;
-        }
+        background-color: rgba(0, 0, 0, 0.4);
+      }
 
-        input,
-        textarea {
-            width: 439px;
-            height: 27px;
-            background-color: #efefef;
-            border-radius: 6px;
-            border: 1px solid #dedede;
-            padding: 10px;
-            margin-top: 3px;
-            font-size: 0.9em;
-            color: #3a3a3a;
-        }
+      .modal.show {
+        display: block;
+      }
 
-        input:focus,
-        textarea:focus {
-            border: 1px solid #97d6eb;
-        }
+      .modal_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
 
-        textarea {
-            height: 60px;
-            background-color: #efefef;
-        }
+        width: 400px;
+        height: 600px;
 
-        #submit {
-            width: 127px;
-            height: 48px;
-            text-align: center;
-            border: none;
-            margin-top: 20px;
-            cursor: pointer;
-        }
+        padding: 40px;
 
-        #submit:hover {
-            color: #fff;
-            background-color: #216282;
-            opacity: 0.9;
-        }
+        text-align: center;
 
-        #cancel {
-            width: 127px;
-            height: 48px;
-            text-align: center;
-            border: none;
-            margin-top: 20px;
-            cursor: pointer;
-        }
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 
-        #cancel:hover {
-            color: #fff;
-            background-color: #216282;
-            opacity: 0.9;
-        }
-
-        .modal {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 1rem 1.5rem;
-            width: 500px;
-            height: 350px;
-            border-radius: 0.5rem;
-        }
-
-        .close-button {
-            float: right;
-            width: 1.5rem;
-            line-height: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 0.25rem;
-            background-color: lightgray;
-        }
-
-        .close-button:hover {
-            background-color: darkgray;
-        }
-
-        .show-modal {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1.0);
-            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-        }
+        transform: translateX(-50%) translateY(-50%);
+      }
     </style>
-</head>
-
-<body>
-    <h1>레어어 팝업창 띄우기</h1>
-    <!-- 버튼 -->
-    <button class="trigger">이메일 보내기</button>
-
-    <!-- 팝업 될 레이어 -->
+  </head>
+  <body>
     <div class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h1 class="title">메일 보내기</h1>
-            <form action="#post.php" method="POST">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Your email" required="required">
-                <label></label>
-                <textarea name="message" placeholder="Test Message" required="required"></textarea>
-                <input type="button" id="cancel" value="취소">
-                <input type="submit" id="submit" value="보내기">
-            </form>
-        </div>
+      <div class="modal_body">Modal</div>
+          <span class="close-button">&times;</span>
+          <h2>Login</h2>
+          <div>
+            <input type="text" name="username" id="username"
+              placeholder="사용자 ID" required="required" />
+          </div>
+          <div>
+            <input type="password" name="password" id="password"
+              placeholder="비밀번호" required="required" />
+          </div>
+          <button type="button" id="btn_login">Login</button>
+          <div class="btn">
+            <button type="button" id="btn_id_pw">ID/PW 찾기</button>
+            <button id="btn_join" type="button">회원가입</button>
+          </div>
+    </div>
+    <button class="btn-open-popup">Modal 띄우기</button>
+    
     </div>
     <script>
-        let modal = document.querySelector(".modal");
-        let trigger = document.querySelector(".trigger");
-        let closeButton = document.querySelector(".close-button");
-        let cancelButton = document.querySelector("#cancel");
+      const body = document.querySelector('body');
+      const modal = document.querySelector('.modal');
+      const btnOpenPopup = document.querySelector('.btn-open-popup');
 
-        //console.log(modal);
+      btnOpenPopup.addEventListener('click', () => {
+        modal.classList.toggle('show');
 
-        function toggleModal() {
-            modal.classList.toggle("show-modal");
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
         }
+      });
 
-        function windowOnClick(event) {
-            if (event.target === modal) {
-                toggleModal();
-            }
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.classList.toggle('show');
+
+          if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
         }
-
-        trigger.addEventListener("click", toggleModal);
-        closeButton.addEventListener("click", toggleModal);
-        cancel.addEventListener("click", toggleModal);
-        window.addEventListener("click", windowOnClick);
+      });
     </script>
-</body>
-
+  </body>
 </html>
