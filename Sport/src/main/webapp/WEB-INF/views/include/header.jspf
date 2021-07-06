@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-01-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-06" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <header>
 	<nav id="main_nav">
 		<img src="${rootPath}/static/images/logo.png" />
@@ -10,32 +11,40 @@
 			<li id="search">Search</li>
 			<li id="map">Map</li>
 			<li id="instagram">Instagram <i class="fab fa-instagram fa-lg"></i></li>
-			<li id="login" data-remote="WEB-INF/views/user/join.jsp">Login <i class="fas fa-user-circle fa-lg"></i></li>
-			<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+
+			<c:if test="${not empty USER}">
+				<li id="mypage">${USER.user_id}님, 반갑습니다</li>
+				<li id="logout">LogOut</li>
+			</c:if>
+			
+			<c:if test="${empty USER}">
+				<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+				<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+			</c:if>
 		</ul>
 	</nav>
 </header>
 <script>
-	document.querySelector("nav#main_nav img").addEventListener("click", () => {
-		location.href = "${rootPath}/";
-	});
+	const nav = document.querySelector("nav#main_nav");
 	
-	document.querySelector("li#search").addEventListener("click", () => {
-		location.href = "${rootPath}/search";
-	});
-	
-	document.querySelector("li#map").addEventListener("click", () => {
-		location.href = "${rootPath}/map";
-	});
-
-	let modal = document.querySelector("form.modal");
-	document.querySelector("li#login").addEventListener("click", ()=> {
-		load(li.data("remote"));
-		modal.classList.toggle("show-modal");
+	nav.addEventListener("click", (e)=> {
+		let tagName = e.target.tagName;
+		if(tagName === "LI") {
+			let menuText = e.target.textContent;
+			
+			if (menuText === "Search") {
+				location.href = "${rootPath}/search";
+			} else if(menuText === "Map") {
+				location.href = "${rootPath}/map";
+			} else if(menuText === "Login ") {
+				location.href = "${rootPath}/user/login";
+			} else if(menuText === "Join ") {
+				location.href = "${rootPath}/user/join";
+			}else if(menuText === "LogOut") {
+				location.href = "${rootPath}/user/logout";
+			} 
+		}
+		
+		
 	})
-	
-	document.querySelector("li#join").addEventListener("click", () => {
-		location.href = "${rootPath}/user/join";
-	});
-	
 </script>

@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping(value = "/user")
 @RequiredArgsConstructor
+@RequestMapping(value = "/user")
 public class UserController {
 	
 	protected final UserService userService;
@@ -49,7 +49,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(String user_id, String user_pw, HttpSession hSession, Model model) {
+	public String login(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, HttpSession hSession, Model model) {
 		log.debug("ID : {}", user_id);
 		log.debug("비밀번호 : {}", user_pw);
 		
@@ -61,7 +61,7 @@ public class UserController {
 			return "redirect:/user/login";
 			
 		}
-		
+		log.debug("UserVO {}", vo.toString());
 		hSession.setAttribute("USER", vo);
 		return "redirect:/";
 	}
@@ -83,8 +83,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
+		log.debug("join {}", vo.toString());
 		
-		userService.join(vo);
+		userService.insert(vo);
 		
 		return "redirect:/";
 	}

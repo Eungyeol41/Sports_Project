@@ -1,7 +1,5 @@
 package com.team.sport.controller;
 
-import java.util.Locale;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 public class SearchController {
 	
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
-	public String search(Locale locale, Model model) {
+	public String search(Model model) {
 		
 		return "search/search";
 	}
 	
+	@RequestMapping(value = {"/","/detail"}, method = RequestMethod.GET)
+	public String detail(Model model) {
+		
+		return "search/detail";
+	}
+	
+	@RequestMapping(value = {"/","/board"}, method = RequestMethod.GET)
+	public String board(Model model) {
+		
+		return "search/board";
+	}
 }

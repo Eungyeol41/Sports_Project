@@ -17,6 +17,7 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
   </style>
+  
   <style>
     * {
       margin: 0;
@@ -132,6 +133,11 @@
   }
   </style>
 </head>
+
+<script>
+	var rootPath = "${rootPath}"
+</script>
+<script src="${rootPath}/static/js/search.js?ver=2021-07-05-001"></script>
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>

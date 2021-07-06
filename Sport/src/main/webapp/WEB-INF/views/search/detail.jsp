@@ -120,16 +120,6 @@
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf"%>
-  <nav id="main_nav">
-    <img src="../project_my/image/로고2.png" />
-    <ul>
-      <li>Search</li>
-      <li>Map</li>
-      <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
-      <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
-      <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
-    </ul>
-  </nav>
   <div>
     <h2>첨단전천후배드민턴장</h2>
     <div id="map">

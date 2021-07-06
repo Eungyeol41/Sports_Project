@@ -4,7 +4,7 @@ DROP TABLE tbl_sp_search;
 create table tbl_sp_search (
 sp_seq		BIGINT	AUTO_INCREMENT	PRIMARY KEY,
 sp_money	VARCHAR(10),
-sp_district	VARCHAR(20)	NOT NULL,
+sp_district	VARCHAR(20),
 sp_search	VARCHAR(500),
 sp_sport	VARCHAR(100)		
 );
