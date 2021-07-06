@@ -10,34 +10,39 @@
 <link href="${rootPath}/static/css/join.css?ver=2021-07-01-001" rel="stylesheet" />
 </head>
 <body>
-	<form class="modal" id="join_form">
+	<form method="POST" id="join_form">
         <h2>Sign_Up</h2>
             <div>
                 <label>ID</label>
-                <input name="id" type="text" id="id" placeholder="ID를 입력하세요" required="required">
+                <input name="user_id" type="text" id="id" placeholder="ID를 입력하세요" required="required">
                 <button type="button" id="over">중복확인</button>
             </div>
             <div>
                 <label>Password</label>
-                <input name="password" type="password" id="password" placeholder="Password를 입력하세요" required="required" />
+                <input name="user_pw" type="password" id="password" placeholder="Password를 입력하세요" required="required" />
             </div>
             <div>
                 <label>확인</label>
                 <input name="password_ch" type="password" id="password_ch" placeholder="Password를 한번 더 입력하세요" required="required" />
             </div>
             <div>
+            	<label>이름</label>
+            	<input name="user_name" type="text" id="user_name" placeholder="이름을 입력하세요" required="required" />
+            </div>
+            <div>
                 <label>E_mail</label>
-                <input name="email" type="email" id="email" placeholder="E_mail를 입력하세요" required="required" />
+                <input name="user_email" type="email" id="email" placeholder="E_mail를 입력하세요" required="required" />
             </div>
             <div>
                 <label>Tel</label>
-                <input name="tel" type="tel" id="tel" placeholder="전화번호를 입력하세요" required="required" />
+                <input name="user_tel" type="tel" id="tel" placeholder="전화번호를 입력하세요" required="required" />
             </div>
             <button type="button" id="join">등록</button>
     </form>
 </body>
 <script>
 	document.querySelector("button#join").addEventListener("click", ()=> {
+		/*
 		
 		if(id.value === "") {
 			alert("ID는 꼭 입력해주세요!")
@@ -78,7 +83,7 @@
 			tel.focus();
 			return false;
 		}
-		
+		*/
 		document.querySelector("form#join_form").submit();
 	})
 	

@@ -7,7 +7,9 @@ import com.team.sport.model.UserVO;
 import com.team.sport.service.UserService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service("userServiceV1")
 @RequiredArgsConstructor
 public class UserServiceImplV1 implements UserService{
@@ -26,12 +28,10 @@ public class UserServiceImplV1 implements UserService{
 	}
 
 	@Override
-	public int join(UserVO userVO) {
+	public int insert(UserVO userVO) {
 		// TODO 회원가입
-		
-		userDao.insert(userVO);
-		
-		return 0;
+		log.debug("join - userVO {}", userVO.toString());
+		return userDao.insert(userVO);
 	}
 
 	@Override

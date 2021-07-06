@@ -40,6 +40,7 @@
 <script>
 	
 	document.querySelector("button#btn_login").addEventListener("click", ()=> {
+		
 		let user_id = document.querySelector("input#user_id").value
 		let user_pw = document.querySelector("input#user_pw").value
 		

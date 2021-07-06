@@ -18,39 +18,33 @@
 			</c:if>
 			
 			<c:if test="${empty USER}">
-				<li id="login" data-remote="WEB-INF/views/user/join.jsp">Login <i class="fas fa-user-circle fa-lg"></i></li>
+				<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
 				<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
 			</c:if>
 		</ul>
 	</nav>
 </header>
 <script>
-	document.querySelector("nav#main_nav img").addEventListener("click", () => {
-		location.href = "${rootPath}/";
-	});
+	const nav = document.querySelector("nav#main_nav");
 	
-	document.querySelector("li#search").addEventListener("click", () => {
-		location.href = "${rootPath}/search";
-	});
-	
-	document.querySelector("li#map").addEventListener("click", () => {
-		location.href = "${rootPath}/map";
-	});
-
-	/* let modal = document.querySelector("form.modal"); */
-	document.querySelector("li#login").addEventListener("click", ()=> {
-		/* load(li.data("remote")); */
-		/* modal.classList.toggle("show-modal"); */
-		location.href = "${rootPath}/user/login"
+	nav.addEventListener("click", (e)=> {
+		let tagName = e.target.tagName;
+		if(tagName === "LI") {
+			let menuText = e.target.textContent;
+			
+			if (menuText === "Search") {
+				location.href = "${rootPath}/search";
+			} else if(menuText === "Map") {
+				location.href = "${rootPath}/map";
+			} else if(menuText === "Login ") {
+				location.href = "${rootPath}/user/login";
+			} else if(menuText === "Join ") {
+				location.href = "${rootPath}/user/join";
+			}else if(menuText === "LogOut") {
+				location.href = "${rootPath}/user/logout";
+			} 
+		}
+		
+		
 	})
-	
-	document.querySelector("li#join").addEventListener("click", () => {
-		location.href = "${rootPath}/user/join";
-	})
-	
-	document.querySelector("li#logout").addEventListener("click", ()=> {
-		alert("로그아웃 좀 하자!!!");
-		location.href = "{$rootPath}/user/logout";
-	})
-	
 </script>

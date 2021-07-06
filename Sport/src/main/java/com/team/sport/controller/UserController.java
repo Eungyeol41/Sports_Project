@@ -61,7 +61,7 @@ public class UserController {
 			return "redirect:/user/login";
 			
 		}
-		
+		log.debug("UserVO {}", vo.toString());
 		hSession.setAttribute("USER", vo);
 		return "redirect:/";
 	}
@@ -83,8 +83,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
+		log.debug("join {}", vo.toString());
 		
-		userService.join(vo);
+		userService.insert(vo);
 		
 		return "redirect:/";
 	}
