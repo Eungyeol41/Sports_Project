@@ -49,6 +49,7 @@
 	})
 	
 	document.querySelector("li#logout").addEventListener("click", ()=> {
+		alert("로그아웃 좀 하자!!!");
 		location.href = "{$rootPath}/user/logout";
 	})
 	
