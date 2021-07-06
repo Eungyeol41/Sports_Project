@@ -70,22 +70,7 @@ button:hover {
 	cursor: pointer;
 }
 </style>
-<script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector("button#insert").addEventListener("click", () => {
-                alert("등록합니다.");
-                location.href="${rootPath}/qna"; 	
-            });
-            document.querySelector("button#reset").addEventListener("click", () => {
-                alert("내용이 전체 삭제됩니다.");
-                location.href="${rootPath}/qna/detail?seq=" +seq;	
-            });
-            document.querySelector("button#back").addEventListener("click", () => {
-                alert("목록으로 이동합니다.");
-                location.href="${rootPath}/qna/detail?seq=" +seq;	
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -123,11 +108,27 @@ button:hover {
 			</div>
 		</form>
 		<div class="button">
-			<button id="insert" type="submit">등록</button>
-			<button id="reset" type="reset">다시 쓰기</button>
-			<button id="back" type="button">뒤로 가기</button>
+			<button id="insert" type="submit">수정하기</button>
+			<button id="reset" type="reset">다시작성</button>
+			<button id="back" type="button">뒤로가기</button>
 		</div>
 	</div>
 </body>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector("button#insert").addEventListener("click", () => {
+                alert("수정합니다.");
+                location.href="${rootPath}/qna?seq=${QNA.qna_seq}"; 	
+            });
+            document.querySelector("button#reset").addEventListener("click", () => {
+                alert("내용이 전체 삭제됩니다.");
+                location.href="${rootPath}/qna/detail?seq=" +seq;	
+            });
+            document.querySelector("button#back").addEventListener("click", () => {
+                alert("목록으로 이동합니다.");
+                location.href="${rootPath}/qna/list"	
+            });
+        });
+    </script>
 
 </html>

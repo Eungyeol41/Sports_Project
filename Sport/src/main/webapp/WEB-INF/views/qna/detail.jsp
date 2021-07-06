@@ -103,7 +103,7 @@ button:hover {
 				</tr>
 				<tr>
 					<th class="sec1">email</th>
-					<th>${QNA.qna_id}</th>
+					<th>${QNA.qna_email}</th>
 				</tr>
 				<tr>
 					<th class="sec1">시설 이름</th>
@@ -116,7 +116,7 @@ button:hover {
 			</table>
 		</div>
 		<div class="button">
-			<button id="delete" type="submit">삭제</button>
+			<button id="delete" type="button">삭제</button>
 			<button id="update" type="button">수정</button>
 		</div>
 	</div>

@@ -46,7 +46,9 @@ public class QnAServiceImpl implements QnAService{
 	@Override
 	public Integer delete(Long pk) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Integer res = qnaDao.delete(pk);
+		return res;
 	}
 
 
@@ -66,6 +68,12 @@ public class QnAServiceImpl implements QnAService{
 		
 		return vo;
 	}
+
+//	@Override
+//	public List<QnAVO> selectAll(String search_option, String keyword) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 
 
