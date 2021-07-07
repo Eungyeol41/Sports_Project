@@ -63,10 +63,10 @@ public class QnAServiceImpl implements QnAService{
 	}
 
 	@Override
-	public QnAVO findById(Long seq) {
+	public QnAVO findById(Long pk) {
 		// TODO Auto-generated method stub
 		
-		QnAVO vo = qnaDao.findById(seq);
+		QnAVO vo = qnaDao.findById(pk);
 		
 		return vo;
 	}
