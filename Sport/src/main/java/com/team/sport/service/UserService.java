@@ -10,5 +10,7 @@ public interface UserService {
 	public int update(UserVO userVO);
 	
 	public int expire(String username);
+
+	public UserVO findById(String user_id);
 	
 }

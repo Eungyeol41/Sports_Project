@@ -9,21 +9,11 @@
 		WHERE user_id = #{user_id} AND user_pw = #{user_pw}
 	</select>
 
-	<select id="id_dblcheck" resultType="UserVO">
-		SELECT COUNT(*) FROM tbl_user
+	<select id="findById" resultType="UserVO">
+		SELECT * FROM tbl_user
 		WHERE user_id = #{user_id}
 	</select>
 	
-	<select id="findById" resultType="UserVO">
-		SELECT user_id FROM tbl_user
-		WEHRE user_email = #{user_email} AND user_tel = #{user_tel}
-	</select>
-	
-	<select id="findByPW" resultType="UserVO">
-		SELECT user_pw FROM tbl_user
-		WHERE user_id = #{user_id} AND user_name = #{user_name} AND user_tel = #{user_tel}
-	</select>
- 	
  	<insert id="insert" parameterType="UserVO">
  		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email)
  		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email})

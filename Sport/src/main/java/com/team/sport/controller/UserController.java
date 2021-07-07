@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.sport.model.UserVO;
 import com.team.sport.service.UserService;
@@ -95,5 +96,22 @@ public class UserController {
 		
 		return "user/update";
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/id_check",method=RequestMethod.GET)
+	public String id_check(String user_id) {
+		
+		UserVO userVO = userService.findById(user_id);
+		
+		if(userVO == null) {
+			return "NOT_USE_ID";
+		} else {
+			return "USE_ID";
+		}
+		
+			
+	}
+	
 	
 }

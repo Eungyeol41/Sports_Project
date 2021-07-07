@@ -42,7 +42,7 @@ public class UserServiceImplV1 implements UserService{
 		
 		return 0;
 	}
-
+	
 	@Override
 	public int expire(String username) {
 		// TODO Auto-generated method stub
@@ -50,6 +50,11 @@ public class UserServiceImplV1 implements UserService{
 		userDao.delete(username);
 		
 		return 0;
+	}
+
+	@Override
+	public UserVO findById(String user_id) {
+		return userDao.findById(user_id);
 	}
 
 }

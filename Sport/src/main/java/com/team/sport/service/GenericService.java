@@ -5,8 +5,8 @@ import java.util.List;
 public interface GenericService <VO,PK>{
 	
 	public List<VO> selectAll();
-	public Integer insert(VO vo);
-	public Integer update(VO vo);
-	public Integer delete(PK pk);
+	public int insert(VO vo);
+	public int update(VO vo);
+	public int delete(PK pk);
 
 }

@@ -28,7 +28,7 @@ public class QnAServiceImpl implements QnAService{
 	}
 
 	@Override
-	public Integer insert(QnAVO vo) {
+	public int insert(QnAVO vo) {
 		// TODO Auto-generated method stub
 		
 		Integer res = qnaDao.insert(vo);
@@ -36,18 +36,20 @@ public class QnAServiceImpl implements QnAService{
 	}
 
 	@Override
-	public Integer update(QnAVO vo) {
+	public int update(QnAVO vo) {
 		// TODO Auto-generated method stub
 		
 		Integer res = qnaDao.update(vo);
-		return null;
+		
+		return res;
 	}
 
 	@Override
-	public Integer delete(Long pk) {
+	public int delete(Long seq) {
 		// TODO Auto-generated method stub
 		
-		Integer res = qnaDao.delete(pk);
+		Integer res = qnaDao.delete(seq);
+		
 		return res;
 	}
 

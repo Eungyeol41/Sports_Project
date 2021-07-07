@@ -74,6 +74,7 @@ public class QnAController {
 		Integer res = qnaService.insert(vo);
 		return "redirect:/qna";
 	}
+	
 	@RequestMapping(value="/insert", method = RequestMethod.GET)
 	public String update(Long seq,Model model) {
 		
@@ -88,13 +89,14 @@ public class QnAController {
 		Integer res = qnaService.update(vo);
 		
 		return "redirect:/qna";
-		
 	}
+	
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String delete(Long seq) {
 		
-		Integer res = qnaService.delete(seq);
-		return null;
+		qnaService.delete(seq);
+		
+		return "redirect:/qna";
 		
 	}
 }
