@@ -75,26 +75,31 @@ public class QnAController {
 		return "redirect:/qna";
 	}
 	@RequestMapping(value="/insert", method = RequestMethod.GET)
-	public String update(Long seq,Model model) {
+	public String update(Long seq, Model model) {
 		
 		QnAVO vo = qnaService.findById(seq);
 		model.addAttribute("QNA",vo);
+		log.debug("Qna VO {}",vo.toString());
 		
 		return "/qna/insert";
 	}
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	public String update(QnAVO vo) {
+	public String update(Long seq, QnAVO vo) {
 		
+		vo.setQna_seq(seq);
 		Integer res = qnaService.update(vo);
+		log.debug("update Qna VO {}",vo.toString());
 		
 		return "redirect:/qna";
 		
 	}
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String delete(Long seq) {
+	public String delete(Long seq, QnAVO vo) {
 		
-		Integer res = qnaService.delete(seq);
-		return null;
+		vo.setQna_seq(seq);
+		qnaService.delete(seq);
+		log.debug("detail seq {}",seq.toString());
+		return "redirect:/qna";
 		
 	}
 }

@@ -71,18 +71,7 @@ button:hover {
 	cursor: pointer;
 }
 </style>
-<script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector("button#update").addEventListener("click", () => {
-                alert("수정화면으로 이동합니다.");
-                location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
-            });
-            document.querySelector("button#delete").addEventListener("click", () => {
-                alert("삭제됩니다.");
-                location.href = "${rootPath}/qna?seq=${QNA.qna_seq}";
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -121,5 +110,16 @@ button:hover {
 		</div>
 	</div>
 </body>
+<script>
+            document.querySelector("button#update").addEventListener("click", () => {
+                alert("수정화면으로 이동합니다.");
+                location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+            });
+            document.querySelector("button#delete").addEventListener("click", () => {
+               alert("삭제됩니다.");
+               location.href = "${rootPath}/qna/delete?seq=${QNA.qna_seq}";
+               
+            });
 
+    </script>
 </html>

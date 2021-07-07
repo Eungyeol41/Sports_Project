@@ -40,7 +40,7 @@ public class QnAServiceImpl implements QnAService{
 		// TODO Auto-generated method stub
 		
 		Integer res = qnaDao.update(vo);
-		return null;
+		return res;
 	}
 
 	@Override

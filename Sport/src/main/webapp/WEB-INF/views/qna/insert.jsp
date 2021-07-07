@@ -79,7 +79,7 @@ button:hover {
 		<div class="h2">
 			<h2>문의사항</h2>
 		</div>
-		<form method="POST">
+		<form method="POST" id="update">
 			<div class="table">
 
 				<table>
@@ -108,27 +108,23 @@ button:hover {
 			</div>
 		</form>
 		<div class="button">
-			<button id="insert" type="submit">수정하기</button>
+			<button id="insert" type="submit" type="button">수정하기</button>
 			<button id="reset" type="reset">다시작성</button>
 			<button id="back" type="button">뒤로가기</button>
 		</div>
 	</div>
 </body>
 <script>
-        document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("button#insert").addEventListener("click", () => {
                 alert("수정합니다.");
-                location.href="${rootPath}/qna?seq=${QNA.qna_seq}"; 	
+                //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+                document.querySelector("form#update").submit();
             });
-            document.querySelector("button#reset").addEventListener("click", () => {
-                alert("내용이 전체 삭제됩니다.");
-                location.href="${rootPath}/qna/detail?seq=" +seq;	
-            });
+			
             document.querySelector("button#back").addEventListener("click", () => {
                 alert("목록으로 이동합니다.");
-                location.href="${rootPath}/qna/list"	
+                location.href="${rootPath}/qna"	
             });
-        });
-    </script>
 
+    </script>
 </html>
