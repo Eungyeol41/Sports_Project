@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />    
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,11 +12,12 @@
   <title>검색하기</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
-  <link href="../css/menu_nav.css" rel="stylesheet" />
+  <link href="/webapp/static/css/menu_nav.css" rel="stylesheet" />
   <link href="../css/layout_css.css" rel="stylesheet" />
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
   </style>
+  
   <style>
     * {
       margin: 0;
@@ -78,20 +83,64 @@
     table.list {
       margin: 50px auto;
     }
+    button {
+    width: 10%;
+    height: 40px;
+    font-weight: bold;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+
+  button:hover {
+    background-color: #dedcee;
+    cursor: pointer;
+
+  }
+
+  table {
+    width: 80%;
+    margin: 0px auto;
+    border-top: 1px solid #6a60a9;
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 15px 10px;
+    border-top: 1px solid #6a60a9;
+    text-align: center;
+  }
+
+  tr.first {
+    background-color: #dedcee;
+  }
+
+  tr:not(.first) {
+    background-color: whitesmoke;
+  }
+
+
+  th:nth-child(1) {
+    border-right: 1px dashed lavender;
+  }
+
+
+  h1 {
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
   </style>
 </head>
 
+<script>
+	var rootPath = "${rootPath}"
+</script>
+<script src="${rootPath}/static/js/search.js?ver=2021-07-05-001"></script>
+
 <body>
-  <nav id="main_nav">
-    <img src="../project_my/image/로고2.png" />
-    <ul>
-      <li>Search</li>
-      <li>Map</li>
-      <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
-      <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
-      <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
-    </ul>
-  </nav>
+<%@ include file="/WEB-INF/views/include/header.jspf" %>
   <h1>광주광역시 체육시설 찾아보기</h1>
   <table class="search">
     <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
@@ -190,6 +239,7 @@
       <th>광주광역시 서구 상무시민공원 내 위치</th>
     </tr>
   </table>
+	
 </body>
 
 </html>
