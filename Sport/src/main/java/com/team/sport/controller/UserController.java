@@ -103,7 +103,7 @@ public class UserController {
 	public String id_check(String user_id) {
 		
 		UserVO userVO = userService.findById(user_id);
-		
+
 		if(userVO == null) {
 			return "NOT_USE_ID";
 		} else {

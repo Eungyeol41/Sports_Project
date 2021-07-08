@@ -23,3 +23,6 @@ WHERE user_id = 'Nanak';
 
 -- DELETE
 DELETE FROM tbl_user WHERE user_id = 'Nanak';
+
+INSERT INTO tbl_qna(qna_id, qna_title, qna_name, qna_text, qna_email)
+VALUES ('kkk41', '염주 체육관..', '염주 체육관 종합운동장', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Morbi nec mattis lorem. Pellentesque interdum tellus dignissim aliquam elementum. Mauris bibendum dapibus rutrum. Nulla feugiat nisl lectus, nec vehicula velit pharetra non. Nulla sed magna eget tellus mattis lacinia sed et justo. Nunc dictum malesuada blandit. Integer ac orci id diam consectetur lobortis. Donec a nisi justo. Quisque venenatis ipsum ut ipsum mattis, at pellentesque tortor rhoncus. Cras et porta nulla, sed imperdiet urna. Nunc nec dui quam. Suspendisse elementum aliquam mauris vitae lacinia.', 'nana12@gamilda.com')

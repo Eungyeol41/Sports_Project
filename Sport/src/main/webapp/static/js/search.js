@@ -10,7 +10,7 @@
         } else {
         selectAll.checked = false;
         }
-      }
+    }
 
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("table.list").addEventListener("click", () => {

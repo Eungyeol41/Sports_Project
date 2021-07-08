@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-@Service
+@Service("qnaServiceV1")
 public class QnAServiceImpl implements QnAService{
 
 	protected final QnADao qnaDao;
@@ -67,6 +67,9 @@ public class QnAServiceImpl implements QnAService{
 		// TODO Auto-generated method stub
 		
 		QnAVO vo = qnaDao.findById(pk);
+		
+		vo.setQna_text(ReplaceBr.enterToBr(vo.getQna_text()));
+		
 		
 		return vo;
 	}

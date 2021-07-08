@@ -108,16 +108,16 @@
 	</div>
 </body>
 <script>
-            document.querySelector("button#insert").addEventListener("click", () => {
-                alert("수정합니다.");
-                //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
-                document.querySelector("form#update").submit();
-            });
+       document.querySelector("button#insert").addEventListener("click", () => {
+            alert("수정합니다.");
+            //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+            document.querySelector("form#update").submit();
+       });
            
-            document.querySelector("button#back").addEventListener("click", () => {
-                alert("목록으로 이동합니다.");
-                location.href="${rootPath}/qna/list"	
-            });
+       document.querySelector("button#back").addEventListener("click", () => {
+            alert("목록으로 이동합니다.");
+            location.href="${rootPath}/qna/list"	
+       });
     </script>
 
 </html>

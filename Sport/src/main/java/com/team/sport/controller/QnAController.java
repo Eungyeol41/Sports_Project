@@ -102,6 +102,7 @@ public class QnAController {
 		vo.setQna_seq(seq);
 		qnaService.delete(seq);
 		log.debug("detail seq {}", seq.toString());
+		
 		return "redirect:/qna";
 
 	}
