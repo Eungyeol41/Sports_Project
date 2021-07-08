@@ -1,0 +1,5 @@
+
+7월 07, 2021 09:10:33.354 NEW SESSION
+7월 07, 2021 09:10:33.354 [14992:12256:0707/091033.353:ERROR:device_event_log_impl.cc(214)] [09:10:33.353] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 07, 2021 12:51:53.893 [14992:1008:0707/125153.893:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -106
+7월 07, 2021 12:51:54.31 [14992:12256:0707/125154.031:ERROR:device_event_log_impl.cc(214)] [12:51:54.030] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)

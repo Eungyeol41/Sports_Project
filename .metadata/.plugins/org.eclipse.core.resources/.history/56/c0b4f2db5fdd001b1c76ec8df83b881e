@@ -1,0 +1,7 @@
+package com.team.sport.dao;
+
+public interface QnADao extends GenericDao<VO, PK>
+	
+	public String detail(Long seq);
+
+}

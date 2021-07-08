@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.team.sport.dao.QnADao">
+ 
+    <select id="selectAll" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    </select>
+    <select id="findById" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_seq = #{qna_seq}
+    </select>
+    <select id="detail" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_seq = #{qna_seq}
+    </select>
+    <insert id="insert">
+    INSERT INTO tbl_qna(qna_id,qna_title,qna_name,qna_text,qna_email)
+    VALUES (#{qna_id},#{qna_title},#{qna_name},#{qna_text},#{qna_email})
+    </insert>
+    <update id="update">
+    UPDATE tbl_qna SET (#{qna_id},#{qna_title},#{qna_name},#{qna_text},#{qna_email})
+    WHERE qna_seq = #{qna_seq}
+    </update>
+    <delete id="delete">
+    DELETE FROM tbl_qna WHERE qna_seq = ${qna_seq} 
+    </delete>
+ 
+ </mapper>
