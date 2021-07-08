@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,21 +22,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 @Controller
-@RequestMapping(value="/qna")
+@RequestMapping(value = "/qna")
 public class QnAController {
 	protected final QnADao qnaDao;
 	protected final QnAService qnaService;
 
-	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String qna(Model model) {
-			
+
 		List<QnAVO> qnaList = qnaService.selectAll();
 		model.addAttribute("QNA", qnaList);
-		
+
 		log.debug("qnaList: {}", qnaList);
-		
+
 		return "/qna/list";
 	}
+
 //	@RequestMapping(value = "/list", method = RequestMethod.POST)
 //	public String list(@RequestParam(defaultValue = "text") String search_option,
 //			@RequestParam(defaultValue = "")String keyword) { //option 1번 text , 기본값 keyword
@@ -53,53 +56,56 @@ public class QnAController {
 //		
 //		return "/qna/list";
 //	}
-	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public String detail(Model model, Long seq) {
-		
+
 		QnAVO vo = qnaService.detail(seq);
 		model.addAttribute("QNA", vo);
 		return "/qna/detail";
-		
+
 	}
-	@RequestMapping(value="/write", method= RequestMethod.GET)
+
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String insert() {
-		
-		
+
 		return "/qna/write";
 	}
-	
-	@RequestMapping(value="/write", method= RequestMethod.POST)
-	public String insert( QnAVO vo) {
-		
+
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String insert(QnAVO vo) {
+
 		Integer res = qnaService.insert(vo);
 		return "redirect:/qna";
 	}
-	@RequestMapping(value="/insert", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String update(Long seq, Model model) {
-		
+
 		QnAVO vo = qnaService.findById(seq);
-		model.addAttribute("QNA",vo);
-		log.debug("Qna VO {}",vo.toString());
-		
+		model.addAttribute("QNA", vo);
+		log.debug("Qna VO {}", vo.toString());
+
 		return "/qna/insert";
 	}
-	@RequestMapping(value="/insert", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String update(Long seq, QnAVO vo) {
-		
+
 		vo.setQna_seq(seq);
 		Integer res = qnaService.update(vo);
-		log.debug("update Qna VO {}",vo.toString());
-		
+		log.debug("update Qna VO {}", vo.toString());
+
 		return "redirect:/qna";
-		
+
 	}
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(Long seq, QnAVO vo) {
-		
+
 		vo.setQna_seq(seq);
 		qnaService.delete(seq);
-		log.debug("detail seq {}",seq.toString());
+		log.debug("detail seq {}", seq.toString());
 		return "redirect:/qna";
-		
+
 	}
 }

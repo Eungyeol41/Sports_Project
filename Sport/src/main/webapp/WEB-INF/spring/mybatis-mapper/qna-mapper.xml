@@ -6,7 +6,8 @@
  <mapper namespace="com.team.sport.dao.QnADao">
  
     <select id="selectAll" resultType="QnAVO">
-    SELECT * FROM tbl_qna
+    SELECT * FROM tbl_qna 
+    ORDER BY qna_seq DESC
     </select>
     <select id="findById" resultType="QnAVO">
     SELECT * FROM tbl_qna
