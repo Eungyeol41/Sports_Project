@@ -79,8 +79,9 @@ button:hover {
             });
             document.querySelector("button#delete").addEventListener("click", () => {
                 alert("삭제됩니다.");
-                location.href = "${rootPath}/qna?seq=${QNA.qna_seq}";
-            });
+                location.href = "${rootPath}/qna/delete?seq=${QNA.qna_seq}";
+                
+             });
         });
     </script>
 </head>

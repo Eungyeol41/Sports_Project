@@ -20,7 +20,7 @@
     INSERT INTO tbl_qna(qna_id,qna_title,qna_name,qna_text,qna_email)
     VALUES (#{qna_id},#{qna_title},#{qna_name},#{qna_text},#{qna_email})
     </insert>
-    <update id="update" parameterType="QnAVO">
+    <update id="update">
     UPDATE tbl_qna
     SET qna_id=#{qna_id},qna_title=#{qna_title},qna_name=#{qna_name},qna_text=#{qna_text},qna_email=#{qna_email}
     WHERE qna_seq = #{qna_seq}

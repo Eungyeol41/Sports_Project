@@ -73,7 +73,7 @@
 		<div class="h2">
 			<h2>문의사항</h2>
 		</div>
-		<form method="POST">
+		<form id="update" method="POST">
 			<div class="table">
 				<table>
 					<tr>
@@ -108,17 +108,16 @@
 	</div>
 </body>
 <script>
-        document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("button#insert").addEventListener("click", () => {
                 alert("수정합니다.");
-                location.href="${rootPath}/qna?seq=${QNA.qna_seq}"; 	
+                //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+                document.querySelector("form#update").submit();
             });
            
             document.querySelector("button#back").addEventListener("click", () => {
                 alert("목록으로 이동합니다.");
                 location.href="${rootPath}/qna/list"	
             });
-        });
     </script>
 
 </html>
