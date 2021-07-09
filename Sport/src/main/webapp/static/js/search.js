@@ -13,10 +13,7 @@
     }
 
       document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("table.list").addEventListener("click", () => {
-            urlPath += "/search/detail"
-            location.href = urlPath
-        });
+
     document
     .querySelector("button#btn_search")
           .addEventListener("click", () => {
