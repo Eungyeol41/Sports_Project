@@ -1,5 +1,0 @@
-package com.team.sport.service;
-
-public interface QnAService extends GenericService<QnAVO, Long> {
-
-}

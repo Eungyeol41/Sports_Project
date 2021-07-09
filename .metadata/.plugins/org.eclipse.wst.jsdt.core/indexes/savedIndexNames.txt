@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+D:\javaproject\javaworks\Sports_Project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3622330084.index
-857177042.index
-4188372857.index
-3027031226.index
-1740824171.index
-72246150.index

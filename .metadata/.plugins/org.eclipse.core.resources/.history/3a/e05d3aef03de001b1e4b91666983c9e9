@@ -1,8 +1,0 @@
-package com.team.sport.service;
-
-import com.team.sport.model.QnAVO;
-
-public interface QnAService extends GenericService<QnAVO, Long> {
-
-	public QnAVO findById();
-}
