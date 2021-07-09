@@ -137,7 +137,7 @@
 <script>
 	var rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/search.js?ver=2021-07-05-001"></script>
+<script src="${rootPath}/static/js/search.js?ver=2021-07-09-005"></script>
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>
@@ -204,20 +204,32 @@
       <th>위치</th>
       <th>이용료</th>
     </tr>
-    <c:forEach items="${ALLIST}" var="AL">
-    	<tr>
-    		<th>${AL.al_seq}</th>
-    		<th>${AL.al_name}</th>
-    		<th>${AL.al_tel}</th>
-    		<th>${AL.al_sport}</th>
-    		<th>${AL.al_addr}</th>
-    		<th>${AL.al_free}</th>
+    
+    <c:forEach items="${DTLIST}" var="DT" >
+    	<tr data-seq="${DT.v_seq}">
+    		<th>${DT.v_seq}</th>
+    		<th>${DT.v_name}</th>
+    		<th>${DT.v_tel}</th>
+    		<th>${DT.v_sport}</th>
+    		<th>${DT.v_addr}</th>
+    		<th>${DT.v_free}</th>
     	</tr>
     </c:forEach>
-    
-    
   </table>
 	
 </body>
+<script>
+
+document.querySelector("table.list").addEventListener("click", (e) => {
+	let tagName = e.target.tagName;
+	
+	if(tagName == "TH") {
+		let seq = e.target.closest("TR").dataset.seq;
+		console.log(seq);
+		location.href="${rootPath}/search/detail2?v_seq=" + seq;	
+	}
+
+})
+</script>
 
 </html>
