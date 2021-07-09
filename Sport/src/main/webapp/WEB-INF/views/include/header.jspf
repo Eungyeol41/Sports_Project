@@ -14,7 +14,13 @@
 			<li id="instagram">Instagram <i class="fab fa-instagram fa-lg"></i></li>
 
 			<c:if test="${not empty USER}">
-				<li id="mypage">${USER.user_id}님, 반갑습니다</li>
+				<li id="mypage">
+					<select>
+						<option>${USER.user_id}님, 반갑습니다</option>
+						<option>회원 정보 수정</option>
+						<option>MyPage</option>
+					</select> 
+				</li>
 				<li id="logout">LogOut</li>
 			</c:if>
 			

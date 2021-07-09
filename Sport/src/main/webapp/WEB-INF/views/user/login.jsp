@@ -63,17 +63,5 @@
 		location.href = "${rootPath}/user/join"
 	})
 	
-	/*
-		document.querySelector("span.close-button").addEventListener("click", ()=> {
-			modal.classList.toggle("show-modal");
-		})
-		
-		window.addEventListener("click", (e)=> {
-			if(e.target === modal) {
-				modal.classList.toggle("show-modal");
-			}
-		}) 
-	*/
-	
 </script>
 </html>

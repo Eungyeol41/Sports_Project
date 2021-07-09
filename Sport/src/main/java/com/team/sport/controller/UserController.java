@@ -109,8 +109,19 @@ public class UserController {
 		} else {
 			return "USE_ID";
 		}
+	}
+	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String mypage(HttpSession hSession, Model model) {
 		
-			
+		UserVO userVO = (UserVO) hSession.getAttribute("USER");
+		if(userVO == null) {
+			model.addAttribute("MSG", "NONE");
+		} else {
+			model.addAttribute("MSG", "EXIST");
+		}
+		
+		return "user/mypage";
 	}
 	
 	

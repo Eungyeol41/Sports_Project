@@ -28,12 +28,12 @@
       font-family: "Roboto Condensed", sans-serif;
     }
 
-    select {
+    ul {
       border: none;
       background-color: transparent;
     }
 
-    option {
+    li {
       border: none;
       background-color: transparent;
     }
@@ -50,11 +50,11 @@
         <li>instagram <i class="fab fa-instagram fa-lg"></i></li>
         <li>Login <i class="fas fa-user-circle fa-lg"></i></li>
         <li id="mypage">
-          <select>
-            <option>${USER.user_id}님, 반갑습니다</option>
-            <option>회원 정보 수정</option>
-            <option>MyPage</option>
-          </select>
+          <ul id="main">
+            <li>${USER.user_id}님, 반갑습니다</li>
+            <li>회원 정보 수정</li>
+            <li>MyPage</li>
+          </ul>
         </li>
         <li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
       </ul>

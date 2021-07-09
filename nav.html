@@ -1,0 +1,72 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto Condensed", sans-serif;
+        font-family: "Noto Sans KR", sans-serif;
+    }
+
+    nav#main_nav {
+        width: 100%;
+        height: 70px;
+        background-color: #fffcf0;
+        position: relative;
+        z-index: 3;
+    }
+
+    nav#main_nav img {
+        width: 70px;
+        height: 50px;
+        margin: 10px 10px 10px 60px;
+        position: relative;
+    }
+
+    nav#main_nav ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    nav#main_nav li {
+        padding: 20px 32px 33px 3px;
+        color: rgb(0, 0, 0);
+        list-style: none;
+    }
+
+    nav#main_nav li:hover {
+        cursor: pointer;
+        border-bottom: 3px solid #dedcee;
+    }
+
+    nav#main_nav i {
+        padding: 5px;
+    }
+</style>
+<header>
+    <nav id="main_nav">
+        <img src="${rootPath}/static/images/logo.png" />
+        <ul>
+            <li id="search">Search</li>
+            <li id="map">Map</li>
+            <li id="instagram">Instagram <i class="fab fa-instagram fa-lg"></i></li>
+
+            <c:if test="${not empty USER}">
+                <li id="mypage">
+                    <select>
+                        <option>${USER.user_id}님, 반갑습니다</option>
+                        <option>회원 정보 수정</option>
+                        <option>MyPage</option>
+                    </select>
+                </li>
+                <li id="logout">LogOut</li>
+            </c:if>
+
+            <c:if test="${empty USER}">
+                <li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+                <li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+            </c:if>
+        </ul>
+    </nav>
+</header>
