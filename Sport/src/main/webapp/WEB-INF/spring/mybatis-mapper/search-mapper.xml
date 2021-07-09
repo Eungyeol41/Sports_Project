@@ -13,6 +13,11 @@
 		SELECT * FROM view_상세페이지
 	</select>
 	
+	<select id="findSeq" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+		WHERE v_seq = #{v_seq}
+		
+	</select>
 
 	<select id="selectMoney" resultType="SearchVO">
 		SELECT * FROM TBL_SP_SEARCH

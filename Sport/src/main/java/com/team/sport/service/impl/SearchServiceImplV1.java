@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.team.sport.dao.AllListVO;
+import com.team.sport.dao.SearchDao;
+import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
 import com.team.sport.model.SearchVO;
 import com.team.sport.service.SearchService;
@@ -17,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service("searchServiceV1")
 public class SearchServiceImplV1 implements SearchService{
 
-	protected final SearchService sService;
+	protected final SearchDao sDao;
 	
 	@Override
 	public List<SearchVO> selectAll() {
@@ -53,7 +54,7 @@ public class SearchServiceImplV1 implements SearchService{
 	@Override
 	public List<DetailDTO> selectView() {
 		
-		List<DetailDTO> dtList = sService.selectView();
+		List<DetailDTO> dtList = sDao.selectView();
 		
 		return dtList;
 	}
@@ -61,8 +62,16 @@ public class SearchServiceImplV1 implements SearchService{
 	@Override
 	public List<AllListVO> selectAllList() {
 		
-		List<AllListVO> alList = sService.selectAllList();
+		List<AllListVO> alList = sDao.selectAllList();
 		return alList;
+	}
+
+	@Override
+	public DetailDTO findSeq(Long v_seq) {
+		// TODO Auto-generated method stub
+		
+		DetailDTO dtDTO = sDao.findSeq(v_seq);
+		return dtDTO;
 	}
 
 }
