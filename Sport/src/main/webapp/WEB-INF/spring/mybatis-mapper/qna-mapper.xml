@@ -12,6 +12,10 @@
     SELECT * FROM tbl_qna
     WHERE qna_seq = #{qna_seq}
     </select>
+    <select id="findByIdWithList">
+    	SELECT * FROM tbl_qna
+    	WHERE qna_id = #{qna_id}
+    </select>
     <select id="detail" resultType="QnAVO">
     SELECT * FROM tbl_qna
     WHERE qna_seq = #{qna_seq}

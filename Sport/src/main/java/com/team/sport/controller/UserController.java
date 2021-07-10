@@ -1,5 +1,8 @@
 package com.team.sport.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.team.sport.model.QnAVO;
 import com.team.sport.model.UserVO;
 import com.team.sport.service.UserService;
 
@@ -124,5 +128,13 @@ public class UserController {
 		return "user/mypage";
 	}
 	
-	
+	@RequestMapping(value = "/info_list", method = RequestMethod.GET)
+	public String info_list(HttpSession hSession, Model model) {
+		
+//		String user_id = (String) hSession.getAttribute("user_id");
+
+//		ArrayList<QnAVO> qnaList = ;
+		
+		return null;
+	}
 }

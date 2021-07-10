@@ -9,67 +9,57 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>문의사항 게시판</title>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
-	rel="stylesheet" />
-<script src="https://kit.fontawesome.com/ce0a08be66.js"
-	crossorigin="anonymous"></script>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005"
-	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
+<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005" rel="stylesheet" />
 <style>
-@import
-	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
-	;
+	@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
 </style>
 <style>
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	background-color: white;
-	font-family: "Noto Sans KR", sans-serif;
-	font-family: "Roboto Condensed", sans-serif;
-}
-
-tr:hover:not(.first) {
-	background-color: #dedcee;
-	cursor: pointer;
-	color: darkblue;
-}
-
-div.btn {
-	margin: 10px 40px 20px 40px;
-	display: flex;
-	/* justify-content: space-evenly; */
-}
-
-input {
-	margin-left: 10%;
-	/* flex-shrink: 0; */
-}
-
-button#search {
-	/* width: 50px; */
-	/* flex-grow: 1; */
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 	
-}
-
-button#write {
-	/* justify-items: left; */
-	margin-left: auto;
-}
-
-table th {
+	body {
+		background-color: white;
+		font-family: "Noto Sans KR", sans-serif;
+		font-family: "Roboto Condensed", sans-serif;
+	}
 	
-}
-
-table th#text {
-	max-width: 0%;
-	text-overflow: ellipsis;
-}
+	tr:hover:not(.first) {
+		background-color: #dedcee;
+		cursor: pointer;
+		color: darkblue;
+	}
+	
+	div.btn {
+		margin: 10px 40px 20px 40px;
+		display: flex;
+		/* justify-content: space-evenly; */
+	}
+	
+	input {
+		margin-left: 10%;
+		/* flex-shrink: 0; */
+	}
+	
+	button#search {
+		/* width: 50px; */
+		/* flex-grow: 1; */
+		
+	}
+	
+	button#write {
+		/* justify-items: left; */
+		margin-left: auto;
+	}
+	
+	table th#text {
+		max-width: 0%;
+		text-overflow: ellipsis;
+	}
 </style>
 </head>
 
