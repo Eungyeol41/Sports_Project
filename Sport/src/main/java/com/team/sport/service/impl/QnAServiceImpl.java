@@ -40,7 +40,10 @@ public class QnAServiceImpl implements QnAService{
 		// TODO Auto-generated method stub
 		
 		Integer res = qnaDao.update(vo);
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 		return res;
 	}
 

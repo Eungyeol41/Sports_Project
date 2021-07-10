@@ -2,6 +2,8 @@ package com.team.sport.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,6 +80,10 @@ public class QnAController {
 
 		QnAVO vo = qnaService.findById(seq);
 		model.addAttribute("QNA", vo);
+<<<<<<< HEAD
+=======
+		log.debug("Qna VO {}", vo.toString());
+>>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 
 		return "/qna/insert";
 	}
@@ -99,7 +105,10 @@ public class QnAController {
 		vo.setQna_seq(seq);
 		qnaService.delete(seq);
 		log.debug("detail seq {}", seq.toString());
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 		return "redirect:/qna";
 
 	}

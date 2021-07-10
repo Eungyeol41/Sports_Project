@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<jsp:useBean id="date" class="java.util.Date" />
+<c:set var="today" value="${date}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +19,49 @@
 	@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
 </style>
 <style>
+<<<<<<< HEAD
 	* {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 	}
+=======
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: white;
+	font-family: "Noto Sans KR", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
+}
+
+tr:hover:not(.first) {
+	background-color: #dedcee;
+	cursor: pointer;
+	color: darkblue;
+}
+
+div.search {
+	margin: 10px 40px 20px 40px;
+	display: flex;
+	/* justify-content: space-evenly; */
+}
+
+div.search input {
+/* 
+	margin-left: 10%;
+	flex-shrink: 0; */
+	
+	padding: 5px;
+}
+
+button#search {
+	/* width: 50px; */
+	/* flex-grow: 1; */
+>>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 	
 	body {
 		background-color: white;
@@ -66,28 +107,22 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>1 대 1 문의 게시판</h1>
-	<%--
-	<form method="POST"></form>
+
 	<div class="se_Type">
 		<div id="sc">
-		 
-			<select name="search_option">
-				<option value="title"
-					<c:if test="${map.search_option == 'title'}">selected</c:if>>제목</option>
-				<option value="text"
-				<c:if test="${map.search_option == 'text'}">selected</c:if>>내용</option>
-				<option value="id"
-				<c:if test="${map.search_option == 'id'}">selected</c:if>>ID</option>
-			</select> 
-			<input name="keyword" type="search" value="${map.keyword}" placeholder="검색하세요">
-			
+
 		</div>
-		--%>
-		<div id="btn">
-		<input type="search" placeholder="id를 입력하세요">
-			<button id="search" type="submit">검색</button>
-			<button id="write" type="button">글쓰기</button>
-		</div>
+	</div>
+	<div id="search">
+				<select name="search_option">
+				<option value="title" selected="selected">제목</option>
+				<option value="text">내용</option>
+				<option value="id">ID</option>
+			</select>
+			<input name="keyword" type="search" value="${keyword}"
+				placeholder="검색하세요">
+		<button id="btn_search" type="submit">검색</button>
+		<button id="write" type="button">글쓰기</button>
 	</div>
 	<table class="list">
 		<tr class="first">
@@ -113,6 +148,10 @@
 						<th>${qna.qna_email}</th>
 						<th>${qna.qna_id}</th>
 						<th class="text">${qna.qna_text}</th>
+						<%-- 
+						<th><fmt:formatDate value="${date}" type="both" dateStyle="long" timeStyle="long"/></th>
+						--%>
+
 					</tr>
 				</c:forEach>
 			</c:otherwise>

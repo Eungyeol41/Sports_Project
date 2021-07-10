@@ -142,7 +142,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.metadata/
 RemoteSystemsTempFiles/
 
 # ETC
