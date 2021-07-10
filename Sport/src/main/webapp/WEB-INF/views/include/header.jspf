@@ -4,7 +4,7 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-06" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
-<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
 <header>
 	<nav id="main_nav">
 		<img src="${rootPath}/static/images/logo.png" />
@@ -16,9 +16,9 @@
 			<c:if test="${not empty USER}">
 				<li id="mypage">
 					<select>
-						<option>${USER.user_id}님, 반갑습니다</option>
-						<option>회원 정보 수정</option>
-						<option>MyPage</option>
+						<option id="user">${USER.user_id}님, 반갑습니다</option>
+						<option id="update">회원 정보 수정</option>
+						<option id="mypage">MyPage</option>
 					</select> 
 				</li>
 				<li id="logout">LogOut</li>

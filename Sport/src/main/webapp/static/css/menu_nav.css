@@ -42,3 +42,8 @@ nav#main_nav li:hover {
 nav#main_nav i {
 	padding: 5px;
 }
+
+select {
+	border: none;
+	background-color: transparent;
+}
