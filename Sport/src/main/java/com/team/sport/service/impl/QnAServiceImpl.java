@@ -74,6 +74,15 @@ public class QnAServiceImpl implements QnAService{
 		return vo;
 	}
 
+	@Override
+	public List<QnAVO> findByIdWithList(String qna_id) {
+		// TODO MyPage에서 문의리스트 띄우는 부분
+		
+		List<QnAVO> qnaList = qnaDao.findByIdWithList(qna_id);
+		
+		return qnaList;
+	}
+
 //	@Override
 //	public List<QnAVO> selectAll(String search_option, String keyword) {
 //		// TODO Auto-generated method stub

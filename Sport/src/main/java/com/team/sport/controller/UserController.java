@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.sport.model.QnAVO;
 import com.team.sport.model.UserVO;
+import com.team.sport.service.QnAService;
 import com.team.sport.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 	
 	protected final UserService userService;
+	protected final QnAService qnaService;
 
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String user() {
@@ -129,12 +131,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/info_list", method = RequestMethod.GET)
-	public String info_list(HttpSession hSession, Model model) {
+	public String info_list(HttpSession hSession, Model model, String qna_id) {
 		
-//		String user_id = (String) hSession.getAttribute("user_id");
-
-//		ArrayList<QnAVO> qnaList = ;
+		hSession.getAttribute("user_id");
 		
-		return null;
+		List<QnAVO> qnaList = qnaService.findByIdWithList(qna_id);
+		
+		model.addAttribute("QNALIST", qnaList);
+		log.debug("QnaList : {}", qnaList.toString());
+		
+		return "user/mypage";
 	}
 }

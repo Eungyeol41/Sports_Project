@@ -10,4 +10,6 @@ public interface QnAService extends GenericService<QnAVO, Long> {
 	public QnAVO detail(Long seq);
 //	public List<QnAVO> selectAll(String search_option, String keyword);
 	
+	public List<QnAVO> findByIdWithList(String qna_id);
+	
 }
