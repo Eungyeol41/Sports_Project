@@ -91,11 +91,11 @@ button:hover {
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th><input name="qna_id" id="qna_id" type="text"></th>
+						<th><input name="qna_id" id="qna_id" type="text" value="${USER.user_id}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th><input name="qna_email" id="qna_email" type="email"></th>
+						<th><input name="qna_email" id="qna_email" type="email" value="${USER.user_email}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>

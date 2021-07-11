@@ -82,11 +82,11 @@
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th><input name="qna_id" id="qna_id" type="text" value="${QNA.qna_id}"></th>
+						<th><input name="qna_id" id="qna_id" type="text" value="${QNA.qna_id}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th><input name="qna_email" id="qna_email" type="email" value="${QNA.qna_email}"></th>
+						<th><input name="qna_email" id="qna_email" type="email" value="${QNA.qna_email}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
@@ -101,7 +101,7 @@
 			</div>
 		</form>
 		<div class="button">
-			<button id="insert" type="submit">수정하기</button>
+			<button id="insert" type="submit" type="button">수정하기</button>
 			<button id="reset" type="reset">다시작성</button>
 			<button id="back" type="button">뒤로가기</button>
 		</div>
@@ -118,6 +118,6 @@
             alert("목록으로 이동합니다.");
             location.href="${rootPath}/qna/list"	
        });
-    </script>
 
+ </script>
 </html>
