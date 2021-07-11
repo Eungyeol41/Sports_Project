@@ -20,8 +20,7 @@ public class QnAVO {
 	private String qna_text; //	VARCHAR(3000) 문의내용
 	private String qna_email; //	VARCHAR(50) 이메일
 	
-//	private String search_option;
-//	private String keyword;
-
+	private String qna_date;
+	private Integer qna_count;
 
 }

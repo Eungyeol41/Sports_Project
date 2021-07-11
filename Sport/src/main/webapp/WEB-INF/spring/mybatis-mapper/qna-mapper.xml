@@ -34,12 +34,17 @@
     WHERE qna_seq = #{qna_seq}
     </select>
     <insert id="insert" parameterType="QnAVO">
-    INSERT INTO tbl_qna(qna_id,qna_title,qna_name,qna_text,qna_email)
-    VALUES (#{qna_id},#{qna_title},#{qna_name},#{qna_text},#{qna_email})
+    INSERT INTO tbl_qna(qna_id,qna_title,qna_name,qna_text,qna_date,qna_email)
+    VALUES (#{qna_id},#{qna_title},#{qna_name},#{qna_text},#{qna_date},#{qna_email})
     </insert>
     <update id="update" parameterType="QnAVO">
     UPDATE tbl_qna
-    SET qna_id=#{qna_id},qna_title=#{qna_title},qna_name=#{qna_name},qna_text=#{qna_text},qna_email=#{qna_email}
+    SET qna_id=#{qna_id},qna_title=#{qna_title},qna_name=#{qna_name},qna_text=#{qna_text},qna_date=#{qna_date},qna_email=#{qna_email}
+    WHERE qna_seq = #{qna_seq}
+    </update>
+    <update id="countUpdate" parameterType="Integer">
+    UPDATE tbl_qna
+    SET qna_count = qna_count + 1
     WHERE qna_seq = #{qna_seq}
     </update>
     <delete id="delete">

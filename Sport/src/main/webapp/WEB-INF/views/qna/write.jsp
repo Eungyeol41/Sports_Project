@@ -75,6 +75,13 @@ button:hover {
 	background-color: #dedcee;
 	cursor: pointer;
 }
+
+textarea {
+    resize: none;
+    width: 30%;
+    margin: 10%;
+
+}
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -111,11 +118,17 @@ button:hover {
 		<div class="button">
 			<button class="enter" type="button">등록</button>
 			<button id="reset" type="reset">다시 쓰기</button>
+			<button id="back" type="button">목록으로 이동</button>
 		</div>
 	</div>
 
 </body>
 <script>
+document.querySelector("button#back").addEventListener("click", () => {
+    alert("목록으로 이동합니다.");
+    location.href="${rootPath}/qna"	
+});
+
 
 let doc = document
 const qna_submit = () => {
