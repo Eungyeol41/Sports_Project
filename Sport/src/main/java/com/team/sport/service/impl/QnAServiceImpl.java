@@ -1,7 +1,12 @@
 package com.team.sport.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import com.team.sport.dao.QnADao;
@@ -31,6 +36,13 @@ public class QnAServiceImpl implements QnAService{
 	public int insert(QnAVO vo) {
 		// TODO Auto-generated method stub
 		
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String curDate = sd.format(date);
+		
+		vo.setQna_date(curDate);
+		
 		Integer res = qnaDao.insert(vo);
 		return res;
 	}
@@ -38,6 +50,13 @@ public class QnAServiceImpl implements QnAService{
 	@Override
 	public int update(QnAVO vo) {
 		// TODO Auto-generated method stub
+		
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String curDate = sd.format(date);
+		
+		vo.setQna_date(curDate);
 		
 		Integer res = qnaDao.update(vo);
 		return res;
@@ -84,7 +103,7 @@ public class QnAServiceImpl implements QnAService{
 
 	@Override
 	public List<QnAVO> findByTitle(String keyword) {
-		// TODO Auto-generated method stub
+		// TODO 제목으로 검색하기
 		
 		List<QnAVO> qnaList = qnaDao.findByTitle(keyword);
 		
@@ -95,18 +114,33 @@ public class QnAServiceImpl implements QnAService{
 
 	@Override
 	public List<QnAVO> findByText(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 내용으로 검색하기
+		
+		List<QnAVO> qnaList = qnaDao.findByText(keyword);
+		
+		log.debug("title: {}" , qnaList.toString());
+				
+		return qnaList;
 	}
 
 	@Override
 	public List<QnAVO> findByUser(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO id로 검색하기
+		List<QnAVO> qnaList = qnaDao.findByText(keyword);
+		
+		log.debug("title: {}" , qnaList.toString());
+				
+		return qnaList;
 	}
 
-
-
+	@Override
+	public Integer countUpdate(Integer count) {
+		// TODO Auto-generated method stub
+		
+		Integer res = qnaDao.countUpdate(count);
+		
+		return res;
+	}
 
 
 

@@ -1,5 +1,7 @@
 package com.team.sport.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.team.sport.dao.QnADao;
 import com.team.sport.model.QnAVO;
+import com.team.sport.model.UserVO;
 import com.team.sport.service.QnAService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,15 +41,33 @@ public class QnAController {
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public String detail(Model model, Long seq) {
-
-		QnAVO vo = qnaService.detail(seq);
-		model.addAttribute("QNA", vo);
+		
+//		UserVO uservo = (UserVO) session.getAttribute("USER");
+//		
+//		if(uservo == null) {
+//			return "redirect:/user/login";
+//		}
+//		if(uservo != null) {
+//			
+//		}
+		Integer count = null;
+		Integer countUp = qnaService.countUpdate(count);
+		QnAVO qnavo = qnaService.detail(seq);
+		
+		model.addAttribute("QNA", qnavo);
 		return "/qna/detail";
 
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String insert() {
+	public String insert(Model model) {
+		
+//		Date date = new Date(System.currentTimeMillis());
+//		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+//		
+//		String curDate = sd.format(date);
+//		
+//		model.addAttribute("DATE",curDate);
 
 		return "/qna/write";
 	}
@@ -91,7 +112,7 @@ public class QnAController {
 	}
 	
 	@RequestMapping(value="/search/title", method = RequestMethod.GET)
-	public String keyword(Model model, String keyword) {
+	public String searchTitle(Model model, String keyword) {
 		
 		List<QnAVO> qnaList = qnaService.findByTitle(keyword);
 		
@@ -99,6 +120,31 @@ public class QnAController {
 		
 		model.addAttribute("RESULT",qnaList);
 		
-		return "redirect:/qna";
+		//왜 redirect를 쓰면 되지 않는건가........
+		return  "/qna/list";
+	}
+	
+	@RequestMapping(value="/search/text", method = RequestMethod.GET)
+	public String searchText(Model model, String keyword) {
+		
+		List<QnAVO> qnaList = qnaService.findByText(keyword);
+		
+		log.debug("controller title : {}", qnaList.toString());
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		return  "/qna/list";
+	}
+	
+	@RequestMapping(value="/search/user", method = RequestMethod.GET)
+	public String searchUser(Model model, String keyword) {
+		
+		List<QnAVO> qnaList = qnaService.findByUser(keyword);
+		
+		log.debug("controller title : {}", qnaList.toString());
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		return  "/qna/list";
 	}
 }

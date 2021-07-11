@@ -37,37 +37,50 @@ body {
 	font-family: "Roboto Condensed", sans-serif;
 }
 
+div#search {
+	margin: 10px 0px 10px 0px;
+	display: flex;
+}
+
+select#search {
+	margin-left: 10%;
+	padding: 0px 10px 0px 10px;
+	margin-right: 20px;
+	border: 1px solid black;
+	text-align: center;
+}
+
 tr:hover:not(.first) {
 	background-color: #dedcee;
 	cursor: pointer;
 	color: darkblue;
 }
 
-div.btn {
-	margin: 10px 40px 20px 40px;
-	display: flex;
-	/* justify-content: space-evenly; */
-}
-
-input {
-	margin-left: 10%;
-	/* flex-shrink: 0; */
-}
-
-button#search {
-	/* width: 50px; */
-	/* flex-grow: 1; */
+div.btn_search {
 	
 }
 
-button#write {
-	/* justify-items: left; */
-	margin-left: auto;
+button#btn_search {
+	margin: 0px 0px 0px 20px;
 }
 
-table th#text {
-	max-width: 0%;
+button#write {
+	margin-left: auto;
+	margin-right: 10%;
+}
+
+table.list {
+	table-layout: fixed;
+}
+
+table.list th:first-child {
+	width: 5%;
+}
+
+table.list td, th {
 	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 </style>
 </head>
@@ -89,34 +102,38 @@ table th#text {
 		<button id="btn_search" type="button">검색</button>
 		<button id="write" type="button">글쓰기</button>
 	</div>
-	<table class="list">
-		<tr class="first">
-			<th>번호</th>
-			<th>제목</th>
-			<th>시설이름</th>
-			<th>e_mail</th>
-			<th>아이디</th>
-			<th class="text">문의내용</th>
-		</tr>
-		<c:choose>
-			<c:when test="${empty RESULT}">
-				<tr>
+	<div class="table_list">
+		<table class="list">
+			<tr class="first">
+				<th>번호</th>
+				<th>제목</th>
+				<th>시설이름</th>
+				<th>e_mail</th>
+				<th>아이디</th>
+				<th class="text">문의내용</th>
+				<th>작성시간</th>
+				<th>조회수</th>
+			</tr>
+			<c:choose>
+				<c:when test="${empty RESULT}">
+					<%-- 		<tr>
 					<td colspan="6">데이터가 없음</td>
-				</tr>
-				<c:forEach items="${QNA}" var="qna" varStatus="index">
-					<tr data-seq="${qna.qna_seq}">
-						<th>${index.count}</th>
-						<th>${qna.qna_title}</th>
-						<th>${qna.qna_name}</th>
-						<th>${qna.qna_email}</th>
-						<th>${qna.qna_id}</th>
-						<th class="text">${qna.qna_text}</th>
-					</tr>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
+				</tr> --%>
+					<c:forEach items="${QNA}" var="qna" varStatus="index">
+						<tr data-seq="${qna.qna_seq}">
+							<th>${index.count}</th>
+							<th>${qna.qna_title}</th>
+							<th>${qna.qna_name}</th>
+							<th>${qna.qna_email}</th>
+							<th>${qna.qna_id}</th>
+							<th style="width: 20%" class="text">${qna.qna_text}</th>
+							<th>${qna.qna_date}</th>
+							<th>${qna.qna_count}</th>
+						</tr>
+					</c:forEach>
+				</c:when>
 				<c:when test="${not empty RESULT}">
-					 <c:forEach items="${RESULT}" var="RE" varStatus="index">
+					<c:forEach items="${RESULT}" var="RE" varStatus="index">
 						<tr data-seq="${RE.qna_seq}">
 							<th>${index.count}</th>
 							<th>${RE.qna_title}</th>
@@ -124,12 +141,17 @@ table th#text {
 							<th>${RE.qna_email}</th>
 							<th>${RE.qna_id}</th>
 							<th class="text">${RE.qna_text}</th>
+							<th>${qna.qna_date}</th>
+							<th>${qna.qna_count}</th>
 						</tr>
-				 	</c:forEach>
+					</c:forEach>
 				</c:when>
-			</c:otherwise>
-		</c:choose>
-	</table>
+				<c:otherwise>
+
+				</c:otherwise>
+			</c:choose>
+		</table>
+	</div>
 </body>
 <script>
 
@@ -158,13 +180,16 @@ document.querySelector("button#btn_search").addEventListener("click", (e) => {
 		
 		alert(search + "title")
 		location.href="${rootPath}/qna/search/title?keyword=" +keyword;
-	}else if(search == "text") {
+	}
+	//else if를 쓰면 안되는 이유는..?
+	if(search == "text") {
 		
-		alert(text + "text")
+		alert(search + "text")
 		location.href="${rootPath}/qna/search/text?keyword=" +keyword;
-	}else if(search == "user") {
+	}
+	if(search == "user") {
 		
-		alert(user + "user")
+		alert(search + "user")
 		location.href="${rootPath}/qna/search/user?keyword=" +keyword;
 	}	
 })
