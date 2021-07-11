@@ -71,7 +71,6 @@ button:hover {
 	cursor: pointer;
 }
 </style>
-<<<<<<< HEAD
 <script>
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelector("button#update").addEventListener("click", () => {
@@ -85,9 +84,7 @@ button:hover {
              });
         });
     </script>
-=======
 
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 </head>
 
 <body>

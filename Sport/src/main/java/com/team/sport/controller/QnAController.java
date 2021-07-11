@@ -30,29 +30,12 @@ public class QnAController {
 		List<QnAVO> qnaList = qnaService.selectAll();
 		model.addAttribute("QNA", qnaList);
 
-		log.debug("qnaList: {}", qnaList);
+//		log.debug("qnaList: {}", qnaList);
 
 		return "/qna/list";
 	}
 
-//	@RequestMapping(value = "/list", method = RequestMethod.POST)
-//	public String list(@RequestParam(defaultValue = "text") String search_option,
-//			@RequestParam(defaultValue = "")String keyword) { //option 1번 text , 기본값 keyword
-//		
-//		QnAVO vo = new QnAVO();
-//		List<QnAVO> qnaList = qnaService.selectAll(search_option, keyword);
-//		
-//		Map<String, Object> map = new HashMap<>();
-//		
-//		map.put("search_option", search_option);
-//		map.put("keyword", keyword);
-//		
-//		qnaList.add(map);
-//		
-//
-//		
-//		return "/qna/list";
-//	}
+
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public String detail(Model model, Long seq) {
 
@@ -80,10 +63,8 @@ public class QnAController {
 
 		QnAVO vo = qnaService.findById(seq);
 		model.addAttribute("QNA", vo);
-<<<<<<< HEAD
-=======
-		log.debug("Qna VO {}", vo.toString());
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
+
+//		log.debug("Qna VO {}", vo.toString());
 
 		return "/qna/insert";
 	}
@@ -93,7 +74,7 @@ public class QnAController {
 
 		vo.setQna_seq(seq);
 		Integer res = qnaService.update(vo);
-		log.debug("update Qna VO {}", vo.toString());
+//		log.debug("update Qna VO {}", vo.toString());
 
 		return "redirect:/qna";
 
@@ -104,12 +85,20 @@ public class QnAController {
 
 		vo.setQna_seq(seq);
 		qnaService.delete(seq);
-		log.debug("detail seq {}", seq.toString());
-<<<<<<< HEAD
-		
-=======
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
+//		log.debug("detail seq {}", seq.toString());
 		return "redirect:/qna";
 
+	}
+	
+	@RequestMapping(value="/search/title", method = RequestMethod.GET)
+	public String keyword(Model model, String keyword) {
+		
+		List<QnAVO> qnaList = qnaService.findByTitle(keyword);
+		
+		log.debug("controller title : {}", qnaList.toString());
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		return "redirect:/qna";
 	}
 }

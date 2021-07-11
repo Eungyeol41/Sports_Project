@@ -11,5 +11,8 @@ public interface QnAService extends GenericService<QnAVO, Long> {
 //	public List<QnAVO> selectAll(String search_option, String keyword);
 	
 	public List<QnAVO> findByIdWithList(String qna_id);
+	public List<QnAVO> findByTitle(String keyword);
+	public List<QnAVO> findByText(String keyword);
+	public List<QnAVO> findByUser(String keyword);
 	
 }

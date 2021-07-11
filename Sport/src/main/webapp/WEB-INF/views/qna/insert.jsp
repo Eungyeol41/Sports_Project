@@ -73,11 +73,7 @@
 		<div class="h2">
 			<h2>문의사항</h2>
 		</div>
-<<<<<<< HEAD
 		<form id="update" method="POST">
-=======
-		<form method="POST" id="update">
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 			<div class="table">
 				<table>
 					<tr>
@@ -112,7 +108,6 @@
 	</div>
 </body>
 <script>
-<<<<<<< HEAD
        document.querySelector("button#insert").addEventListener("click", () => {
             alert("수정합니다.");
             //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
@@ -123,19 +118,6 @@
             alert("목록으로 이동합니다.");
             location.href="${rootPath}/qna/list"	
        });
-    </script>
-=======
-            document.querySelector("button#insert").addEventListener("click", () => {
-                alert("수정합니다.");
-                //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
-                document.querySelector("form#update").submit();
-            });
-			
-            document.querySelector("button#back").addEventListener("click", () => {
-                alert("목록으로 이동합니다.");
-                location.href="${rootPath}/qna"	
-            });
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 
-    </script>
+ </script>
 </html>

@@ -13,6 +13,18 @@
     SELECT * FROM tbl_qna
     WHERE qna_seq = #{qna_seq}
     </select>
+    <select id="findByTitle" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_title like CONCAT('%',#{keyword},'%')
+    </select>
+    <select id="findByText" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_text like CONCAT('%',#{keyword},'%')
+    </select>
+    <select id="findByUser" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_id like CONCAT('%',#{keyword},'%')
+    </select>
     <select id="findByIdWithList">
     	SELECT * FROM tbl_qna
     	WHERE qna_id = #{qna_id}

@@ -23,7 +23,7 @@ public class QnAServiceImpl implements QnAService{
 		
 		List<QnAVO> qnaList = qnaDao.selectAll(); 
 		
-		log.debug("qnaList: {}", qnaList);
+//		log.debug("qnaList: {}", qnaList);
 		return qnaList;
 	}
 
@@ -40,10 +40,6 @@ public class QnAServiceImpl implements QnAService{
 		// TODO Auto-generated method stub
 		
 		Integer res = qnaDao.update(vo);
-<<<<<<< HEAD
-		
-=======
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 		return res;
 	}
 
@@ -86,11 +82,30 @@ public class QnAServiceImpl implements QnAService{
 		return qnaList;
 	}
 
-//	@Override
-//	public List<QnAVO> selectAll(String search_option, String keyword) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public List<QnAVO> findByTitle(String keyword) {
+		// TODO Auto-generated method stub
+		
+		List<QnAVO> qnaList = qnaDao.findByTitle(keyword);
+		
+		log.debug("title: {}" , qnaList.toString());
+				
+		return qnaList;
+	}
+
+	@Override
+	public List<QnAVO> findByText(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<QnAVO> findByUser(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 
 

@@ -15,10 +15,7 @@ import lombok.ToString;
 @Builder
 public class DetailDTO {
 
-<<<<<<< HEAD
 	private Long v_seq;
-=======
->>>>>>> 5ed215614e1694fce11f6ec92709cd3fbe810cb5
 	private String v_time;
 	private String v_money;
 	private String v_site;
