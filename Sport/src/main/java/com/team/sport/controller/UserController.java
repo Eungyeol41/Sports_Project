@@ -37,6 +37,7 @@ public class UserController {
 		return "user/login";
 	}
 	
+	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam(name = "MSG", required = false) String msg, Model model) {
 		
@@ -75,11 +76,13 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	// 바로 관리자 창으로 넘어가는 것 방지
 	@RequestMapping(value = "/login/{url}", method = RequestMethod.GET)
 	public String login(@PathVariable("url") String url) {
 		return "redirect:/user/login?url=login";
 	}
 	
+	// 로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession hSession) {
 		
@@ -89,6 +92,7 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 		
@@ -104,26 +108,7 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update() {
-		
-		return "user/update";
-	}
-	
-	
-	@ResponseBody
-	@RequestMapping(value="/id_check",method=RequestMethod.GET)
-	public String id_check(String user_id) {
-		
-		UserVO userVO = userService.findById(user_id);
-
-		if(userVO == null) {
-			return "NOT_USE_ID";
-		} else {
-			return "USE_ID";
-		}
-	}
-	
+	// 유저 정보 확인 및 수정
 	@RequestMapping(value = "/info_update", method = RequestMethod.GET)
 	public String info_update(HttpSession hSession, Model model) {
 		
@@ -132,11 +117,11 @@ public class UserController {
 		return "user/info_update";
 	}
 	
+	// MyPage
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypgae(HttpSession hSession, Model model) {
 		
 		UserVO userVO = (UserVO) hSession.getAttribute("USER");
-		
 		String qna_id = userVO.getUser_id();
 		log.debug("qna_id {}", qna_id);
 		
@@ -148,6 +133,7 @@ public class UserController {
 		return "user/mypage";
 	}
 
+	// ID 찾기
 	@RequestMapping(value = "/findId", method = RequestMethod.GET)
 	public String findId() {
 		return "user/find_Id";
@@ -168,6 +154,7 @@ public class UserController {
 		return "user/find_Id";
 	}
 	
+	// 비밀번호 찾기
 	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
 	public String findPw() {
 		return "user/find_Pw";
@@ -188,6 +175,7 @@ public class UserController {
 		return "user/find_Pw";
 	}
 
+	// 비밀번호 수정하기
 	@RequestMapping(value = "/updatePw", method = RequestMethod.GET)
 	public String updatePw(@RequestParam(value = "updatePw", defaultValue = "", required = false) String user_id, UserVO userVO) {
 		
@@ -197,6 +185,21 @@ public class UserController {
 		return "user/update_pw";
 	}
 	
+	// Id 확인
+	@ResponseBody
+	@RequestMapping(value="/id_check",method=RequestMethod.GET)
+	public String id_check(String user_id) {
+		
+		UserVO userVO = userService.findById(user_id);
+
+		if(userVO == null) {
+			return "NOT_USE_ID";
+		} else {
+			return "USE_ID";
+		}
+	}
+		
+	// 비밀번호 확인하기
 	@RequestMapping(value = "/checkPw", method = RequestMethod.GET)
 	public String checkPassword(HttpSession hSession, Model model) {
 		
@@ -207,13 +210,6 @@ public class UserController {
 		} else {
 			return "user/checkPass";
 		}
-	}
-	
-	public String admin_login() {
-		
-		
-		
-		return "user/admin";
 	}
 	
 }
