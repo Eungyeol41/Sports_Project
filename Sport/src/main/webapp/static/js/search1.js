@@ -15,12 +15,6 @@
       document.addEventListener("DOMContentLoaded", () => {
 
     document
-    .querySelector("button#btn_search")
-          .addEventListener("click", () => {
-     		urlPath += "/search/board"
-            location.href = urlPath
-          });
-    document
     .querySelector('input[name="ch_all"]')
     .addEventListener("change", function (e) {
         e.preventDefault();

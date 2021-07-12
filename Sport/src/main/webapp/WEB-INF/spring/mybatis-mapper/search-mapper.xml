@@ -23,6 +23,23 @@
 		SELECT * FROM TBL_SP_SEARCH
 		WHERE SP_MONEY = #{sp_money} AND sp_distric = #{sp_distric}
 	</select>
+	
+	<select id="findBySport" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+		WHERE v_sport = #{v_sport} 
+	</select>
+	
+	<select id="findBySearch" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+    	WHERE v_name like CONCAT('%',#{keyword},'%')
+	</select>
+	
+	<select id="findByDistric" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+    	WHERE v_distric like CONCAT('%',#{keyword},'%')
+	</select>
+	
+	
 
 	<insert id="insert"></insert>
 	<update id="update"></update>

@@ -88,17 +88,7 @@ button {
     font-weight: bold;
   }
 </style>
-<script>
-   var rootPath = "${rootPath}"
-	</script>
-<script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("table").addEventListener("click", () => {
-          location.href = "${rootPath}/search/detail";
-        });
-      });
-    </script>
-</head>
+
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -110,6 +100,34 @@ button {
 			<th>전화번호</th>
 			<th>종목</th>
 			<th>위치</th>
+			<th>유/무료</th>
 		</tr>
-	</table>
+		
+		<c:forEach items="${RESULT}" var="RE" >
+    	<tr data-seq="${RE.v_seq}">
+    		<th>${RE.v_seq}</th>
+    		<th>${RE.v_name}</th>
+    		<th>${RE.v_tel}</th>
+    		<th>${RE.v_sport}</th>
+    		<th>${RE.v_addr}</th>
+    		<th>${RE.v_free}</th>
+    	</tr>
+    </c:forEach>
+  </table>
 </body>
+<script>
+   var rootPath = "${rootPath}"
+</script>
+<script>
+document.querySelector("table.list").addEventListener("click", (e) => {
+	let tagName = e.target.tagName;
+	
+	if(tagName == "TH") {
+		let seq = e.target.closest("TR").dataset.seq;
+		console.log(seq);
+		location.href="${rootPath}/search/detail2?v_seq=" + seq;	
+	}
+
+})
+   </script>
+</head>
