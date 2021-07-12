@@ -20,3 +20,6 @@ SELECT * FROM tbl_qna;
 UPDATE tbl_qna
 SET qna_title = '사람없는 시간대 알려주세요' 
 WHERE qna_seq = 2;
+
+ DELETE FROM tbl_qna WHERE qna_seq =4;
+ 

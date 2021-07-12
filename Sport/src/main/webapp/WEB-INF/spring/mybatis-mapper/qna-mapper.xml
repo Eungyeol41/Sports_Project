@@ -25,9 +25,9 @@
     SELECT * FROM tbl_qna
     WHERE qna_id like CONCAT('%',#{keyword},'%')
     </select>
-    <select id="findByIdWithList">
-    	SELECT * FROM tbl_qna
-    	WHERE qna_id = #{qna_id}
+    <select id="findByIdWithList" resultType="QnAVO">
+    SELECT * FROM tbl_qna
+    WHERE qna_id = #{qna_id}
     </select>
     <select id="detail" resultType="QnAVO">
     SELECT * FROM tbl_qna
@@ -42,13 +42,13 @@
     SET qna_id=#{qna_id},qna_title=#{qna_title},qna_name=#{qna_name},qna_text=#{qna_text},qna_date=#{qna_date},qna_email=#{qna_email}
     WHERE qna_seq = #{qna_seq}
     </update>
-    <update id="countUpdate" parameterType="Integer">
+    <update id="countUpdate" parameterType="Long">
     UPDATE tbl_qna
     SET qna_count = qna_count + 1
     WHERE qna_seq = #{qna_seq}
     </update>
     <delete id="delete">
-    DELETE FROM tbl_qna WHERE qna_seq = ${qna_seq} 
+    DELETE FROM tbl_qna WHERE qna_seq = #{qna_seq} 
     </delete>
  
  </mapper>
