@@ -123,6 +123,9 @@
   th:nth-child(1) {
     border-right: 1px dashed lavender;
   }
+  th:hover{
+  	cursor: pointer;
+  }
 
 
   h1 {
@@ -131,13 +134,18 @@
     font-size: 30px;
     font-weight: bold;
   }
+  select.sports{
+  	background-color: white;
+  }
+  select.sports option{
+  	
+  }
   </style>
 </head>
 
 <script>
 	var rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/search.js?ver=2021-07-09-005"></script>
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>
@@ -167,25 +175,45 @@
     <tr class="search">
       <th class="search">지역(동)</th>
       <td id="t3">
-        <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
+        <input id="distric_box" type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
       </td>
     </tr>
     <tr class="search">
-      <th class="search">검색어</th>
+      <th class="search">시설이름</th>
       <td id="t4">
-        <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
+        <input id="search_box" type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
       </td>
     </tr>
     <tr class="search">
       <!-- 드롭다운 사용하기 -->
       <th class="search">종목</th>
       <td>
-        <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd">
-          <option value="1">--- 종목 ---</option>
-          <option value="2">배드민턴</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
+	        <select id="sports" class="sports" name="input" size="1" style=" width: 230px; border: 1px solid #ddd;  " >
+	          <option value="1">--- 종목 ---</option>
+	          <option value="검도">검도</option>
+	          <option value="게이트볼">게이트볼</option>
+	          <option value="골프">골프</option>
+	          <option value="구기체육관">구기체육관</option>
+	          <option value="국궁">국궁</option>
+	          <option value="농구">농구</option>
+	          <option value="배구">배구</option>
+	          <option value="배드민턴">배드민턴</option>
+	          <option value="생활체육관">생활체육관</option>
+	          <option value="소프트볼">소프트볼</option>
+	          <option value="수영">수영</option>
+	          <option value="스케이트">스케이트</option>
+	          <option value="승마">승마</option>
+	          <option value="야구">야구</option>
+	          <option value="양궁">양궁</option>
+	          <option value="육상">육상</option>
+	          <option value="인공암벽">인공암벽</option>
+	          <option value="인라인스케이트">인라인스케이트</option>
+	          <option value="전천후게이트볼">전천후게이트볼</option>
+	          <option value="정구">정구</option>
+	          <option value="족구">족구</option>
+	          <option value="축구">축구</option>
+	          <option value="테니스">테니스</option>
+	        </select>
       </td>
     </tr>
     <tr class="search">
@@ -219,17 +247,75 @@
 	
 </body>
 <script>
-
 document.querySelector("table.list").addEventListener("click", (e) => {
 	let tagName = e.target.tagName;
 	
 	if(tagName == "TH") {
 		let seq = e.target.closest("TR").dataset.seq;
 		console.log(seq);
-		location.href="${rootPath}/search/detail2?v_seq=" + seq;	
+		location.href="${rootPath}/search/detail2?v_seq=" + seq;
 	}
-
 })
+document.querySelector("button#btn_search").addEventListener("click", (e) => {
+	let sportVal = document.getElementById("sports").value;
+	let serchBoxVal = document.getElementById("search_box").value
+	console.log("sportVal : " + sportVal);
+	console.log("serchBoxVal : " + serchBoxVal);
+	
+	/* let search = document.querySelector("select#input").value
+	let keyword = document.querySelector("option").value */
+	
+	console.log("난해");
+	
+  	if(search == "option") {
+		
+		location.href="${rootPath}/search/search/board?keyword=" + keyword;
+	}
+})
+
+  let urlPath = `${rootPath}`;
+  
+    function checkSelectAll() {
+        const checkbox = document.querySelectorAll('input[name="ch"]');
+    	const checked = document.querySelectorAll('input[name="ch"]:checked');
+    	const selectAll = document.querySelector('input[name="ch_a-ll"]');
+
+    if (checkbox.length === checked.length) {
+        selectAll.checked = true;
+        } else {
+        selectAll.checked = false;
+        }
+    }
+
+      document.addEventListener("DOMContentLoaded", () => {
+
+    document
+    .querySelector('input[name="ch_all"]')
+    .addEventListener("change", function (e) {
+        e.preventDefault();
+    let list = document.querySelectorAll('input[name="ch"]');
+    for (let i = 0; i < list.length; i++) {
+        list[i].checked = this.checked;
+            }
+          });
+
+    let objs = document.querySelectorAll("input#ch");
+    for (let i = 0; i < objs.length; i++) {
+        objs[i].addEventListener("click",() => {
+                let selectAll = document.querySelector("input#all");
+                for (let j = 0; j < objs.length; j++) {
+                    if (objs[j].checked === false) {
+                        selectAll.checked = false;
+                        return;
+                    }
+                }
+                selectAll.checked = true;
+            },
+            false
+        );
+        }
+      });
+
 </script>
 
 </html>

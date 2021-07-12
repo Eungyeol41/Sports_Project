@@ -28,30 +28,6 @@ public class SearchServiceImplV1 implements SearchService{
 	}
 
 	@Override
-	public List<SearchVO> selectMoney() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<SearchVO> selectDistric() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<SearchVO> selectSearch() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<SearchVO> selectSport() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<DetailDTO> selectView() {
 		
 		List<DetailDTO> dtList = sDao.selectView();
@@ -72,6 +48,30 @@ public class SearchServiceImplV1 implements SearchService{
 		
 		DetailDTO dtDTO = sDao.findSeq(v_seq);
 		return dtDTO;
+	}
+
+	@Override
+	public List<DetailDTO> findByDistric(String keyword) {
+		
+		List<DetailDTO> dtList = sDao.findByDistric(keyword);
+		
+		return dtList;
+	}
+
+	@Override
+	public List<DetailDTO> findBySearch(String keyword) {
+
+		List<DetailDTO> dtList = sDao.findBySearch(keyword);
+		
+		return dtList;
+	}
+
+	@Override
+	public List<DetailDTO> findBySport(String keyword) {
+
+		List<DetailDTO> dtList = sDao.findBySport(keyword);
+		
+		return dtList;
 	}
 
 }

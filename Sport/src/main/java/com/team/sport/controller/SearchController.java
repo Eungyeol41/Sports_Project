@@ -46,6 +46,37 @@ public class SearchController {
 	
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String board(Model model) {
+		List<DetailDTO> dtList = sService.selectView();
+		model.addAttribute("DTLIST",dtList);
+		return "/search/board";
+	}
+	
+	@RequestMapping(value="/distric", method=RequestMethod.GET)
+	public String distric(Model model, String keyword) {
+		
+		List<DetailDTO> dtList = sService.findByDistric(keyword);
+		
+		model.addAttribute("RESULT",dtList);
+		
+		return "/search/search";
+	}
+	
+	@RequestMapping(value="/searchinput", method=RequestMethod.GET)
+	public String searchinput(Model model, String keyword) {
+		
+		List<DetailDTO> dtList = sService.findBySearch(keyword);
+		
+		model.addAttribute("RESULT",dtList);
+		
+		return "/search/search";
+	}
+	
+	@RequestMapping(value="/sport", method=RequestMethod.GET)
+	public String sport(Model model, String keyword) {
+		
+		List<DetailDTO> dtList = sService.findBySport(keyword);
+		
+		model.addAttribute("RESULT",dtList);
 		
 		return "/search/board";
 	}
