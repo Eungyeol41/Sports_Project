@@ -27,12 +27,6 @@
 			<c:if test="${empty USER}">
 				<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
 				<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i>
-					<ul class="log_ul">
-						<li class="log_li">시험</li>
-						<li class="log_li">테스트</li>
-						<li class="log_li">연습</li>
-					</ul>
-				</li>
 			</c:if>
 		</ul>
 	</nav>
