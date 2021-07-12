@@ -97,6 +97,7 @@ public class QnAServiceImpl implements QnAService{
 		// TODO MyPage에서 문의리스트 띄우는 부분
 		
 		List<QnAVO> qnaList = qnaDao.findByIdWithList(qna_id);
+		log.debug("Service - qnaList : {}", qnaList.toString());
 		
 		return qnaList;
 	}

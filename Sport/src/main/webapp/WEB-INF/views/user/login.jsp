@@ -8,8 +8,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link href="${rootPath}/static/css/login.css?ver=2021-07-12-003" rel="stylesheet" />
-
-<link href="${rootPath}/static/css/modal.css?ver=2021-07-12-001" rel="stylesheet" />
+<!-- <link href="${rootPath}/static/css/modal.css?ver=2021-07-12-001" rel="stylesheet" /> -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
