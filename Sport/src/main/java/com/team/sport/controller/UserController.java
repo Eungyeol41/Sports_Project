@@ -1,12 +1,14 @@
 package com.team.sport.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,6 +75,11 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/login/{url}", method = RequestMethod.GET)
+	public String login(@PathVariable("url") String url) {
+		return "redirect:/user/login?url=login";
+	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession hSession) {
 		
@@ -92,7 +99,7 @@ public class UserController {
 	public String join(UserVO vo) {
 		log.debug("join {}", vo.toString());
 		
-		userService.insert(vo);
+		userService.join(vo);
 		
 		return "redirect:/";
 	}
@@ -117,29 +124,96 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String mypage(HttpSession hSession, Model model) {
+	@RequestMapping(value = "/info_update", method = RequestMethod.GET)
+	public String info_update(HttpSession hSession, Model model) {
 		
 		UserVO userVO = (UserVO) hSession.getAttribute("USER");
-		if(userVO == null) {
-			model.addAttribute("MSG", "NONE");
-		} else {
-			model.addAttribute("MSG", "EXIST");
-		}
 		
-		return "user/mypage";
+		return "user/info_update";
 	}
 	
-	@RequestMapping(value = "/info_list", method = RequestMethod.GET)
-	public String info_list(HttpSession hSession, Model model, String qna_id) {
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String mypgae(HttpSession hSession, Model model) {
 		
-		hSession.getAttribute("user_id");
+		UserVO userVO = (UserVO) hSession.getAttribute("USER");
+		
+		String qna_id = userVO.getUser_id();
+		log.debug("qna_id {}", qna_id);
 		
 		List<QnAVO> qnaList = qnaService.findByIdWithList(qna_id);
+		log.debug("QnaList : {}", qnaList.toString());
 		
 		model.addAttribute("QNALIST", qnaList);
-		log.debug("QnaList : {}", qnaList.toString());
 		
 		return "user/mypage";
 	}
+
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
+	public String findId() {
+		return "user/find_Id";
+	}
+	
+	@RequestMapping(value = "/findId", method = RequestMethod.POST)
+	public String findId(Model model, UserVO vo) {
+		
+		UserVO userVO = userService.findId(vo);
+		
+		if(userVO == null) {
+			model.addAttribute("USERVO", "NONE");
+		} else {
+			model.addAttribute("USERVO", "CHECK");
+			model.addAttribute("ID", userVO.getUser_id());
+		}
+		
+		return "user/find_Id";
+	}
+	
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public String findPw() {
+		return "user/find_Pw";
+	}
+
+	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
+	public String findPw(UserVO vo, Model model) {
+		
+		UserVO userVO = userService.findPw(vo);
+		
+		if(userVO == null) {
+			model.addAttribute("USERVO", "NONE");
+		} else {
+			model.addAttribute("USERVO", "CHECK");
+			model.addAttribute("USER", userVO);
+		}
+		
+		return "user/find_Pw";
+	}
+
+	@RequestMapping(value = "/updatePw", method = RequestMethod.GET)
+	public String updatePw(@RequestParam(value = "updatePw", defaultValue = "", required = false) String user_id, UserVO userVO) {
+		
+		userVO.setUser_id(user_id);
+		userService.update_pw(userVO);
+		
+		return "user/update_pw";
+	}
+	
+	@RequestMapping(value = "/checkPw", method = RequestMethod.GET)
+	public String checkPassword(HttpSession hSession, Model model) {
+		
+		UserVO userVO = (UserVO) hSession.getAttribute("USER");
+		
+		if(userVO == null) {
+			return "user/login";
+		} else {
+			return "user/checkPass";
+		}
+	}
+	
+	public String admin_login() {
+		
+		
+		
+		return "user/admin";
+	}
+	
 }
