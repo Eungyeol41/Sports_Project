@@ -32,11 +32,19 @@ nav#main_nav li {
 	padding: 20px 32px 33px 3px;
 	color: rgb(0, 0, 0);
 	list-style: none;
+	
 }
 
 nav#main_nav li:hover {
 	cursor: pointer;
 	border-bottom: 3px solid #dedcee;
+}
+
+nav#main_nav li#join > ul.log_ul{
+	
+}
+nav#main_nav li#join > ul.log_ul:hover {
+	background-color: black;
 }
 
 nav#main_nav i {

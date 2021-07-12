@@ -54,7 +54,10 @@
       margin-right: 25%;
       font-weight: bold;
       right: 20%;
+      font-style: normal;
+      color: black;
     }
+    
 
     button:hover {
       background-color: #dedcee;

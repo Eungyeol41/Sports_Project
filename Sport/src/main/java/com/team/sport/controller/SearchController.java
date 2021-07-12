@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.team.sport.dao.SearchDao;
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
+import com.team.sport.model.QnAVO;
 import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -39,9 +40,7 @@ public class SearchController {
 	public String detail(Model model, Long v_seq) {
 		
 		DetailDTO dtDTO = sService.findSeq(v_seq);
-		
-		model.addAttribute("DTDTO",dtDTO);
-		
+		model.addAttribute("DT", dtDTO);
 		return "/search/detail2";
 	}
 	

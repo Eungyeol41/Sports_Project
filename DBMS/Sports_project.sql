@@ -27,7 +27,7 @@ DROP TABLE tbl_user;
 
 create table tbl_detail(
 dt_code	CHAR(4)		PRIMARY KEY,
-dt_time	VARCHAR(10)		,
+dt_time	VARCHAR(1000)		,
 dt_money	VARCHAR(2000)	,	
 dt_site	VARCHAR(2000)		
 );
@@ -60,14 +60,15 @@ DROP VIEW view_상세페이지;
 CREATE VIEW view_상세페이지 AS 
 (
 	SELECT 
-			AL.al_name AS al_name,
-            AL.al_tel AS al_tel,
-            AL.al_addr AS al_addr,
-            AL.al_sport AS al_sport,
-            AL.al_free AS al_free,
-            DT.dt_time AS dt_time,
-            DT.dt_site AS dt_site,
-            DT.dt_money AS dt_money
+			AL.al_seq AS v_seq,
+			AL.al_name AS v_name,
+            AL.al_tel AS v_tel,
+            AL.al_addr AS v_addr,
+            AL.al_sport AS v_sport,
+            AL.al_free AS v_free,
+            DT.dt_time AS v_time,
+            DT.dt_site AS v_site,
+            DT.dt_money AS v_money
     FROM tbl_detail AS DT
 		LEFT JOIN tbl_all_list AS AL
 			ON DT.dt_code = AL.al_code
