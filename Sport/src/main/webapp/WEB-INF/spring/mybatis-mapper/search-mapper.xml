@@ -26,7 +26,7 @@
 	
 	<select id="findBySport" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지
-		WHERE v_sport = #{v_sport} 
+		WHERE v_sport = #{v_sport}
 	</select>
 	
 	<select id="findBySearch" resultType="DetailDTO">
@@ -38,8 +38,6 @@
 		SELECT * FROM view_상세페이지
     	WHERE v_distric like CONCAT('%',#{keyword},'%')
 	</select>
-	
-	
 
 	<insert id="insert"></insert>
 	<update id="update"></update>

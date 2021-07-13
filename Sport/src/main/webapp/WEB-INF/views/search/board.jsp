@@ -103,14 +103,14 @@ button {
 			<th>유/무료</th>
 		</tr>
 		
-		<c:forEach items="${RESULT}" var="RE" >
-    	<tr data-seq="${RE.v_seq}">
-    		<th>${RE.v_seq}</th>
-    		<th>${RE.v_name}</th>
-    		<th>${RE.v_tel}</th>
-    		<th>${RE.v_sport}</th>
-    		<th>${RE.v_addr}</th>
-    		<th>${RE.v_free}</th>
+		<c:forEach items="${DTLIST}" var="DT" >
+    	<tr data-seq="${DT.v_seq}">
+    		<th>${DT.v_seq}</th>
+    		<th>${DT.v_name}</th>
+    		<th>${DT.v_tel}</th>
+    		<th>${DT.v_sport}</th>
+    		<th>${DT.v_addr}</th>
+    		<th>${DT.v_free}</th>
     	</tr>
     </c:forEach>
   </table>
@@ -129,5 +129,5 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	}
 
 })
-   </script>
+  </script>
 </head>

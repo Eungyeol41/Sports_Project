@@ -51,7 +51,7 @@ public class SearchController {
 		return "/search/board";
 	}
 	
-	@RequestMapping(value="/distric", method=RequestMethod.GET)
+	@RequestMapping(value="/search/distric", method=RequestMethod.GET)
 	public String distric(Model model, String keyword) {
 		
 		List<DetailDTO> dtList = sService.findByDistric(keyword);
@@ -61,7 +61,7 @@ public class SearchController {
 		return "/search/search";
 	}
 	
-	@RequestMapping(value="/searchinput", method=RequestMethod.GET)
+	@RequestMapping(value="/search/searchinput", method=RequestMethod.GET)
 	public String searchinput(Model model, String keyword) {
 		
 		List<DetailDTO> dtList = sService.findBySearch(keyword);
@@ -71,7 +71,7 @@ public class SearchController {
 		return "/search/search";
 	}
 	
-	@RequestMapping(value="/sport", method=RequestMethod.GET)
+	@RequestMapping(value="/search/sport", method=RequestMethod.GET)
 	public String sport(Model model, String keyword) {
 		
 		List<DetailDTO> dtList = sService.findBySport(keyword);
