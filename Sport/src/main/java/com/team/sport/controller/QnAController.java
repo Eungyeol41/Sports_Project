@@ -40,23 +40,23 @@ public class QnAController {
 
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String detail(Model model, Long seq) {
+	public String detail(Model model, Long seq, HttpSession session ) {
 		
-//		UserVO uservo = (UserVO) session.getAttribute("USER");
-//		
-//		if(uservo == null) {
-//			return "redirect:/user/login";
-//		}
-//		if(uservo != null) {
-//			
-//		}
-		Integer count = null;
-		Integer countUp = qnaService.countUpdate(count);
-		QnAVO qnavo = qnaService.detail(seq);
+		UserVO uservo = (UserVO) session.getAttribute("USER");
 		
-		model.addAttribute("QNA", qnavo);
-		return "/qna/detail";
-
+		if(uservo == null) {
+			return "redirect:/user/login";
+		}
+		if(uservo != null) {
+			QnAVO qnavo = qnaService.detail(seq);
+			qnaService.countUpdate(seq);
+			
+			model.addAttribute("QNA", qnavo);
+			return "/qna/detail";
+			
+		}
+		return null;
+		
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)

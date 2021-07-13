@@ -51,7 +51,7 @@
 	    WHERE qna_seq = #{qna_seq}
     </update>
     
-    <update id="countUpdate" parameterType="Integer">
+    <update id="countUpdate" parameterType="Long">
 	    UPDATE tbl_qna
 	    SET qna_count = qna_count + 1
 	    WHERE qna_seq = #{qna_seq}

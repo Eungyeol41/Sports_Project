@@ -73,6 +73,7 @@ button:hover {
 
 textarea {
 	resize: none;
+	height: 300px;
 }
 </style>
 </head>

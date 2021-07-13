@@ -77,11 +77,11 @@ button:hover {
 }
 
 textarea {
-    resize: none;
-    width: 30%;
-    margin: 10%;
-
+	resize: none;
+	height: 300px;
 }
+
+
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
