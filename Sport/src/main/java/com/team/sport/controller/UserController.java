@@ -1,5 +1,8 @@
 package com.team.sport.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.team.sport.model.QnAVO;
 import com.team.sport.model.UserVO;
+import com.team.sport.service.QnAService;
 import com.team.sport.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 	
 	protected final UserService userService;
+	protected final QnAService qnaService;
 
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String user() {
@@ -103,15 +109,37 @@ public class UserController {
 	public String id_check(String user_id) {
 		
 		UserVO userVO = userService.findById(user_id);
-		
+
 		if(userVO == null) {
 			return "NOT_USE_ID";
 		} else {
 			return "USE_ID";
 		}
-		
-			
 	}
 	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String mypage(HttpSession hSession, Model model) {
+		
+		UserVO userVO = (UserVO) hSession.getAttribute("USER");
+		if(userVO == null) {
+			model.addAttribute("MSG", "NONE");
+		} else {
+			model.addAttribute("MSG", "EXIST");
+		}
+		
+		return "user/mypage";
+	}
 	
+	@RequestMapping(value = "/info_list", method = RequestMethod.GET)
+	public String info_list(HttpSession hSession, Model model, String qna_id) {
+		
+		hSession.getAttribute("user_id");
+		
+		List<QnAVO> qnaList = qnaService.findByIdWithList(qna_id);
+		
+		model.addAttribute("QNALIST", qnaList);
+		log.debug("QnaList : {}", qnaList.toString());
+		
+		return "user/mypage";
+	}
 }

@@ -128,9 +128,10 @@
           type="button" class="btn_search">시설 위치 찾기</a>
       </button>
     </div>
+    <c:forEach items="${DTDTO}" var="DT">
     <table class=main>
       <tr>
-        <th rowspan="2">이용료</th>
+        <th rowspan="2">이용료</th><td>${DT.v_free}</td>
         <td class="sec">
           <div style="font-weight: bold;">유료 - 대관료</div><br>
           <table class="t1" style="border-collapse: collapse;">
@@ -334,6 +335,7 @@
     </td>
   </tr>
   </table>
+  </c:forEach>
   <div class="map">
 
 

@@ -12,31 +12,10 @@ nav#main_nav {
   position: relative;
   z-index: 3;
 }
-/* nav#main_nav li:nth-child(2) {
-  text-align: center;
-  transform: translateX(-50%);
-  padding-right: 50px;
-  position: absolute;
-  right: 200%;
-}
-nav#main_nav li:hover:nth-child(2) {
-  cursor: pointer;
-}
-nav#main_nav li:nth-child(1) {
-  text-align: center;
-  transform: translateX(-50%);
-  position: absolute;
-  right: 230%;
-  padding-right: 40px;
-}
-nav#main_nav li:hover:nth-child(1) {
-  cursor: pointer;
-} */
 nav#main_nav img {
   width: 70px;
   height: 50px;
   margin: 10px 10px 10px 60px;
-  position: relative;
 }
 
 nav#main_nav ul {

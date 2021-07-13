@@ -137,7 +137,7 @@
 <script>
 	var rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/search.js?ver=2021-07-05-001"></script>
+<script src="${rootPath}/static/js/search.js?ver=2021-07-09-005"></script>
 
 <body>
 <%@ include file="/WEB-INF/views/include/header.jspf" %>
@@ -202,44 +202,34 @@
       <th>전화번호</th>
       <th>종목</th>
       <th>위치</th>
+      <th>이용료</th>
     </tr>
-    <tr>
-      <th>1</th>
-      <th>염주 종합체육관</th>
-      <th>062) 604 - 1400</th>
-      <th>핸드볼, 농구, 배드민턴, 탁구, 배구</th>
-      <th>광주광역시 서구 금화로 278</th>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>수완 인라인롤러경기장</th>
-      <th></th>
-      <th>인라인스케이트</th>
-      <th>광주광역시 광산구 장덕로96번길 15</th>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>광주여대시립유니버시아드체육관</th>
-      <th></th>
-      <th>배구, 농구, 핸드볼, 탁구, 배드민턴, 리듬체조</th>
-      <th>광주광역시 광산구 광주여대길 45</th>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>첨단 인라인스케이트장</th>
-      <th></th>
-      <th>인라인스케이트</th>
-      <th>광주 광산구 쌍암동</th>
-    </tr>
-    <tr>
-      <th>5</th>
-      <th>인공암벽장</th>
-      <th></th>
-      <th>인공 야외 암벽</th>
-      <th>광주광역시 서구 상무시민공원 내 위치</th>
-    </tr>
+    
+    <c:forEach items="${DTLIST}" var="DT" >
+    	<tr data-seq="${DT.v_seq}">
+    		<th>${DT.v_seq}</th>
+    		<th>${DT.v_name}</th>
+    		<th>${DT.v_tel}</th>
+    		<th>${DT.v_sport}</th>
+    		<th>${DT.v_addr}</th>
+    		<th>${DT.v_free}</th>
+    	</tr>
+    </c:forEach>
   </table>
 	
 </body>
+<script>
+
+document.querySelector("table.list").addEventListener("click", (e) => {
+	let tagName = e.target.tagName;
+	
+	if(tagName == "TH") {
+		let seq = e.target.closest("TR").dataset.seq;
+		console.log(seq);
+		location.href="${rootPath}/search/detail2?v_seq=" + seq;	
+	}
+
+})
+</script>
 
 </html>

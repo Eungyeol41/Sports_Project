@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="rootPath" value="${pageContext.request.contextPath}" />	
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +48,6 @@ table, tr {
 th.sec1 {
 	background-color: #dedcee;
 	width: 20%;
-
 }
 
 input, textarea {
@@ -71,18 +70,7 @@ button:hover {
 	cursor: pointer;
 }
 </style>
-<script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector("button#update").addEventListener("click", () => {
-                alert("수정화면으로 이동합니다.");
-                location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
-            });
-            document.querySelector("button#delete").addEventListener("click", () => {
-                alert("삭제됩니다.");
-                location.href = "${rootPath}/qna?seq=${QNA.qna_seq}";
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -118,8 +106,37 @@ button:hover {
 		<div class="button">
 			<button id="delete" type="button">삭제</button>
 			<button id="update" type="button">수정</button>
+			<button id="back" type="button">목록</button>
 		</div>
 	</div>
 </body>
+<script>
+document.querySelector("button#back").addEventListener("click", () => {
+	alert("목록으로 이동합니다.");
+    location.href="${rootPath}/qna"	
+});
 
+if("${QNA.qna_id}" === "${USER.user_id}") {
+	document.querySelector("button#update").addEventListener("click", () => {
+		alert("수정화면으로 이동합니다.");
+		location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+	});
+
+	document.querySelector("button#delete").addEventListener("click", () => {
+		alert("삭제됩니다.");
+		location.href = "${rootPath}/qna/delete?seq=${QNA.qna_seq}";               
+	});
+	
+}else if ("${QNA.qna_id}" != "${USER.user_id}"){
+	document.querySelector("button#update").addEventListener("click", () => {
+		alert("권한이 없습니다.");
+	});
+
+	document.querySelector("button#delete").addEventListener("click", () => {
+		alert("권한이 없습니다.");
+	});
+}
+
+
+</script>
 </html>

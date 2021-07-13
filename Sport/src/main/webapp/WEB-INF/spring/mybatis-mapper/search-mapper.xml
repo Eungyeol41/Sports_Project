@@ -3,7 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.biz.dbms.dao.BBsDao">
+<mapper namespace="com.team.sport.dao.SearchDao">
+
+	<select id="selectAllList" resultType="AllListVO">
+		SELECT * FROM tbl_all_list
+	</select>
+	
+	<select id="selectView" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+	</select>
+	
+	<select id="findSeq" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+		WHERE v_seq = #{v_seq}
+		
+	</select>
 
 	<select id="selectMoney" resultType="SearchVO">
 		SELECT * FROM TBL_SP_SEARCH

@@ -50,7 +50,7 @@
 			return false;
 		}
 		
-		if(user_pw < 3 || user_pw > 20) {
+		if(user_pw.length < 3 || user_pw.length > 20) {
 			alert("비밀번호는 3 ~ 20글자 내에서 입력해야합니다.")
 			user_pw.focus();
 			return false;
@@ -62,18 +62,6 @@
 	document.querySelector("button#btn_join").addEventListener("click", ()=> {
 		location.href = "${rootPath}/user/join"
 	})
-	
-	/*
-		document.querySelector("span.close-button").addEventListener("click", ()=> {
-			modal.classList.toggle("show-modal");
-		})
-		
-		window.addEventListener("click", (e)=> {
-			if(e.target === modal) {
-				modal.classList.toggle("show-modal");
-			}
-		}) 
-	*/
 	
 </script>
 </html>

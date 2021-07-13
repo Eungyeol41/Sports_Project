@@ -1,9 +1,0 @@
-package com.team.sport.dao;
-
-import com.team.sport.model.QnAVO;
-
-public interface QnADao extends GenericDao<QnAVO, Long> {
-	
-	public List<QnAVO> detail(Long seq);
-
-}

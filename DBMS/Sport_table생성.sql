@@ -14,10 +14,10 @@ create table tbl_all_list (
 al_seq		BIGINT			PRIMARY KEY,
 al_code		CHAR(4)			NOT NULL,
 al_name		VARCHAR(500)	NOT NULL,
-al_tel		VARCHAR(40),
 al_sport	VARCHAR(50)		NOT NULL,
-al_addr		VARCHAR(500)	NOT NULL,
-al_free		VARCHAR(20)		NOT NULL
+al_free		VARCHAR(20)		NOT NULL,
+al_tel		VARCHAR(40),
+al_addr		VARCHAR(500)	NOT NULL
 );
 
 DROP TABLE tbl_detail;

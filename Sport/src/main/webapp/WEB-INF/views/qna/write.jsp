@@ -75,6 +75,12 @@ button:hover {
 	background-color: #dedcee;
 	cursor: pointer;
 }
+
+textarea {
+	resize: none;
+	width: 100%;
+	height: 150px;
+}
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -87,23 +93,35 @@ button:hover {
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th><input name="qna_title" id="qna_title" type="text"></th>
+						<th>
+							<input name="qna_title" id="qna_title" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th><input name="qna_id" id="qna_id" type="text"></th>
+						<th>
+							<input name="qna_id" id="qna_id" type="text"
+								value="${USER.user_id}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th><input name="qna_email" id="qna_email" type="email"></th>
+						<th>
+							<input name="qna_email" id="qna_email" type="email"
+								value="${USER.user_email}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th><input name="qna_name" id="qna_name" type="text"></th>
+						<th>
+							<input name="qna_name" id="qna_name" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th><textarea rows="5" name="qna_text" id="qna_text"></textarea></th>
+						<th>
+							<textarea name="qna_text" id="qna_text"></textarea>
+						</th>
 					</tr>
 				</table>
 			</div>
@@ -111,11 +129,17 @@ button:hover {
 		<div class="button">
 			<button class="enter" type="button">등록</button>
 			<button id="reset" type="reset">다시 쓰기</button>
+			<button id="back" type="button">목록으로 이동</button>
 		</div>
 	</div>
 
 </body>
 <script>
+document.querySelector("button#back").addEventListener("click", () => {
+    alert("목록으로 이동합니다.");
+    location.href="${rootPath}/qna"	
+});
+
 
 let doc = document
 const qna_submit = () => {

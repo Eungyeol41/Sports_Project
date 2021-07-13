@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<jsp:useBean id="date" class="java.util.Date" />
+<c:set var="today" value="${date}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,41 +37,50 @@ body {
 	font-family: "Roboto Condensed", sans-serif;
 }
 
+div#search {
+	margin: 10px 0px 10px 0px;
+	display: flex;
+}
+
+select#search {
+	margin-left: 10%;
+	padding: 0px 10px 0px 10px;
+	margin-right: 20px;
+	border: 1px solid black;
+	text-align: center;
+}
+
 tr:hover:not(.first) {
 	background-color: #dedcee;
 	cursor: pointer;
 	color: darkblue;
 }
 
-div.btn {
-	margin: 10px 40px 20px 40px;
-	display: flex;
-	/* justify-content: space-evenly; */
-}
-
-input {
-	margin-left: 10%;
-	/* flex-shrink: 0; */
-}
-
-button#search {
-	/* width: 50px; */
-	/* flex-grow: 1; */
+div.btn_search {
 	
+}
+
+button#btn_search {
+	margin: 0px 0px 0px 20px;
 }
 
 button#write {
-	/* justify-items: left; */
 	margin-left: auto;
+	margin-right: 10%;
 }
 
-table th {
-	
+table.list {
+	table-layout: fixed;
 }
 
-table th#text {
-	max-width: 0%;
+table.list th:first-child {
+	width: 5%;
+}
+
+table.list td, th {
 	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 </style>
 </head>
@@ -76,60 +88,73 @@ table th#text {
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>1 대 1 문의 게시판</h1>
-	<%--
-	<form method="POST"></form>
+
 	<div class="se_Type">
-		<div id="sc">
-		 
-			<select name="search_option">
-				<option value="title"
-					<c:if test="${map.search_option == 'title'}">selected</c:if>>제목</option>
-				<option value="text"
-				<c:if test="${map.search_option == 'text'}">selected</c:if>>내용</option>
-				<option value="id"
-				<c:if test="${map.search_option == 'id'}">selected</c:if>>ID</option>
-			</select> 
-			<input name="keyword" type="search" value="${map.keyword}" placeholder="검색하세요">
-			
-		</div>
-		--%>
-		<div id="btn">
-		<input type="search" placeholder="id를 입력하세요">
-			<button id="search" type="submit">검색</button>
-			<button id="write" type="button">글쓰기</button>
-		</div>
+		<div id="sc"></div>
 	</div>
-	<table class="list">
-		<tr class="first">
-			<th>번호</th>
-			<th>제목</th>
-			<th>시설이름</th>
-			<th>e_mail</th>
-			<th>아이디</th>
-			<th class="text">문의내용</th>
-		</tr>
-		<c:choose>
-			<c:when test="${empty QNA}">
-				<tr>
+	<div id="search">
+		<select name="search" id="search">
+			<option value="title" selected="selected">제목</option>
+			<option value="text">내용</option>
+			<option value="id">ID</option>
+		</select>
+		<input id="in_search" name="keyword" type="search" placeholder="검색하세요">
+		<button id="btn_search" type="button">검색</button>
+		<button id="write" type="button">글쓰기</button>
+	</div>
+	<div class="table_list">
+		<table class="list">
+			<tr class="first">
+				<th>번호</th>
+				<th>제목</th>
+				<th>시설이름</th>
+				<th>e_mail</th>
+				<th>아이디</th>
+				<th class="text">문의내용</th>
+				<th>작성일자</th>
+				<th>조회수</th>
+			</tr>
+			<c:choose>
+				<c:when test="${empty RESULT}">
+					<%-- 		<tr>
 					<td colspan="6">데이터가 없음</td>
-				</tr>
-			</c:when>
-			<c:otherwise>
-				<c:forEach items="${QNA}" var="qna" varStatus="index">
-					<tr data-seq="${qna.qna_seq}">
-						<th>${index.count}</th>
-						<th>${qna.qna_title}</th>
-						<th>${qna.qna_name}</th>
-						<th>${qna.qna_email}</th>
-						<th>${qna.qna_id}</th>
-						<th class="text">${qna.qna_text}</th>
-					</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</table>
+				</tr> --%>
+					<c:forEach items="${QNA}" var="qna" varStatus="index">
+						<tr data-seq="${qna.qna_seq}">
+							<th>${index.count}</th>
+							<th>${qna.qna_title}</th>
+							<th>${qna.qna_name}</th>
+							<th>${qna.qna_email}</th>
+							<th>${qna.qna_id}</th>
+							<th style="width: 20%" class="text">${qna.qna_text}</th>
+							<th>${qna.qna_date}</th>
+							<th>${qna.qna_count}</th>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:when test="${not empty RESULT}">
+					<c:forEach items="${RESULT}" var="RE" varStatus="index">
+						<tr data-seq="${RE.qna_seq}">
+							<th>${index.count}</th>
+							<th>${RE.qna_title}</th>
+							<th>${RE.qna_name}</th>
+							<th>${RE.qna_email}</th>
+							<th>${RE.qna_id}</th>
+							<th class="text">${RE.qna_text}</th>
+							<th>${RE.qna_date}</th>
+							<th>${RE.qna_count}</th>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+
+				</c:otherwise>
+			</c:choose>
+		</table>
+	</div>
 </body>
 <script>
+
 document.querySelector("table.list").addEventListener("click", (e) => {
 	let tagName = e.target.tagName;
 	
@@ -141,13 +166,36 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	}
 
 })
+
+
+
 document.querySelector("button#write").addEventListener("click", (e) => {
 	alert("글쓰기 화면으로 이동합니다.");
 	location.href="${rootPath}/qna/write"
 })
 
-document.querySelector("div.se_Type").addEventListener("click", (e) => {
+document.querySelector("button#btn_search").addEventListener("click", (e) => {
 	
+	let search = document.querySelector("select#search").value
+	let keyword = document.querySelector("input#in_search").value
+	
+	if(search == "title") {
+		
+		alert(search + "title")
+		location.href="${rootPath}/qna/search/title?keyword=" +keyword;
+	}
+	//else if를 쓰면 안되는 이유는..?
+	if(search == "text") {
+		
+		alert(search + "text")
+		location.href="${rootPath}/qna/search/text?keyword=" +keyword;
+	}
+	if(search == "user") {
+		
+		alert(search + "user")
+		location.href="${rootPath}/qna/search/user?keyword=" +keyword;
+	}	
 })
+	
 </script>
 </html>
