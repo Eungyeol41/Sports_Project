@@ -72,4 +72,10 @@ CREATE VIEW view_상세페이지 AS
 );    
 select * from view_상세페이지;
 
-INSERT 
+SELECT 
+  T1.* , T2.*
+FROM 
+  tbl_detail T1
+  INNER JOIN tbl_all_list T2 ON ( T1.dt_code = T2.al_code );
+SELECT * FROM tbl_all_list;
+use db_sports;
