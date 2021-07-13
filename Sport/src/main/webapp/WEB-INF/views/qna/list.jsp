@@ -120,7 +120,7 @@ table.list td, th {
 					<td colspan="6">데이터가 없음</td>
 				</tr> --%>
 					<c:forEach items="${QNA}" var="qna" varStatus="index">
-						<tr data-seq="${qna.qna_seq}">
+						<tr id="list_sec" data-seq="${qna.qna_seq}">
 							<th>${index.count}</th>
 							<th>${qna.qna_title}</th>
 							<th>${qna.qna_name}</th>
@@ -165,10 +165,6 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 		location.href="${rootPath}/qna/detail?seq=" +seq;	
 	}
 
-})
-document.querySelector("button#write").addEventListener("click", (e) => {
-	alert("글쓰기 화면으로 이동합니다.");
-	location.href="${rootPath}/qna/write"
 })
 
 document.querySelector("button#btn_search").addEventListener("click", (e) => {
