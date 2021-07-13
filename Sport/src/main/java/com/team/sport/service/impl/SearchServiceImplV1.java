@@ -74,12 +74,4 @@ public class SearchServiceImplV1 implements SearchService{
 		return dtList;
 	}
 
-	@Override
-	public DetailDTO findFree(String v_free) {
-		
-		DetailDTO dtDTO = sDao.findFree(v_free);
-		
-		return dtDTO;
-	}
-
 }

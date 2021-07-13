@@ -150,9 +150,8 @@ select.sports option {
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>광주광역시 체육시설 찾아보기</h1>
-	<form id="search_se" method="POST">
 	<table class="search">
-		<!-- <caption>광주광역시 체육s시설 찾아보기</caption> 표 제목 붙이기 -->
+		<!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 -->
 		<tr class="search">
 			<th class="search">이용료</th>
 			<td><input id="ra" type="radio" name="ra" value="무료" checked />
@@ -218,7 +217,7 @@ select.sports option {
 	</table>
 
 	<table class="list">
-		<tr class="list first"> 
+		<tr class="list first">
 			<th>번호</th>
 			<th>시설 이름</th>
 			<th>전화번호</th>
@@ -226,7 +225,6 @@ select.sports option {
 			<th>위치</th>
 			<th>이용료</th>
 		</tr>
-
 			<c:forEach items="${DTLIST}" var="DT" varStatus="index">
 				<tr class="list_sec" data-seq="${DT.v_seq}">
 					<th>${DT.v_seq}</th>
@@ -248,7 +246,7 @@ select.sports option {
 				</tr>
 			</c:forEach>
 	</table>
-</form>
+
 </body>
 <script>
 document.querySelector("table.list").addEventListener("click", (e) => {
@@ -262,9 +260,10 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 })
 
  document.querySelector("button#btn_search").addEventListener("click", () => {
-	 document.querySelector("form#search_se").submit();
+        alert("검색 결과로 이동!");
+    	location.href = "${rootPath}/search/board";
           });
-          
+  
     function checkSelectAll() {
         const checkbox = document.querySelectorAll('input[name="ch"]');
     	const checked = document.querySelectorAll('input[name="ch"]:checked');

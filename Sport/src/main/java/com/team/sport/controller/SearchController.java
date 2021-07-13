@@ -2,19 +2,15 @@ package com.team.sport.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.sport.dao.SearchDao;
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
 import com.team.sport.model.QnAVO;
-import com.team.sport.model.UserVO;
 import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -36,16 +32,8 @@ public class SearchController {
 		List<DetailDTO> dtList = sService.selectView();
 		
 		model.addAttribute("DTLIST",dtList);
-		return "/search/search";
-	}
-	
-	@RequestMapping(value = {"/",""}, method = RequestMethod.POST)
-	public String search(String ra, Model model) {
-		log.debug("ra : {}", ra);
-		DetailDTO dtDTO = sService.findFree(ra);
 		
-		model.addAttribute("RA",dtDTO);
-		return "/search/search";
+		return "search/search";
 	}
 	
 	@RequestMapping(value = "/detail2", method = RequestMethod.GET)
