@@ -15,7 +15,6 @@
 </style>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.jspf" %>
 	<%@ include file="/WEB-INF/views/user/info_update.jsp" %>
 	<!-- 내 ID에서 질의한 QNA 확인하기 -->
 	<div>
@@ -34,7 +33,7 @@
 			<c:otherwise>
 				<c:forEach items="${QNALIST}" var="qList" varStatus="i">
 					<tr>
-						<th>i.count</th>
+						<th>${i.count}</th>
 						<th>${qList.qna_title}</th>
 						<th>${qList.qna_text}</th>
 					</tr>

@@ -147,5 +147,6 @@ RemoteSystemsTempFiles/
 # ETC
 .bak
 
-# naver secret
-NaverSecret.*
+# kakao secret
+KakaoSecret.*
+

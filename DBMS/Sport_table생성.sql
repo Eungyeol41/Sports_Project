@@ -71,3 +71,5 @@ CREATE VIEW view_상세페이지 AS
 			ON DT.dt_code = AL.al_code
 );    
 select * from view_상세페이지;
+
+INSERT 
