@@ -15,8 +15,12 @@
 	
 	<select id="findSeq" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지
-		WHERE v_seq = #{v_seq}
-		
+		WHERE v_seq = #{v_seq}		
+	</select>
+	
+	<select id="findFree" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+		WHERE v_free = #{v_free}		
 	</select>
 
 	<select id="selectMoney" resultType="SearchVO">

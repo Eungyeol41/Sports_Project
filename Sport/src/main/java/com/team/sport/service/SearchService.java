@@ -15,6 +15,7 @@ public interface SearchService {
 	public List<AllListVO> selectAllList();
 	
 	public DetailDTO findSeq(Long v_seq);
+	public DetailDTO findFree(String v_free);
 	
 	public List<DetailDTO> findByDistric(String keyword);
 	public List<DetailDTO> findBySearch(String keyword);
