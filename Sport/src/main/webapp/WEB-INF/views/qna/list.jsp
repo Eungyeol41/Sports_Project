@@ -111,7 +111,7 @@ table.list td, th {
 				<th>e_mail</th>
 				<th>아이디</th>
 				<th class="text">문의내용</th>
-				<th>작성일자</th>
+				<th>작성시간</th>
 				<th>조회수</th>
 			</tr>
 			<c:choose>
@@ -141,8 +141,8 @@ table.list td, th {
 							<th>${RE.qna_email}</th>
 							<th>${RE.qna_id}</th>
 							<th class="text">${RE.qna_text}</th>
-							<th>${RE.qna_date}</th>
-							<th>${RE.qna_count}</th>
+							<th>${qna.qna_date}</th>
+							<th>${qna.qna_count}</th>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -166,9 +166,6 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	}
 
 })
-
-
-
 document.querySelector("button#write").addEventListener("click", (e) => {
 	alert("글쓰기 화면으로 이동합니다.");
 	location.href="${rootPath}/qna/write"

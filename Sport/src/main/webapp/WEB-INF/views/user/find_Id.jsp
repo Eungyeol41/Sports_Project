@@ -114,10 +114,9 @@
 			<label>찾으시는 ID는 ${ID}입니다</label>
 			<div>
 				<button type="button" id="close">OK</button>
+				<button type="button" id="btn_findPw">비밀번호 찾기</button>
 			</div>
 		</c:if>
-
-		<button type="button" id="btn_findPw">비밀번호 찾기</button>
 	</form>
 </body>
 

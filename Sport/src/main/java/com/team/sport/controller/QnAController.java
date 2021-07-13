@@ -38,30 +38,30 @@ public class QnAController {
 		return "/qna/list";
 	}
 
+
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String detail(Model model, Long seq, HttpSession session) {
-
-		log.debug("controller seq {}", seq);
-
-		UserVO uservo = (UserVO) session.getAttribute("USER");
-
-//		log.debug("UserVO {}", uservo.toString());
-
-		if (uservo == null) {
-			return "redirect:/user/login";
-		} else {
-			QnAVO qnavo = qnaService.detail(seq);
-			qnaService.countUpdate(seq);
-			model.addAttribute("QNA", qnavo);
-			return "/qna/detail";
-		}
-//		if(qna_id ==  )
+	public String detail(Model model, Long seq) {
+		
+//		UserVO uservo = (UserVO) session.getAttribute("USER");
+//		
+//		if(uservo == null) {
+//			return "redirect:/user/login";
+//		}
+//		if(uservo != null) {
+//			
+//		}
+		Integer count = null;
+		Integer countUp = qnaService.countUpdate(count);
+		QnAVO qnavo = qnaService.detail(seq);
+		
+		model.addAttribute("QNA", qnavo);
+		return "/qna/detail";
 
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String insert(Model model, HttpSession session) {
-
+	public String insert(Model model) {
+		
 //		Date date = new Date(System.currentTimeMillis());
 //		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
 //		
@@ -69,16 +69,7 @@ public class QnAController {
 //		
 //		model.addAttribute("DATE",curDate);
 
-		UserVO uservo = (UserVO) session.getAttribute("USER");
-
-//		log.debug("UserVO {}", uservo.toString());
-
-		if (uservo == null) {
-			return "redirect:/user/login";
-		} else {
-
-			return "/qna/write";
-		}
+		return "/qna/write";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -89,13 +80,7 @@ public class QnAController {
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String update(Long seq, Model model, HttpSession session) {
-
-		UserVO uservo = (UserVO) session.getAttribute("USER");
-
-		String qna_id = uservo.getUser_id();
-
-		List<QnAVO> qnaList = qnaService.findByIdWithList(qna_id);
+	public String update(Long seq, Model model) {
 
 		QnAVO vo = qnaService.findById(seq);
 		model.addAttribute("QNA", vo);
@@ -125,41 +110,41 @@ public class QnAController {
 		return "redirect:/qna";
 
 	}
-
-	@RequestMapping(value = "/search/title", method = RequestMethod.GET)
+	
+	@RequestMapping(value="/search/title", method = RequestMethod.GET)
 	public String searchTitle(Model model, String keyword) {
-
+		
 		List<QnAVO> qnaList = qnaService.findByTitle(keyword);
-
+		
 		log.debug("controller title : {}", qnaList.toString());
-
-		model.addAttribute("RESULT", qnaList);
-
-		// 왜 redirect를 쓰면 되지 않는건가........
-		return "/qna/list";
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		//왜 redirect를 쓰면 되지 않는건가........
+		return  "/qna/list";
 	}
-
-	@RequestMapping(value = "/search/text", method = RequestMethod.GET)
+	
+	@RequestMapping(value="/search/text", method = RequestMethod.GET)
 	public String searchText(Model model, String keyword) {
-
+		
 		List<QnAVO> qnaList = qnaService.findByText(keyword);
-
+		
 		log.debug("controller title : {}", qnaList.toString());
-
-		model.addAttribute("RESULT", qnaList);
-
-		return "/qna/list";
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		return  "/qna/list";
 	}
-
-	@RequestMapping(value = "/search/user", method = RequestMethod.GET)
+	
+	@RequestMapping(value="/search/user", method = RequestMethod.GET)
 	public String searchUser(Model model, String keyword) {
-
+		
 		List<QnAVO> qnaList = qnaService.findByUser(keyword);
-
+		
 		log.debug("controller title : {}", qnaList.toString());
-
-		model.addAttribute("RESULT", qnaList);
-
-		return "/qna/list";
+		
+		model.addAttribute("RESULT",qnaList);
+		
+		return  "/qna/list";
 	}
 }

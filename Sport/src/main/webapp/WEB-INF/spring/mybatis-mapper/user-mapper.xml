@@ -30,8 +30,8 @@
 	</select>
 	
  	<insert id="insert" parameterType="UserVO">
- 		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email)
- 		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email})
+ 		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email, user_level)
+ 		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email}, #{user_level})
  	</insert>
  	
  	<update id="update" parameterType="UserVO">

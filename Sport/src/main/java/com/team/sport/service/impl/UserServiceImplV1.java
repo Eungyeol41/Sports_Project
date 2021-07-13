@@ -47,16 +47,7 @@ public class UserServiceImplV1 implements UserService{
 		
 		return userVO;
 	}
-	/*
-		@Override
-		public int update(UserVO userVO) {
-			// TODO Auto-generated method stub
-			
-			userDao.update(userVO);
-			
-			return 0;
-		}
-	*/	
+
 	@Override
 	public int expire(String username) {
 		// TODO Auto-generated method stub

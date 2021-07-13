@@ -77,9 +77,10 @@ button:hover {
 }
 
 textarea {
-	resize: none;
-	width: 100%;
-	height: 150px;
+    resize: none;
+    width: 30%;
+    margin: 10%;
+
 }
 </style>
 <body>
@@ -93,35 +94,23 @@ textarea {
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th>
-							<input name="qna_title" id="qna_title" type="text">
-						</th>
+						<th><input name="qna_title" id="qna_title" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th>
-							<input name="qna_id" id="qna_id" type="text"
-								value="${USER.user_id}" readonly>
-						</th>
+						<th><input name="qna_id" id="qna_id" type="text" value="${USER.user_id}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th>
-							<input name="qna_email" id="qna_email" type="email"
-								value="${USER.user_email}" readonly>
-						</th>
+						<th><input name="qna_email" id="qna_email" type="email" value="${USER.user_email}" readonly></th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th>
-							<input name="qna_name" id="qna_name" type="text">
-						</th>
+						<th><input name="qna_name" id="qna_name" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th>
-							<textarea name="qna_text" id="qna_text"></textarea>
-						</th>
+						<th><textarea rows="5" name="qna_text" id="qna_text"></textarea></th>
 					</tr>
 				</table>
 			</div>

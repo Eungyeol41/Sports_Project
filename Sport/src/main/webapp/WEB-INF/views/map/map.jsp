@@ -134,14 +134,24 @@
 		                }
 		                
 		                document.getElementById('pname').value = pname;
-		                
-		                
+		                if(praddress) {
+		                	document.getElementById('paddress').value = praddress;
+		                } else {
+		                	document.getElementById('paddress').value = paddress;
+		                }
+		                document.getElementById('latclick').value = plat;
+		                document.getElementById('lngclick').value = plng;
 		            };
-		
+					
+		            itemEl.inmouseover = function() {
+		            	displayInfowindow(marker, pname);
+		            }
+		            
 		            itemEl.onmouseout =  function () {
 		                infowindow.close();
 		            };
-		        })(marker, places[i].place_name);
+		            
+		        })(marker, places[i].place_name, places[i].road_address_name, places[i].address_name, places[i].x, place[i].y);
 		
 		        fragment.appendChild(itemEl);
 		    }
@@ -159,7 +169,7 @@
 		
 		    var el = document.createElement('li'),
 		    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
-		                '<div class="info">' +
+		                '<div class="info" style="cursor:pointer">' +
 		                '   <h5>' + places.place_name + '</h5>';
 		
 		    if (places.road_address_name) {
@@ -254,6 +264,15 @@
 		    }
 		}
 	</script>
+		
+		<div>
+			<!-- 위도 및 경도 좌표 및 위치정보 -->
+			<input type="text" id="fulladdress" name="fulladdress" style="width:90%" disabled>
+			<input type="text" id="pname" name="pname" value="">
+			<input type="text" id="paddress" name="paddress" value="">
+			<input type="text" id="latclick" name="latclick" value="">
+			<input type="text" id="lngclick" name="lngclick" value="">
+		</div>
 </body>
 
 </html>

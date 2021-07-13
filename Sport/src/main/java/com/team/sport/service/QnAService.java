@@ -16,6 +16,6 @@ public interface QnAService extends GenericService<QnAVO, Long> {
 	public List<QnAVO> findByText(String keyword);
 	public List<QnAVO> findByUser(String keyword);
 	
-	public Integer countUpdate(Long seq);
+	public Integer countUpdate(Integer count);
 	
 }

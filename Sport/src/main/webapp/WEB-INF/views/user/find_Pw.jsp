@@ -122,11 +122,9 @@
 		</c:if>
 	</form>
 </body>
-<!-- 
 <script>
 	document.querySelector("button#close").addEventListener("click", ()=> {
 		location.href="${rootPath}/user/login"
 	})
 </script>
--->
 </html>
