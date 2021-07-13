@@ -69,6 +69,8 @@ button:hover {
 	background-color: #dedcee;
 	cursor: pointer;
 }
+
+
 </style>
 
 </head>
@@ -116,15 +118,34 @@ document.querySelector("button#back").addEventListener("click", () => {
     location.href="${rootPath}/qna"	
 });
 
-document.querySelector("button#update").addEventListener("click", () => {
-                alert("수정화면으로 이동합니다.");
-                location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
-            });
-          document.querySelector("button#delete").addEventListener("click", () => {
-               alert("삭제됩니다.");
-               location.href = "${rootPath}/qna/delete?seq=${QNA.qna_seq}";
-               
-            });
+if("${USER.user_id}" === "${QNA.qna_id}") {
+	
+	document.querySelector("button#update").addEventListener("click", () => {
+        alert("수정화면으로 이동합니다.");
+        location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+    });
+  document.querySelector("button#delete").addEventListener("click", () => {
+       if(confirm("삭제됩니다.")) {
+    	   location.href = "${rootPath}/qna/delete?seq=${QNA.qna_seq}";   
+       };
+       
+       
+    });
+
+	
+}else if("${USER.user_id}" != "${QNA.qna_id}") {
+	document.querySelector("button#update").addEventListener("click", () => {
+        alert("권한이 없습니다.");
+        
+        
+    });
+  document.querySelector("button#delete").addEventListener("click", () => {
+	  alert("권한이 없습니다.");
+       });
+	
+}
+
+
 
 </script>
 </html>

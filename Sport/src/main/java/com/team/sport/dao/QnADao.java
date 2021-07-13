@@ -14,6 +14,6 @@ public interface QnADao extends GenericDao<QnAVO, Long> {
 	public List<QnAVO> findByText(String text);
 	public List<QnAVO> findByUser(String user);
 	
-	public Integer countUpdate(Integer hit);
+	public Integer countUpdate(Long seq);
 
 }

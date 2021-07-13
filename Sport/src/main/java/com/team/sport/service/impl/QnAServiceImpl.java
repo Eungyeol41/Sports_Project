@@ -135,10 +135,10 @@ public class QnAServiceImpl implements QnAService{
 	}
 
 	@Override
-	public Integer countUpdate(Integer count) {
+	public Integer countUpdate(Long seq) {
 		// TODO Auto-generated method stub
 		
-		Integer res = qnaDao.countUpdate(count);
+		Integer res = qnaDao.countUpdate(seq);
 		
 		return res;
 	}
