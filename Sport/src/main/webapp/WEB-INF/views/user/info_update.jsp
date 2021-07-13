@@ -18,32 +18,32 @@
 		border-spacing: 2px;
 	}
 	
-	li {
-		list-style: none;
+	input {
+		border: none;
 	}
 </style>
 </head>
 <body>
-<!-- ID는 고정, 비밀번호 수정 가능, 전화번호 수정 가능 -->
-<fieldset>
-	<legend>내 정보 확인하기</legend>
-	<ul>
-		<li>ID </li>
-		<li>${USER.user_id}</li>
-	</ul>
-	<ul>
-		<li>이름</li>
-		<li>${USER.user_name}</li>
-	</ul>
-	<ul>
-		<li>전화번호</li>
-		<li>${USER.user_tel}</li>
-	</ul>
-	<ul>
-		<li>주소</li>
-		<li>${USER.user_addr}</li>
-	</ul>
+	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	<!-- ID는 고정, 비밀번호 수정 가능, 전화번호 수정 가능 -->
+	<fieldset>
+		<legend>내 정보 확인하기</legend>
+		<div>
+			<label>ID </label>
+			<input value="${USER.user_id}" readonly="readonly"></input>
+		</div>
+		<div>
+			<label>이름</label>
+			<input value="${USER.user_name}" readonly="readonly"></input>
+		</div>
+		<div>
+			<label>전화번호</label>
+			<input value="${USER.user_tel}" readonly="readonly"></input>
+		</div>
+		<div>
+			<label>E_mail</label>
+			<input value="${USER.user_email}" readonly="readonly"></input>
+		</div>
 </fieldset>
-
 </body>
 </html>

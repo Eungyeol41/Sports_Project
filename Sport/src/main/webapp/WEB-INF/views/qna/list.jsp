@@ -184,7 +184,6 @@ document.querySelector("button#btn_search").addEventListener("click", (e) => {
 		alert(search + "title")
 		location.href="${rootPath}/qna/search/title?keyword=" +keyword;
 	}
-	//else if를 쓰면 안되는 이유는..?
 	if(search == "text") {
 		
 		alert(search + "text")

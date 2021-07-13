@@ -7,11 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link href="${rootPath}/static/css/login.css?ver=2021-07-01-003"
-	rel="stylesheet" />
+<link href="${rootPath}/static/css/login.css?ver=2021-07-12-003" rel="stylesheet" />
+<!-- <link href="${rootPath}/static/css/modal.css?ver=2021-07-12-001" rel="stylesheet" /> -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	<div id="modal">
+		<span>X</span>
+	</div>
 	<div class="modal">
 		<form id="login_form" method="POST">
 			<!-- <span class="close-button">&times;</span> -->
@@ -25,10 +28,12 @@
 				<input type="password" name="user_pw" id="user_pw"
 					placeholder="비밀번호" required="required" />
 			</div>
-			<div class="check">
-				<input id="id_save" type="checkbox">ID 저장 
-				<input id="auto_login" type="checkbox">자동 로그인
-			</div>
+			<!-- 
+				<div class="check">
+					<input id="id_save" type="checkbox">ID 저장 
+					<input id="auto_login" type="checkbox">자동 로그인
+				</div>
+			 -->
 			<button type="button" id="btn_login">Login</button>
 			<div class="btn">
 				<button type="button" id="btn_id_pw">ID/PW 찾기</button>
@@ -50,7 +55,7 @@
 			return false;
 		}
 		
-		if(user_pw.length < 3 || user_pw.length > 20) {
+		if(user_pw < 3 || user_pw > 20) {
 			alert("비밀번호는 3 ~ 20글자 내에서 입력해야합니다.")
 			user_pw.focus();
 			return false;
@@ -59,9 +64,24 @@
 		document.querySelector("form#login_form").submit();
 	})
 	
+	document.querySelector("button#btn_id_pw").addEventListener("click", ()=> {
+		location.href = "${rootPath}/user/findId"
+	})
+	
 	document.querySelector("button#btn_join").addEventListener("click", ()=> {
 		location.href = "${rootPath}/user/join"
 	})
+	
+		
+	let modal = document.querySelector("div#modal");
+
+	modal.querySelector("span").addEventListener("click", (e)=> {
+	
+		modal.style.display = "none";
+		
+	})
+		
+	
 	
 </script>
 </html>

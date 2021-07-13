@@ -18,5 +18,6 @@ public class UserVO {
 	private String user_tel; // 전화번호
 	private String user_name; // 이름
 	private String user_email; // email
+	private int user_level; // level
 	
 }

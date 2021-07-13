@@ -130,8 +130,13 @@
 						<li id="logout">LogOut</li>
 			</c:if>
 			<c:if test="${empty USER}">
+<<<<<<< HEAD
 				<li>Login <i class="fas fa-user-circle fa-lg"></i></li>
 				<li>Join <i class="fas fa-pencil-alt fa-lg"></i></li>
+=======
+				<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
+				<li id="join">Join <i class="fas fa-pencil-alt fa-lg"></i>
+>>>>>>> 9f63e20ca333fa8c23ebcfa5a9d7d554ac2da3fc
 			</c:if>
 		</ul>
 	</nav>

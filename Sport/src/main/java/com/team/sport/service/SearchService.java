@@ -16,9 +16,8 @@ public interface SearchService {
 	
 	public DetailDTO findSeq(Long v_seq);
 	
-	public List<SearchVO> selectMoney();
-	public List<SearchVO> selectDistric();
-	public List<SearchVO> selectSearch();
-	public List<SearchVO> selectSport();
+	public List<DetailDTO> findByDistric(String keyword);
+	public List<DetailDTO> findBySearch(String keyword);
+	public List<DetailDTO> findBySport(String keyword);
 	
 }

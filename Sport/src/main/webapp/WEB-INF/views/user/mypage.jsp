@@ -23,7 +23,7 @@
 			<tr>
 				<th>글 번호</th>
 				<th>제목</th>
-				<th>작성일</th>
+				<th>글 내용</th>
 			</tr>
 			<c:choose>
 			<c:when test="${empty QNALIST}">
@@ -35,8 +35,8 @@
 				<c:forEach items="${QNALIST}" var="qList" varStatus="i">
 					<tr>
 						<th>i.count</th>
-						<th>${qList.qna_seq}</th>
-						<th>${qList.qna_seq}</th>
+						<th>${qList.qna_title}</th>
+						<th>${qList.qna_text}</th>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

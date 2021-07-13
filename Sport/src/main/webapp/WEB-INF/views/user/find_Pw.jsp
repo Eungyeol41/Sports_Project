@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ID 찾기</title>
+<title>비밀번호 찾기</title>
 <style>
 	form {
 		width: 350px;
@@ -90,45 +91,42 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<form method="POST">
-		<div class="findId">
-			<div>
-				<label>이름</label>
-				<input type="text" id="user_name" name="user_name">
-			</div>
-
-			<div>
-				<label>전화번호</label>
-				<input type="tel" id="user_tel" name="user_tel">
-			</div>
-
-			<div>
-				<button type="submit">확인</button>
-			</div>
+		<div>
+			<label>ID</label>
+			<input type="text" id="user_id" name="user_id">
 		</div>
-
+		
+		<div>
+			<label>이름</label>
+			<input type="text" id="user_name" name="user_name">
+		</div>
+		
+		<div>
+			<label>전화번호</label>
+			<input type="tel" id="user_tel" name="user_tel">
+		</div>
+		
+		<div>
+			<button type="submit">확인</button>
+		</div>
+		
 		<c:if test="${USERVO eq 'NONE'}">
 			<label>회원님의 정보가 일치하지 않습니다.</label>
 		</c:if>
-
+		
 		<c:if test="${USERVO eq 'CHECK'}">
-			<label>찾으시는 ID는 ${ID}입니다</label>
+			<label>${USER.user_id}님의 비밀번호는${USER.user_pw}</label>
 			<div>
 				<button type="button" id="close">OK</button>
 			</div>
 		</c:if>
-
-		<button type="button" id="btn_findPw">비밀번호 찾기</button>
 	</form>
 </body>
-
+<!-- 
 <script>
 	document.querySelector("button#close").addEventListener("click", ()=> {
 		location.href="${rootPath}/user/login"
 	})
-
-	document.querySelector("button#btn_findPw").addEventListener("click", ()=> {
-		location.href="${rootPath}/user/findPw"
-	})
 </script>
-
+-->
 </html>
