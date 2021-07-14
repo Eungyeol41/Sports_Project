@@ -1,4 +1,10 @@
+
 use db_sports;
+
+SELECT * FROM tbl_all_list;
+		SELECT * FROM tbl_all_list
+		WHERE al_free = '무료' AND al_name like CONCAT('%','농구장','%') AND al_sport = '생활체육관'
+		ORDER BY al_seq DESC ;
 
 DROP TABLE tbl_sp_search;
 create table tbl_sp_search (

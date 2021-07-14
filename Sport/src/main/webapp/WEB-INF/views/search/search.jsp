@@ -234,7 +234,7 @@ select.sports option {
 			<th>위치</th>
 			<th>이용료</th>
 		</tr>
-
+	
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
 				<tr class="list_sec" data-seq="${RE.al_seq}">
 					<th>${RE.al_seq}</th>
@@ -263,15 +263,15 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 
  document.querySelector("button#btn_search").addEventListener("click", () => {
 	 
-	 
+	 let 
 	 document.querySelector("form#search_se").submit();
 	 
      });
      
     function checkSelectAll() {
-        const checkbox = document.querySelectorAll('input.dist');
-    	const checked = document.querySelectorAll('input.dist:checked');
-    	const selectAll = document.querySelector('input[name="dist_all"]');
+        const checkbox = document.querySelectorAll("input.dist");
+    	const checked = document.querySelectorAll("input.dist:checked");
+    	const selectAll = document.querySelector("input.dist_all");
 
     if (checkbox.length === checked.length) {
         selectAll.checked = true;
@@ -283,19 +283,19 @@ document.querySelector("table.list").addEventListener("click", (e) => {
       document.addEventListener("DOMContentLoaded", () => {
 
     document
-    .querySelector('input[name="dist_all"]')
+    .querySelector("input.dist_all")
     .addEventListener("change", function (e) {
         e.preventDefault();
-    let list = document.querySelectorAll('input.dist');
+    let list = document.querySelectorAll("input.dist");
     for (let i = 0; i < list.length; i++) {
         list[i].checked = this.checked;
             }
           });
 
-    let objs = document.querySelectorAll("input#ch");
+    let objs = document.querySelectorAll("input.dist");
     for (let i = 0; i < objs.length; i++) {
         objs[i].addEventListener("click",() => {
-                let selectAll = document.querySelector("input#all");
+                let selectAll = document.querySelector("input.dist_all");
                 for (let j = 0; j < objs.length; j++) {
                     if (objs[j].checked === false) {
                         selectAll.checked = false;

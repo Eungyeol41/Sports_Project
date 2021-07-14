@@ -76,8 +76,6 @@
 			}
 		})
 		
-	
-		
 	})
 	
 	document.querySelector("button#join").addEventListener("click", ()=> {
