@@ -43,43 +43,14 @@ public class SearchServiceImplV1 implements SearchService{
 	}
 
 	@Override
-	public DetailDTO findSeq(Long v_seq) {
-		// TODO Auto-generated method stub
+	public List<AllListVO> findFree(String al_free, String al_name, String al_sport) {
 		
-		DetailDTO dtDTO = sDao.findSeq(v_seq);
-		return dtDTO;
+		List<AllListVO> alList = sDao.findFree(al_free, al_name, al_sport);
+		return alList;
 	}
 
-	@Override
-	public List<DetailDTO> findByDistric(String keyword) {
-		
-		List<DetailDTO> dtList = sDao.findByDistric(keyword);
-		
-		return dtList;
-	}
 
-	@Override
-	public List<DetailDTO> findBySearch(String keyword) {
 
-		List<DetailDTO> dtList = sDao.findBySearch(keyword);
-		
-		return dtList;
-	}
 
-	@Override
-	public List<DetailDTO> findBySport(String keyword) {
-
-		List<DetailDTO> dtList = sDao.findBySport(keyword);
-		
-		return dtList;
-	}
-
-	@Override
-	public DetailDTO findFree(String v_free) {
-		
-		DetailDTO dtDTO = sDao.findFree(v_free);
-		
-		return dtDTO;
-	}
 
 }

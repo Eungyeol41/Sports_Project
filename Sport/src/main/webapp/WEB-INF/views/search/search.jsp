@@ -150,39 +150,46 @@ select.sports option {
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>광주광역시 체육시설 찾아보기</h1>
-	<form id="search_se" method="POST">
+	<form id="search_se" method="POST" action="${rootPath}/search">
 	<table class="search">
 		<!-- <caption>광주광역시 체육s시설 찾아보기</caption> 표 제목 붙이기 -->
 		<tr class="search">
 			<th class="search">이용료</th>
-			<td><input id="ra" type="radio" name="ra" value="무료" checked />
-				무료 <input id="ra" type="radio" name="ra" value="유료" /> 유료 <input
-				id="ra" type="radio" name="ra" value="유/무료" /> 유/무료</td>
+			<td>
+				<input id="ra" type="radio" name="free" value="무료" checked />	무료 
+				<input id="ra" type="radio" name="free" value="유료" /> 유료 
+				<input id="ra" type="radio" name="free" value="유/무료" /> 유/무료
+			</td>
 		</tr>
 		<tr class="search">
 			<th class="search">지역(구)</th>
-			<td><input id="ch" type="checkbox" name="ch" value="동구" /> 동구 <input
-				id="ch" type="checkbox" name="ch" value="서구" /> 서구 <input id="ch"
-				type="checkbox" name="ch" value="남구" /> 남구 <input id="ch"
-				type="checkbox" name="ch" value="북구" /> 북구 <input id="ch"
-				type="checkbox" name="ch" value="광산구" /> 광산구 <input id="all"
-				type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
+			<td>
+				<input class="ch_dist" id="ch" type="checkbox" name="dist1" value="동구" /> 동구 
+				<input class="ch_dist" id="ch" type="checkbox" name="dist2" value="서구" /> 서구 
+				<input class="ch_dist" id="ch" type="checkbox" name="dist3" value="남구" /> 남구 
+				<input class="ch_dist" id="ch" type="checkbox" name="dist4" value="북구" /> 북구 
+				<input class="ch_dist" id="ch" type="checkbox" name="dist5" value="광산구" /> 광산구 
+				<input class="ch_distall" id="all" type="checkbox" name="dist_all" value="전체" onclick="selectAll" /> 전체
 			</td>
 		</tr>
 		<tr class="search">
 			<th class="search">지역(동)</th>
-			<td id="t3"><input id="distric_box" type="text" size="20"
-				style="padding: 10px; border: 1px solid #ddd" name="dong" /></td>
+			<td id="t3">
+				<input id="distric_box" name="town" type="text" size="20"
+					style="padding: 10px; border: 1px solid #ddd" name="dong" />
+			</td>
 		</tr>
 		<tr class="search">
 			<th class="search">시설이름</th>
-			<td id="t4"><input id="search_box" type="text" size="20"
-				style="padding: 10px; border: 1px solid #ddd" name="search" /></td>
+			<td id="t4">
+				<input id="search_box" name="sname" type="text" size="20"
+					style="padding: 10px; border: 1px solid #ddd" name="search" />
+			</td>
 		</tr>
 		<tr class="search">
 			<!-- 드롭다운 사용하기 -->
 			<th class="search">종목</th>
-			<td><select id="sports" class="sports" name="input" size="1"
+			<td><select id="sports" class="sports" name="sports" size="1"
 				style="width: 230px; border: 1px solid #ddd;">
 					<option value="1">--- 종목 ---</option>
 					<option value="검도">검도</option>
@@ -208,7 +215,8 @@ select.sports option {
 					<option value="족구">족구</option>
 					<option value="축구">축구</option>
 					<option value="테니스">테니스</option>
-			</select></td>
+				</select>
+			</td>
 		</tr>
 		<tr class="search">
 			<td colspan="2" class="btn_src" style="text-align: right">
@@ -216,7 +224,7 @@ select.sports option {
 			</td>
 		</tr>
 	</table>
-
+</form>
 	<table class="list">
 		<tr class="list first"> 
 			<th>번호</th>
@@ -227,30 +235,22 @@ select.sports option {
 			<th>이용료</th>
 		</tr>
 
-			<c:forEach items="${DTLIST}" var="DT" varStatus="index">
-				<tr class="list_sec" data-seq="${DT.v_seq}">
-					<th>${DT.v_seq}</th>
-					<th>${DT.v_name}</th>
-					<th>${DT.v_tel}</th>
-					<th>${DT.v_sport}</th>
-					<th>${DT.v_addr}</th>
-					<th>${DT.v_free}</th>
-				</tr>
-			</c:forEach>
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
-				<tr>
-					<th>${RE.v_seq}</th>
-					<th>${RE.v_name}</th>
-					<th>${RE.v_tel}</th>
-					<th>${RE.v_sport}</th>
-					<th>${RE.v_addr}</th>
-					<th>${RE.v_free}</th>
+				<tr class="list_sec" data-seq="${RE.al_seq}">
+					<th>${RE.al_seq}</th>
+					<th>${RE.al_name}</th>
+					<th>${RE.al_tel}</th>
+					<th>${RE.al_sport}</th>
+					<th>${RE.al_addr}</th>
+					<th>${RE.al_free}</th>
 				</tr>
 			</c:forEach>
+			
 	</table>
-</form>
+
 </body>
 <script>
+
 document.querySelector("table.list").addEventListener("click", (e) => {
 	let tagName = e.target.tagName;
 	
@@ -262,13 +262,16 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 })
 
  document.querySelector("button#btn_search").addEventListener("click", () => {
+	 
+	 
 	 document.querySelector("form#search_se").submit();
-          });
-          
+	 
+     });
+     
     function checkSelectAll() {
-        const checkbox = document.querySelectorAll('input[name="ch"]');
-    	const checked = document.querySelectorAll('input[name="ch"]:checked');
-    	const selectAll = document.querySelector('input[name="ch_a-ll"]');
+        const checkbox = document.querySelectorAll('input.dist');
+    	const checked = document.querySelectorAll('input.dist:checked');
+    	const selectAll = document.querySelector('input[name="dist_all"]');
 
     if (checkbox.length === checked.length) {
         selectAll.checked = true;
@@ -280,10 +283,10 @@ document.querySelector("table.list").addEventListener("click", (e) => {
       document.addEventListener("DOMContentLoaded", () => {
 
     document
-    .querySelector('input[name="ch_all"]')
+    .querySelector('input[name="dist_all"]')
     .addEventListener("change", function (e) {
         e.preventDefault();
-    let list = document.querySelectorAll('input[name="ch"]');
+    let list = document.querySelectorAll('input.dist');
     for (let i = 0; i < list.length; i++) {
         list[i].checked = this.checked;
             }

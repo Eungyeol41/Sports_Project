@@ -9,39 +9,18 @@
 		SELECT * FROM tbl_all_list
 	</select>
 	
-	<select id="selectView" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-	</select>
-	
-	<select id="findSeq" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-		WHERE v_seq = #{v_seq}		
-	</select>
-	
-	<select id="findFree" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-		WHERE v_free = #{v_free}		
+	<select id="findFree" resultType="AllListVO">
+		SELECT * FROM tbl_all_list
+		WHERE al_free = #{al_free} AND al_name like CONCAT('%',#{al_name},'%') AND al_sport = #{al_sport}
+		ORDER BY al_seq DESC
+		
 	</select>
 
-	<select id="selectMoney" resultType="SearchVO">
-		SELECT * FROM TBL_SP_SEARCH
-		WHERE SP_MONEY = #{sp_money} AND sp_distric = #{sp_distric}
-	</select>
-	
-	<select id="findBySport" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-		WHERE v_sport = #{v_sport}
-	</select>
-	
-	<select id="findBySearch" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-    	WHERE v_name like CONCAT('%',#{keyword},'%')
-	</select>
-	
-	<select id="findByDistric" resultType="DetailDTO">
-		SELECT * FROM view_상세페이지
-    	WHERE v_distric like CONCAT('%',#{keyword},'%')
-	</select>
+	<select id="findBySports" resultType="AllListVO">
+	    SELECT * FROM tbl_all_list
+	    WHERE al_sport like CONCAT('%',#{keyword},'%')
+    </select>
+
 
 	<insert id="insert"></insert>
 	<update id="update"></update>

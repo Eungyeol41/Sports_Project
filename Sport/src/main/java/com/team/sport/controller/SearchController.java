@@ -2,26 +2,19 @@ package com.team.sport.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.team.sport.dao.SearchDao;
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
-import com.team.sport.model.QnAVO;
-import com.team.sport.model.UserVO;
 import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-/*
-*asdasdgasfgasgasdasd
-*/
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -33,63 +26,42 @@ public class SearchController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String search(Model model) {
 		
+		return "/search/search";
+	}
+	
+	@RequestMapping(value ={"/",""}, method = RequestMethod.POST)
+	public String search(@RequestParam(name="free", required = false) String al_free ,
+						@RequestParam(name="sname", required = false) String al_name ,
+						@RequestParam(name="sports", required = false) String al_sport ,
+//						@RequestParam(name="dist1" , required = false) String dist1 ,
+//						@RequestParam(name="dist2" , required = false) String dist2 ,
+//						@RequestParam(name="dist3" , required = false) String dist3 ,
+//						@RequestParam(name="dist4" , required = false) String dist4 ,
+//						@RequestParam(name="dist5" , required = false) String dist5 ,
+						Model model) {
+		
+		List<AllListVO> alList = sService.findFree(al_free, al_name, al_sport);
+		
+		model.addAttribute("RESULT",alList);
+		log.debug("free : {}", al_free );
+		log.debug("sname : {}", al_name);
+		log.debug("sports : {}", al_sport);
+//		log.debug("dist1 : {}", dist1);
+//		log.debug("dist2 : {}", dist2);
+//		log.debug("dist3 : {}", dist3);
+//		log.debug("dist4 : {}", dist4);
+//		log.debug("dist5 : {}", dist5);
+		
+		return "/search/search";
+	}
+	
+	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	public String detail(Model model) {
+		
 		List<DetailDTO> dtList = sService.selectView();
 		
 		model.addAttribute("DTLIST",dtList);
-		return "/search/search";
+		return "/search/detail";
 	}
 	
-	@RequestMapping(value = {"/",""}, method = RequestMethod.POST)
-	public String search(String ra, Model model) {
-		log.debug("ra : {}", ra);
-		DetailDTO dtDTO = sService.findFree(ra);
-		
-		model.addAttribute("RA",dtDTO);
-		return "/search/search";
-	}
-	
-	@RequestMapping(value = "/detail2", method = RequestMethod.GET)
-	public String detail(Model model, Long v_seq) {
-		
-		DetailDTO dtDTO = sService.findSeq(v_seq);
-		model.addAttribute("DT", dtDTO);
-		return "/search/detail2";
-	}
-	
-	@RequestMapping(value = "/board", method = RequestMethod.GET)
-	public String board(Model model) {
-		List<DetailDTO> dtList = sService.selectView();
-		model.addAttribute("DTLIST",dtList);
-		return "/search/board";
-	}
-	
-	@RequestMapping(value="/search/distric", method=RequestMethod.GET)
-	public String distric(Model model, String keyword) {
-		
-		List<DetailDTO> dtList = sService.findByDistric(keyword);
-		
-		model.addAttribute("RESULT",dtList);
-		
-		return "/search/search";
-	}
-	
-	@RequestMapping(value="/search/searchinput", method=RequestMethod.GET)
-	public String searchinput(Model model, String keyword) {
-		
-		List<DetailDTO> dtList = sService.findBySearch(keyword);
-		
-		model.addAttribute("RESULT",dtList);
-		
-		return "/search/search";
-	}
-	
-	@RequestMapping(value="/search/sport", method=RequestMethod.GET)
-	public String sport(Model model, String keyword) {
-		
-		List<DetailDTO> dtList = sService.findBySport(keyword);
-		
-		model.addAttribute("RESULT",dtList);
-		
-		return "/search/board";
-	}
 }
