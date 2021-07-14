@@ -13,12 +13,9 @@ public interface SearchService {
 	public List<DetailDTO> selectView();
 	
 	public List<AllListVO> selectAllList();
+
+	public List<AllListVO> findFree(String al_free, String al_name, String al_sport);
 	
-	public DetailDTO findSeq(Long v_seq);
-	public DetailDTO findFree(String v_free);
-	
-	public List<DetailDTO> findByDistric(String keyword);
-	public List<DetailDTO> findBySearch(String keyword);
-	public List<DetailDTO> findBySport(String keyword);
+
 	
 }
