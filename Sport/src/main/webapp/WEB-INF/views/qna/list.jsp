@@ -17,8 +17,7 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005"
-	rel="stylesheet" />
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-15-001" rel="stylesheet" />
 <style>
 @import
 	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
@@ -50,15 +49,13 @@ select#search {
 	text-align: center;
 }
 
+/*
 tr:hover:not(.first) {
 	background-color: #dedcee;
 	cursor: pointer;
 	color: darkblue;
 }
-
-div.btn_search {
-	
-}
+*/
 
 button#btn_search {
 	margin: 0px 0px 0px 20px;

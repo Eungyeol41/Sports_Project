@@ -15,12 +15,8 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
-<link href="/webapp/static/css/menu_nav.css" rel="stylesheet" />
-<link href="../css/layout_css.css" rel="stylesheet" />
 <style>
-@import
-	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
-	;
+	@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
 </style>
 
 <style>

@@ -12,8 +12,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
-<link href="../css/menu_nav.css" rel="stylesheet" />
-<script src="../js/navscript.js"></script>
+<!-- 
+	<link href="../css/menu_nav.css" rel="stylesheet" />
+	<script src="../js/navscript.js"></script>
+-->
+
 <style>
 	* {
 		box-sizing: border-box;
@@ -46,6 +49,7 @@
 		background-color: #dedcee;
 		width: 20%;
 	}
+	
 </style>
 
 </head>
