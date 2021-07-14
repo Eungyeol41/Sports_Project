@@ -26,6 +26,10 @@ public class SearchController {
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
 	public String search(Model model) {
 		
+		List<AllListVO> alList = sService.selectAllList();
+		
+		model.addAttribute("ALLIST",alList);
+		
 		return "/search/search";
 	}
 	
@@ -40,7 +44,7 @@ public class SearchController {
 //						@RequestParam(name="dist5" , required = false) String dist5 ,
 						Model model) {
 		
-		List<AllListVO> alList = sService.findFree(al_free, al_name, al_sport);
+		List<AllListVO> alList = sService.findFree(al_free, al_sport, al_sport);
 		
 		model.addAttribute("RESULT",alList);
 		log.debug("free : {}", al_free );

@@ -43,9 +43,10 @@ public class SearchServiceImplV1 implements SearchService{
 	}
 
 	@Override
-	public List<AllListVO> findFree(String al_free, String al_name, String al_sport) {
+	public List<AllListVO> findFree(String al_free, String al_name, String al_spotr) {
 		
-		List<AllListVO> alList = sDao.findFree(al_free, al_name, al_sport);
+		List<AllListVO> alList = sDao.findFree(al_free, al_free, al_free);
+		
 		return alList;
 	}
 
