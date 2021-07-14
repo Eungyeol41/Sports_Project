@@ -22,5 +22,7 @@ public class QnAVO {
 	
 	private String qna_date;
 	private Integer qna_count;
+	
+	private String roadaddr;
 
 }
