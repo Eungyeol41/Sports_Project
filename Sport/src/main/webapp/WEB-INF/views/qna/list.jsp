@@ -164,6 +164,10 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 
 })
 
+document.querySelector("button#write").addEventListener("click", ()=> {
+	location.href = "${rootPath}/qna/write"
+})
+
 document.querySelector("button#btn_search").addEventListener("click", (e) => {
 	
 	let search = document.querySelector("select#search").value

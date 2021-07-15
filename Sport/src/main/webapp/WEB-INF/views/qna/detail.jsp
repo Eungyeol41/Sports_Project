@@ -12,10 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
-<!-- 
-	<link href="../css/menu_nav.css" rel="stylesheet" />
-	<script src="../js/navscript.js"></script>
--->
+
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-15-001" rel="stylesheet" />
 
 <style>
 	* {
@@ -118,13 +116,11 @@ if("${USER.user_id}" === "${QNA.qna_id}") {
         
         
     });
-  document.querySelector("button#delete").addEventListener("click", () => {
-	  alert("권한이 없습니다.");
-       });
+document.querySelector("button#delete").addEventListener("click", () => {
+	alert("권한이 없습니다.");
+});
 	
 }
-
-
 
 </script>
 </html>
