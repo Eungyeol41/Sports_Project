@@ -1,9 +1,7 @@
 package com.team.map.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -18,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.map.model.GeocodeDTO;
+import com.team.map.model.MapVO;
+import com.team.map.service.MapService;
 import com.team.map.service.NaverCloudMapService;
 //import com.team.sport.model.QnAVO;
 
@@ -30,6 +30,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/maps")
 public class MapController {
 	
+	protected final MapService mapService;
+	
 	@Qualifier("geocodeV1")
 	protected final NaverCloudMapService<?> nGeoService;
 
@@ -40,52 +42,90 @@ public class MapController {
 	public String geoCoding(@RequestParam(name = "address", required = false, defaultValue = "") String address,
 			Model model) throws IOException, ParseException {
 		
+		List<MapVO> mapList = mapService.selectAddr(address);
+//		log.debug("Controller-mapList :{}", mapList.toString());
+		
+		/*
+		 * mapList를 
+		 */
+		
+		Integer mapSize = mapList.size();
+		for(int i = 0; i < mapSize; i++) {
+//			if (address != null && !address.equals("")) {
+			
+				String queryURL = nGeoService.queryURL(mapList.get(i).getAl_addr());
+				String jsonString = nGeoService.jsonString(queryURL);
+				model.addAttribute("GEOS", nGeoService.getList(jsonString));
+				log.debug("controller에 있는 jsonString {}", jsonString);
+				
+				//JsonString을 이용할 수 있게 변환시키는 것
+				JSONParser jsonParse = new JSONParser();
+				
+				JSONObject jsonObj = (JSONObject) jsonParse.parse(jsonString);
+				
+				System.out.println("jsonObj : "+jsonObj);
+				
+				JSONArray Array = (JSONArray) jsonObj.get("addresses"); // addresses
+				
+				// Array SIZE : 1 로 나오는 이유는 array가 배열이라서 하나로 갖고 있기때문
+//				System.out.println("Array SIZE : " + Array.size());
+				
+				// Array에서 분류하기 위해 오브젝트에 array를 담아서 get으로 가져오기
+//				JSONObject addrObj = (JSONObject) Array.get(0); // roadAddress
+	
+//				log.debug("roadAddress : {}" , addrObj.get("roadAddress"));
+				
+				JSONArray Arrayaddr = (JSONArray) jsonObj.get("roadAddress");
+				
+				log.debug("roadAddress" , Arrayaddr.size());
+				
+//				JSONObject jsonObj2 = (JSONObject) jsonParse.parse(jsonString);
+				
+				JSONArray ArrayX = (JSONArray) jsonObj.get("X");
+				JSONArray ArrayY = (JSONArray) jsonObj.get("Y");
+				
+				log.debug("ArrayX" , ArrayX.size());
+				log.debug("ArrayY" , ArrayY.size());
+				
+				
+				
+//				JSONObject addrObjX = (JSONObject) Array.get(4); //
+				
+//				JSONObject jsonObj3 = (JSONObject) jsonParse.parse(jsonString);
+//				
+//				JSONObject addrObjY = (JSONObject) Array.get(5); //
+//				
+//				log.debug("addrObjX : {}" , addrObjX.get("x"));
+//				log.debug("addrObjY : {}" , addrObjY.get("Y"));
+////				
+//				JSONArray Array2 = (JSONArray) jsonObj.get(addrObj);
+				
+//				Map<Object, Object> map = new HashMap<Object, Object>();
+//				
+//				map.put("roadAddr",addrObj.get("roadAddress"));
+//				
+//				servie.insert(map);
+				
+//				JSONObject addressElements = (JSONObject) Array2.get(0); 
+				
+//				System.out.println("addressElements" + addressElements.get("types"));
+//				JSONArray ElArray = (JSONArray) jsonObj.get("addressElements");
+//		
+//				String roadAddr = addrObj.get("roadAddress").toString();
+//				
+//				System.out.println("roadAddress(STRING) : " + roadAddr);
+//			}
+			
+		}
 		
 
-		if (address != null && !address.equals("")) {
+		
 
-			String queryURL = nGeoService.queryURL(address);
-			System.out.println("queryURL : " + queryURL);
-			String jsonString = nGeoService.jsonString(queryURL);
-			System.out.println("jsonString : " + jsonString);
 			
-			//JsonString을 이용할 수 있게 변환시키는 것
-			JSONParser jsonParse = new JSONParser();
 			
-			JSONObject jsonObj = (JSONObject) jsonParse.parse(jsonString);
-			
-			System.out.println("jsonObj : "+jsonObj);
-			
-			JSONArray Array = (JSONArray) jsonObj.get("addresses");
-			
-			// Array SIZE : 1 로 나오는 이유는 array가 배열이라서 하나로 갖고 있기때문
-			System.out.println("Array SIZE : " + Array.size());
-			
-			// Array에서 분류하기 위해 오브젝트에 array를 담아서 get으로 가져오기
-			JSONObject addrObj = (JSONObject) Array.get(0);
-
-			System.out.println("roadAddress : " + addrObj.get("roadAddress"));
-			
-			JSONArray Array2 = (JSONArray) jsonObj.get(addrObj);
 			
 
-//			Map<Object, Object> map = new HashMap<Object, Object>();
-//			
-//			map.put("roadAddr",addrObj.get("roadAddress"));
-//			
-//			servie.insert(map);
 			
-;//			JSONObject addressElements = (JSONObject) Array2.get(0); 
-//			
-//			System.out.println("addressElements" + addressElements.get("types"));
-//			JSONArray ElArray = (JSONArray) jsonObj.get("addressElements");
-			
-//			String roadAddr = addrObj.get("roadAddress").toString();
-//			
-//			System.out.println("roadAddress(STRING) : " + roadAddr);
-			
-			model.addAttribute("GEOS", nGeoService.getList(jsonString));
-		}
 		return "home";
 		//		return jsonString;
 	}

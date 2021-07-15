@@ -123,6 +123,10 @@
 </body>
 
 <script>
+	document.querySelector("button").addEventListener("click", (e)=> {
+		
+	})
+
 	document.querySelector("table.mypage").addEventListener("click", (e) => {
 		let tagName = e.target.tagName;
 		

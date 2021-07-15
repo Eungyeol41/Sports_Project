@@ -15,13 +15,18 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import com.team.map.config.NaverSecret;
+import com.team.map.dao.MapDao;
 import com.team.map.service.NaverCloudMapService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service("geocodeV1")
 public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, String>>{
+	
+	protected final MapDao mapDao;
 
 	@Override
 	public String queryURL(String search) throws UnsupportedEncodingException {
@@ -46,13 +51,15 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 		
 		int nSize = addresses.size();
 		for(int i = 0 ; i < nSize ; i++) {
-			JSONObject addr = (JSONObject) addresses.get(i); 
+			JSONObject addr = (JSONObject) addresses.get(i);
+			String road = addr.get("roadAddress").toString();
 			String lat = addr.get("x").toString();
 			String lgt = addr.get("y").toString();
 			Map<String,String> map = new HashMap<>();
+			map.put("roadAddress", road);
 			map.put("lat",lat);
 			map.put("lgt",lgt);
-			log.debug("lat {}, lgt {}",lat,lgt);
+			log.debug("road {}, lat {}, lgt {}", road, lat,lgt);
 			geoList.add(map);
 		}
 		return geoList;
@@ -61,10 +68,7 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 	@Override
 	public Map<String, String> getData(String jsonString) throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		
-		
-		
 		return null;
 	}
-
+	
 }
