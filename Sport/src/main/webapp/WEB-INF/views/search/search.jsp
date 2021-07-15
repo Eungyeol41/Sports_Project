@@ -15,8 +15,12 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
+<link href="/webapp/static/css/menu_nav.css" rel="stylesheet" />
+<link href="../css/layout_css.css" rel="stylesheet" />
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+@import
+	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
+	;
 </style>
 
 <style>
@@ -139,20 +143,16 @@ select.sports option {
 </style>
 </head>
 
-<script>
-	var rootPath = "${rootPath}"
-</script>
-
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>광주광역시 체육시설 찾아보기</h1>
-	<form id="search_se" method="POST" action="${rootPath}/search">
+	<form id="search_se" method="POST" >
 	<table class="search">
 		<!-- <caption>광주광역시 체육s시설 찾아보기</caption> 표 제목 붙이기 -->
 		<tr class="search">
 			<th class="search">이용료</th>
 			<td>
-				<input id="ra" type="radio" name="free" value="무료" checked />	무료 
+				<input id="ra" type="radio" name="free" value="무료" />	무료 
 				<input id="ra" type="radio" name="free" value="유료" /> 유료 
 				<input id="ra" type="radio" name="free" value="유/무료" /> 유/무료
 			</td>
@@ -160,34 +160,35 @@ select.sports option {
 		<tr class="search">
 			<th class="search">지역(구)</th>
 			<td>
-				<input class="ch_dist" id="ch" type="checkbox" name="dist1" value="동구" /> 동구 
-				<input class="ch_dist" id="ch" type="checkbox" name="dist2" value="서구" /> 서구 
-				<input class="ch_dist" id="ch" type="checkbox" name="dist3" value="남구" /> 남구 
-				<input class="ch_dist" id="ch" type="checkbox" name="dist4" value="북구" /> 북구 
-				<input class="ch_dist" id="ch" type="checkbox" name="dist5" value="광산구" /> 광산구 
+				<input class="ch_addr" id="ch" type="checkbox" name="addr1" value="동구" /> 동구 
+				<input class="ch_addr" id="ch" type="checkbox" name="addr2" value="서구" /> 서구 
+				<input class="ch_addr" id="ch" type="checkbox" name="addr3" value="남구" /> 남구 
+				<input class="ch_addr" id="ch" type="checkbox" name="addr4" value="북구" /> 북구 
+				<input class="ch_addr" id="ch" type="checkbox" name="addr5" value="광산구" /> 광산구 
 				<input class="ch_distall" id="all" type="checkbox" name="dist_all" value="전체" onclick="selectAll" /> 전체
 			</td>
 		</tr>
 		<tr class="search">
-			<th class="search">지역(동)</th>
+			<th class="search">주소</th>
 			<td id="t3">
-				<input id="distric_box" name="town" type="text" size="20"
-					style="padding: 10px; border: 1px solid #ddd" name="dong" />
+				<input id="addr_box" name="al_addr" type="text" size="20"
+					style="padding: 10px; border: 1px solid #ddd"/>
 			</td>
 		</tr>
 		<tr class="search">
 			<th class="search">시설이름</th>
 			<td id="t4">
 				<input id="search_box" name="sname" type="text" size="20"
-					style="padding: 10px; border: 1px solid #ddd" name="search" />
+					style="padding: 10px; border: 1px solid #ddd"/>
 			</td>
 		</tr>
 		<tr class="search">
 			<!-- 드롭다운 사용하기 -->
 			<th class="search">종목</th>
-			<td><select id="sports" class="sports" name="sports" size="1"
+			<td>
+			<select id="sports" class="sports" name="sports" size="1"
 				style="width: 230px; border: 1px solid #ddd;">
-					<option value="1">--- 종목 ---</option>
+					<option value="">--- 종목 ---</option>
 					<option value="검도">검도</option>
 					<option value="게이트볼">게이트볼</option>
 					<option value="골프">골프</option>
@@ -230,7 +231,21 @@ select.sports option {
 			<th>위치</th>
 			<th>이용료</th>
 		</tr>
+		<c:choose>
+		<c:when test="${empty RESULT}">
+			<c:forEach items="${ALLIST}" var="AL" varStatus="index">
+				<tr class="list_sec" data-seq="${AL.al_seq}">
+					<th>${AL.al_seq}</th>
+					<th>${AL.al_name}</th>
+					<th>${AL.al_tel}</th>
+					<th>${AL.al_sport}</th>
+					<th>${AL.al_addr}</th>
+					<th>${AL.al_free}</th>
+				</tr>
+			</c:forEach>
+		</c:when>
 	
+		<c:when test="${not empty RESULT}">
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
 				<tr class="list_sec" data-seq="${RE.al_seq}">
 					<th>${RE.al_seq}</th>
@@ -241,7 +256,8 @@ select.sports option {
 					<th>${RE.al_free}</th>
 				</tr>
 			</c:forEach>
-			
+		</c:when>
+		</c:choose>
 	</table>
 
 </body>
@@ -253,19 +269,29 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	if(tagName == "TH") {
 		let seq = e.target.closest("TR").dataset.seq;
 		console.log(seq);
-		location.href="${rootPath}/search/detail2?v_seq=" + seq;
+		location.href="${rootPath}/search/detail2?al_seq=" + seq;
 	}
 })
 
  document.querySelector("button#btn_search").addEventListener("click", () => {
 	 
-	 let 
+	 let ra = document.querySelector("input#ra").value
+	 let ch_dist = document.querySelector("input.ch_addr").value
+	 let search_box = document.querySelector("input#search_box").value
+	 let option_box = document.querySelector("select#sports").value
+	 
+	 
+	 if(search_box == ""){
+		 alert("공백")
+	 }
+	 location.href="${rootPath}/search/";
+			
 	 document.querySelector("form#search_se").submit();
 	 
      });
      
-    function checkSelectAll() {
-        const checkbox = document.querySelectorAll("input.dist");
+    /*function checkSelectAll() {
+        const checkbox = document.querySelectorAll("input.ch_addr");
     	const checked = document.querySelectorAll("input.dist:checked");
     	const selectAll = document.querySelector("input.dist_all");
 
@@ -282,13 +308,13 @@ document.querySelector("table.list").addEventListener("click", (e) => {
     .querySelector("input.dist_all")
     .addEventListener("change", function (e) {
         e.preventDefault();
-    let list = document.querySelectorAll("input.dist");
+    let list = document.querySelectorAll("input.ch_addr");
     for (let i = 0; i < list.length; i++) {
         list[i].checked = this.checked;
             }
           });
 
-    let objs = document.querySelectorAll("input.dist");
+    let objs = document.querySelectorAll("input.ch_addr");
     for (let i = 0; i < objs.length; i++) {
         objs[i].addEventListener("click",() => {
                 let selectAll = document.querySelector("input.dist_all");
@@ -304,7 +330,7 @@ document.querySelector("table.list").addEventListener("click", (e) => {
         );
         }
       });
-
+*/
 </script>
 
 </html>

@@ -36,7 +36,7 @@
  	
  	<update id="update" parameterType="UserVO">
  		UPDATE tbl_user(user_id, user_pw, user_tel, user_name, user_email) 
- 		SET user_id = #{user_id}, user_pw = #{user_pw}, user_tel = #{user_tel}, user_name = #{user_name}, user_email = #{user_email}
+ 		SET user_id = #{user_id}, user_pw	= #{user_pw}, user_tel = #{user_tel}, user_name = #{user_name}, user_email = #{user_email}
  		WHERE user_id = #{user_id} 
  	</update>
  	

@@ -81,8 +81,6 @@ public class QnAController {
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String update(Long seq, Model model) {
-		
-
 
 		QnAVO vo = qnaService.findById(seq);
 		model.addAttribute("QNA", vo);
