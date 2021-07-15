@@ -10,11 +10,14 @@ public interface SearchService {
 
 	public List<SearchVO> selectAll();
 	
+	public DetailDTO findSeq(Long v_seq);
 	public List<DetailDTO> selectView();
 	
 	public List<AllListVO> selectAllList();
 
-	public List<AllListVO> findFree(String al_free, String al_name, String al_sport);	
+	public List<AllListVO> findFree(String al_free, String al_name, String al_addr
+			);
+	// ,String addr1,String addr2,String addr3,String addr4,String addr5
 
 	
 }

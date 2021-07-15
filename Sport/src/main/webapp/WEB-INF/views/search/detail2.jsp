@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link href="../css/menu_nav.css" rel="stylesheet" />
 <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
@@ -14,6 +15,7 @@
       src="https://kit.fontawesome.com/ce0a08be66.js"
       crossorigin="anonymous"
     ></script>
+    <link href="../css/menu_nav.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
     </style>
@@ -109,7 +111,7 @@ button:hover {
 			<div class="table">
 				<table>
 					<tr>
-						<th class="sec1">번호</th>
+						<th class="sec1" >번호</th>
 						<th><input name="v_seq" id="v_seq" type="text" value="${DT.v_seq }"></th>
 					</tr>
 					<tr>
@@ -118,31 +120,31 @@ button:hover {
 					</tr>
 					<tr>
 						<th class="sec1">전화번호</th>
-						<th><input name="v_tel" id="v_tel" value="${DT.v_tel}"></th>
+						<th><input name="v_tel" id="v_tel" value="${DT.v_tel}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">주소</th>
-						<th><input name="v_addr" id="v_addr" value="${DT.v_addr}"></th>
+						<th><input name="v_addr" id="v_addr" value="${DT.v_addr}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">종목</th>
-						<th><input name="v_sport" id="v_sport" value="${DT.v_sport}" ></th>
+						<th><input name="v_sport" id="v_sport" value="${DT.v_sport}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">유/무료</th>
-						<th><input name="v_free" id="v_free" value="${DT.v_free}" ></th>
+						<th><input name="v_free" id="v_free" value="${DT.v_free}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">이용가능 시간</th>
-						<th><input name="v_time" id="v_time" value="${DT.v_time}" ></th>
+						<th><input name="v_time" id="v_time" value="${DT.v_time}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">사이트</th>
-						<th><input name="v_site" id="v_site" value="${DT.v_site}" ></th>
+						<th><input name="v_site" id="v_site" value="${DT.v_site}" type="text"></th>
 					</tr>
 					<tr>
 						<th class="sec1">상세이용료</th>
-						<th><input name="v_money" id="v_money" value="${DT.v_money}" ></th>
+						<th><input name="v_money" id="v_money" value="${DT.v_money}" type="text"></th>
 					</tr>
 				</table>
 			</div>
@@ -150,5 +152,8 @@ button:hover {
 	</div>
 
 </body>
+<script>
+	
+</script>
 
 </html>

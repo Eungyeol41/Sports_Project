@@ -29,43 +29,56 @@ public class SearchController {
 		List<AllListVO> alList = sService.selectAllList();
 		
 		model.addAttribute("ALLIST",alList);
-		
 		return "/search/search";
 	}
 	
 	@RequestMapping(value ={"/",""}, method = RequestMethod.POST)
 	public String search(@RequestParam(name="free", required = false) String al_free ,
 						@RequestParam(name="sname", required = false) String al_name ,
-						@RequestParam(name="sports", required = false) String al_sport ,
-//						@RequestParam(name="dist1" , required = false) String dist1 ,
-//						@RequestParam(name="dist2" , required = false) String dist2 ,
-//						@RequestParam(name="dist3" , required = false) String dist3 ,
-//						@RequestParam(name="dist4" , required = false) String dist4 ,
-//						@RequestParam(name="dist5" , required = false) String dist5 ,
+						@RequestParam(name="al_addr", required = false) String al_addr ,
+//						@RequestParam(name="sports", required = false) String al_sport ,
+//						@RequestParam(name="addr1" , required = false) String addr1 ,
+//						@RequestParam(name="addr2" , required = false) String addr2 ,
+//						@RequestParam(name="addr3" , required = false) String addr3 ,
+//						@RequestParam(name="addr4" , required = false) String addr4 ,
+//						@RequestParam(name="addr5" , required = false) String addr5 ,
 						Model model) {
 		
-		List<AllListVO> alList = sService.findFree(al_free, al_sport, al_sport);
+		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr
+				);
+		// ,addr1,addr2,addr3,addr4,addr5
 		
 		model.addAttribute("RESULT",alList);
 		log.debug("free : {}", al_free );
-		log.debug("sname : {}", al_name);
-		log.debug("sports : {}", al_sport);
-//		log.debug("dist1 : {}", dist1);
-//		log.debug("dist2 : {}", dist2);
-//		log.debug("dist3 : {}", dist3);
-//		log.debug("dist4 : {}", dist4);
-//		log.debug("dist5 : {}", dist5);
+		log.debug("al_name : {}", al_name);
+		log.debug("al_addr : {}", al_addr);
+//		log.debug("al_sport : {}", al_sport);
+//		log.debug("sname : {}", addr1);
+//		log.debug("sname : {}", addr2);
+//		log.debug("sname : {}", addr3);
+//		log.debug("sname : {}", addr4);
+//		log.debug("sname : {}", addr5);
+
 		
 		return "/search/search";
 	}
+//	@RequestMapping(value="/detail2", method=RequestMethod.GET)
+//	public String detail(Model model) {
+//		
+//		List<DetailDTO> dtList = sService.selectView();
+//		
+//		model.addAttribute("DT",dtList);
+//		return "/search/detail2";
+//	}
 	
-	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	@RequestMapping(value="/detail2", method=RequestMethod.GET)
 	public String detail(Model model) {
 		
 		List<DetailDTO> dtList = sService.selectView();
 		
-		model.addAttribute("DTLIST",dtList);
-		return "/search/detail";
+		model.addAttribute("DT",dtList);
+		return "/search/detail2";
 	}
+
 	
 }
