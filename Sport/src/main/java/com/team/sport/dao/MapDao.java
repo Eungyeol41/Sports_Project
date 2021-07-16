@@ -1,10 +1,16 @@
 package com.team.sport.dao;
 
-import com.team.sport.model.MapVO;
-import com.team.sport.model.QnAVO;
+import java.util.List;
+import java.util.Map;
 
-public interface MapDao extends GenericDao<QnAVO, String>{
+import com.team.sport.model.DetailVO;
 
-	MapVO insert(MapVO vo);
+public interface MapDao extends GenericDao<DetailVO, String>{
+
+	public List<DetailVO> selectAll();
+	 
+	public List<DetailVO> select(); 
+
+	public int insert(Map<String, String> map);
 	
 }

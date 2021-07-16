@@ -31,7 +31,10 @@ create table tbl_detail(
 dt_code		CHAR(4)		PRIMARY KEY,
 dt_time		VARCHAR(1000),
 dt_money	VARCHAR(2000),	
-dt_site		VARCHAR(2000)		
+dt_site		VARCHAR(2000),
+dt_lat decimal(10,7), 
+dt_lgt decimal(10,7),
+dt_road varchar(255)
 );
 
 DROP TABLE tbl_QnA;
@@ -71,7 +74,9 @@ CREATE VIEW view_상세페이지 AS
 		AL.al_free 	AS v_free,
 		DT.dt_time 	AS v_time,
 		DT.dt_site 	AS v_site,
-		DT.dt_money AS v_money
+		DT.dt_money AS v_money,
+        DT.dt_lat AS v_lat,
+        DT.dt_lgt AS v_lgt
     FROM tbl_detail AS DT
 		LEFT JOIN tbl_all_list AS AL
 			ON DT.dt_code = AL.al_code

@@ -1,4 +1,4 @@
-package com.team.map.controller;
+package com.team.sport.controller;
 
 import java.io.IOException;
 import java.util.List;

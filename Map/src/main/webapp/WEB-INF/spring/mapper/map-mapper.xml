@@ -9,6 +9,10 @@
 		SELECT al_addr FROM tbl_all_list
 	</select>
 	
+	<select id="select" resultType="MapVO">
+		SELECT * FROM tbl_map
+	</select>
+	
 	<insert id="insert" parameterType="Map">
 		INSERT INTO tbl_map(m_road, m_lat, m_lgt)
 		VALUES( #{m_road}, #{m_lat}, #{m_lgt} )

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
+import com.team.sport.model.SearchVO;
 
 public interface SearchDao extends GenericDao<AllListVO, String>{
 	
@@ -24,4 +25,5 @@ public interface SearchDao extends GenericDao<AllListVO, String>{
 //									@Param("addr4") String addr4,
 //									@Param("addr5") String addr5
 									);
+	public List<SearchVO> findBySearch(String search_column, String search_text);
 }

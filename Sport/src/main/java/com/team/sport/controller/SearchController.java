@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
+import com.team.sport.model.SearchVO;
 import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -79,6 +80,18 @@ public class SearchController {
 		model.addAttribute("DT",dtList);
 		return "/search/detail2";
 	}
-
+	
+	@RequestMapping(value = "/allList", method = RequestMethod.GET)
+	public String allList(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum, Model model) {
+		
+		int intPageNum = Integer.valueOf(pageNum);
+		List<SearchVO> gList = gService.selectAllPage(intPageNum, model);
+		
+		if(intPageNum > 0) {
+			model.addAttribute("PAGE_NUM", intPageNum);
+		}
+		
+		return "search/all_list";
+	}
 	
 }

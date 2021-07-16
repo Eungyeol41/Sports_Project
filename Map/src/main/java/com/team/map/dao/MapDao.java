@@ -8,6 +8,8 @@ import com.team.map.model.MapVO;
 public interface MapDao {
 
 	public List<MapVO> selectAll();
+	 
+	public List<MapVO> select(); 
 
 	public int insert(Map<String, String> map);
 

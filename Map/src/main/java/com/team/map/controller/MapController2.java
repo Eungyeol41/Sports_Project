@@ -3,9 +3,6 @@ package com.team.map.controller;
 import java.io.IOException;
 import java.util.List;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -53,8 +50,6 @@ public class MapController2 {
 				log.debug("queryURL : {}", queryURL);
 				String jsonString = nGeoService.jsonString(queryURL);
 				model.addAttribute("GEOS", nGeoService.getList(jsonString));
-				
-//				mapService.insert((MapVO) nGeoService.getList(jsonString));
 			}
 			
 		}
@@ -79,4 +74,12 @@ public class MapController2 {
 		return (List<GeocodeDTO>) nReGeoService.getList(jsonString);
 	}
 
+	@RequestMapping(value = "/naver", method = RequestMethod.GET)
+	public String naver(Model model) {
+		
+		List<MapVO> mapList = mapService.select();
+		model.addAttribute("MAP", mapList);
+		
+		return "map/naver";
+	}
 }

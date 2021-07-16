@@ -40,4 +40,13 @@ public class MapServiceImplV1 implements MapService{
 		return result;
 	}
 
+	@Override
+	public List<MapVO> select() {
+		// TODO Auto-generated method stub
+		
+		List<MapVO> mapList = mapDao.select();
+		
+		return mapList;
+	}
+
 }

@@ -14,11 +14,12 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor 
 @NoArgsConstructor
-public class MapVO {
-	
-	private Integer	m_lat; 		// 	위도
-	private Integer	m_lng; 		// 	경도
-	private String	m_paddress; // 	주소
-	private String	m_pname; 	// 	장소명
+public class PageDTO {
 
+	private int startPage;
+	private int endPage;
+	private int totalPages;
+	
+	private int ceilData;
+	
 }
