@@ -11,7 +11,6 @@ import java.util.List;
 import org.json.simple.parser.ParseException;
 
 import com.team.map.config.NaverSecret;
-import com.team.map.model.MapVO;
 
 import lombok.extern.slf4j.Slf4j;
 

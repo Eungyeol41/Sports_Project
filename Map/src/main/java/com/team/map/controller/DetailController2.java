@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.team.map.model.DetailVO;
 import com.team.map.model.GeocodeDTO;
-import com.team.map.model.MapVO;
-import com.team.map.service.MapService;
+import com.team.map.service.DetailService;
 import com.team.map.service.NaverCloudMapService;
 //import com.team.sport.model.QnAVO;
 
@@ -28,9 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping(value = "/map")
-public class MapController2 {
+public class DetailController2 {
 	
-	protected final MapService mapService;
+	protected final DetailService dService;
 	
 	@Qualifier("geocodeV1")
 	protected final NaverCloudMapService<?> nGeoService;
@@ -44,7 +44,7 @@ public class MapController2 {
 		
 		if (address != null && !address.equals("")) {
 
-			List<MapVO> mapList = mapService.selectAddr(address);
+			List<DetailVO> mapList = dService.selectAddr(address);
 			log.debug("mapList {}", mapList.toString());
 			int mapSize = mapList.size();
 			
