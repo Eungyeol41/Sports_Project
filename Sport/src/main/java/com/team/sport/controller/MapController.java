@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.sport.model.DetailVO;
+import com.team.sport.model.GeocodeDTO;
 import com.team.sport.service.MapService;
 import com.team.sport.service.NaverCloudMapService;
 
@@ -51,25 +53,25 @@ public class MapController {
 			
 		}
 		
-		return "home";
+		return "map_basic";
 		// return jsonString;
 	}
 
-//	@ResponseBody
-//	@RequestMapping(value = "/regeocoding", method = RequestMethod.POST, produces = "application/json;char=UTF8")
-//	public List<GeocodeDTO> reverseGeoCoding(
-//			@RequestParam(name = "coords", required = false, defaultValue = "") String coords)
-//			throws IOException, ParseException {
-//
-//		if (coords == null || coords.equals("")) {
-//			return null;//"좌표를 입력해주세요";
-//		}
-//
-//		String queryURL = nReGeoService.queryURL(coords);
-//		String jsonString = nReGeoService.jsonString(queryURL);
-//		//		return jsonString
-//		return (List<GeocodeDTO>) nReGeoService.getList(jsonString);
-//	}
+	@ResponseBody
+	@RequestMapping(value = "/regeocoding", method = RequestMethod.POST, produces = "application/json;char=UTF8")
+	public List<GeocodeDTO> reverseGeoCoding(
+			@RequestParam(name = "coords", required = false, defaultValue = "") String coords)
+			throws IOException, ParseException {
+
+		if (coords == null || coords.equals("")) {
+			return null;//"좌표를 입력해주세요";
+		}
+
+		String queryURL = nReGeoService.queryURL(coords);
+		String jsonString = nReGeoService.jsonString(queryURL);
+		//		return jsonString
+		return (List<GeocodeDTO>) nReGeoService.getList(jsonString);
+	}
 
 	@RequestMapping(value = "/naver", method = RequestMethod.GET)
 	public String naver(Model model) {
