@@ -20,3 +20,25 @@ SELECT * FROM tbl_qna;
 UPDATE tbl_qna
 SET qna_title = '사람없는 시간대 알려주세요' 
 WHERE qna_seq = 2;
+
+ DELETE FROM tbl_qna WHERE qna_seq =4;
+ 
+ DROP table tbl_qna;
+ 
+ CREATE TABLE `tbl_qna` (
+  qna_seq bigint NOT NULL AUTO_INCREMENT,
+  qna_id varchar(20) NOT NULL,
+  qna_title varchar(500) NOT NULL,
+  qna_name varchar(500) NOT NULL,
+  qna_text varchar(3000) NOT NULL,
+  qna_email varchar(50) NOT NULL,
+  qna_date varchar(30) NOT NULL,
+  qna_count int DEFAULT '0',
+  PRIMARY KEY (`qna_seq`)
+);
+ 
+ use db_sports;
+	UPDATE tbl_qna
+    SET qna_count = qna_count + 1
+    WHERE qna_seq = 1;
+ 

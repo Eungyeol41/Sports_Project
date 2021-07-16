@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.team.map.config.NaverSecret;
 import com.team.map.dao.MapDao;
+import com.team.map.model.MapVO;
 import com.team.map.service.NaverCloudMapService;
 
 import lombok.RequiredArgsConstructor;
@@ -61,12 +62,21 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 			
 			Map<String,String> map = new HashMap<>();
 			
-			map.put("roadAddress", road);
-			map.put("lat",lat);
-			map.put("lgt",lgt);
-			log.debug("road {}, lat {}, lgt {}", road, lat,lgt);
+			map.put("m_road", road);
+			map.put("m_lat",lat);
+			map.put("m_lgt",lgt);
 			
+		
+			log.debug("road {}, lat {}, lgt {}", road, lat,lgt);
+
 			geoList.add(map);
+			
+			int gSize = geoList.size();
+			for(int index = 0 ; index < gSize ; index++) {
+				mapDao.insert(geoList.get(index)); 
+			}
+			
+			log.debug("결과임{}", geoList.toString());
 		}
 		return geoList;
 	}
@@ -78,3 +88,4 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 	}
 	
 }
+

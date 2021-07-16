@@ -1,6 +1,8 @@
 package com.team.map.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -31,8 +33,9 @@ public class MapServiceImplV1 implements MapService{
 	@Override
 	public int insert(MapVO vo) {
 		// TODO Auto-generated method stub
+		Map<String , String> map = new HashMap<String, String>();
 		
-		int result = mapDao.insert();
+		int result = mapDao.insert(map);
 		
 		return result;
 	}
