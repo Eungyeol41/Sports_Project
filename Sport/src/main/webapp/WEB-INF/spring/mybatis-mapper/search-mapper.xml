@@ -11,12 +11,21 @@
 	
 	<select id="findFree" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
-		WHERE al_free = #{al_free} AND al_name like CONCAT('%',#{al_name},'%') AND al_sport = #{al_sport}
+		WHERE al_free = #{al_free}
+		AND al_name like CONCAT('%',#{al_name},'%')
+		AND al_addr like CONCAT('%',#{al_addr},'%')
+		ORDER BY al_seq
 	</select>
 
 	<select id="selectView" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지
+		ORDER BY v_seq
 	</select>
+	<select id="findSeq" resultType="DetailDTO">
+		SELECT * FROM view_상세페이지
+		WHERE v_seq = #{v_seq}
+	</select>
+
 	<insert id="insert"></insert>
 	<update id="update"></update>
 	<delete id="delete"></delete>

@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
 
-<link href="${rootPath}/static/css/main_home.css?ver=2021-06-25-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/main_home_css.css?ver=2021-06-25-001" rel="stylesheet" />
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap") ;
 </style>
