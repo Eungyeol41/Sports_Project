@@ -15,8 +15,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import com.team.map.config.NaverSecret;
-import com.team.map.dao.MapDao;
-import com.team.map.model.MapVO;
+import com.team.map.dao.DetailDao;
 import com.team.map.service.NaverCloudMapService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service("geocodeV1")
 public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, String>>{
 	
-	protected final MapDao mapDao;
+	protected final DetailDao detailDao;
 
 	@Override
 	public String queryURL(String search) throws UnsupportedEncodingException {
@@ -62,9 +61,9 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 			
 			Map<String,String> map = new HashMap<>();
 			
-			map.put("m_road", road);
-			map.put("m_lat",lat);
-			map.put("m_lgt",lgt);
+			map.put("dt_road", road);
+			map.put("dt_lat",lat);
+			map.put("dt_lgt",lgt);
 			
 		
 			log.debug("road {}, lat {}, lgt {}", road, lat,lgt);
@@ -73,7 +72,8 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 			
 			int gSize = geoList.size();
 			for(int index = 0 ; index < gSize ; index++) {
-				mapDao.insert(geoList.get(index)); 
+//				detailDao.insert(geoList.get(index));
+				detailDao.update(geoList.get(index));
 			}
 			
 			log.debug("결과임{}", geoList.toString());

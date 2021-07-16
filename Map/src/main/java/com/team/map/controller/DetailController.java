@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.team.map.model.DetailVO;
 import com.team.map.model.GeocodeDTO;
-import com.team.map.model.MapVO;
-import com.team.map.service.MapService;
+import com.team.map.service.DetailService;
 import com.team.map.service.NaverCloudMapService;
 //import com.team.sport.model.QnAVO;
 
@@ -28,9 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping(value = "/maps")
-public class MapController {
+public class DetailController {
 	
-	protected final MapService mapService;
+	protected final DetailService mapService;
 	
 	@Qualifier("geocodeV1")
 	protected final NaverCloudMapService<?> nGeoService;
@@ -42,7 +42,7 @@ public class MapController {
 	public String geoCoding(@RequestParam(name = "address", required = false, defaultValue = "") String address,
 			Model model) throws IOException, ParseException {
 		
-		List<MapVO> mapList = mapService.selectAddr(address);
+		List<DetailVO> mapList = mapService.selectAddr(address);
 //		log.debug("Controller-mapList :{}", mapList.toString());
 
 		Integer mapSize = mapList.size();
@@ -117,5 +117,9 @@ public class MapController {
 		//		return jsonString
 		return (List<GeocodeDTO>) nReGeoService.getList(jsonString);
 	}
+//	@RequestMapping(value = "")
+//	public String map() {
+//		
+//	}
 
 }

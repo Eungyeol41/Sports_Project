@@ -3,15 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.team.map.dao.MapDao">
+<mapper namespace="com.team.map.dao.DetailDao">
 
-	<select id="selectAll" resultType="MapVO">
-		SELECT al_addr FROM tbl_all_list
+	<select id="selectAll" resultType="DetailVO">
+	SELECT al_addr FROM tbl_all_list
 	</select>
 	
 	<insert id="insert" parameterType="Map">
-		INSERT INTO tbl_map(m_road, m_lat, m_lgt)
-		VALUES( #{m_road}, #{m_lat}, #{m_lgt} )
+	INSERT INTO tbl_detail(dt_road, dt_lat, dt_lgt)
+    VALUES( dt_rode=#{dt_road}, dt_lat=#{dt_lat}, dt_lgt=#{dt_lgt} )
 	</insert>
+	
+	<update id="update" parameterType="Map">
+	UPDATE tbl_detail, tbl_all_list 
+	set dt_road=#{dt_road}, dt_lat=#{dt_lat}, dt_lgt=#{dt_lgt} 
+	WHERE tbl_detail.dt_code = tbl_all_list.al_code AND dt_code = #{dt_code};
+	 
+	</update>
 	
 </mapper>
