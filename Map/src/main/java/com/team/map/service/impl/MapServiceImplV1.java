@@ -28,4 +28,13 @@ public class MapServiceImplV1 implements MapService{
 		return mapList;
 	}
 
+	@Override
+	public int insert(MapVO vo) {
+		// TODO Auto-generated method stub
+		
+		int result = mapDao.insert();
+		
+		return result;
+	}
+
 }

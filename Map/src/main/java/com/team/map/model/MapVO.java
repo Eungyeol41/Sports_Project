@@ -18,4 +18,8 @@ public class MapVO {
 
 	private String al_addr;
 	
+	private String m_road;
+	private String m_lat;
+	private String m_lgt;
+	
 }

@@ -8,4 +8,6 @@ public interface MapDao {
 
 	public List<MapVO> selectAll();
 
+	public int insert();
+
 }

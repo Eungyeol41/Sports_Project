@@ -42,6 +42,7 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 	public List<Map<String, String>> getList(String jsonString) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 		
+		//JsonString을 이용할 수 있게 변환시키는 것
 		JSONParser jParser = new JSONParser();
 
 		JSONObject jObject = (JSONObject) jParser.parse(jsonString);
@@ -51,15 +52,20 @@ public class GeocodingServiceImplV1 extends NaverCloudMapService<Map<String, Str
 		
 		int nSize = addresses.size();
 		for(int i = 0 ; i < nSize ; i++) {
+			
 			JSONObject addr = (JSONObject) addresses.get(i);
+			
 			String road = addr.get("roadAddress").toString();
 			String lat = addr.get("x").toString();
 			String lgt = addr.get("y").toString();
+			
 			Map<String,String> map = new HashMap<>();
+			
 			map.put("roadAddress", road);
 			map.put("lat",lat);
 			map.put("lgt",lgt);
 			log.debug("road {}, lat {}, lgt {}", road, lat,lgt);
+			
 			geoList.add(map);
 		}
 		return geoList;
