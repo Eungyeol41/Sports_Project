@@ -1,17 +1,13 @@
 package com.team.sport.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.team.sport.dao.SearchDao;
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
-import com.team.sport.model.PageDTO;
 import com.team.sport.model.SearchVO;
-import com.team.sport.service.PageService;
 import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 public class SearchServiceImplV1 implements SearchService{
 
 	protected final SearchDao sDao;
-	protected final PageService pService;
 	
 	@Override
 	public List<SearchVO> selectAll() {
@@ -66,30 +61,7 @@ public class SearchServiceImplV1 implements SearchService{
 		return dtDTO;
 	}
 
-	@Override
-	public void findBySearchPage(String search_column, String search_text, int pageNum, Model model) {
-		// TODO Auto-generated method stub
-		
-		List<SearchVO> gList = sDao.findBySearch(search_column, search_text);
-		
-		int totalListSize = gList.size();
-		PageDTO pageDTO = pService.makePagination(totalListSize, pageNum);
-		
-		List<SearchVO> pList = new ArrayList<>();
-		
-		if(pageDTO == null) {
-//			model.addAttribute("GALLERYS", gList);
-			// 검색 결과 없으면 전체 리스트 나오게 하는거
-			model.addAttribute("GALLERYS", gDao.selectAll());
-			return;
-		}
-		
-		for(int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-			pList.add(gList.get(i));
-		}
-		
-		model.addAttribute("GALLERYS", pList);
-	}
+
 
 
 

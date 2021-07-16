@@ -20,6 +20,7 @@ public class PageDTO {
 	private int endPage;
 	private int totalPages;
 	
+	private int floorData;
 	private int ceilData;
 	
 }

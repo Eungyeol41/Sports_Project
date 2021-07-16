@@ -68,15 +68,17 @@
 			const li = e.target
 			if(li.tagName === "LI") {
 				const pageNum = e.target.dataset.num
-				location.href = "${rootPath}/gallery?pageNum=" + pageNum;
+				location.href = "${rootPath}/search?pageNum=" + pageNum;
 			}
 		})
 	}
 	
+/*	
 	const last_page = document.querySelector("li#gt")
 	if("${pageNum}" > "${PAGE_NAV.endPage}") {
 		last_page.addEventListener("click", (e)=> {
 			e.target.disabled = true;
 		})
 	}
+*/
 </script>
