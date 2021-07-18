@@ -37,6 +37,8 @@ dt_lgt decimal(10,7),
 dt_road varchar(255)
 );
 
+Select * FROM tbl_detail;
+
 DROP TABLE tbl_QnA;
 create table tbl_QnA(
 qna_seq		BIGINT			AUTO_INCREMENT	PRIMARY KEY,
@@ -90,3 +92,9 @@ FROM
   INNER JOIN tbl_all_list T2 ON ( T1.dt_code = T2.al_code );
 SELECT * FROM tbl_all_list;
 use db_sports;
+
+alter table tbl_all_list DROP CONSTRAINT fk_detail;
+
+
+
+

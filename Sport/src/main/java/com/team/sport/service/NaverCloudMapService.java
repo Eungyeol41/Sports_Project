@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.parser.ParseException;
 
@@ -52,8 +53,10 @@ public abstract class NaverCloudMapService<VO> {
 		return sBuffer.toString();
 	}
 
-	public abstract List<VO> getList(String jsonString) throws IOException, ParseException;
+	public abstract List<VO> getList(String jsonString, String dt_code) throws IOException, ParseException;
 
-	public abstract VO getData(String jsonString) throws IOException, ParseException;
+	public abstract VO getData(String jsonString, String dt_code) throws IOException, ParseException;
 	
+	public abstract void getUpdate(String jsonString, String dt_code) throws IOException, ParseException;
+
 }

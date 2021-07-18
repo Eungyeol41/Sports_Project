@@ -32,7 +32,7 @@ public class ReverseServiceImplV1 extends NaverCloudMapService<GeocodeDTO>{
 	}
 
 	@Override
-	public List<GeocodeDTO> getList(String jsonString) throws IOException, ParseException {
+	public List<GeocodeDTO> getList(String jsonString,String dt_code) throws IOException, ParseException {
 
 		JSONParser jParser = new JSONParser();
 
@@ -84,8 +84,15 @@ public class ReverseServiceImplV1 extends NaverCloudMapService<GeocodeDTO>{
 		return reGeoList;
 	}
 
+	
 	@Override
-	public GeocodeDTO getData(String jsonString) throws IOException, ParseException {
+	public void getUpdate(String jsonString, String al_code) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+	}
+
+
+	@Override
+	public GeocodeDTO getData(String jsonString, String dt_code) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 		return null;
 	}
