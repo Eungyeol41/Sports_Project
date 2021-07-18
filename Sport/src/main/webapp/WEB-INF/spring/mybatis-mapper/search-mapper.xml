@@ -8,6 +8,10 @@
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 	</select>
+	<select id="mapPoint" resultType="DetailVO">
+		SELECT dt_road, dt_lat, dt_lgt FROM tbl_detail
+		WHERE dt_code =#{dt_code}
+	</select>
 	
 	<select id="findFree" resultType="AllListVO">
 		SELECT * FROM tbl_all_list

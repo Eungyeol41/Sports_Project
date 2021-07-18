@@ -28,8 +28,12 @@ public class MapServiceImplV1 implements MapService{
 
 	@Override
 	public int update(DetailVO vo) {
-		// TODO Auto-generated method stub
 		return 0;
+//		Map<String , String> map = new HashMap<String, String>();
+//
+//		int result = MapDao.update(map);
+//
+//		return result;
 	}
 
 	@Override
@@ -52,7 +56,7 @@ public class MapServiceImplV1 implements MapService{
 		// TODO Auto-generated method stub
 		
 		List<DetailVO> mapList = mapDao.selectAll();
-//		log.debug("Service - mapList :{}", mapList.toString());
+		log.debug("Service - mapList :{}", mapList.toString());
 		
 		return mapList;
 	}
@@ -63,6 +67,23 @@ public class MapServiceImplV1 implements MapService{
 		Map<String , String> map = new HashMap<String, String>();
 		
 		int result = mapDao.insert(map);
+		
+		return result;
+	}
+
+	@Override
+	public int insert(Map<String, String> map) {
+		// TODO Auto-generated method stub
+//		
+//		int result = mapDao.insert(map);
+		
+		return 0;
+	}
+
+	@Override
+	public int update(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		int result = mapDao.update(map);
 		
 		return result;
 	}

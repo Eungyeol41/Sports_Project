@@ -25,5 +25,7 @@ public class DetailVO {
 	private String dt_road; // varchar(255)
 
 	private String al_addr;
+	private String al_code;
+
 	
 }
