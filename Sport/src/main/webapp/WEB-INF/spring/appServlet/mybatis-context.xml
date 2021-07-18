@@ -12,9 +12,9 @@
 	<!-- dataSource -->
 	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.168.5.85/db_sports" />
-		<property name="username" value="spUser" />
-		<property name="password" value="12345" />
+		<property name="url" value="jdbc:mysql://localhost:3306/db_sports" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
 	</bean>
 	<!-- sessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

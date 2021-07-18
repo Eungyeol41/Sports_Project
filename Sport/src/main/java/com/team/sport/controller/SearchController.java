@@ -34,51 +34,52 @@ public class SearchController {
 	
 	@RequestMapping(value ={"/",""}, method = RequestMethod.POST)
 	public String search(@RequestParam(name="free", required = false) String al_free ,
-						@RequestParam(name="sname", required = false) String al_name ,
-						@RequestParam(name="al_addr", required = false) String al_addr ,
-//						@RequestParam(name="sports", required = false) String al_sport ,
-//						@RequestParam(name="addr1" , required = false) String addr1 ,
-//						@RequestParam(name="addr2" , required = false) String addr2 ,
-//						@RequestParam(name="addr3" , required = false) String addr3 ,
-//						@RequestParam(name="addr4" , required = false) String addr4 ,
-//						@RequestParam(name="addr5" , required = false) String addr5 ,
+						@RequestParam(name="search", required = false) String al_name ,
+						@RequestParam(name="dong", required = false) String al_addr ,
+						@RequestParam(name="search_sports", required = false ,defaultValue = "1") String al_sport ,
+
 						Model model) {
 		
-		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr
+		
+		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport
 				);
-		// ,addr1,addr2,addr3,addr4,addr5
 		
 		model.addAttribute("RESULT",alList);
 		log.debug("free : {}", al_free );
 		log.debug("al_name : {}", al_name);
 		log.debug("al_addr : {}", al_addr);
-//		log.debug("al_sport : {}", al_sport);
-//		log.debug("sname : {}", addr1);
-//		log.debug("sname : {}", addr2);
-//		log.debug("sname : {}", addr3);
-//		log.debug("sname : {}", addr4);
-//		log.debug("sname : {}", addr5);
+		log.debug("al_sport : {}", al_sport);
+
 
 		
 		return "/search/search";
 	}
-//	@RequestMapping(value="/detail2", method=RequestMethod.GET)
-//	public String detail(Model model) {
-//		
-//		List<DetailDTO> dtList = sService.selectView();
-//		
-//		model.addAttribute("DT",dtList);
-//		return "/search/detail2";
-//	}
+	@RequestMapping(value="/findSeq", method=RequestMethod.GET)
+	public String findSeq(Long seq, Model model, DetailDTO dto) {
+		
+		dto.getV_seq();
+		sService.findSeq(seq);
+		model.addAttribute("DT",seq);
+		return "/search/detail2";
+	}
 	
 	@RequestMapping(value="/detail2", method=RequestMethod.GET)
 	public String detail(Model model) {
 		
 		List<DetailDTO> dtList = sService.selectView();
 		
-		model.addAttribute("DT",dtList);
+		model.addAttribute("DTLIST",dtList);
 		return "/search/detail2";
 	}
+	
+//	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
+//	public String all_list(Model model) {
+//		
+//		List<AllListVO> alList = sService.selectAllList();
+//		
+//		model.addAttribute("ALLIST",alList);
+//		return "/search/search";
+//	}
 
 	
 }

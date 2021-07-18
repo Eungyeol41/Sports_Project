@@ -15,9 +15,8 @@ public interface SearchService {
 	
 	public List<AllListVO> selectAllList();
 
-	public List<AllListVO> findFree(String al_free, String al_name, String al_addr
+	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
 			);
-	// ,String addr1,String addr2,String addr3,String addr4,String addr5
 
 	
 }

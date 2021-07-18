@@ -14,6 +14,7 @@
 		WHERE al_free = #{al_free}
 		AND al_name like CONCAT('%',#{al_name},'%')
 		AND al_addr like CONCAT('%',#{al_addr},'%')
+		AND al_sport = #{al_sport}
 		ORDER BY al_seq
 	</select>
 
