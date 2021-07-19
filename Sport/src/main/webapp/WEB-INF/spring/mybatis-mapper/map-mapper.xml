@@ -15,7 +15,28 @@
 		VALUES( #{dt_road}, #{dt_lat}, #{dt_lgt} )
 	</insert>
 	
- 	<update id="update"></update>
+ 	<update id="update" parameterType="DetailVO">
+ 		UPDATE tbl_detail, tbl_all_list
+ 		SET dt_road = #{dt_road}, dt_lat = #{dt_lat}, dt_lgt = #{dt_lgt}
+ 		WHERE tbl_detail.dt_code = tbl_all_list.al_code AND dt_code = #{dt_code}
+ 	</update>
+ 	
+ 	<insert id="insertOrUpdate">
+ 		INSERT INTO tbl_detail(dt_code, dt_road, dt_lat, dt_lgt)
+ 		VALUES( #{dt_code}, #{dt_road}, #{dt_lat}, #{dt_lgt} )
+ 		
+ 		ON DUPLICATE KEY UPDATE dt_road = #{dt_road}, dt_lat = #{dt_lat}, dt_lgt = #{dt_lgt}
+ 	</insert>
+ 	
+ 	<insert id="insertOrUpdateForList" parameterType="DetailVO">
+ 		INSERT INTO tbl_detail(dt_code, dt_road, dt_lat, dt_lgt)
+ 		VALUES
+ 		<foreach collection="dMaps" item="map" separator=", ">
+ 			( #{dt_code}, #{dt_road}, #{dt_lat}, #{dt_lgt} )
+ 		</foreach>
+ 		AS NEW (code, road, lat, lgt)
+ 		ON DUPLICATE KEY UPDATE dt_code = code, dt_road = road, dt_lat = lat, dt_lgt = lgt
+ 	</insert>
  	
  	<delete id="delete"></delete>
  

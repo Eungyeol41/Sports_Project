@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MyPage</title>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-10-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-18-001" rel="stylesheet" />
 <style>
 	div {
 		margin-top: 15px;

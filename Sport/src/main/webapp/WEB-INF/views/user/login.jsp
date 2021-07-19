@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link href="${rootPath}/static/css/login.css?ver=2021-07-12-003" rel="stylesheet" />
-<!-- <link href="${rootPath}/static/css/modal.css?ver=2021-07-12-001" rel="stylesheet" /> -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -17,8 +16,11 @@
 	</div>
 	<div class="modal">
 		<form id="login_form" method="POST">
-			<!-- <span class="close-button">&times;</span> -->
-			<div class="msg">${MSG}</div>
+			<div class="msg">
+				<c:if test="${MSG != 'NONE'}">
+					${MSG}	
+				</c:if>
+			</div>
 			<h2>Login</h2>
 			<div>
 				<input type="text" name="user_id" id="user_id" maxlength="15"

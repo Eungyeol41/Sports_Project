@@ -5,6 +5,11 @@
 
 <mapper namespace="com.team.sport.dao.SearchDao">
 
+	<select id="selectAll" resultType="AllListVO">
+		SELECT * FROM tbl_all_list
+		ORDER BY al_seq
+	</select>
+
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 	</select>
@@ -19,8 +24,8 @@
 
 	<select id="selectView" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지
-		ORDER BY v_seq
 	</select>
+	
 	<select id="findSeq" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지
 		WHERE v_seq = #{v_seq}
