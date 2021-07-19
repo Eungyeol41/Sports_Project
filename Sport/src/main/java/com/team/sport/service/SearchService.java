@@ -2,22 +2,27 @@ package com.team.sport.service;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
+
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
-import com.team.sport.model.SearchVO;
 
 public interface SearchService {
 
-	public List<SearchVO> selectAll();
+	public List<AllListVO> selectAll();
 	
 	public DetailDTO findSeq(Long v_seq);
 	public List<DetailDTO> selectView();
 	
 	public List<AllListVO> selectAllList();
 
-	public List<AllListVO> findFree(String al_free, String al_name, String al_addr
+	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
 			);
-	// ,String addr1,String addr2,String addr3,String addr4,String addr5
 
-	
+	public List<AllListVO> selectAllPage(int intPageNum, Model model);
+
+	public void findBySearchPage(int intPageNum, Model model, String pageNum);
+
+	public List<AllListVO> findFree(String al_free, String al_name, String[] addrs, String al_sport);
+
 }

@@ -8,18 +8,33 @@
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 	</select>
-	<select id="mapPoint" resultType="DetailVO">
-		SELECT dt_road, dt_lat, dt_lgt FROM tbl_detail
-		WHERE dt_code =#{dt_code}
-	</select>
 	
 	<select id="findFree" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 		WHERE al_free = #{al_free}
+		AND al_sport = #{al_sport}
 		AND al_name like CONCAT('%',#{al_name},'%')
 		AND al_addr like CONCAT('%',#{al_addr},'%')
 		ORDER BY al_seq
 	</select>
+	
+	<select id="findFreeAddr" resultType="AllListVO">
+		SELECT * FROM tbl_all_list 
+		WHERE al_free = #{al_free}
+		AND al_sport = #{al_sport}
+		AND al_name like CONCAT('%',#{al_name},'%')
+		AND (
+		<foreach collection="addrs" index="addr" separator="OR" >
+			al_addr like CONCAT('%',#{addr},'%')
+		</foreach>
+		)
+		ORDER BY al_seq
+	
+	</select>
+	
+	
+	
+	
 
 	<select id="selectView" resultType="DetailDTO">
 		SELECT * FROM view_상세페이지

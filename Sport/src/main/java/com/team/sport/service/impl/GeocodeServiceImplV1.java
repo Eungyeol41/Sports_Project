@@ -50,9 +50,6 @@ public class GeocodeServiceImplV1 extends NaverCloudMapService<Map<String, Strin
 
 		List<Map<String,String>> geoList = new ArrayList<>();
 		
-		Map<String,String> map = new HashMap<>();
-		map.put("dt_code", dt_code);
-		
 		int nSize = addresses.size();
 		for(int i = 0 ; i < nSize ; i++) {
 			
@@ -62,105 +59,39 @@ public class GeocodeServiceImplV1 extends NaverCloudMapService<Map<String, Strin
 			String lat = addr.get("x").toString();
 			String lgt = addr.get("y").toString();
 			
-			map.put("dt_road", road);
-			map.put("dt_lat",lat);
-			map.put("dt_lgt",lgt);
+			Map<String,String> map = new HashMap<>();
+			
+			map.put("m_road", road);
+			map.put("m_lat",lat);
+			map.put("m_lgt",lgt);
+			
 		
-			log.debug("road : {}, lat : {}, lgt : {} , dt_code : {}"  , road, lat,lgt,dt_code);
+			log.debug("road : {}, lat : {}, lgt : {}", road, lat,lgt);
 
 			geoList.add(map);
-		}	
+			
+			int gSize = geoList.size();
+			for(int index = 0 ; index < gSize ; index++) {
+				mapDao.insert(geoList.get(index)); 
+			}
+			
 			log.debug("결과임{}", geoList.toString());
-		
+		}
 		return geoList;
 	}
 
 	@Override
 	public Map<String, String> getData(String jsonString, String dt_code) throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		
-		JSONParser jParser = new JSONParser();
-
-		JSONObject jObject = (JSONObject) jParser.parse(jsonString);
-		JSONArray addresses = (JSONArray) jObject.get("addresses");
-
-		List<Map<String,String>> geoList = new ArrayList<>();
-		
-		
-		Map<String,String> map = new HashMap<>();
-		map.put("dt_code", dt_code);
-		
-		
-		int nSize = addresses.size();
-		for(int i = 0 ; i < nSize ; i++) {
-			
-			JSONObject addr = (JSONObject) addresses.get(i);
-			
-			String road = addr.get("roadAddress").toString();
-			String lat = addr.get("x").toString();
-			String lgt = addr.get("y").toString();
-			
-			map.put("road", road);
-			map.put("lat",lat);
-			map.put("lgt",lgt);
-			
-		
-			log.debug("road : {}, lat : {}, lgt : {} , dt_code : {}", road, lat,lgt,dt_code);
-
-			geoList.add(map);
-		}
-		return map;
+		return null;
 	}
-
 
 	@Override
-	public void getUpdate(String jsonString,String al_code) throws IOException, ParseException {
+	public void getUpdate(String jsonString, String dt_code) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 		
-		//JsonString을 이용할 수 있게 변환시키는 것
-		JSONParser jParser = new JSONParser();
-
-		JSONObject jObject = (JSONObject) jParser.parse(jsonString);
-		JSONArray addresses = (JSONArray) jObject.get("addresses");
-
-		List<Map<String,String>> geoList = new ArrayList<>();
-		Map<String,String> map = new HashMap<>();
-		
-		map.put("dt_code", al_code);
-		
-		int nSize = addresses.size();
-		for(int i = 0 ; i < nSize ; i++) {
-			
-			JSONObject addr = (JSONObject) addresses.get(i);
-			
-			String road = addr.get("roadAddress").toString();
-			String lat = addr.get("x").toString();
-			String lgt = addr.get("y").toString();
-			
-
-			map.put("dt_road", road);
-			map.put("dt_lat",lat);
-			map.put("dt_lgt",lgt);
-			
-		
-			log.debug("road : {}, lat : {}, lgt : {} , code : {} ", road, lat,lgt ,al_code);
-
-			//geoList.add(map);
-			
-//			int gSize = geoList.size();
-//			for(int index = 0 ; index < gSize ; index++) {
-//
-//				mapDao.update(geoList.get(index)); 
-//			}
-//			
-//			log.debug("결과임{}", geoList.toString());
-		}
-		
-		 
-		mapDao.update(map); 
-		
-		
-//		return geoList;
 	}
+
+
 	
 }

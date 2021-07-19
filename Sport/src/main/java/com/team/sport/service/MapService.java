@@ -17,7 +17,6 @@ public interface MapService extends GenericService<DetailVO, String>{
 	
 	public int update(Map<String, String> map);
 	
-
 	
 	
 }

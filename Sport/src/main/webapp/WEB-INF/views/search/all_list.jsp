@@ -21,7 +21,6 @@
 			<th>이용료</th>
 		</tr>
 		<c:choose>
-			<c:when test="${empty RESULT}">
 				<c:forEach items="${ALLIST}" var="AL" varStatus="index">
 					<tr class="list_sec" data-seq="${AL.al_seq}">
 						<th>${AL.al_seq}</th>
@@ -32,9 +31,7 @@
 						<th>${AL.al_free}</th>
 					</tr>
 				</c:forEach>
-			</c:when>
 
-			<c:when test="${not empty RESULT}">
 				<c:forEach items="${RESULT}" var="RE" varStatus="index">
 					<tr class="list_sec" data-seq="${RE.al_seq}">
 						<th>${RE.al_seq}</th>
@@ -45,7 +42,6 @@
 						<th>${RE.al_free}</th>
 					</tr>
 				</c:forEach>
-			</c:when>
 		</c:choose>
 	</table>
 	
