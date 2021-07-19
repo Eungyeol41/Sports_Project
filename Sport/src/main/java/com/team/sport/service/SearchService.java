@@ -21,10 +21,9 @@ public interface SearchService {
 			);
 	// ,String addr1,String addr2,String addr3,String addr4,String addr5
 
-	public List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
+	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 
-	public void findBySearchPage(int pageNum, Model model);
+	void findBySearchPage(int pageNum, Model model);
 
 	public DetailDTO findBySeq(Long seq);
-	
 }

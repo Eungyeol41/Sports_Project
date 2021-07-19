@@ -25,7 +25,7 @@
 
 div.iw_inner {
 	padding-left: 25px;
-	width: 250px;
+	width: 300px;
 }
 
 form {
@@ -105,7 +105,7 @@ button:hover {
 	<div class="h2">
 		<h1>상세페이지</h1>
 	</div>
-	<div id="map_view" style="width: 80%; height: 400px;"></div>
+	<div id="map_view" style="width: 80%; height: 500px;"></div>
 	<form id="insert" method="POST">
 		<div class="table">
 			<table>
@@ -170,8 +170,8 @@ button:hover {
 
 	var cityhall = new naver.maps.LatLng(${DT.v_lgt}, ${DT.v_lat}),
 	    map = new naver.maps.Map('map_view', {
-	        center: cityhall.destinationPoint(0, 500),
-	        zoom: 15
+	        center: cityhall.destinationPoint(180, 500),
+	        zoom: 18
 	    }),
 	    marker = new naver.maps.Marker({
 	        map: map,
@@ -191,7 +191,7 @@ button:hover {
 	    content: contentString
 	});
 
-	naver.maps.Event.addListener(marker, "click", function(e) {
+	naver.maps.Event.addListener(marker, "click", (e) => {
 	    if (infowindow.getMap()) {
 	        infowindow.close();
 	    } else {

@@ -26,9 +26,6 @@ public class DetailVO {
 
 	private String al_addr;
 	private String al_code;
-<<<<<<< HEAD
-=======
 
->>>>>>> 6bf5a2b65dec2595e320600f0ed031c9a08187b8
 	
 }

@@ -36,6 +36,7 @@
 	}
 	
 </style>
+
 <section class="page_box">
 	<ul class="page_nav_main">
 		<c:forEach begin="${PAGE_NAV.startPage}" end="${PAGE_NAV.endPage}" var="pageNum">
@@ -43,6 +44,7 @@
 		</c:forEach>
 	</ul>
 </section>
+
 <script>
 	const page_nav_main = document.querySelector("ul.page_nav_main")
 	if(page_nav_main) {
@@ -55,4 +57,5 @@
 		})
 	}
 	
+
 </script>

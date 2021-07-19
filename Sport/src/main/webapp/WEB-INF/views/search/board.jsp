@@ -17,7 +17,8 @@
 <link href="../css/menu_nav.css" rel="stylesheet" />
 <style>
 @import
-	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
+	url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap")
+	;
 </style>
 <style>
 tr:hover:not(.first) {

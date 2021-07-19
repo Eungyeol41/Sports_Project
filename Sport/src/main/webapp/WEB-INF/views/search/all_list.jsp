@@ -54,8 +54,8 @@
 			</c:otherwise>
 		</c:choose>
 	</table>
-	
-	<%@ include file="/WEB-INF/views/include/page.jspf" %>
+
+	<%@ include file="/WEB-INF/views/include/page.jspf"%>
 </body>
 <script>
 	document.querySelector("table#allList").addEventListener("click", (e)=> {
