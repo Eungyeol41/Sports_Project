@@ -22,14 +22,9 @@
 		height: 30px;
 		line-height: 30px;
 		text-align: center;
-		color: white;
-		background-color: cadetblue;
-    	border-radius: 15px;
+		color: black;
+		border: 1px solid cadetblue;
     	/* white-space: nowrap; */
-	}
-	
-	section.page_box li.se {
-    	background-color: cornflowerblue;
 	}
 	
 	section.page_box li:hover {
@@ -37,27 +32,16 @@
 	}
 	
 	section.page_box li.active {
-		color: black;
-   		background-color: cornflowerblue;
+		color: cadetblue;
 	}
 	
 </style>
 
 <section class="page_box">
 	<ul class="page_nav_main">
-		<li class="se" data-num="1">|&lt;</li>
-		<li class="se" data-num="${PAGE_NUM - 1}">&lt;</li>
-		<c:if test="${PAGE_NAV.startPage > 2}">
-			<li>...</li>
-		</c:if>
 		<c:forEach begin="${PAGE_NAV.startPage}" end="${PAGE_NAV.endPage}" var="pageNum">
 			<li data-num="${pageNum}" class="<c:if test="${PAGE_NUM == pageNum}">active</c:if>">${pageNum}</li>
 		</c:forEach>
-		<c:if test="${PAGE_NAV.endPage < PAGE_NAV.totalPages}">
-			<li>...</li>
-		</c:if>
-		<li id="gt" class="se" data-num="${PAGE_NUM + 1}">&gt;</li>
-		<li class="se" data-num="${PAGE_NAV.totalPages}">&gt;|</li>
 	</ul>
 </section>
 
@@ -68,17 +52,10 @@
 			const li = e.target
 			if(li.tagName === "LI") {
 				const pageNum = e.target.dataset.num
-				location.href = "${rootPath}/search?pageNum=" + pageNum;
+				location.href = "${rootPath}/search/allList?pageNum=" + pageNum;
 			}
 		})
 	}
 	
-/*	
-	const last_page = document.querySelector("li#gt")
-	if("${pageNum}" > "${PAGE_NAV.endPage}") {
-		last_page.addEventListener("click", (e)=> {
-			e.target.disabled = true;
-		})
-	}
-*/
+
 </script>

@@ -24,5 +24,7 @@ public class DetailDTO {
 	private String v_sport;
 	private String v_addr;
 	private String v_free;
+	private String v_lat;
+	private String v_lgt;
 
 }

@@ -5,6 +5,11 @@
 
 <mapper namespace="com.team.sport.dao.SearchDao">
 
+	<select id="selectAll" resultType="AllListVO">
+		SELECT * FROM tbl_all_list
+		ORDER BY al_seq
+	</select>
+
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 	</select>
