@@ -36,6 +36,7 @@ public class MapController {
 	@Qualifier("reverseV1")
 	protected final NaverCloudMapService<?> nReGeoService;
 
+
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String map() {
 
@@ -44,13 +45,15 @@ public class MapController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.POST, produces = "application/json;char=UTF8")
 	public String geoCoding(@RequestParam(name = "address", required = false, defaultValue = "") String address,
-			Model model,String dt_code) throws IOException, ParseException {
+			Model model) throws IOException, ParseException {
 		// TODO 1개의 주소값을 입력해서 좌표값 입력받기
 
 		if (address != null && !address.equals("")) {
-
+			DetailVO vo = new DetailVO();
+			List<DetailVO> detailList = mapService.selectAddr(address); 
 			String queryURL = nGeoService.queryURL(address);
 			String jsonString = nGeoService.jsonString(queryURL);
+			String dt_code = vo.getAl_code();
 			model.addAttribute("GEOS", nGeoService.getData(jsonString,dt_code));
 		}
 		return "map/list";
@@ -63,6 +66,7 @@ public class MapController {
 
 		if (address != null && !address.equals("")) {
 
+			// 주소 가져오기
 			List<DetailVO> detailList = mapService.selectAddr(address);
 			log.debug("mapList {}", detailList.toString());
 			int mapSize = detailList.size();
@@ -71,40 +75,41 @@ public class MapController {
 				String queryURL = nGeoService.queryURL(detailList.get(i).getAl_addr());
 				log.debug("queryURL : {}", queryURL);
 				String jsonString = nGeoService.jsonString(queryURL);
-				String al_code = detailList.get(i).getAl_code();
-//				model.addAttribute("GEOS", nGeoService.getUpdate(jsonString,al_code));
-				nGeoService.getUpdate(jsonString,al_code);
+				String dt_code = detailList.get(i).getAl_code();
+				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
+
 			}
 
 		}
 
 		return "map/list";
 	}
-	
-	
 
 	@RequestMapping(value = "/list/update", method = RequestMethod.POST, produces = "application/json;char=UTF8")
-	public String update(@RequestParam(name = "address", required = false, defaultValue = "") String address,
-			Model model) throws IOException, ParseException {
+	public String update(DetailVO vo ,Model model) throws IOException, ParseException {
 		// TODO 
 
-		if (address != null && !address.equals("")) {
+		
+//		if (address != null && !address.equals("")) {
+		if (vo.getAl_code() == vo.getDt_code()) {
+			return null;
+			
+//			List<DetailVO> detailList = mapService.selectAddr(address);
+//			log.debug("mapList {}", detailList.toString());
+//			int mapSize = detailList.size();
+//
+//			for (int i = 0; i < mapSize; i++) {
+//				String queryURL = nGeoService.queryURL(detailList.get(i).getAl_addr());
+//				log.debug("queryURL : {}", queryURL);
+//				String jsonString = nGeoService.jsonString(queryURL);
+//				String al_code = detailList.get(i).getAl_code();
+//				model.addAttribute("GEOS", nGeoService.getUpdate(jsonString,al_code));
 
-			List<DetailVO> detailList = mapService.selectAddr(address);
-			log.debug("mapList {}", detailList.toString());
-			int mapSize = detailList.size();
+//			}
 
-			for (int i = 0; i < mapSize; i++) {
-				String queryURL = nGeoService.queryURL(detailList.get(i).getAl_addr());
-				log.debug("queryURL : {}", queryURL);
-				String jsonString = nGeoService.jsonString(queryURL);
-				String al_code = detailList.get(i).getAl_code();
-//				model.addAttribute("GEOS", nGeoService.getUpDate(jsonString));
-
-			}
-
+		}else {
+			mapDao.update(vo);
 		}
-
 		return "map/list";
 	}
 
@@ -122,7 +127,7 @@ public class MapController {
 //		String queryURL = nReGeoService.queryURL(coords);
 //		String jsonString = nReGeoService.jsonString(queryURL);
 //		// return jsonString
-//		return (List<GeocodeDTO>) nReGeoService.getList(jsonString);
+//		return (List<GeocodeDTO>) nReGeoService.getList(jsonString,al_code);
 //	}
 
 	@RequestMapping(value = "/naver", method = RequestMethod.GET)
@@ -134,3 +139,4 @@ public class MapController {
 		return "map/naver";
 	}
 }
+
