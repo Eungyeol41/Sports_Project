@@ -41,4 +41,43 @@ WHERE qna_seq = 2;
 	UPDATE tbl_qna
     SET qna_count = qna_count + 1
     WHERE qna_seq = 1;
+    
+    select * from tbl_detail;
+    SElect * from tbl_all_list;
+    
+    
+	UPDATE tbl_detail, tbl_all_list 
+	set dt_road='광주 서구 금화로 278', dt_lat=35.13488774, dt_lgt=126.8794789
+	WHERE tbl_detail.dt_code = tbl_all_list.al_code AND dt_code = 'S001';
+    
+    UPDATE tbl_detail
+	set dt_road='광주 서구 금화로 278', dt_lat=35.13488774, dt_lgt=126.8794789
+	WHERE dt_code = 'S001';
+    
+    delete from tbl_detail WHERE dt_code = 'S001'; 
+    
+    create table tbl_detail(
+	dt_code		CHAR(4)		PRIMARY KEY,
+	dt_time		VARCHAR(1000),
+	dt_money	VARCHAR(2000),	
+	dt_site		VARCHAR(2000),
+	dt_lat decimal(10,7), 
+	dt_lgt decimal(10,7),
+	dt_road varchar(255)
+	);
+    
+    -- 35.13488774287663, 126.87947899976513
+ 
+ 
+ SELECT al_addr FROM tbl_all_list a
+ JOIN db_sports.tbl_detail b on a.al_code = b.dt_code;
+ 
+ 
+ SELECT al_code,al_addr FROM tbl_all_list;
+
+SELECT * FROM db_sports.tbl_all_list a
+JOIN db_sports.tbl_detail b on a.al_code = b.dt_code;
+
+SELECT dt_road, dt_lat, dt_lgt FROM tbl_detail
+WHERE dt_code = 'S001';
  
