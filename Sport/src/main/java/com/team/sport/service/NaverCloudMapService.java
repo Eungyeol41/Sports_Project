@@ -12,6 +12,7 @@ import java.util.Map;
 import org.json.simple.parser.ParseException;
 
 import com.team.sport.config.NaverSecret;
+import com.team.sport.model.DetailVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -58,5 +59,6 @@ public abstract class NaverCloudMapService<VO> {
 	public abstract VO getData(String jsonString, String dt_code) throws IOException, ParseException;
 	
 	public abstract void getUpdate(String jsonString, String dt_code) throws IOException, ParseException;
-
+	
+	public abstract List<VO> getJson(String jsonString) throws IOException, ParseException;
 }

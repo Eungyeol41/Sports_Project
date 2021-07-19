@@ -15,7 +15,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import com.team.sport.config.NaverSecret;
-import com.team.sport.dao.MapDao;
+import com.team.sport.dao.MapDao;import com.team.sport.model.DetailVO;
 import com.team.sport.service.NaverCloudMapService;
 
 import lombok.RequiredArgsConstructor;
@@ -161,6 +161,12 @@ public class GeocodeServiceImplV1 extends NaverCloudMapService<Map<String, Strin
 		
 		
 //		return geoList;
+	}
+
+	@Override
+	public List<Map<String, String>> getJson(String jsonString) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
