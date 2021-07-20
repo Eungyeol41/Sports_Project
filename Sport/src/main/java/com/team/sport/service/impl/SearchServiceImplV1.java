@@ -70,12 +70,12 @@ public class SearchServiceImplV1 implements SearchService {
 		// TODO Auto-generated method stub
 
 		List<AllListVO> allistAll = sDao.selectAll();
-		int totalListSize = allistAll.size();
-//		log.debug("데이터 개수 : {}", totalListSize);
 
+		int totalListSize = allistAll.size();
 		PageDTO pageDTO = pService.makePagination(totalListSize, intPageNum);
 
 		List<AllListVO> pageList = new ArrayList<>();
+
 		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
 			pageList.add(allistAll.get(i));
 		}

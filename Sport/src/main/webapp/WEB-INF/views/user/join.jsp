@@ -55,8 +55,8 @@
 	let input_id = document.querySelector("input#user_id")
 	
 	document.querySelector("button#over").addEventListener("click", ()=> {
-		let user_id = input_id.value;
 		
+		let user_id = input_id.value;
 		if(user_id === "") {
 			alert("먼저 ID 입력")
 			input_id.focus();

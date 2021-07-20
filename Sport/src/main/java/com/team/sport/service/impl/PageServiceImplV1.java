@@ -23,7 +23,7 @@ public class PageServiceImplV1 implements PageService{
 
 		int startPage = 1;
 		int endPage = totalListSize / this.listPerPage + 1;
-		int totalPages = (int)Math.round((double)totalListSize / (double)this.listPerPage);
+		int totalPages = (int)Math.ceil((double)totalListSize / (double)this.listPerPage);
 		
 		endPage = endPage > totalPages ? totalPages : endPage;
 

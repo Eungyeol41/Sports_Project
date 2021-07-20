@@ -127,7 +127,6 @@
 			</div>
 			<div>
 				<button id="update" type="button">회원 정보 수정</button>
-				<button id="expire" type="button">회원 탈퇴</button>
 			</div>
 		</form>
 	</section>
@@ -169,7 +168,8 @@
 			update.submit()
 		}
 	})
-
+	
+/*
 	let expire = document.querySelector("form#user")
 	let u_pw = document.getElementById("u_pw")
 	
@@ -180,17 +180,13 @@
 				alert("비밀번호를 확인해주세요.")
 				u_pw.focus()
 				return false
-			}else {
-				/*
-					acform.action = "${rootPath}/member/expire"
-					url_now.value = location.pathname;
-					acform.submit()
-				*/
+			} else {
 				expire.action = "${rootPath}/user/expire"
 				expire.submit();
 			}
 		}
 	})
+*/	
 
 	document.querySelector("table.list").addEventListener("click", (e) => {
 		let tagName = e.target.tagName;

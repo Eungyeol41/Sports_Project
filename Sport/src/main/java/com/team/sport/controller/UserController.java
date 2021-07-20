@@ -61,8 +61,6 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, HttpSession hSession, Model model) {
-		log.debug("ID : {}", user_id);
-		log.debug("비밀번호 : {}", user_pw);
 		
 		UserVO vo = userService.login(user_id, user_pw);
 		
@@ -72,8 +70,9 @@ public class UserController {
 			return "redirect:/user/login";
 			
 		}
-		log.debug("UserVO {}", vo.toString());
+		
 		hSession.setAttribute("USER", vo);
+		
 		return "redirect:/";
 	}
 	
@@ -108,6 +107,7 @@ public class UserController {
 		
 		return "redirect:/";
 	}
+	
 	// MyPage
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypgae(HttpSession hSession, Model model) {
@@ -166,6 +166,7 @@ public class UserController {
 		
 		return "user/mypage";
 	}
+	
 	@RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
 	public String updateInfo(UserVO userVO, Model model, HttpSession hSession) {
 		
