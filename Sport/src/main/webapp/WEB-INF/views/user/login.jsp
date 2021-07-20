@@ -7,18 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link href="${rootPath}/static/css/login.css?ver=2021-07-12-003" rel="stylesheet" />
-<!-- <link href="${rootPath}/static/css/modal.css?ver=2021-07-12-001" rel="stylesheet" /> -->
+<link href="${rootPath}/static/css/login.css?ver=2021-07-19-003" rel="stylesheet" />
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
-	<div id="modal">
-		<span>X</span>
-	</div>
-	<div class="modal">
 		<form id="login_form" method="POST">
-			<!-- <span class="close-button">&times;</span> -->
-			<div class="msg">${MSG}</div>
+			<c:if test="${MSG !=  'NONE'}">
+				<div class="msg">${MSG}</div>
+			</c:if>
+			
 			<h2>Login</h2>
 			<div>
 				<input type="text" name="user_id" id="user_id" maxlength="15"
@@ -40,7 +38,6 @@
 				<button id="btn_join" type="button">회원가입</button>
 			</div>
 		</form>
-	</div>
 </body>
 <script>
 	
@@ -80,8 +77,6 @@
 		modal.style.display = "none";
 		
 	})
-		
-	
 	
 </script>
 </html>

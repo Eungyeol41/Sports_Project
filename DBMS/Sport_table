@@ -1,4 +1,10 @@
+
 use db_sports;
+
+SELECT * FROM tbl_all_list;
+		SELECT * FROM tbl_all_list
+		WHERE al_free = '무료' AND al_name like CONCAT('%','농구장','%') AND al_sport = '생활체육관'
+		ORDER BY al_seq DESC ;
 
 DROP TABLE tbl_sp_search;
 create table tbl_sp_search (
@@ -25,7 +31,10 @@ create table tbl_detail(
 dt_code		CHAR(4)		PRIMARY KEY,
 dt_time		VARCHAR(1000),
 dt_money	VARCHAR(2000),	
-dt_site		VARCHAR(2000)		
+dt_site		VARCHAR(2000),
+dt_lat decimal(10,7), 
+dt_lgt decimal(10,7),
+dt_road varchar(255)
 );
 
 DROP TABLE tbl_QnA;
@@ -65,13 +74,22 @@ CREATE VIEW view_상세페이지 AS
 		AL.al_free 	AS v_free,
 		DT.dt_time 	AS v_time,
 		DT.dt_site 	AS v_site,
-		DT.dt_money AS v_money
+		DT.dt_money AS v_money,
+        DT.dt_lat AS v_lat,
+        DT.dt_lgt AS v_lgt
     FROM tbl_detail AS DT
 		LEFT JOIN tbl_all_list AS AL
 			ON DT.dt_code = AL.al_code
 );    
 select * from view_상세페이지;
-select * from tbl_all_list;
-select * from tbl_detail;
-select * from tbl_sp_search;
-select * from tbl_user;
+
+SELECT 
+  T1.* , T2.*
+FROM 
+  tbl_detail T1
+  INNER JOIN tbl_all_list T2 ON ( T1.dt_code = T2.al_code );
+SELECT * FROM tbl_all_list;
+use db_sports;
+
+INSERT INTO tbl_detail(dt_lat, dt_lgt)
+SELECT  FROM tbl_all_list WHERE al_code = tbl_detail.dt_code;

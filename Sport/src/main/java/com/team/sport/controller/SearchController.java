@@ -62,23 +62,29 @@ public class SearchController {
 		
 		return "/search/search";
 	}
-//	@RequestMapping(value="/detail2", method=RequestMethod.GET)
-//	public String detail(Model model) {
-//		
-//		List<DetailDTO> dtList = sService.selectView();
-//		
-//		model.addAttribute("DT",dtList);
-//		return "/search/detail2";
-//	}
 	
 	@RequestMapping(value="/detail2", method=RequestMethod.GET)
-	public String detail(Model model) {
+	public String detail(Long seq, Model model) {
 		
-		List<DetailDTO> dtList = sService.selectView();
+		DetailDTO dto = sService.findBySeq(seq);
+		model.addAttribute("DT",dto);
 		
-		model.addAttribute("DT",dtList);
 		return "/search/detail2";
 	}
 
+	@RequestMapping(value = "/allList", method = RequestMethod.GET)
+	public String allList(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum, Model model) throws Exception {
+		
+		int intPageNum = Integer.valueOf(pageNum);
+		List<AllListVO> alList = sService.selectAllPage(intPageNum, model);
+	
+		if(intPageNum > 0) {
+			model.addAttribute("PAGE_NUM", intPageNum);
+		}
+		
+		sService.findBySearchPage(intPageNum, model);
+		
+		return "search/all_list";
+	}
 	
 }

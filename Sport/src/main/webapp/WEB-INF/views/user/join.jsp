@@ -8,14 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link href="${rootPath}/static/css/join.css?ver=2021-07-01-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/join.css?ver=2021-07-20-002" rel="stylesheet" />
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	
 	<form method="POST" id="join_form">
         <h2>Sign_Up</h2>
             <div>
                 <label>ID</label>
-                <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" required="required">
+                <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" required="required" style="width: 8%;">
                 <button type="button" id="over">중복확인</button>
             </div>
             <div>
@@ -75,9 +77,6 @@
 				return false;
 			}
 		})
-		
-	
-		
 	})
 	
 	document.querySelector("button#join").addEventListener("click", ()=> {

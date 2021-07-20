@@ -13,26 +13,25 @@ import lombok.extern.slf4j.Slf4j;
 @Service("pageServiceV1")
 public class PageServiceImplV1 implements PageService{
 
-	protected int listPerPage = 10;
-	protected int navPerPage = 5;
+	protected int listPerPage = 15;
+	protected int navPerPage = 7;
 
 	@Override
 	public PageDTO makePagination(int totalListSize, int currentPage) {
 
 		if(totalListSize < 1) return null;
 
+		int startPage = 1;
+		int endPage = totalListSize / this.listPerPage + 1;
 		int totalPages = (int)Math.round((double)totalListSize / (double)this.listPerPage);
-		int startPage = currentPage - (this.navPerPage / 2);
-		startPage = startPage < 1 ? 1 : startPage;
-
-		int endPage = startPage + this.navPerPage - 1;
+		
 		endPage = endPage > totalPages ? totalPages : endPage;
 
-		int floorData = totalListSize / this.listPerPage;
-		int ceilData = floorData + 1;
-		ceilData = ceilData > totalListSize ? totalListSize : ceilData;
+		int offset = (currentPage - 1) * this.listPerPage;
+		int limit = offset + this.listPerPage;
+		limit = limit > totalListSize ? totalListSize : limit;
 
-		PageDTO pageDTO = PageDTO.builder().startPage(startPage).endPage(endPage).totalPages(totalPages).ceilData(ceilData).build();
+		PageDTO pageDTO = PageDTO.builder().startPage(startPage).endPage(endPage).totalPages(totalPages).offset(offset).limit(limit).build();
 
 		return pageDTO;
 	}

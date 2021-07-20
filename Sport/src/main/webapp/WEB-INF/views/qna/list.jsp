@@ -17,7 +17,7 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005"
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-04-005"
 	rel="stylesheet" />
 <style>
 @import
@@ -25,58 +25,61 @@
 	;
 </style>
 <style>
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	background-color: white;
-	font-family: "Noto Sans KR", sans-serif;
-	font-family: "Roboto Condensed", sans-serif;
-}
-
-div#search {
-	margin: 10px 0px 10px 0px;
-	display: flex;
-}
-
-select#search {
-	margin-left: 10%;
-	padding: 0px 10px 0px 10px;
-	margin-right: 20px;
-	border: 1px solid black;
-	text-align: center;
-}
-
-tr:hover:not(.first) {
-	background-color: #dedcee;
-	cursor: pointer;
-	color: darkblue;
-}
-
-div.btn_search {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 	
-}
+	body {
+		background-color: white;
+		font-family: "Noto Sans KR", sans-serif;
+		font-family: "Roboto Condensed", sans-serif;
+	}
+	
+	div#search {
+		margin: 10px 0px 10px 0px;
+		display: flex;
+	}
+	
+	select#search {
+		margin-left: 10%;
+		padding: 0px 10px 0px 10px;
+		margin-right: 20px;
+		border: 1px solid black;
+		text-align: center;
+	}
+	
+	tr:hover:not(.first) {
+		background-color: #dedcee;
+		cursor: pointer;
+		color: darkblue;
+	}
+	
+	button#btn_search {
+		margin: 0px 0px 0px 20px;
+	}
+	
+	button#write {
+		margin-left: auto;
+		margin-right: 10%;
+	}
+	
+	table.list {
+		table-layout: fixed;
+	}
+	
+	table.list th:first-child {
+		width: 5%;
+	}
+	
+	table.list td, th {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 
-button#btn_search {
-	margin: 0px 0px 0px 20px;
-}
-
-button#write {
-	margin-left: auto;
-	margin-right: 10%;
-}
-
-table.list {
-	table-layout: fixed;
-}
-
-table.list th:first-child {
-	width: 5%;
-}
-
+<<<<<<< HEAD
 table.list td, th {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -90,6 +93,8 @@ th.text {
 th.text br {
 	display: none;
 }
+=======
+>>>>>>> a5952646be6fb7dc3ecaf486443286fa02986a92
 </style>
 </head>
 
@@ -168,6 +173,7 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 		let seq = e.target.closest("TR").dataset.seq;
 		console.log(seq);
 		alert(seq + "조회합니다.");
+		
 		location.href="${rootPath}/qna/detail?seq=" +seq;	
 	}
 
