@@ -5,13 +5,25 @@
   
  <mapper namespace="com.team.sport.dao.MapDao">
  
- 	<select id="selectAll"></select>
- 	<select id="findById"></select>
- 	<insert id="insert" parameterType="MapVO">
- 		INSERT INTO tbl_map(m_lat, m_lng, m_paddress, m_pname)
- 		VALUES (#{m_lat}, #{m_lng}, #{m_paddress}, #{m_pname})
- 	</insert>
- 	<update id="update"></update>
+ 	<select id="selectAll" resultType="DetailVO">
+ 		SELECT al_code,al_addr FROM tbl_all_list
+ 	</select>
+ 	<select id="findByCode" resultType="DetailVO">
+ 		SELECT * FROM tbl_detail
+ 		WHERE dt_code = #{dt_code}
+ 	</select>
+ 	
+ 	<insert id="insert" parameterType="Map">
+		INSERT INTO tbl_detail(dt_road, dt_lat, dt_lgt)
+		VALUES( #{dt_road}, #{dt_lat}, #{dt_lgt} )
+	</insert>
+	
+ 	<update id="update" parameterType="Map">
+		UPDATE tbl_detail
+		set dt_road=#{dt_road}, dt_lat=#{dt_lat}, dt_lgt=#{dt_lgt} 
+		WHERE dt_code = #{dt_code}
+ 	</update>
+ 	
  	<delete id="delete"></delete>
  
  </mapper>

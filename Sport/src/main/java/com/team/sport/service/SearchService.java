@@ -6,23 +6,21 @@ import org.springframework.ui.Model;
 
 import com.team.sport.model.AllListVO;
 import com.team.sport.model.DetailDTO;
+import com.team.sport.model.SearchVO;
 
 public interface SearchService {
 
-	public List<AllListVO> selectAll();
-	
 	public DetailDTO findSeq(Long v_seq);
 	public List<DetailDTO> selectView();
 	
-	public List<AllListVO> selectAllList();
+	public List<AllListVO> selectAllList(int intPageNum, Model model) throws Exception;
 
 	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
-			);
+			,int intPageNum, Model model) throws Exception ;
 
-	public List<AllListVO> selectAllPage(int intPageNum, Model model);
+	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 
-	public void findBySearchPage(int intPageNum, Model model, String pageNum);
+	void findBySearchPage(int pageNum, Model model);
 
-	public List<AllListVO> findFree(String al_free, String al_name, String[] addrs, String al_sport);
-
+	public DetailDTO findBySeq(Long seq);
 }

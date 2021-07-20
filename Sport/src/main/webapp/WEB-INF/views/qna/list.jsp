@@ -17,7 +17,7 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005"
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-04-005"
 	rel="stylesheet" />
 <style>
 @import
@@ -25,63 +25,60 @@
 	;
 </style>
 <style>
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	background-color: white;
-	font-family: "Noto Sans KR", sans-serif;
-	font-family: "Roboto Condensed", sans-serif;
-}
-
-div#search {
-	margin: 10px 0px 10px 0px;
-	display: flex;
-}
-
-select#search {
-	margin-left: 10%;
-	padding: 0px 10px 0px 10px;
-	margin-right: 20px;
-	border: 1px solid black;
-	text-align: center;
-}
-
-tr:hover:not(.first) {
-	background-color: #dedcee;
-	cursor: pointer;
-	color: darkblue;
-}
-
-div.btn_search {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 	
-}
+	body {
+		background-color: white;
+		font-family: "Noto Sans KR", sans-serif;
+		font-family: "Roboto Condensed", sans-serif;
+	}
+	
+	div#search {
+		margin: 10px 0px 10px 0px;
+		display: flex;
+	}
+	
+	select#search {
+		margin-left: 10%;
+		padding: 0px 10px 0px 10px;
+		margin-right: 20px;
+		border: 1px solid black;
+		text-align: center;
+	}
+	
+	tr:hover:not(.first) {
+		background-color: #dedcee;
+		cursor: pointer;
+		color: darkblue;
+	}
+	
+	button#btn_search {
+		margin: 0px 0px 0px 20px;
+	}
+	
+	button#write {
+		margin-left: auto;
+		margin-right: 10%;
+	}
+	
+	table.list {
+		table-layout: fixed;
+	}
+	
+	table.list th:first-child {
+		width: 5%;
+	}
+	
+	table.list td, th {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 
-button#btn_search {
-	margin: 0px 0px 0px 20px;
-}
-
-button#write {
-	margin-left: auto;
-	margin-right: 10%;
-}
-
-table.list {
-	table-layout: fixed;
-}
-
-table.list th:first-child {
-	width: 5%;
-}
-
-table.list td, th {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-}
 </style>
 </head>
 
@@ -108,7 +105,6 @@ table.list td, th {
 				<th>번호</th>
 				<th>제목</th>
 				<th>시설이름</th>
-				<th>e_mail</th>
 				<th>아이디</th>
 				<th class="text">문의내용</th>
 				<th>작성시간</th>
@@ -124,7 +120,6 @@ table.list td, th {
 							<th>${index.count}</th>
 							<th>${qna.qna_title}</th>
 							<th>${qna.qna_name}</th>
-							<th>${qna.qna_email}</th>
 							<th>${qna.qna_id}</th>
 							<th style="width: 20%" class="text">${qna.qna_text}</th>
 							<th>${qna.qna_date}</th>
@@ -138,7 +133,6 @@ table.list td, th {
 							<th>${index.count}</th>
 							<th>${RE.qna_title}</th>
 							<th>${RE.qna_name}</th>
-							<th>${RE.qna_email}</th>
 							<th>${RE.qna_id}</th>
 							<th class="text">${RE.qna_text}</th>
 							<th>${qna.qna_date}</th>
@@ -162,9 +156,14 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 		let seq = e.target.closest("TR").dataset.seq;
 		console.log(seq);
 		alert(seq + "조회합니다.");
+		
 		location.href="${rootPath}/qna/detail?seq=" +seq;	
 	}
 
+})
+
+document.querySelector("button#write").addEventListener("click", (e) => {
+	location.href="${rootPath}/qna/write"
 })
 
 document.querySelector("button#btn_search").addEventListener("click", (e) => {
@@ -182,9 +181,9 @@ document.querySelector("button#btn_search").addEventListener("click", (e) => {
 		alert(search + "text")
 		location.href="${rootPath}/qna/search/text?keyword=" +keyword;
 	}
-	if(search == "user") {
+	if(search == "id") {
 		
-		alert(search + "user")
+		alert(search + "id")
 		location.href="${rootPath}/qna/search/user?keyword=" +keyword;
 	}	
 })

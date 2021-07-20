@@ -9,8 +9,8 @@ import com.team.sport.model.DetailDTO;
 
 public interface SearchDao extends GenericDao<AllListVO, String>{
 	
-	public List<AllListVO> selectAll();
 	public List<DetailDTO> selectView();
+	
 	public DetailDTO findSeq(Long v_seq);
 	
 	public List<AllListVO> selectAllList();
@@ -20,10 +20,6 @@ public interface SearchDao extends GenericDao<AllListVO, String>{
 									@Param("al_addr") String al_addr,
 									@Param("al_sport") String al_sport
 									);
+	
 	public List<AllListVO> findByAllList(String AllList_column, String AllList_text);
-	public List<AllListVO> findFreeAddr(
-			@Param("al_free") String al_free,
-			@Param("al_name") String al_name,
-			@Param("addrs") String[] addrs,
-			@Param("al_sport") String al_sport);
 }

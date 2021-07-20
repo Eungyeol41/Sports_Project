@@ -97,4 +97,10 @@ public class ReverseServiceImplV1 extends NaverCloudMapService<GeocodeDTO>{
 		return null;
 	}
 
+	@Override
+	public List<GeocodeDTO> getJson(String jsonString) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -20,15 +20,7 @@ public class PageDTO {
 	private int endPage;
 	private int totalPages;
 	
-	private int floorData;
-	private int ceilData;
-	public int getOffset() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	public int getLimit() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	private int offset;
+	private int limit;
 	
 }

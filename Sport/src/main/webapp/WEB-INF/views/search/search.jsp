@@ -53,6 +53,9 @@ table.search, td, th.search {
 	border-top: 1px solid #6a60a9;
 	padding: 15px;
 }
+table.list th.text_no {
+	
+}
 
 th.search {
 	width: 150px;
@@ -108,6 +111,7 @@ th {
 	padding: 15px 10px;
 	border-top: 1px solid #6a60a9;
 	text-align: center;
+	font-weight: bold;
 }
 
 tr.first {
@@ -121,9 +125,15 @@ tr:not(.first) {
 th:nth-child(1) {
 	border-right: 1px dashed lavender;
 }
-
+tr.list_sec:hover:not(.first) {
+		background-color: #dedcee;
+		cursor: pointer;
+		color: darkblue;
+	}
 tr.list_sec th:hover {
-	cursor: pointer;
+		background-color: #dedcee;
+		cursor: pointer;
+		color: darkblue;
 }
 
 h1 {
@@ -157,8 +167,8 @@ select.sports option {
 			<tr class="search">
 				<th class="search">이용료</th>
 				<td>
+					<input id="ra" type="radio" name="free" value="유료" checked="checked"/> 유료 
 					<input id="ra" type="radio" name="free" value="무료" />무료 
-					<input id="ra" type="radio" name="free" value="유료" /> 유료 
 					<input id="ra" type="radio" name="free" value="유/무료" /> 유/무료
 				</td>
 			</tr>
@@ -166,16 +176,15 @@ select.sports option {
 		<tr class="search">
 			<th class="search">지역(구)</th>
 			<td>
-				<input id="ch" type="checkbox" name="addr[]" value="동구" /> 동구 
-				<input id="ch" type="checkbox" name="addr[]" value="서구" /> 서구 
-				<input id="ch" type="checkbox" name="addr[]" value="남구" /> 남구 
-				<input id="ch" type="checkbox" name="addr[]" value="북구" /> 북구 
-				<input id="ch" type="checkbox" name="addr[]" value="광산구" /> 광산구 
-				<input id="all" type="checkbox" name="ch_all" value="전체" onclick="selectAll" /> 전체
+				<input id="ch" type="radio" name="addr" value="동구" /> 동구 
+				<input id="ch" type="radio" name="addr" value="서구" /> 서구 
+				<input id="ch" type="radio" name="addr" value="남구" /> 남구 
+				<input id="ch" type="radio" name="addr" value="북구" /> 북구 
+				<input id="ch" type="radio" name="addr" value="광산구" /> 광산구 
 			</td>
 		</tr>
 		<tr class="search">
-			<th class="search">지역(동)</th>
+			<th class="search">지역(동,도로명주소)</th>
 			<td id="t3">
 				<input id="distric_box" type="text" size="20"
 				style="padding: 10px; border: 1px solid #ddd" name="dong" /></td>
@@ -191,7 +200,7 @@ select.sports option {
 			<td>
 			<select id="sports" class="sports" name="search_sports" size="1"
 				style="width: 230px; border: 1px solid #ddd;">
-					<option value="1">-- 종목 --</option>
+					<option value="">-- 종목 --</option>
 					<option value="검도">검도</option>
 					<option value="게이트볼">게이트볼</option>
 					<option value="골프">골프</option>
@@ -220,6 +229,7 @@ select.sports option {
 		<tr class="search">
 			<td colspan="2" class="btn_src" style="text-align: right">
 				<button id="btn_search" type="button">검색</button>
+				<button id="btn_all" type="button" style="width: 180px">전체리스트 보기</button>
 			</td>
 		</tr>
 	</table>
@@ -235,8 +245,7 @@ select.sports option {
 			<th>이용료</th>
 		</tr>
 		<c:choose>
-		
-		<c:when test="${not empty ALLIST}">
+		<c:when test="${empty ALLIST}">
 			<c:forEach items="${ALLIST}" var="AL" varStatus="index">
 				<tr class="list_sec" data-seq="${AL.al_seq}">
 					<th>${AL.al_seq}</th>
@@ -248,9 +257,9 @@ select.sports option {
 				</tr>
 			</c:forEach>
 		</c:when>
-		<c:when test="${empty ALLIST}">
+		<c:when test="${not empty RESULT}">
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
-				<tr class="list_sec" data-seq="${AL.al_seq}">
+				<tr class="list_sec" data-seq="${RE.al_seq}">
 					<th>${RE.al_seq}</th>
 					<th>${RE.al_name}</th>
 					<th>${RE.al_tel}</th>
@@ -259,12 +268,21 @@ select.sports option {
 					<th>${RE.al_free}</th>
 				</tr>
 			</c:forEach>	
+				<c:if test="${not empty RESULT}">
+					<tr>
+						<th colspan="6" class="text_no">검색결과가 없습니다.</th>
+					</tr>
+				</c:if>
 		</c:when>
 		</c:choose>
 	</table>
 <%@ include file="/WEB-INF/views/include/page.jspf" %>
 </body>
 <script>
+document.querySelector("button#btn_all").addEventListener("click", (e) => {
+	location.href="${rootPath}/search/allList"
+	
+})
 document.querySelector("table.list").addEventListener("click", (e) => {
 	let tagName = e.target.tagName;
 	
@@ -278,8 +296,8 @@ document.querySelector("table.list").addEventListener("click", (e) => {
  document.querySelector("button#btn_search").addEventListener("click", () => {
 	 
 	 	let search_box = document.querySelector("input#search_box").value
-	 
-		if(search_box === "") {
+		if(search_box === null) {
+			location.href="${rootPath}/search/search";
 		}
 	 document.querySelector("form#search_se").submit();
      });

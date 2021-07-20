@@ -24,40 +24,40 @@ public class SearchController {
 	protected final SearchService sService;
 	
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
-	public String search(
-			@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum,
-			Model model) {
+	public String search(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum,
+				Model model) throws Exception {
 		
-		List<AllListVO> alList = sService.selectAllList();
-//		int intPageNum = Integer.valueOf(pageNum);
-//		      List<AllListVO> alList = sService.selectAllPage(intPageNum, model);
-//		   
-//		      if(intPageNum > 0) {
-//		         model.addAttribute("PAGE_NUM", intPageNum);
-//		      }
-//		      
-//		      sService.findBySearchPage(intPageNum, model, pageNum);
-//		
+		int intPageNum = Integer.valueOf(pageNum);
+		List<AllListVO> alList = sService.selectAllList(intPageNum, model) ;
+		
+		if(intPageNum > 0) {
+			model.addAttribute("PAGE_NUM", intPageNum);
+		}
 		model.addAttribute("ALLIST",alList);
+		sService.findBySearchPage(intPageNum, model);
 		return "/search/search";
 	}
 	
 	@RequestMapping(value ={"/",""}, method = RequestMethod.POST)
 	public String search(@RequestParam(name="free", required = false, defaultValue = "") String al_free ,
 						@RequestParam(name="search", required = false, defaultValue = "") String al_name ,
-						@RequestParam(name="search_sports", required = false ,defaultValue = "1") String al_sport ,
-						@RequestParam(name="addr[]", required = false, defaultValue = "") String al_addr,
-						
-						Model model) {
+						@RequestParam(name="search_sports", required = false, defaultValue = "") String al_sport ,
+						@RequestParam(name="addr", required = false, defaultValue = "") String al_addr,
+						@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum,
+						Model model) throws Exception {
 		
 //		String[] dist = request.getParameterValues("addr[]");
-		
-		log.debug(al_addr);
-		String addrs[] = al_addr.split(",");
+//		String [] addrs = al_addr.split(",");
 		// List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport);
-		List<AllListVO> alList = sService.findFree(al_free, al_name, addrs, al_sport);
+		int intPageNum = Integer.valueOf(pageNum);
+		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport, intPageNum, model);
 		
+		if(intPageNum > 0) {
+			model.addAttribute("PAGE_NUM", intPageNum);
+		}
 		model.addAttribute("RESULT",alList);
+		sService.findBySearchPage(intPageNum, model);
+		
 		log.debug("free : {}", al_free );
 		log.debug("al_name : {}", al_name);
 		log.debug("al_addr : {}", al_addr);
@@ -65,31 +65,30 @@ public class SearchController {
 	
 		return "/search/search";
 	}
+	
 	@RequestMapping(value="/detail2", method=RequestMethod.GET)
-	public String findSeq(Long seq, Model model) {
+	public String detail(Long seq, Model model) {
 		
-		DetailDTO dto = sService.findSeq(seq); 
-		
+		DetailDTO dto = sService.findBySeq(seq);
 		model.addAttribute("DT",dto);
+		
 		return "/search/detail2";
 	}
 	
-//	@RequestMapping(value="/detail2", method=RequestMethod.GET)
-//	public String detail(Model model) {
-//		
-//		List<DetailDTO> dtList = sService.selectView();
-//		
-//		model.addAttribute("DTLIST",dtList);
-//		return "/search/detail2";
-//	}
-	
-//	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
-//	public String all_list(Model model) {
-//		
-//		List<AllListVO> alList = sService.selectAllList();
-//		
-//		model.addAttribute("ALLIST",alList);
-//		return "/search/search";
-//	}
 
+	@RequestMapping(value = "/allList", method = RequestMethod.GET)
+	public String allList(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum, Model model) throws Exception {
+		
+		int intPageNum = Integer.valueOf(pageNum);
+		List<AllListVO> alList = sService.selectAllPage(intPageNum, model);
+	
+		if(intPageNum > 0) {
+			model.addAttribute("PAGE_NUM", intPageNum);
+		}
+		
+		sService.findBySearchPage(intPageNum, model);
+		
+		return "search/all_list";
+	}
+	
 }

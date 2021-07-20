@@ -11,6 +11,8 @@
 <link href="${rootPath}/static/css/join.css?ver=2021-07-01-001" rel="stylesheet" />
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	
 	<form method="POST" id="join_form">
         <h2>Sign_Up</h2>
             <div>
