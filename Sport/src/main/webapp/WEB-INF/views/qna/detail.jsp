@@ -125,7 +125,7 @@ if("${USER.user_id}" === "${QNA.qna_id}") {
 	
 	document.querySelector("button#update").addEventListener("click", () => {
         //alert("수정화면으로 이동합니다.");
-        location.href = "${rootPath}/qna/insert?seq=${QNA.qna_seq}";
+        location.href = "${rootPath}/qna/update?seq=${QNA.qna_seq}";
     });
   document.querySelector("button#delete").addEventListener("click", () => {
        if(confirm("삭제하시겠습니까?")) {

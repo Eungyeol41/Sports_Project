@@ -61,4 +61,7 @@ public abstract class NaverCloudMapService<VO> {
 	public abstract void getUpdate(String jsonString, String dt_code) throws IOException, ParseException;
 	
 	public abstract List<VO> getJson(String jsonString) throws IOException, ParseException;
+
+	public abstract void getUpdate(String jsonString, DetailVO vo) throws IOException, ParseException;
+
 }

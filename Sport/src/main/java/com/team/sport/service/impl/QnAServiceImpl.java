@@ -43,7 +43,6 @@ public class QnAServiceImpl implements QnAService{
 		
 		vo.setQna_date(curDate);
 		
-//		Integer res = ;
 		return qnaDao.insert(vo);
 	}
 
@@ -58,7 +57,6 @@ public class QnAServiceImpl implements QnAService{
 		
 		vo.setQna_date(curDate);
 		
-//		Integer res = ;
 		return qnaDao.update(vo);
 	}
 
@@ -85,9 +83,6 @@ public class QnAServiceImpl implements QnAService{
 		// TODO Auto-generated method stub
 		
 		QnAVO vo = qnaDao.findById(pk);
-		
-//		vo.setQna_text(ReplaceBr.enterToBr(vo.getQna_text()));
-		
 		
 		return vo;
 	}
@@ -137,9 +132,6 @@ public class QnAServiceImpl implements QnAService{
 	@Override
 	public Integer countUpdate(Long seq) {
 		// TODO Auto-generated method stub
-		
-//		Integer res = 
-		
 		
 		return qnaDao.countUpdate(seq);
 	}
