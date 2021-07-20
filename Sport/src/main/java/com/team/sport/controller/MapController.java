@@ -76,12 +76,10 @@ public class MapController {
 				log.debug("queryURL : {}", queryURL);
 				String jsonString = nGeoService.jsonString(queryURL);
 				String dt_code = detailList.get(i).getAl_code();
-				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
-
+//				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
+				nGeoService.getUpdate(jsonString,dt_code);
 			}
-
 		}
-
 		return "map/list";
 	}
 
