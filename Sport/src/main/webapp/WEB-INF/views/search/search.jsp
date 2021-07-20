@@ -147,9 +147,6 @@ select.sports {
 	background-color: white;
 }
 
-select.sports option {
-	
-}
 </style>
 </head>
 
@@ -245,7 +242,7 @@ select.sports option {
 			<th>이용료</th>
 		</tr>
 		<c:choose>
-		<c:when test="${empty ALLIST}">
+		<c:when test="${not empty ALLIST}">
 			<c:forEach items="${ALLIST}" var="AL" varStatus="index">
 				<tr class="list_sec" data-seq="${AL.al_seq}">
 					<th>${AL.al_seq}</th>
@@ -257,7 +254,7 @@ select.sports option {
 				</tr>
 			</c:forEach>
 		</c:when>
-		<c:when test="${not empty RESULT}">
+		<c:when test="${empty ALLIST}">
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
 				<tr class="list_sec" data-seq="${RE.al_seq}">
 					<th>${RE.al_seq}</th>
@@ -276,13 +273,14 @@ select.sports option {
 		</c:when>
 		</c:choose>
 	</table>
-<%@ include file="/WEB-INF/views/include/page.jspf" %>
+<%@ include file="/WEB-INF/views/include/search_page.jspf" %>
 </body>
 <script>
 document.querySelector("button#btn_all").addEventListener("click", (e) => {
 	location.href="${rootPath}/search/allList"
 	
 })
+
 document.querySelector("table.list").addEventListener("click", (e) => {
 	let tagName = e.target.tagName;
 	
@@ -295,10 +293,8 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 
  document.querySelector("button#btn_search").addEventListener("click", () => {
 	 
-	 	let search_box = document.querySelector("input#search_box").value
-		if(search_box === null) {
-			location.href="${rootPath}/search/search";
-		}
+ 	let search_box = document.querySelector("input#search_box").value
+
 	 document.querySelector("form#search_se").submit();
      });
           

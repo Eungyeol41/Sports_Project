@@ -39,9 +39,11 @@
 
 <section class="page_box">
 	<ul class="page_nav_main">
+
 		<c:forEach begin="${PAGE_NAV.startPage}" end="${PAGE_NAV.endPage}" var="pageNum">
 			<li data-num="${pageNum}" class="<c:if test="${PAGE_NUM == pageNum}">active</c:if>">${pageNum}</li>
 		</c:forEach>
+
 	</ul>
 </section>
 
@@ -52,7 +54,7 @@
 			const li = e.target
 			if(li.tagName === "LI") {
 				const pageNum = e.target.dataset.num
-				location.href = "${rootPath}/search/allList?pageNum=" + pageNum;
+				location.href = "${rootPath}/search?pageNum=" + pageNum;
 			}
 		})
 	}

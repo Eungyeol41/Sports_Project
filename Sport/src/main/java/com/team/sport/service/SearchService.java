@@ -14,10 +14,15 @@ public interface SearchService {
 	public List<DetailDTO> selectView();
 	
 	public List<AllListVO> selectAllList(int intPageNum, Model model) throws Exception;
+	
+	public void selectAllListPage(int pageNum, Model model) ;
 
 	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
 			,int intPageNum, Model model) throws Exception ;
 
+	public void findFreePage(String al_free, String al_name, String al_addr, String al_sport
+			,int pageNum, Model model) ;
+	
 	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 
 	void findBySearchPage(int pageNum, Model model);

@@ -34,21 +34,18 @@ public class SearchController {
 			model.addAttribute("PAGE_NUM", intPageNum);
 		}
 		model.addAttribute("ALLIST",alList);
-		sService.findBySearchPage(intPageNum, model);
+		sService.selectAllListPage(intPageNum, model);
 		return "/search/search";
 	}
 	
 	@RequestMapping(value ={"/",""}, method = RequestMethod.POST)
-	public String search(@RequestParam(name="free", required = false, defaultValue = "") String al_free ,
-						@RequestParam(name="search", required = false, defaultValue = "") String al_name ,
-						@RequestParam(name="search_sports", required = false, defaultValue = "") String al_sport ,
-						@RequestParam(name="addr", required = false, defaultValue = "") String al_addr,
+	public String search(@RequestParam(name="free", required = false) String al_free ,
+						@RequestParam(name="search", required = false) String al_name ,
+						@RequestParam(name="search_sports", required = false) String al_sport ,
+						@RequestParam(name="addr", required = false) String al_addr,
 						@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum,
 						Model model) throws Exception {
 		
-//		String[] dist = request.getParameterValues("addr[]");
-//		String [] addrs = al_addr.split(",");
-		// List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport);
 		int intPageNum = Integer.valueOf(pageNum);
 		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport, intPageNum, model);
 		
@@ -56,7 +53,7 @@ public class SearchController {
 			model.addAttribute("PAGE_NUM", intPageNum);
 		}
 		model.addAttribute("RESULT",alList);
-		sService.findBySearchPage(intPageNum, model);
+		sService.findFreePage(pageNum, pageNum, pageNum, pageNum, intPageNum, model);
 		
 		log.debug("free : {}", al_free );
 		log.debug("al_name : {}", al_name);

@@ -115,33 +115,27 @@ button:hover {
 				</tr>
 				<tr>
 					<th class="sec1">전화번호</th>
-					<th>${DT.v_tel}
-						</th>
+					<th>${DT.v_tel}</th>
 				</tr>
 				<tr>
 					<th class="sec1">주소</th>
-					<th>${DT.v_addr}
-						</th>
+					<th>${DT.v_addr}</th>
 				</tr>
 				<tr>
 					<th class="sec1">종목</th>
-					<th>${DT.v_sport}
-						</th>
+					<th>${DT.v_sport}</th>
 				</tr>
 				<tr>
 					<th class="sec1">유/무료</th>
-					<th>${DT.v_free}
-						</th>
+					<th>${DT.v_free}</th>
 				</tr>
 				<tr>
 					<th class="sec1">이용가능 시간</th>
-					<th>${DT.v_time}
-						</th>
+					<th>${DT.v_time}</th>
 				</tr>
 				<tr>
 					<th class="sec1">사이트</th>
-					<th>${DT.v_site}
-						</th>
+					<th>${DT.v_site}</th>
 				</tr>
 				<tr>
 					<th class="sec1">상세이용료</th>

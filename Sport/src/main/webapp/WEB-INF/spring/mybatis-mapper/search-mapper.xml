@@ -12,6 +12,7 @@
 
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
+		ORDER BY al_seq
 	</select>
 	<select id="mapPoint" resultType="DetailVO">
 		SELECT dt_road, dt_lat, dt_lgt FROM tbl_detail
