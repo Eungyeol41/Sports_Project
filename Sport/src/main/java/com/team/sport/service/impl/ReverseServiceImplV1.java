@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import com.team.sport.config.NaverSecret;
+import com.team.sport.model.DetailVO;
 import com.team.sport.model.GeocodeDTO;
 import com.team.sport.service.NaverCloudMapService;
 
@@ -101,6 +102,12 @@ public class ReverseServiceImplV1 extends NaverCloudMapService<GeocodeDTO>{
 	public List<GeocodeDTO> getJson(String jsonString) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void getUpdate(String jsonString, DetailVO vo) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
