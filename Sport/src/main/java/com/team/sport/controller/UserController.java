@@ -167,9 +167,11 @@ public class UserController {
 		return "user/mypage";
 	}
 	@RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
-	public String updateInfo(UserVO userVO, Model model) {
+	public String updateInfo(UserVO userVO, Model model, HttpSession hSession) {
 		
 		userService.insertOrUpdate(userVO);
+		
+		hSession.setAttribute("USER", userVO);
 		
 		return "redirect:/user/updateInfo";
 	}

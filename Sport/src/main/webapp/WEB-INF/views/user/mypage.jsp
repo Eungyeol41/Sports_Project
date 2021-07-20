@@ -169,8 +169,6 @@
 			update.submit()
 		}
 	})
-	
-	
 
 	let expire = document.querySelector("form#user")
 	let u_pw = document.getElementById("u_pw")

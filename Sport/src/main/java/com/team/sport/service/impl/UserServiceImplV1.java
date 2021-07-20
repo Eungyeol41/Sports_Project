@@ -43,7 +43,7 @@ public class UserServiceImplV1 implements UserService{
 			userVO.setUser_level(9);
 		}
 		
-		userDao.insert(userVO);
+		userDao.insertOrUpdate(userVO);
 		
 		return userVO;
 	}
