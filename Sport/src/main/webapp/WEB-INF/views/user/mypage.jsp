@@ -151,7 +151,7 @@
 					<tr data-seq="${qList.qna_seq}">
 						<th>${i.count}</th>
 						<th>${qList.qna_title}</th>
-						<th style="width:70%">${qList.qna_text}</th>
+						<th>${qList.qna_text}</th>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

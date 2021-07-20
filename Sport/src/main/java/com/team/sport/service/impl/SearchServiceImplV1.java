@@ -87,24 +87,6 @@ public class SearchServiceImplV1 implements SearchService {
 	}
 
 	@Override
-	public void findBySearchPage(int pageNum, Model model) {
-		// TODO Auto-generated method stub
-
-		List<AllListVO> alList = sDao.selectAll();
-
-		int totalListSize = alList.size();
-		PageDTO pageDTO = pService.makePagination(totalListSize, pageNum);
-
-		List<AllListVO> pList = new ArrayList<>();
-
-		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-			pList.add(alList.get(i));
-		}
-
-		model.addAttribute("PLIST", pList);
-	}
-
-	@Override
 	public DetailDTO findBySeq(Long seq) {
 		// TODO Auto-generated method stub
 		DetailDTO dto = sDao.findSeq(seq);
