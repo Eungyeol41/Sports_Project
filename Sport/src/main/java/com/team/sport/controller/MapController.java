@@ -1,6 +1,7 @@
 package com.team.sport.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.parser.ParseException;
@@ -30,7 +31,7 @@ public class MapController {
 	protected final MapService mapService;
 	protected final MapDao mapDao;
 
-	@Qualifier("geocodeV1")
+	@Qualifier("geocodeV2")
 	protected final NaverCloudMapService<?> nGeoService;
 
 	@Qualifier("reverseV1")
@@ -68,22 +69,27 @@ public class MapController {
 
 			// 주소 가져오기
 			List<DetailVO> detailList = mapService.selectAddr(address);
+			List<DetailVO> dList = new ArrayList<DetailVO>();
 			log.debug("mapList {}", detailList.toString());
 			int mapSize = detailList.size();
 
 			for (int i = 0; i < mapSize; i++) {
 				String queryURL = nGeoService.queryURL(detailList.get(i).getAl_addr());
-				log.debug("queryURL : {}", queryURL);
+//				log.debug("queryURL : {}", queryURL);
 				String jsonString = nGeoService.jsonString(queryURL);
 				String dt_code = detailList.get(i).getAl_code();
-//				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
-				nGeoService.getUpdate(jsonString,dt_code);
+				
+//				dList.addAll(nGeoService.getList(jsonString,dt_code));
+//				nGeoService.getUpdate(jsonString,dt_code);
+				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
+				
 			}
+			
 		}
 		return "map/list";
 	}
 
-	@RequestMapping(value = "/list/update", method = RequestMethod.POST, produces = "application/json;char=UTF8")
+	@RequestMapping(value = "/allList/update", method = RequestMethod.POST, produces = "application/json;char=UTF8")
 	public String update(DetailVO vo ,Model model) throws IOException, ParseException {
 		// TODO 
 
@@ -102,7 +108,6 @@ public class MapController {
 //				String jsonString = nGeoService.jsonString(queryURL);
 //				String al_code = detailList.get(i).getAl_code();
 //				model.addAttribute("GEOS", nGeoService.getUpdate(jsonString,al_code));
-
 //			}
 
 		}else {
