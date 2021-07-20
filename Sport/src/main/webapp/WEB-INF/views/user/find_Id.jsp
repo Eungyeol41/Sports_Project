@@ -70,21 +70,6 @@
 			opacity: 1;
 		}
 	}
-/*
-	div.findId {
-		border: 1px solid;
-		width: 60%;
-	}
-	
-	label {
-		padding: 5%;
-	}
-	
-	input {
-		border: none;
-		border-bottom: 1px solid blue;
-	}
-*/	
 </style>
 </head>
 <body>

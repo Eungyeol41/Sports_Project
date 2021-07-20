@@ -17,7 +17,7 @@
 	rel="stylesheet" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
-<link href="${rootPath}/static/css/layout_css.css?ver=2021-07-04-005"
+<link href="${rootPath}/static/css/layout.css?ver=2021-07-04-005"
 	rel="stylesheet" />
 <style>
 @import

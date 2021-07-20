@@ -11,15 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
   <title>시설 상세 정보</title>
-  <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/ce0a08be66.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../css/menu_nav.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/ce0a08be66.js" crossorigin="anonymous"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&display=swap");
     </style>
