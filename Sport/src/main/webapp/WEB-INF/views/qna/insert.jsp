@@ -74,6 +74,11 @@ button:hover {
 textarea {
 	resize: none;
 	height: 300px;
+	
+}
+
+textarea br{
+	visibility: hidden;
 }
 </style>
 </head>
@@ -135,7 +140,6 @@ textarea {
 <script>
        document.querySelector("button#insert").addEventListener("click", () => {
             alert("수정합니다.");
-            //location.href="${rootPath}/qna/insert?seq=${QNA.qna_seq}";
             document.querySelector("form#update").submit();
        });
            
