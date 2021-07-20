@@ -43,8 +43,8 @@ public class QnAServiceImpl implements QnAService{
 		
 		vo.setQna_date(curDate);
 		
-		Integer res = qnaDao.insert(vo);
-		return res;
+//		Integer res = ;
+		return qnaDao.insert(vo);
 	}
 
 	@Override
@@ -58,17 +58,17 @@ public class QnAServiceImpl implements QnAService{
 		
 		vo.setQna_date(curDate);
 		
-		Integer res = qnaDao.update(vo);
-		return res;
+//		Integer res = ;
+		return qnaDao.update(vo);
 	}
 
 	@Override
 	public int delete(Long seq) {
 		// TODO Auto-generated method stub
 		
-		Integer res = qnaDao.delete(seq);
+//		Integer res = 
 		
-		return res;
+		return qnaDao.delete(seq);
 	}
 
 
@@ -86,7 +86,7 @@ public class QnAServiceImpl implements QnAService{
 		
 		QnAVO vo = qnaDao.findById(pk);
 		
-		vo.setQna_text(ReplaceBr.enterToBr(vo.getQna_text()));
+//		vo.setQna_text(ReplaceBr.enterToBr(vo.getQna_text()));
 		
 		
 		return vo;
@@ -119,7 +119,7 @@ public class QnAServiceImpl implements QnAService{
 		
 		List<QnAVO> qnaList = qnaDao.findByText(keyword);
 		
-		log.debug("title: {}" , qnaList.toString());
+		log.debug("text: {}" , qnaList.toString());
 				
 		return qnaList;
 	}
@@ -127,9 +127,9 @@ public class QnAServiceImpl implements QnAService{
 	@Override
 	public List<QnAVO> findByUser(String keyword) {
 		// TODO id로 검색하기
-		List<QnAVO> qnaList = qnaDao.findByText(keyword);
+		List<QnAVO> qnaList = qnaDao.findByUser(keyword);
 		
-		log.debug("title: {}" , qnaList.toString());
+		log.debug("user: {}" , qnaList.toString());
 				
 		return qnaList;
 	}
@@ -138,9 +138,10 @@ public class QnAServiceImpl implements QnAService{
 	public Integer countUpdate(Long seq) {
 		// TODO Auto-generated method stub
 		
-		Integer res = qnaDao.countUpdate(seq);
+//		Integer res = 
 		
-		return res;
+		
+		return qnaDao.countUpdate(seq);
 	}
 
 

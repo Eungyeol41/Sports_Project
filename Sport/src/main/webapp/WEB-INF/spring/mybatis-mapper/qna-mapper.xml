@@ -7,7 +7,7 @@
  
     <select id="selectAll" resultType="QnAVO">
 	    SELECT * FROM tbl_qna 
-	    ORDER BY qna_seq DESC
+	    ORDER BY qna_count DESC, qna_date DESC
     </select>
     
     <select id="findById" resultType="QnAVO">

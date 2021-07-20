@@ -115,8 +115,8 @@ textarea {
 				</table>
 			</div>
 		</form>
-		<div class="button">
-			<button class="enter" type="button">등록</button>
+		<div class="button" >
+			<button id="enter" type="button">등록</button>
 			<button id="reset" type="reset">다시 쓰기</button>
 			<button id="back" type="button">목록으로 이동</button>
 		</div>
@@ -129,39 +129,35 @@ document.querySelector("button#back").addEventListener("click", () => {
     location.href="${rootPath}/qna"	
 });
 
-
 let doc = document
-const qna_submit = () => {
+let qna_title = doc.querySelector("input#qna_title")
+let qna_name = doc.querySelector("input#qna_name")
+let qna_text = doc.querySelector("textarea#qna_text")
 
-	let qna_id = doc.querySelector("input#qna_id")
-	let qna_title = doc.querySelector("input#qna_title")
-	let qna_name = doc.querySelector("input#qna_name")
-	let qna_text = doc.querySelector("input#qna_text")
-	let qna_email = doc.querySelector("input#qna_email")
+doc.querySelector("button#enter").addEventListener("click",()=> {
+		
+	if(qna_title.value === "") {
+		alert("제목을 입력해주세요")
+		qna_title.focus()
+		return false;
+	}
+	
+	if(qna_name.value === "") {
+		alert("시설을 입력해주세요")
+		qna_name.focus()
+		return false;
+	}
+	
+	if(qna_text.value.length === 0) {
+		alert("내용을 입력해주세요")
+		qna_text.focus()
+		return false;
+	}
 	
 	doc.querySelector("form#insert").submit();
 	
-}
-doc.querySelector("button.enter").addEventListener("click",()=> {
-	qna_submit();
-})
-/*
-doc.querySelector("form#insert").addEventListener("click", (e) => {
-	let target = e.target
-	
-	if(target.tagName === "BUTTON") {
-		if(target.className.includes("enter")){
-			qna_submit();
-		}
-	}
 	
 })
-*/
-	
-	
-//document.querySelector("button#enter").addEventListener("click", (e) => {
-//document.querySelector("form#insert").submit();
 
-//})
 </script>
 </html>

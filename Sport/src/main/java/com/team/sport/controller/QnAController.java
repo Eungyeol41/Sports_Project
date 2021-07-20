@@ -60,16 +60,22 @@ public class QnAController {
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String insert(Model model) {
+	public String insert(Model model,HttpSession session,Long seq) {
 		
-//		Date date = new Date(System.currentTimeMillis());
-//		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-//		
-//		String curDate = sd.format(date);
-//		
-//		model.addAttribute("DATE",curDate);
+		UserVO uservo = (UserVO) session.getAttribute("USER");
+		
+		if(uservo == null) {
+			return "redirect:/user/login";
+		}
+		if(uservo != null) {
+			QnAVO qnavo = qnaService.detail(seq);
+			qnaService.countUpdate(seq);
+			
+			model.addAttribute("QNA", qnavo);
+			return "/qna/write";
+		}
 
-		return "/qna/write";
+		return null;
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -129,7 +135,7 @@ public class QnAController {
 		
 		List<QnAVO> qnaList = qnaService.findByText(keyword);
 		
-		log.debug("controller title : {}", qnaList.toString());
+		log.debug("controller text : {}", qnaList.toString());
 		
 		model.addAttribute("RESULT",qnaList);
 		
@@ -141,7 +147,7 @@ public class QnAController {
 		
 		List<QnAVO> qnaList = qnaService.findByUser(keyword);
 		
-		log.debug("controller title : {}", qnaList.toString());
+		log.debug("controller id : {}", qnaList.toString());
 		
 		model.addAttribute("RESULT",qnaList);
 		

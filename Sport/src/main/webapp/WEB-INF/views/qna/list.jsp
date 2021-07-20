@@ -82,6 +82,14 @@ table.list td, th {
 	white-space: nowrap;
 	overflow: hidden;
 }
+
+th.text {
+	width: 20%;
+}
+
+th.text br {
+	display: none;
+}
 </style>
 </head>
 
@@ -97,8 +105,8 @@ table.list td, th {
 			<option value="title" selected="selected">제목</option>
 			<option value="text">내용</option>
 			<option value="id">ID</option>
-		</select>
-		<input id="in_search" name="keyword" type="search" placeholder="검색하세요">
+		</select> <input id="in_search" name="keyword" type="search"
+			placeholder="검색하세요">
 		<button id="btn_search" type="button">검색</button>
 		<button id="write" type="button">글쓰기</button>
 	</div>
@@ -108,7 +116,6 @@ table.list td, th {
 				<th>번호</th>
 				<th>제목</th>
 				<th>시설이름</th>
-				<th>e_mail</th>
 				<th>아이디</th>
 				<th class="text">문의내용</th>
 				<th>작성시간</th>
@@ -124,9 +131,9 @@ table.list td, th {
 							<th>${index.count}</th>
 							<th>${qna.qna_title}</th>
 							<th>${qna.qna_name}</th>
-							<th>${qna.qna_email}</th>
 							<th>${qna.qna_id}</th>
-							<th style="width: 20%" class="text">${qna.qna_text}</th>
+
+							<th class="text">${qna.qna_text}</th>
 							<th>${qna.qna_date}</th>
 							<th>${qna.qna_count}</th>
 						</tr>
@@ -138,7 +145,6 @@ table.list td, th {
 							<th>${index.count}</th>
 							<th>${RE.qna_title}</th>
 							<th>${RE.qna_name}</th>
-							<th>${RE.qna_email}</th>
 							<th>${RE.qna_id}</th>
 							<th class="text">${RE.qna_text}</th>
 							<th>${qna.qna_date}</th>
@@ -167,6 +173,7 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 
 })
 
+
 document.querySelector("button#write").addEventListener("click", (e) => {
 	location.href="${rootPath}/qna/write"
 })
@@ -186,9 +193,9 @@ document.querySelector("button#btn_search").addEventListener("click", (e) => {
 		alert(search + "text")
 		location.href="${rootPath}/qna/search/text?keyword=" +keyword;
 	}
-	if(search == "user") {
+	if(search == "id") {
 		
-		alert(search + "user")
+		alert(search + "id")
 		location.href="${rootPath}/qna/search/user?keyword=" +keyword;
 	}	
 })
