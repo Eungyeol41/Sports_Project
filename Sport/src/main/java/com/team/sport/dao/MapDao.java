@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.team.sport.model.DetailVO;
 
+
 public interface MapDao extends GenericDao<DetailVO, String>{
 
 	public List<DetailVO> selectAll();
