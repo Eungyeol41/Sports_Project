@@ -54,7 +54,6 @@
 			</c:otherwise>
 		</c:choose>
 	</table>
-
 	<%@ include file="/WEB-INF/views/include/page.jspf"%>
 </body>
 <script>

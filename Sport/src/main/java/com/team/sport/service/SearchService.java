@@ -10,17 +10,19 @@ import com.team.sport.model.SearchVO;
 
 public interface SearchService {
 
-	public List<SearchVO> selectAll();
-	
 	public DetailDTO findSeq(Long v_seq);
 	public List<DetailDTO> selectView();
 	
-	public List<AllListVO> selectAllList();
+	public List<AllListVO> selectAllList(int intPageNum, Model model) throws Exception;
+	
+	public void selectAllListPage(int pageNum, Model model) ;
 
-	public List<AllListVO> findFree(String al_free, String al_name, String al_addr
-			);
-	// ,String addr1,String addr2,String addr3,String addr4,String addr5
+	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
+			) ;
 
+//	public void findFreePage(String al_free, String al_name, String al_addr, String al_sport
+//			) ;
+	
 	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 
 	public DetailDTO findBySeq(Long seq);
