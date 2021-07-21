@@ -10,13 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.sport.dao.MapDao;
+import com.team.sport.dao.SearchDao;
+import com.team.sport.model.DetailDTO;
 import com.team.sport.model.DetailVO;
-import com.team.sport.model.GeocodeDTO;
 import com.team.sport.service.MapService;
 import com.team.sport.service.NaverCloudMapService;
+import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +29,9 @@ import lombok.extern.slf4j.Slf4j;
 public class MapController {
 
 	protected final MapService mapService;
+	protected final SearchService sService;
 	protected final MapDao mapDao;
+	protected final SearchDao sDao;
 
 	@Qualifier("geocodeV1")
 	protected final NaverCloudMapService<?> nGeoService;
@@ -135,6 +138,15 @@ public class MapController {
 		model.addAttribute("MAP", mapList);
 
 		return "map/naver";
+	}
+	
+	@RequestMapping(value = "/marker", method = RequestMethod.GET)
+	public String marker(Long seq, Model model) {
+		
+		DetailDTO dto = sService.findBySeq(seq);
+		model.addAttribute("DTO",dto);
+		
+		return "map/marker";
 	}
 }
 

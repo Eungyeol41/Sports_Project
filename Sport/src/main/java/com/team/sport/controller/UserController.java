@@ -151,6 +151,48 @@ public class UserController {
 		}
 	}
 	
+	// ID 찾기
+		@RequestMapping(value = "/findId", method = RequestMethod.GET)
+		public String findId() {
+			return "user/find_Id";
+		}
+		
+		@RequestMapping(value = "/findId", method = RequestMethod.POST)
+		public String findId(Model model, UserVO vo) {
+			
+			UserVO userVO = userService.findId(vo);
+			
+			if(userVO == null) {
+				model.addAttribute("USERVO", "NONE");
+			} else {
+				model.addAttribute("USERVO", "CHECK");
+				model.addAttribute("ID", userVO.getUser_id());
+			}
+			
+			return "user/find_Id";
+		}
+		
+		// 비밀번호 찾기
+		@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+		public String findPw() {
+			return "user/find_Pw";
+		}
+
+		@RequestMapping(value = "/findPw", method = RequestMethod.POST)
+		public String findPw(UserVO vo, Model model) {
+			
+			UserVO userVO = userService.findPw(vo);
+			
+			if(userVO == null) {
+				model.addAttribute("USERVO", "NONE");
+			} else {
+				model.addAttribute("USERVO", "CHECK");
+				model.addAttribute("USER", userVO);
+			}
+			
+			return "user/find_Pw";
+		}
+	
 	// 회원정보 수정하기
 	@RequestMapping(value = "/updateInfo", method = RequestMethod.GET)
 	public String updateInfo(HttpSession hSession, Model model) {
@@ -176,27 +218,4 @@ public class UserController {
 		return "redirect:/user/updateInfo";
 	}
 
-	/* 탈퇴하기 */
-	@RequestMapping(value = "/expire", method = RequestMethod.GET)
-	public String expire() {
-		return "redirect:/";
-	}
-	
-	@RequestMapping(value = "/expire", method = RequestMethod.POST)
-	public String expire(UserVO userVO, HttpSession hSession) {
-		
-		UserVO vo = (UserVO) hSession.getAttribute("USER");
-		
-		if (vo.getUser_pw().equals(userVO.getUser_pw())) {
-			// 탈퇴
-			userService.expire(userVO);
-			hSession.removeAttribute("USER");
-			hSession.invalidate();
-			return "redirect:/";
-			
-		} else {
-			// 탈퇴 실패
-			return "user/join";
-		}
-	}
 }

@@ -88,6 +88,7 @@
 	
 	table.list {
 		width: 70%;
+		table-layout: fixed;
 	}
 	
 	table.list th {
@@ -150,9 +151,9 @@
 			<c:otherwise>
 				<c:forEach items="${QNALIST}" var="qList" varStatus="i">
 					<tr data-seq="${qList.qna_seq}">
-						<th>${i.count}</th>
-						<th>${qList.qna_title}</th>
-						<th style="width:70%">${qList.qna_text}</th>
+						<th style="width:10%">${i.count}</th>
+						<th style="width:20%">${qList.qna_title}</th>
+						<th style="width:40%">${qList.qna_text}</th>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

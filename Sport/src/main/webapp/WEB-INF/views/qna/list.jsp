@@ -79,7 +79,6 @@
 		overflow: hidden;
 	}
 
-<<<<<<< HEAD
 table.list td, th {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -93,8 +92,6 @@ th.text {
 th.text br {
 	display: none;
 }
-=======
->>>>>>> a5952646be6fb7dc3ecaf486443286fa02986a92
 </style>
 </head>
 
