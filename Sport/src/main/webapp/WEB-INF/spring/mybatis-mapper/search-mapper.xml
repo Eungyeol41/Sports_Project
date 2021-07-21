@@ -22,9 +22,9 @@
 	<select id="findFree" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 		WHERE al_free = #{al_free}
-		AND al_name like CONCAT('%',#{al_name},'%')
-		AND al_addr like CONCAT('%',#{al_addr},'%')
-		AND al_sport like CONCAT('%',#{al_sport},'%')
+		OR al_name like CONCAT('%',#{al_name},'%')
+		OR al_addr like CONCAT('%',#{al_addr},'%')
+		OR al_sport = #{al_sport}
 		ORDER BY al_seq
 	</select>
 

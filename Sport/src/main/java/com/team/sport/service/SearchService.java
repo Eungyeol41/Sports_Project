@@ -18,10 +18,10 @@ public interface SearchService {
 	public void selectAllListPage(int pageNum, Model model) ;
 
 	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
-			,int intPageNum, Model model) throws Exception ;
+			) ;
 
-	public void findFreePage(String al_free, String al_name, String al_addr, String al_sport
-			,int pageNum, Model model) ;
+//	public void findFreePage(String al_free, String al_name, String al_addr, String al_sport
+//			) ;
 	
 	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 

@@ -33,7 +33,6 @@ public class SearchController {
 		if(intPageNum > 0) {
 			model.addAttribute("PAGE_NUM", intPageNum);
 		}
-		model.addAttribute("ALLIST",alList);
 		sService.selectAllListPage(intPageNum, model);
 		return "/search/search";
 	}
@@ -43,17 +42,11 @@ public class SearchController {
 						@RequestParam(name="search", required = false) String al_name ,
 						@RequestParam(name="search_sports", required = false) String al_sport ,
 						@RequestParam(name="addr", required = false) String al_addr,
-						@RequestParam(value = "pageNum", required = false, defaultValue = "1") String pageNum,
 						Model model) throws Exception {
 		
-		int intPageNum = Integer.valueOf(pageNum);
-		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport, intPageNum, model);
+		List<AllListVO> alList = sService.findFree(al_free, al_name, al_addr, al_sport);
 		
-		if(intPageNum > 0) {
-			model.addAttribute("PAGE_NUM", intPageNum);
-		}
 		model.addAttribute("RESULT",alList);
-		sService.findFreePage(pageNum, pageNum, pageNum, pageNum, intPageNum, model);
 		
 		log.debug("free : {}", al_free );
 		log.debug("al_name : {}", al_name);

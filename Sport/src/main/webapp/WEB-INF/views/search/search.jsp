@@ -254,7 +254,7 @@ select.sports {
 				</tr>
 			</c:forEach>
 		</c:when>
-		<c:when test="${empty ALLIST}">
+		<c:when test="${not empty ALLIST}">
 			<c:forEach items="${RESULT}" var="RE" varStatus="index">
 				<tr class="list_sec" data-seq="${RE.al_seq}">
 					<th>${RE.al_seq}</th>
@@ -264,7 +264,7 @@ select.sports {
 					<th>${RE.al_addr}</th>
 					<th>${RE.al_free}</th>
 				</tr>
-			</c:forEach>	
+			</c:forEach>
 				<c:if test="${not empty RESULT}">
 					<tr>
 						<th colspan="6" class="text_no">검색결과가 없습니다.</th>
