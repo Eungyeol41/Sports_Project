@@ -79,6 +79,7 @@
 		overflow: hidden;
 	}
 
+<<<<<<< HEAD
 table.list td, th {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -92,6 +93,8 @@ th.text {
 th.text br {
 	display: none;
 }
+=======
+>>>>>>> 475f4269adb1663012c8974e239eb962ade59bce
 </style>
 </head>
 
@@ -134,7 +137,6 @@ th.text br {
 							<th>${qna.qna_title}</th>
 							<th>${qna.qna_name}</th>
 							<th>${qna.qna_id}</th>
-
 							<th class="text">${qna.qna_text}</th>
 							<th>${qna.qna_date}</th>
 							<th>${qna.qna_count}</th>

@@ -168,5 +168,11 @@ public class GeocodeServiceImplV1 extends NaverCloudMapService<Map<String, Strin
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void getUpdate(String jsonString, DetailVO vo) throws IOException, ParseException {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

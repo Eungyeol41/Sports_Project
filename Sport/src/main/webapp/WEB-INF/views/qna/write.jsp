@@ -80,8 +80,6 @@ textarea {
 	resize: none;
 	height: 300px;
 }
-
-
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -94,42 +92,57 @@ textarea {
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th><input name="qna_title" id="qna_title" type="text"></th>
+						<th>
+							<input name="qna_title" id="qna_title" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th><input name="qna_id" id="qna_id" type="text" value="${USER.user_id}" readonly></th>
+						<th>
+							<input name="qna_id" id="qna_id" type="text"
+								value="${USER.user_id}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th><input name="qna_email" id="qna_email" type="email" value="${USER.user_email}" readonly></th>
+						<th>
+							<input name="qna_email" id="qna_email" type="email"
+								value="${USER.user_email}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th><input name="qna_name" id="qna_name" type="text"></th>
+						<th>
+							<input name="qna_name" id="qna_name" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th><textarea rows="5" name="qna_text" id="qna_text"></textarea></th>
+						<th>
+							<textarea rows="5" name="qna_text" id="qna_text"></textarea>
+						</th>
 					</tr>
 				</table>
 			</div>
+			<div class="button">
+				<button id="enter" type="button">등록</button>
+				<button type="reset">다시 쓰기</button>
+				<button id="back" type="button">목록으로 이동</button>
+			</div>
 		</form>
-		<div class="button" >
-			<button id="enter" type="button">등록</button>
-			<button id="reset" type="reset">다시 쓰기</button>
-			<button id="back" type="button">목록으로 이동</button>
-		</div>
 	</div>
 
 </body>
 <script>
-document.querySelector("button#back").addEventListener("click", () => {
+
+let doc = document
+
+
+doc.querySelector("button#back").addEventListener("click", () => {
     alert("목록으로 이동합니다.");
     location.href="${rootPath}/qna"	
 });
 
-let doc = document
 let qna_title = doc.querySelector("input#qna_title")
 let qna_name = doc.querySelector("input#qna_name")
 let qna_text = doc.querySelector("textarea#qna_text")

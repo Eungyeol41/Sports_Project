@@ -82,8 +82,6 @@ public class SearchController {
 			model.addAttribute("PAGE_NUM", intPageNum);
 		}
 		
-		sService.findBySearchPage(intPageNum, model);
-		
 		return "search/all_list";
 	}
 	

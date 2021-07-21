@@ -74,10 +74,9 @@ button:hover {
 textarea {
 	resize: none;
 	height: 300px;
-	
 }
 
-textarea br{
+textarea br {
 	visibility: hidden;
 }
 </style>
@@ -95,29 +94,25 @@ textarea br{
 					<tr>
 						<th class="sec1">제목</th>
 						<th>
-							<input name="qna_title" id="qna_title" type="text"
-								value="${QNA.qna_title}">
+							<input name="qna_title" id="qna_title" type="text" value="${QNA.qna_title}">
 						</th>
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
 						<th>
-							<input name="qna_id" id="qna_id" type="text"
-								value="${QNA.qna_id}" readonly>
+							<input name="qna_id" id="qna_id" type="text" value="${QNA.qna_id}" readonly>
 						</th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
 						<th>
-							<input name="qna_email" id="qna_email" type="email"
-								value="${QNA.qna_email}" readonly>
+							<input name="qna_email" id="qna_email" type="email" value="${QNA.qna_email}" readonly>
 						</th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
 						<th>
-							<input name="qna_name" id="qna_name" type="text"
-								value="${QNA.qna_name}">
+							<input name="qna_name" id="qna_name" type="text" value="${QNA.qna_name}">
 						</th>
 					</tr>
 					<tr>

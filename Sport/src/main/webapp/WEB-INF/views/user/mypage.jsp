@@ -128,7 +128,6 @@
 			</div>
 			<div>
 				<button id="update" type="button">회원 정보 수정</button>
-				<button id="expire" type="button">회원 탈퇴</button>
 			</div>
 		</form>
 	</section>
@@ -151,9 +150,15 @@
 			<c:otherwise>
 				<c:forEach items="${QNALIST}" var="qList" varStatus="i">
 					<tr data-seq="${qList.qna_seq}">
+<<<<<<< HEAD
 						<th style="width:10%">${i.count}</th>
 						<th style="width:20%">${qList.qna_title}</th>
 						<th style="width:40%">${qList.qna_text}</th>
+=======
+						<th>${i.count}</th>
+						<th>${qList.qna_title}</th>
+						<th>${qList.qna_text}</th>
+>>>>>>> 475f4269adb1663012c8974e239eb962ade59bce
 					</tr>
 				</c:forEach>
 			</c:otherwise>
@@ -170,7 +175,8 @@
 			update.submit()
 		}
 	})
-
+	
+/*
 	let expire = document.querySelector("form#user")
 	let u_pw = document.getElementById("u_pw")
 	
@@ -181,17 +187,13 @@
 				alert("비밀번호를 확인해주세요.")
 				u_pw.focus()
 				return false
-			}else {
-				/*
-					acform.action = "${rootPath}/member/expire"
-					url_now.value = location.pathname;
-					acform.submit()
-				*/
+			} else {
 				expire.action = "${rootPath}/user/expire"
 				expire.submit();
 			}
 		}
 	})
+*/	
 
 	document.querySelector("table.list").addEventListener("click", (e) => {
 		let tagName = e.target.tagName;
