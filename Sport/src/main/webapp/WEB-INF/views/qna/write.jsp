@@ -80,8 +80,6 @@ textarea {
 	resize: none;
 	height: 300px;
 }
-
-
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -94,74 +92,85 @@ textarea {
 				<table>
 					<tr>
 						<th class="sec1">제목</th>
-						<th><input name="qna_title" id="qna_title" type="text"></th>
+						<th>
+							<input name="qna_title" id="qna_title" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">ID</th>
-						<th><input name="qna_id" id="qna_id" type="text" value="${USER.user_id}" readonly></th>
+						<th>
+							<input name="qna_id" id="qna_id" type="text"
+								value="${USER.user_id}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">email</th>
-						<th><input name="qna_email" id="qna_email" type="email" value="${USER.user_email}" readonly></th>
+						<th>
+							<input name="qna_email" id="qna_email" type="email"
+								value="${USER.user_email}" readonly>
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">시설 이름</th>
-						<th><input name="qna_name" id="qna_name" type="text"></th>
+						<th>
+							<input name="qna_name" id="qna_name" type="text">
+						</th>
 					</tr>
 					<tr>
 						<th class="sec1">문의 내용</th>
-						<th><textarea rows="5" name="qna_text" id="qna_text"></textarea></th>
+						<th>
+							<textarea rows="5" name="qna_text" id="qna_text"></textarea>
+						</th>
 					</tr>
 				</table>
 			</div>
+			<div class="button">
+				<button id="enter" type="button">등록</button>
+				<button type="reset">다시 쓰기</button>
+				<button id="back" type="button">목록으로 이동</button>
+			</div>
 		</form>
-		<div class="button">
-			<button class="enter" type="button">등록</button>
-			<button id="reset" type="reset">다시 쓰기</button>
-			<button id="back" type="button">목록으로 이동</button>
-		</div>
 	</div>
 
 </body>
 <script>
-document.querySelector("button#back").addEventListener("click", () => {
+
+let doc = document
+
+
+doc.querySelector("button#back").addEventListener("click", () => {
     alert("목록으로 이동합니다.");
     location.href="${rootPath}/qna"	
 });
 
+let qna_title = doc.querySelector("input#qna_title")
+let qna_name = doc.querySelector("input#qna_name")
+let qna_text = doc.querySelector("textarea#qna_text")
 
-let doc = document
-const qna_submit = () => {
-
-	let qna_id = doc.querySelector("input#qna_id")
-	let qna_title = doc.querySelector("input#qna_title")
-	let qna_name = doc.querySelector("input#qna_name")
-	let qna_text = doc.querySelector("input#qna_text")
-	let qna_email = doc.querySelector("input#qna_email")
+doc.querySelector("button#enter").addEventListener("click",()=> {
+		
+	if(qna_title.value === "") {
+		alert("제목을 입력해주세요")
+		qna_title.focus()
+		return false;
+	}
+	
+	if(qna_name.value === "") {
+		alert("시설을 입력해주세요")
+		qna_name.focus()
+		return false;
+	}
+	
+	if(qna_text.value.length === 0) {
+		alert("내용을 입력해주세요")
+		qna_text.focus()
+		return false;
+	}
 	
 	doc.querySelector("form#insert").submit();
 	
-}
-doc.querySelector("button.enter").addEventListener("click",()=> {
-	qna_submit();
-})
-/*
-doc.querySelector("form#insert").addEventListener("click", (e) => {
-	let target = e.target
-	
-	if(target.tagName === "BUTTON") {
-		if(target.className.includes("enter")){
-			qna_submit();
-		}
-	}
 	
 })
-*/
-	
-	
-//document.querySelector("button#enter").addEventListener("click", (e) => {
-//document.querySelector("form#insert").submit();
 
-//})
 </script>
 </html>

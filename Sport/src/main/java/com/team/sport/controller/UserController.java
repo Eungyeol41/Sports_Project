@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.team.sport.model.QnAVO;
 import com.team.sport.model.UserVO;
@@ -60,8 +61,6 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, HttpSession hSession, Model model) {
-		log.debug("ID : {}", user_id);
-		log.debug("비밀번호 : {}", user_pw);
 		
 		UserVO vo = userService.login(user_id, user_pw);
 		
@@ -71,8 +70,9 @@ public class UserController {
 			return "redirect:/user/login";
 			
 		}
-		log.debug("UserVO {}", vo.toString());
+		
 		hSession.setAttribute("USER", vo);
+		
 		return "redirect:/";
 	}
 	
@@ -108,15 +108,6 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	// 유저 정보 확인 및 수정
-	@RequestMapping(value = "/info_update", method = RequestMethod.GET)
-	public String info_update(HttpSession hSession, Model model) {
-		
-		UserVO userVO = (UserVO) hSession.getAttribute("USER");
-		
-		return "user/info_update";
-	}
-	
 	// MyPage
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypgae(HttpSession hSession, Model model) {
@@ -131,58 +122,6 @@ public class UserController {
 		model.addAttribute("QNALIST", qnaList);
 		
 		return "user/mypage";
-	}
-
-	// ID 찾기
-	@RequestMapping(value = "/findId", method = RequestMethod.GET)
-	public String findId() {
-		return "user/find_Id";
-	}
-	
-	@RequestMapping(value = "/findId", method = RequestMethod.POST)
-	public String findId(Model model, UserVO vo) {
-		
-		UserVO userVO = userService.findId(vo);
-		
-		if(userVO == null) {
-			model.addAttribute("USERVO", "NONE");
-		} else {
-			model.addAttribute("USERVO", "CHECK");
-			model.addAttribute("ID", userVO.getUser_id());
-		}
-		
-		return "user/find_Id";
-	}
-	
-	// 비밀번호 찾기
-	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
-	public String findPw() {
-		return "user/find_Pw";
-	}
-
-	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
-	public String findPw(UserVO vo, Model model) {
-		
-		UserVO userVO = userService.findPw(vo);
-		
-		if(userVO == null) {
-			model.addAttribute("USERVO", "NONE");
-		} else {
-			model.addAttribute("USERVO", "CHECK");
-			model.addAttribute("USER", userVO);
-		}
-		
-		return "user/find_Pw";
-	}
-
-	// 비밀번호 수정하기
-	@RequestMapping(value = "/updatePw", method = RequestMethod.GET)
-	public String updatePw(@RequestParam(value = "updatePw", defaultValue = "", required = false) String user_id, UserVO userVO) {
-		
-		userVO.setUser_id(user_id);
-		userService.update_pw(userVO);
-		
-		return "user/update_pw";
 	}
 	
 	// Id 확인
@@ -212,4 +151,72 @@ public class UserController {
 		}
 	}
 	
+	// ID 찾기
+		@RequestMapping(value = "/findId", method = RequestMethod.GET)
+		public String findId() {
+			return "user/find_Id";
+		}
+		
+		@RequestMapping(value = "/findId", method = RequestMethod.POST)
+		public String findId(Model model, UserVO vo) {
+			
+			UserVO userVO = userService.findId(vo);
+			
+			if(userVO == null) {
+				model.addAttribute("USERVO", "NONE");
+			} else {
+				model.addAttribute("USERVO", "CHECK");
+				model.addAttribute("ID", userVO.getUser_id());
+			}
+			
+			return "user/find_Id";
+		}
+		
+		// 비밀번호 찾기
+		@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+		public String findPw() {
+			return "user/find_Pw";
+		}
+
+		@RequestMapping(value = "/findPw", method = RequestMethod.POST)
+		public String findPw(UserVO vo, Model model) {
+			
+			UserVO userVO = userService.findPw(vo);
+			
+			if(userVO == null) {
+				model.addAttribute("USERVO", "NONE");
+			} else {
+				model.addAttribute("USERVO", "CHECK");
+				model.addAttribute("USER", userVO);
+			}
+			
+			return "user/find_Pw";
+		}
+	
+	// 회원정보 수정하기
+	@RequestMapping(value = "/updateInfo", method = RequestMethod.GET)
+	public String updateInfo(HttpSession hSession, Model model) {
+		
+		UserVO userVO = (UserVO) hSession.getAttribute("USER");
+
+		model.addAttribute("USER", userVO);
+		
+		String qna_id = userVO.getUser_id();
+		List<QnAVO> qnaList = qnaService.findByIdWithList(qna_id);
+		
+		model.addAttribute("QNALIST", qnaList);
+		
+		return "user/mypage";
+	}
+	
+	@RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
+	public String updateInfo(UserVO userVO, Model model, HttpSession hSession) {
+		
+		userService.insertOrUpdate(userVO);
+		
+		hSession.setAttribute("USER", userVO);
+		
+		return "redirect:/user/updateInfo";
+	}
+
 }

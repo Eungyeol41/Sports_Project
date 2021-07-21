@@ -7,7 +7,7 @@
  
     <select id="selectAll" resultType="QnAVO">
 	    SELECT * FROM tbl_qna 
-	    ORDER BY qna_seq DESC
+	    ORDER BY qna_count DESC, qna_date DESC
     </select>
     
     <select id="findById" resultType="QnAVO">
@@ -47,7 +47,12 @@
     
     <update id="update" parameterType="QnAVO">
 	    UPDATE tbl_qna
-	    SET qna_id=#{qna_id},qna_title=#{qna_title},qna_name=#{qna_name},qna_text=#{qna_text},qna_date=#{qna_date},qna_email=#{qna_email}
+	    SET qna_id=#{qna_id},
+	    	qna_title=#{qna_title},
+	    	qna_name=#{qna_name},
+	    	qna_text=#{qna_text},
+	    	qna_date=#{qna_date},
+	    	qna_email=#{qna_email}
 	    WHERE qna_seq = #{qna_seq}
     </update>
     

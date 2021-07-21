@@ -10,35 +10,31 @@
 <link href="${rootPath}/static/css/login.css?ver=2021-07-19-003" rel="stylesheet" />
 
 </head>
+
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
-		<form id="login_form" method="POST">
-			<c:if test="${MSG !=  'NONE'}">
-				<div class="msg">${MSG}</div>
-			</c:if>
-			
-			<h2>Login</h2>
-			<div>
-				<input type="text" name="user_id" id="user_id" maxlength="15"
-					placeholder="사용자 ID" required="required" />
-			</div>
-			<div>
-				<input type="password" name="user_pw" id="user_pw"
-					placeholder="비밀번호" required="required" />
-			</div>
-			<!-- 
-				<div class="check">
-					<input id="id_save" type="checkbox">ID 저장 
-					<input id="auto_login" type="checkbox">자동 로그인
-				</div>
-			 -->
-			<button type="button" id="btn_login">Login</button>
-			<div class="btn">
-				<button type="button" id="btn_id_pw">ID/PW 찾기</button>
-				<button id="btn_join" type="button">회원가입</button>
-			</div>
-		</form>
+
+	<form id="login_form" method="POST">
+		<c:if test="${MSG != 'NONE'}">
+			<div class="msg">${MSG}</div>
+		</c:if>
+		
+		<h2>Login</h2>
+		<div>
+			<input type="text" name="user_id" id="user_id" maxlength="15"
+				placeholder="사용자 ID" />
+		</div>
+		<div>
+			<input type="password" name="user_pw" id="user_pw" 
+				placeholder="비밀번호" />
+		</div>
+		<button type="button" id="btn_login">Login</button>
+		<div class="btn">
+			<button id="btn_join" type="button">회원가입</button>
+		</div>
+	</form>
 </body>
+
 <script>
 	
 	document.querySelector("button#btn_login").addEventListener("click", ()=> {
@@ -61,24 +57,10 @@
 		document.querySelector("form#login_form").submit();
 	})
 	
-	document.querySelector("button#btn_id_pw").addEventListener("click", ()=> {
-		location.href = "${rootPath}/user/findId"
-	})
-	
 	document.querySelector("button#btn_join").addEventListener("click", ()=> {
 		location.href = "${rootPath}/user/join"
 	})
 	
-		
-	let modal = document.querySelector("div#modal");
-
-	modal.querySelector("span").addEventListener("click", (e)=> {
-	
-		modal.style.display = "none";
-		
-	})
-		
-	
-	
 </script>
+
 </html>

@@ -21,19 +21,11 @@
 
 			</c:if>
 			<c:if test="${not empty USER}">
-				<li>${USER.user_id}님,반갑습니다</li>
+				<li id="mypage">${USER.user_id}님,반갑습니다</li>
 				<li id="logout">LogOut</li>
 			</c:if>
 		</ul>
 	</nav>
-	<c:if test="${not empty USER}">
-		<nav id="sub_nav">
-			<ul id="mypage">
-				<li>회원 정보 수정</li>
-				<li>MyPage</li>
-			</ul>
-		</nav>
-	</c:if>
 </header>
 <script>
 	const nav = document.querySelector("nav#main_nav");
@@ -61,7 +53,10 @@
 				location.href = "${rootPath}/user/join";
 			} else if(menuText === "LogOut") {
 				location.href = "${rootPath}/user/logout";
+			} else if(e.target.id === "mypage") {
+				location.href = "${rootPath}/user/mypage"
 			}
+				
 		}
 	})
 </script>

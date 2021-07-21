@@ -25,7 +25,6 @@ public interface SearchService {
 	
 	List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception;
 
-	void findBySearchPage(int pageNum, Model model);
-
 	public DetailDTO findBySeq(Long seq);
+	
 }

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link href="${rootPath}/static/css/join.css?ver=2021-07-01-001" rel="stylesheet" />
+<link href="${rootPath}/static/css/join.css?ver=2021-07-20-002" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -17,30 +17,30 @@
         <h2>Sign_Up</h2>
             <div>
                 <label>ID</label>
-                <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" required="required">
+                <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" style="width: 8%;">
                 <button type="button" id="over">중복확인</button>
             </div>
             <div>
                 <label>Password</label>
-                <input name="user_pw" type="password" id="user_pw" placeholder="Password를 입력하세요" required="required" />
+                <input name="user_pw" type="password" id="user_pw" placeholder="Password를 입력하세요" />
             </div>
             <div>
                 <label>확인</label>
-                <input name="password_ch" type="password" id="password_ch" placeholder="Password를 한번 더 입력하세요" required="required" />
+                <input name="password_ch" type="password" id="password_ch" placeholder="Password를 한번 더 입력하세요" />
             </div>
             <div>
             	<label>이름</label>
-            	<input name="user_name" type="text" id="user_name" placeholder="이름을 입력하세요" required="required" />
+            	<input name="user_name" type="text" id="user_name" placeholder="이름을 입력하세요" />
             </div>
             <div>
                 <label>E_mail</label>
-                <input name="user_email" type="email" id="user_email" placeholder="E_mail를 입력하세요" required="required" />
+                <input name="user_email" type="email" id="user_email" placeholder="E_mail를 입력하세요" />
             </div>
             <div>
                 <label>Tel</label>
-                <input name="user_tel" type="tel" id="user_tel" placeholder="전화번호를 입력하세요" required="required" />
+                <input name="user_tel" type="tel" id="user_tel" placeholder="전화번호를 입력하세요" />
             </div>
-            <button type="button" id="join">등록</button>
+            <button id="join" type="button">등록</button>
     </form>
     
 </body>
@@ -55,8 +55,8 @@
 	let input_id = document.querySelector("input#user_id")
 	
 	document.querySelector("button#over").addEventListener("click", ()=> {
-		let user_id = input_id.value;
 		
+		let user_id = input_id.value;
 		if(user_id === "") {
 			alert("먼저 ID 입력")
 			input_id.focus();
@@ -77,12 +77,9 @@
 				return false;
 			}
 		})
-		
-	
-		
 	})
 	
-	document.querySelector("button#join").addEventListener("click", ()=> {
+	document.querySelector("button#join").addEventListener("click", (e)=> {
 		
 		if(input_id.value === "") {
 			alert("ID는 꼭 입력해주세요!")
@@ -95,7 +92,7 @@
 			id.focus();
 			return false;
 		}
-		
+
 		if(password.value === "") {
 			alert("비밀번호는 꼭 입력해주세요!")
 			password.focus();
@@ -118,9 +115,23 @@
 			name.focus();
 			return false;
 		}
+		
+		let name_v = /[^가-힣\x20]/i;
+		if(name_v.test(name.value)) {
+			alert("이름은 한글만 입력해주세요")
+			name.focus();
+			return false;
+		}
 	
 		if(email.value === "") {
 			alert("Email은 꼭 써주세요!")
+			email.focus();
+			return false;
+		}
+
+		let email_v = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if(!email_v.test(email.value)) {
+			alert("Email 형식으로 입력해주세요")
 			email.focus();
 			return false;
 		}
@@ -130,8 +141,9 @@
 			tel.focus();
 			return false;
 		}
-
+		
 		document.querySelector("form#join_form").submit();
+
 	})
 	
 </script>

@@ -14,7 +14,8 @@ public interface UserDao extends GenericDao<UserVO, String>{
 	public UserVO findId(UserVO vo);
 	public UserVO findPw(UserVO vo);
 	public int update_pw(UserVO vo);
-
-//	public List<UserVO> findId(UserVO vo);
+	public int delete(UserVO userVO);
 	
+	public Integer insertOrUpdate(UserVO vo);
+
 }

@@ -43,18 +43,9 @@ public class UserServiceImplV1 implements UserService{
 			userVO.setUser_level(9);
 		}
 		
-		userDao.insert(userVO);
+		userDao.insertOrUpdate(userVO);
 		
 		return userVO;
-	}
-
-	@Override
-	public int expire(String username) {
-		// TODO Auto-generated method stub
-		
-		userDao.delete(username);
-		
-		return 0;
 	}
 
 	@Override
@@ -80,14 +71,18 @@ public class UserServiceImplV1 implements UserService{
 		// TODO PW 찾기
 		return userDao.findPw(vo);
 	}
-/*
+
 	@Override
-	public String findId(@Param("user_name") String user_name, @Param("user_tel") String user_tel) {
+	public int expire(UserVO userVO) {
+		// TODO 회원 탈퇴
+		return userDao.delete(userVO);
+	}
+
+	@Override
+	public int insertOrUpdate(UserVO vo) {
 		// TODO Auto-generated method stub
 		
-		String result = userDao.findId(user_name, user_tel);
+		return userDao.insertOrUpdate(vo);
 		
-		return result;
 	}
-*/
 }

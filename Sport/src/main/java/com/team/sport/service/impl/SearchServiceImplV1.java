@@ -112,12 +112,14 @@ public class SearchServiceImplV1 implements SearchService {
 		// TODO Auto-generated method stub
 
 		List<AllListVO> allistAll = sDao.selectAll();
+
 		int totalListSize = allistAll.size();
 		log.debug("데이터 개수 : {}", totalListSize);
 
 		PageDTO pageDTO = pService.makePagination(totalListSize, intPageNum);
 
 		List<AllListVO> pageList = new ArrayList<>();
+
 		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
 			pageList.add(allistAll.get(i));
 		}
@@ -126,24 +128,6 @@ public class SearchServiceImplV1 implements SearchService {
 		model.addAttribute("PLIST", pageList);
 
 		return null;
-	}
-
-	@Override
-	public void findBySearchPage(int pageNum, Model model) {
-		// TODO Auto-generated method stub
-
-		List<AllListVO> alList = sDao.selectAll();
-
-		int totalListSize = alList.size();
-		PageDTO pageDTO = pService.makePagination(totalListSize, pageNum);
-
-		List<AllListVO> pList = new ArrayList<>();
-
-		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-			pList.add(alList.get(i));
-		}
-
-		model.addAttribute("PLIST", pList);
 	}
 
 	@Override

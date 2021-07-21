@@ -79,6 +79,22 @@
 		overflow: hidden;
 	}
 
+<<<<<<< HEAD
+table.list td, th {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+th.text {
+	width: 20%;
+}
+
+th.text br {
+	display: none;
+}
+=======
+>>>>>>> 475f4269adb1663012c8974e239eb962ade59bce
 </style>
 </head>
 
@@ -94,8 +110,8 @@
 			<option value="title" selected="selected">제목</option>
 			<option value="text">내용</option>
 			<option value="id">ID</option>
-		</select>
-		<input id="in_search" name="keyword" type="search" placeholder="검색하세요">
+		</select> <input id="in_search" name="keyword" type="search"
+			placeholder="검색하세요">
 		<button id="btn_search" type="button">검색</button>
 		<button id="write" type="button">글쓰기</button>
 	</div>
@@ -121,7 +137,7 @@
 							<th>${qna.qna_title}</th>
 							<th>${qna.qna_name}</th>
 							<th>${qna.qna_id}</th>
-							<th style="width: 20%" class="text">${qna.qna_text}</th>
+							<th class="text">${qna.qna_text}</th>
 							<th>${qna.qna_date}</th>
 							<th>${qna.qna_count}</th>
 						</tr>
@@ -161,6 +177,7 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	}
 
 })
+
 
 document.querySelector("button#write").addEventListener("click", (e) => {
 	location.href="${rootPath}/qna/write"

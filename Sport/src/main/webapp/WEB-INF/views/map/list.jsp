@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="POST" action="/list/update">
+<form method="POST" action="${rootPath}/map/allList/update">
 	<table>
 		<tr>
 			<th>코드</th>

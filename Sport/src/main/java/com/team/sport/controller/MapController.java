@@ -1,6 +1,7 @@
 package com.team.sport.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.parser.ParseException;
@@ -10,13 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.team.sport.dao.MapDao;
+import com.team.sport.dao.SearchDao;
+import com.team.sport.model.DetailDTO;
 import com.team.sport.model.DetailVO;
-import com.team.sport.model.GeocodeDTO;
 import com.team.sport.service.MapService;
 import com.team.sport.service.NaverCloudMapService;
+import com.team.sport.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,9 +30,11 @@ import lombok.extern.slf4j.Slf4j;
 public class MapController {
 
 	protected final MapService mapService;
+	protected final SearchService sService;
 	protected final MapDao mapDao;
+	protected final SearchDao sDao;
 
-	@Qualifier("geocodeV1")
+	@Qualifier("geocodeV2")
 	protected final NaverCloudMapService<?> nGeoService;
 
 	@Qualifier("reverseV1")
@@ -68,22 +72,27 @@ public class MapController {
 
 			// 주소 가져오기
 			List<DetailVO> detailList = mapService.selectAddr(address);
+			List<DetailVO> dList = new ArrayList<DetailVO>();
 			log.debug("mapList {}", detailList.toString());
 			int mapSize = detailList.size();
 
 			for (int i = 0; i < mapSize; i++) {
 				String queryURL = nGeoService.queryURL(detailList.get(i).getAl_addr());
-				log.debug("queryURL : {}", queryURL);
+//				log.debug("queryURL : {}", queryURL);
 				String jsonString = nGeoService.jsonString(queryURL);
 				String dt_code = detailList.get(i).getAl_code();
-//				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
-				nGeoService.getUpdate(jsonString,dt_code);
+				
+//				dList.addAll(nGeoService.getList(jsonString,dt_code));
+//				nGeoService.getUpdate(jsonString,dt_code);
+				model.addAttribute("GEOS", nGeoService.getList(jsonString,dt_code));
+				
 			}
+			
 		}
 		return "map/list";
 	}
 
-	@RequestMapping(value = "/list/update", method = RequestMethod.POST, produces = "application/json;char=UTF8")
+	@RequestMapping(value = "/allList/update", method = RequestMethod.POST, produces = "application/json;char=UTF8")
 	public String update(DetailVO vo ,Model model) throws IOException, ParseException {
 		// TODO 
 
@@ -102,7 +111,6 @@ public class MapController {
 //				String jsonString = nGeoService.jsonString(queryURL);
 //				String al_code = detailList.get(i).getAl_code();
 //				model.addAttribute("GEOS", nGeoService.getUpdate(jsonString,al_code));
-
 //			}
 
 		}else {
@@ -135,6 +143,15 @@ public class MapController {
 		model.addAttribute("MAP", mapList);
 
 		return "map/naver";
+	}
+	
+	@RequestMapping(value = "/marker", method = RequestMethod.GET)
+	public String marker(Long seq, Model model) {
+		
+		DetailDTO dto = sService.findBySeq(seq);
+		model.addAttribute("DTO",dto);
+		
+		return "map/marker";
 	}
 }
 

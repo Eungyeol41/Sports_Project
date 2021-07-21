@@ -28,17 +28,18 @@
 		SELECT * FROM tbl_user
 		WHERE user_id = #{user_id} AND user_name = #{user_name} AND user_tel = #{user_tel}
 	</select>
-	
+<!-- 
  	<insert id="insert" parameterType="UserVO">
  		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email, user_level)
  		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email}, #{user_level})
  	</insert>
- 	
- 	<update id="update" parameterType="UserVO">
- 		UPDATE tbl_user(user_id, user_pw, user_tel, user_name, user_email) 
- 		SET user_id = #{user_id}, user_pw	= #{user_pw}, user_tel = #{user_tel}, user_name = #{user_name}, user_email = #{user_email}
- 		WHERE user_id = #{user_id} 
- 	</update>
+ -->
+ 	<insert id="insertOrUpdate" parameterType="UserVO">
+ 		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email, user_level)
+ 		VALUES (#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email}, #{user_level})
+ 		ON DUPLICATE KEY UPDATE
+ 		user_id = #{user_id}, user_pw = #{user_pw}, user_tel = #{user_tel}, user_name = #{user_name}, user_email = #{user_email}, user_level = #{user_level}
+ 	</insert>
  	
  	<!-- PW 수정하기 -->
  	<update id="update_pw" parameterType="UserVO">
@@ -48,7 +49,7 @@
  	
  	<delete id="delete">
  		DELETE FROM tbl_user
- 		WHERE user_id = #{user_id}
+ 		WHERE user_id = #{user_id} AND user_pw = #{user_pw}
  	</delete>
  	
  </mapper>

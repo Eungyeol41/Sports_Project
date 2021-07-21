@@ -1,7 +1,5 @@
 package com.team.sport.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.team.sport.dao.QnADao;
 import com.team.sport.model.QnAVO;
 import com.team.sport.model.UserVO;
 import com.team.sport.service.QnAService;
@@ -24,7 +21,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping(value = "/qna")
 public class QnAController {
-	protected final QnADao qnaDao;
 	protected final QnAService qnaService;
 
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
@@ -47,28 +43,24 @@ public class QnAController {
 		if(uservo == null) {
 			return "redirect:/user/login";
 		}
-		if(uservo != null) {
-			QnAVO qnavo = qnaService.detail(seq);
-			qnaService.countUpdate(seq);
-			
-			model.addAttribute("QNA", qnavo);
-			return "/qna/detail";
-			
-		}
-		return null;
+		QnAVO qnavo = qnaService.findById(seq);
+		qnaService.countUpdate(seq);
+		model.addAttribute("QNA", qnavo);
+		return "/qna/detail";
 		
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String insert(Model model) {
+	public String insert(Model model,HttpSession session,Long seq) {
 		
-//		Date date = new Date(System.currentTimeMillis());
-//		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-//		
-//		String curDate = sd.format(date);
-//		
-//		model.addAttribute("DATE",curDate);
-
+		UserVO uservo = (UserVO) session.getAttribute("USER");
+		
+		if(uservo == null) {
+			return "redirect:/user/login";
+		}
+		
+		QnAVO qnavo = new QnAVO();
+		model.addAttribute("QNA", qnavo);
 		return "/qna/write";
 	}
 
@@ -79,7 +71,7 @@ public class QnAController {
 		return "redirect:/qna";
 	}
 
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update(Long seq, Model model) {
 
 		QnAVO vo = qnaService.findById(seq);
@@ -90,7 +82,7 @@ public class QnAController {
 		return "/qna/insert";
 	}
 
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Long seq, QnAVO vo) {
 
 		vo.setQna_seq(seq);
@@ -106,7 +98,7 @@ public class QnAController {
 
 		vo.setQna_seq(seq);
 		qnaService.delete(seq);
-//		log.debug("detail seq {}", seq.toString());
+//		log.debug("delete seq {}", seq.toString());
 		return "redirect:/qna";
 
 	}
@@ -115,12 +107,9 @@ public class QnAController {
 	public String searchTitle(Model model, String keyword) {
 		
 		List<QnAVO> qnaList = qnaService.findByTitle(keyword);
-		
 		log.debug("controller title : {}", qnaList.toString());
-		
 		model.addAttribute("RESULT",qnaList);
-		
-		//왜 redirect를 쓰면 되지 않는건가........
+
 		return  "/qna/list";
 	}
 	
@@ -128,9 +117,7 @@ public class QnAController {
 	public String searchText(Model model, String keyword) {
 		
 		List<QnAVO> qnaList = qnaService.findByText(keyword);
-		
-		log.debug("controller title : {}", qnaList.toString());
-		
+		log.debug("controller text : {}", qnaList.toString());
 		model.addAttribute("RESULT",qnaList);
 		
 		return  "/qna/list";
@@ -140,9 +127,7 @@ public class QnAController {
 	public String searchUser(Model model, String keyword) {
 		
 		List<QnAVO> qnaList = qnaService.findByUser(keyword);
-		
-		log.debug("controller title : {}", qnaList.toString());
-		
+		log.debug("controller id : {}", qnaList.toString());
 		model.addAttribute("RESULT",qnaList);
 		
 		return  "/qna/list";
