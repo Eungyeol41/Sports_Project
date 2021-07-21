@@ -154,20 +154,33 @@ button:hover {
 
 </body>
 <script>
+
+	let div = document.getElementById('map_view')
+
 	
 	var map = new naver.maps.Map('map_view', {
 	    center: new naver.maps.LatLng(${DT.v_lgt}, ${DT.v_lat}),
 	    zoom: 18
 	});
+	
+	
+	naver.maps.Event.addListener(map, 'bounds_changed', function(bounds) {
+		alert("bounds")
+    	console.log('.center',map.getCenter());
+    	
+	});
+
 
 	var marker = new naver.maps.Marker({
 	    position: new naver.maps.LatLng(${DT.v_lgt}, ${DT.v_lat}),
         map: map
 	});
 	
-	let div = document.getElementById('map_view')
-	if(div.textContent == '') {
-		div.innerHTML += '<label>다음의 좌표는 API에서 지원하지 않습니다.</label>'
+
+	
+	
+	if(div.textContent == '' || div.textContent == null) {
+		div.innerHTML = '<label>다음의 좌표는 API에서 지원하지 않습니다.</label>'
 	}
 	
 	var HOME_PATH = window.HOME_PATH || '.';

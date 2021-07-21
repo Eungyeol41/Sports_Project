@@ -30,6 +30,7 @@
 		</div>
 		<button type="button" id="btn_login">Login</button>
 		<div class="btn">
+			<button type="button" id="btn_id_pw">ID/PW 찾기</button>
 			<button id="btn_join" type="button">회원가입</button>
 		</div>
 	</form>
@@ -55,6 +56,10 @@
 		}
 			
 		document.querySelector("form#login_form").submit();
+	})
+	
+	document.querySelector("button#btn_id_pw").addEventListener("click", ()=> {
+		location.href = "${rootPath}/user/findId"
 	})
 	
 	document.querySelector("button#btn_join").addEventListener("click", ()=> {

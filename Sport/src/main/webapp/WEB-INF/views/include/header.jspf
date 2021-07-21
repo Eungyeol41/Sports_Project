@@ -5,6 +5,7 @@
 <link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-21-001"
 	rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
 	crossorigin="anonymous"></script>
 <header>

@@ -80,6 +80,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	
 	<form method="POST">
 		<div class="findId">
 			<div>

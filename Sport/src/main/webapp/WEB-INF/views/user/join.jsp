@@ -19,9 +19,6 @@
                 <label>ID</label>
                 <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" style="width: 8%;">
                 <button type="button" id="over">중복확인</button>
-                <form name="mainform">
-					<input type=IDcodeCheck value=0> 체크했는지 안했는지 구분
-				</form>
             </div>
             <div>
                 <label>Password</label>
@@ -48,35 +45,14 @@
     
 </body>
 
-<input type="IDcodeCheck" value=0>
-<input type="checkbox" name="IDcodeCheck" value=0>
-if (Dform.idCheck.checked == false) {
-	alert("회원ID를 다시 확인해 주세요.");
-	IDduplicatCheck(); // 아이디 입력 검증창을 강제로 띄움
-	return false;
-}
-
-
-
-
 <script>
-	function checksubmit(){
-	
-		var data = document.mainform;
-	
-		if(!data.IDcodeCheck.value){
-			alert('check please');
-			return false;
-		}
-	
-	}
-	
 	let password = document.querySelector("input#user_pw")
 	let password_ch = document.querySelector("input#password_ch")
 	let name = document.querySelector("input#user_name")
 	let email = document.querySelector("input#user_email")
 	let tel = document.querySelector("input#user_tel")
-
+	let check = 0;
+	
 	let input_id = document.querySelector("input#user_id")
 	
 	document.querySelector("button#over").addEventListener("click", ()=> {
@@ -99,6 +75,7 @@ if (Dform.idCheck.checked == false) {
 			} else {
 				alert("사용가능한 아이디")
 				password.focus()
+				check = 1;
 				return false;
 			}
 		})
@@ -118,9 +95,6 @@ if (Dform.idCheck.checked == false) {
 			return false;
 		}
 		
-		// 만약 버튼을 안 눌렀을 때 등록이 되지 않게 한다.
-		
-
 		if(password.value === "") {
 			alert("비밀번호는 꼭 입력해주세요!")
 			password.focus();
@@ -167,6 +141,12 @@ if (Dform.idCheck.checked == false) {
 		if(tel.value === "") {
 			alert("전화번호는 꼭 입력해주세요!")
 			tel.focus();
+			return false;
+		}
+		
+		if(check == 0) {
+			alert("중복 확인을 해주세요")
+			name.focus()
 			return false;
 		}
 		

@@ -106,17 +106,17 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	
-	<!-- ID는 고정, 비밀번호 수정 가능, 전화번호 수정 가능 -->
 	<h3>회원 정보</h3>
 	<section>
 		<form id="user" method="POST">
 			<div class="list">
 				<label>ID </label>
-				<input id="user_id" name="user_id" value="${USER.user_id}"/>
+				<input id="user_id" name="user_id" value="${USER.user_id}"
+					 readonly="readonly"/>
 			</div>
 			<div class="list">
 				<label>비밀번호 </label>
-				<input id="user_pw" name="user_pw" type="password" value="${USER.user_pw}"/>
+				<input id="user_pw" name="user_pw" type="password" value="${USER.user_pw}" />
 			</div>
 			<div class="list">
 				<label>이름</label>
@@ -174,25 +174,6 @@
 		}
 	})
 	
-/*
-	let expire = document.querySelector("form#user")
-	let u_pw = document.getElementById("u_pw")
-	
-	document.querySelector("button#expire").addEventListener("click", (e)=> {
-		if(confirm("정말로 탈퇴하시겠습니까?")) {
-			
-			if(u_pw.value == null || u_pw.value == "" || u_pw.value != "${USER.user_pw}"){
-				alert("비밀번호를 확인해주세요.")
-				u_pw.focus()
-				return false
-			} else {
-				expire.action = "${rootPath}/user/expire"
-				expire.submit();
-			}
-		}
-	})
-*/	
-
 	document.querySelector("table.list").addEventListener("click", (e) => {
 		let tagName = e.target.tagName;
 		
@@ -202,7 +183,6 @@
 			
 			location.href="${rootPath}/qna/detail?seq=" +seq;	
 		}
-	
 	})
 </script>
 </html>
