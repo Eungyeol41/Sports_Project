@@ -34,6 +34,12 @@
 		outline: none;
 	}
 	
+	form label.findPw {
+		display: inline-block;
+	    width: 20%;
+	    margin-right: 10px;
+	}
+	
 	form button {
 		outline: none;
 		display: block;
@@ -77,17 +83,17 @@
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<form method="POST">
 		<div>
-			<label>ID</label>
+			<label class="findPw">ID</label>
 			<input type="text" id="user_id" name="user_id">
 		</div>
 		
 		<div>
-			<label>이름</label>
+			<label class="findPw">이름</label>
 			<input type="text" id="user_name" name="user_name">
 		</div>
 		
 		<div>
-			<label>전화번호</label>
+			<label class="findPw">전화번호</label>
 			<input type="tel" id="user_tel" name="user_tel">
 		</div>
 		

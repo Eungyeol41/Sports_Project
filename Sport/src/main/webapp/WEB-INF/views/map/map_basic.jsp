@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header.jspf"%>
+	
 	<h1>GeoCode를 위한 페이지</h1>
 
 	<form method="POST" action="${rootPath}/map/geocoding">

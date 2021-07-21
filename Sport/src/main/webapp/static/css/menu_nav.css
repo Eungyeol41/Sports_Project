@@ -20,6 +20,7 @@ nav#main_nav img {
 	height: 50px;
 	margin: 10px 10px 10px 60px;
 	position: relative;
+	z-index: 10;
 }
 
 nav#main_nav ul {

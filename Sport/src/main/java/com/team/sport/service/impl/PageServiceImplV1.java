@@ -35,24 +35,4 @@ public class PageServiceImplV1 implements PageService{
 
 		return pageDTO;
 	}
-
-	@Override
-	public PageDTO makePaginationFree(int totalListSize, int currentPage) {
-		// TODO Auto-generated method stub
-		if(totalListSize < 1) return null;
-
-		int startPage = 1;
-		int endPage = totalListSize / this.listPerPage + 1;
-		int totalPages = (int)Math.round((double)totalListSize / (double)this.listPerPage);
-		
-		endPage = endPage > totalPages ? totalPages : endPage;
-
-		int offset = (currentPage - 1) * this.listPerPage;
-		int limit = offset + this.listPerPage;
-		limit = limit > totalListSize ? totalListSize : limit;
-
-		PageDTO pageDTO = PageDTO.builder().startPage(startPage).endPage(endPage).totalPages(totalPages).offset(offset).limit(limit).build();
-
-		return pageDTO;
-	}
 }

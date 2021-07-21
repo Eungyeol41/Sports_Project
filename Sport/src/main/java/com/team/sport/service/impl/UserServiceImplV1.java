@@ -43,7 +43,7 @@ public class UserServiceImplV1 implements UserService{
 			userVO.setUser_level(9);
 		}
 		
-		userDao.insertOrUpdate(userVO);
+		userDao.insert(userVO);
 		
 		return userVO;
 	}
@@ -70,12 +70,6 @@ public class UserServiceImplV1 implements UserService{
 	public UserVO findPw(UserVO vo) {
 		// TODO PW 찾기
 		return userDao.findPw(vo);
-	}
-
-	@Override
-	public int expire(UserVO userVO) {
-		// TODO 회원 탈퇴
-		return userDao.delete(userVO);
 	}
 
 	@Override

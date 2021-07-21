@@ -111,35 +111,42 @@ button:hover {
 			<table>
 				<tr>
 					<th class="sec1">시설이름</th>
-					<th>${DT.v_name}</th>
+					<th><input name="v_name" id="v_name" value="${DT.v_name}"></th>
 				</tr>
 				<tr>
 					<th class="sec1">전화번호</th>
-					<th>${DT.v_tel}</th>
+					<th><input name="v_tel" id="v_tel" value="${DT.v_tel}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">주소</th>
-					<th>${DT.v_addr}</th>
+					<th><input name="v_addr" id="v_addr" value="${DT.v_addr}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">종목</th>
-					<th>${DT.v_sport}</th>
+					<th><input name="v_sport" id="v_sport" value="${DT.v_sport}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">유/무료</th>
-					<th>${DT.v_free}</th>
+					<th><input name="v_free" id="v_free" value="${DT.v_free}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">이용가능 시간</th>
-					<th>${DT.v_time}</th>
+					<th><input name="v_time" id="v_time" value="${DT.v_time}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">사이트</th>
-					<th>${DT.v_site}</th>
+					<th><input name="v_site" id="v_site" value="${DT.v_site}"
+						type="text"></th>
 				</tr>
 				<tr>
 					<th class="sec1">상세이용료</th>
-					<th>${DT.v_money}</th>
+					<th><input name="v_money" id="v_money" value="${DT.v_money}"
+						type="text"></th>
 				</tr>
 			</table>
 		</div>
@@ -158,6 +165,10 @@ button:hover {
         map: map
 	});
 	
+	let div = document.getElementById('map_view')
+	if(div.textContent == '') {
+		div.innerHTML += '<label>다음의 좌표는 API에서 지원하지 않습니다.</label>'
+	}
 	
 	var HOME_PATH = window.HOME_PATH || '.';
 

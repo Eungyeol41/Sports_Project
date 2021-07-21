@@ -6,7 +6,6 @@ public interface UserService {
 	
 	public UserVO login(String username, String password);
 	public UserVO join(UserVO userVO);
-	public int expire(UserVO userVO);
 	
 	public int update_pw(UserVO userVO);
 	public int insertOrUpdate(UserVO vo);

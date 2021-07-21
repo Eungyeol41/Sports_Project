@@ -79,7 +79,6 @@
 		overflow: hidden;
 	}
 
-<<<<<<< HEAD
 table.list td, th {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -93,8 +92,6 @@ th.text {
 th.text br {
 	display: none;
 }
-=======
->>>>>>> 475f4269adb1663012c8974e239eb962ade59bce
 </style>
 </head>
 
@@ -171,7 +168,6 @@ document.querySelector("table.list").addEventListener("click", (e) => {
 	if(tagName == "TH") {
 		let seq = e.target.closest("TR").dataset.seq;
 		console.log(seq);
-		alert(seq + "조회합니다.");
 		
 		location.href="${rootPath}/qna/detail?seq=" +seq;	
 	}
@@ -189,18 +185,12 @@ document.querySelector("button#btn_search").addEventListener("click", (e) => {
 	let keyword = document.querySelector("input#in_search").value
 	
 	if(search == "title") {
-		
-		alert(search + "title")
 		location.href="${rootPath}/qna/search/title?keyword=" +keyword;
 	}
 	if(search == "text") {
-		
-		alert(search + "text")
 		location.href="${rootPath}/qna/search/text?keyword=" +keyword;
 	}
 	if(search == "id") {
-		
-		alert(search + "id")
 		location.href="${rootPath}/qna/search/user?keyword=" +keyword;
 	}	
 })

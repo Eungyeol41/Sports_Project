@@ -19,6 +19,9 @@
                 <label>ID</label>
                 <input name="user_id" type="text" id="user_id" placeholder="ID를 입력하세요" style="width: 8%;">
                 <button type="button" id="over">중복확인</button>
+                <form name="mainform">
+					<input type=IDcodeCheck value=0> 체크했는지 안했는지 구분
+				</form>
             </div>
             <div>
                 <label>Password</label>
@@ -45,7 +48,29 @@
     
 </body>
 
+<input type="IDcodeCheck" value=0>
+<input type="checkbox" name="IDcodeCheck" value=0>
+if (Dform.idCheck.checked == false) {
+	alert("회원ID를 다시 확인해 주세요.");
+	IDduplicatCheck(); // 아이디 입력 검증창을 강제로 띄움
+	return false;
+}
+
+
+
+
 <script>
+	function checksubmit(){
+	
+		var data = document.mainform;
+	
+		if(!data.IDcodeCheck.value){
+			alert('check please');
+			return false;
+		}
+	
+	}
+	
 	let password = document.querySelector("input#user_pw")
 	let password_ch = document.querySelector("input#password_ch")
 	let name = document.querySelector("input#user_name")
@@ -92,6 +117,9 @@
 			id.focus();
 			return false;
 		}
+		
+		// 만약 버튼을 안 눌렀을 때 등록이 되지 않게 한다.
+		
 
 		if(password.value === "") {
 			alert("비밀번호는 꼭 입력해주세요!")

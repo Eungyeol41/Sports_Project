@@ -33,6 +33,12 @@
 		outline: none;
 	}
 	
+	form label.findId {
+		display: inline-block;
+	    width: 20%;
+	    margin-right: 10px;
+	}
+	
 	form button {
 		outline: none;
 		display: block;
@@ -77,12 +83,12 @@
 	<form method="POST">
 		<div class="findId">
 			<div>
-				<label>이름</label>
+				<label class="findId">이름</label>
 				<input type="text" id="user_name" name="user_name">
 			</div>
 
 			<div>
-				<label>전화번호</label>
+				<label class="findId">전화번호</label>
 				<input type="tel" id="user_tel" name="user_tel">
 			</div>
 

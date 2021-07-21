@@ -28,12 +28,12 @@
 		SELECT * FROM tbl_user
 		WHERE user_id = #{user_id} AND user_name = #{user_name} AND user_tel = #{user_tel}
 	</select>
-<!-- 
+
  	<insert id="insert" parameterType="UserVO">
  		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email, user_level)
  		VALUES(#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email}, #{user_level})
  	</insert>
- -->
+
  	<insert id="insertOrUpdate" parameterType="UserVO">
  		INSERT INTO tbl_user(user_id, user_pw, user_tel, user_name, user_email, user_level)
  		VALUES (#{user_id}, #{user_pw},#{user_tel}, #{user_name}, #{user_email}, #{user_level})

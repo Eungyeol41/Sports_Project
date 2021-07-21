@@ -26,6 +26,13 @@ public class SearchServiceImplV1 implements SearchService {
 	protected final PageService pService;
 
 	@Override
+	public List<SearchVO> selectAll() {
+
+		return null;
+
+	}
+
+	@Override
 	public List<DetailDTO> selectView() {
 
 		List<DetailDTO> dtList = sDao.selectView();
@@ -34,72 +41,22 @@ public class SearchServiceImplV1 implements SearchService {
 	}
 
 	@Override
-	public List<AllListVO> selectAllList(int intPageNum, Model model) throws Exception {
+	public List<AllListVO> selectAllList() {
 
 		List<AllListVO> alList = sDao.selectAllList();
-		int totalListSize = alList.size();
-
-		List<AllListVO> pageList = new ArrayList<>();
-		
-		PageDTO pageDTO = pService.makePagination(totalListSize, intPageNum);
-
-		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-			pageList.add(alList.get(i));
-		}
-		log.debug("데이터 개수 : {}", totalListSize);
-
-		model.addAttribute("PAGE_NAV", pageDTO);
-		model.addAttribute("ALLIST", pageList);
-
-		return null;
-	}
-	@Override
-	public void selectAllListPage(int pageNum, Model model) {
-		// TODO Auto-generated method stub
-		List<AllListVO> alList = sDao.selectAllList();
-
-		int totalListSize = alList.size();
-		PageDTO pageDTO = pService.makePagination(totalListSize, pageNum);
-
-		List<AllListVO> pList = new ArrayList<>();
-
-		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-			pList.add(alList.get(i));
-		}
-
-		model.addAttribute("ALLIST", pList);
-	}
-
-	@Override
-	public List<AllListVO> findFree(String al_free, String al_name, String al_addr, String al_sport
-			) {
-
-		List<AllListVO> alList = sDao.findFree(al_free, al_name, al_addr, al_sport);
-		
 		return alList;
 	}
 
+	@Override
+	public List<AllListVO> findFree(String al_free, String al_name, String al_addr) {
 
-//	@Override
-//	public void findFreePage(String al_free, String al_name, String al_addr, String al_sport, int pageNum,
-//			Model model) {
-//		// TODO Auto-generated method stub
-//		List<AllListVO> alList = sDao.findFree(al_free, al_name, al_addr, al_sport);
-//
-//		int totalListSize = alList.size();
-//		PageDTO pageDTO = pService.makePaginationFree(totalListSize, pageNum);
-//		
-//		log.debug("findFree데이터 개수여기는 페이지 : {}", totalListSize);
-//		List<AllListVO> pList = new ArrayList<>();
-//
-//		for (int i = pageDTO.getOffset(); i < pageDTO.getLimit(); i++) {
-//			pList.add(alList.get(i));
-//		}
-//		log.debug("토탈리스트 {}",totalListSize);
-//		log.debug("이거는 pList {}",pList);
-//		log.debug("asdasd{}",pageDTO.toString());
-//		model.addAttribute("RESULT", pList);
-//	}
+		// String al_sport,String addr1,String addr2,String addr3,String addr4,String
+		// addr5
+		List<AllListVO> alList = sDao.findFree(al_free, al_name, al_addr);
+//		log.debug("asdasdasd :",al_sport);
+		// , al_sport,addr1,addr2,addr3,addr4,addr5
+		return alList;
+	}
 
 	@Override
 	public DetailDTO findSeq(Long v_seq) {
@@ -107,6 +64,7 @@ public class SearchServiceImplV1 implements SearchService {
 		DetailDTO dtDTO = sDao.findSeq(v_seq);
 		return dtDTO;
 	}
+
 	@Override
 	public List<AllListVO> selectAllPage(int intPageNum, Model model) throws Exception {
 		// TODO Auto-generated method stub
@@ -114,8 +72,6 @@ public class SearchServiceImplV1 implements SearchService {
 		List<AllListVO> allistAll = sDao.selectAll();
 
 		int totalListSize = allistAll.size();
-		log.debug("데이터 개수 : {}", totalListSize);
-
 		PageDTO pageDTO = pService.makePagination(totalListSize, intPageNum);
 
 		List<AllListVO> pageList = new ArrayList<>();
@@ -137,4 +93,5 @@ public class SearchServiceImplV1 implements SearchService {
 
 		return dto;
 	}
+
 }

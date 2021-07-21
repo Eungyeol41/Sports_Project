@@ -101,6 +101,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
+		
 		log.debug("join {}", vo.toString());
 		
 		userService.join(vo);
@@ -152,46 +153,45 @@ public class UserController {
 	}
 	
 	// ID 찾기
-		@RequestMapping(value = "/findId", method = RequestMethod.GET)
-		public String findId() {
-			return "user/find_Id";
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
+	public String findId() {
+		return "user/find_Id";
+	}
+	
+	@RequestMapping(value = "/findId", method = RequestMethod.POST)
+	public String findId(Model model, UserVO vo) {
+		
+		UserVO userVO = userService.findId(vo);
+		
+		if(userVO == null) {
+			model.addAttribute("USERVO", "NONE");
+		} else {
+			model.addAttribute("USERVO", "CHECK");
+			model.addAttribute("ID", userVO.getUser_id());
 		}
 		
-		@RequestMapping(value = "/findId", method = RequestMethod.POST)
-		public String findId(Model model, UserVO vo) {
-			
-			UserVO userVO = userService.findId(vo);
-			
-			if(userVO == null) {
-				model.addAttribute("USERVO", "NONE");
-			} else {
-				model.addAttribute("USERVO", "CHECK");
-				model.addAttribute("ID", userVO.getUser_id());
-			}
-			
-			return "user/find_Id";
-		}
+		return "user/find_Id";
+	}
 		
-		// 비밀번호 찾기
-		@RequestMapping(value = "/findPw", method = RequestMethod.GET)
-		public String findPw() {
-			return "user/find_Pw";
-		}
-
+	// 비밀번호 찾기
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public String findPw() {
+		return "user/find_Pw";
+	}
 		@RequestMapping(value = "/findPw", method = RequestMethod.POST)
-		public String findPw(UserVO vo, Model model) {
-			
-			UserVO userVO = userService.findPw(vo);
-			
-			if(userVO == null) {
-				model.addAttribute("USERVO", "NONE");
-			} else {
-				model.addAttribute("USERVO", "CHECK");
-				model.addAttribute("USER", userVO);
-			}
-			
-			return "user/find_Pw";
+	public String findPw(UserVO vo, Model model) {
+		
+		UserVO userVO = userService.findPw(vo);
+		
+		if(userVO == null) {
+			model.addAttribute("USERVO", "NONE");
+		} else {
+			model.addAttribute("USERVO", "CHECK");
+			model.addAttribute("USER", userVO);
 		}
+		
+		return "user/find_Pw";
+	}
 	
 	// 회원정보 수정하기
 	@RequestMapping(value = "/updateInfo", method = RequestMethod.GET)

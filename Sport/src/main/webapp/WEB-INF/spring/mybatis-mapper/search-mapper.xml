@@ -12,7 +12,6 @@
 
 	<select id="selectAllList" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
-		ORDER BY al_seq
 	</select>
 	<select id="mapPoint" resultType="DetailVO">
 		SELECT dt_road, dt_lat, dt_lgt FROM tbl_detail
@@ -22,9 +21,8 @@
 	<select id="findFree" resultType="AllListVO">
 		SELECT * FROM tbl_all_list
 		WHERE al_free = #{al_free}
-		OR al_name like CONCAT('%',#{al_name},'%')
-		OR al_addr like CONCAT('%',#{al_addr},'%')
-		OR al_sport = #{al_sport}
+		AND al_name like CONCAT('%',#{al_name},'%')
+		AND al_addr like CONCAT('%',#{al_addr},'%')
 		ORDER BY al_seq
 	</select>
 

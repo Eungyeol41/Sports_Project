@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-19-0004"
+<link href="${rootPath}/static/css/menu_nav.css?ver=2021-07-21-001"
 	rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <script src="https://kit.fontawesome.com/ce0a08be66.js"
@@ -13,7 +13,7 @@
 		<ul>
 			<li id="search">Search</li>
 			<li id="map">Map</li>
-			<li id="instagram">QnA</li>
+			<li id="qna">QnA</li>
 
 			<c:if test="${empty USER}">
 				<li id="login">Login <i class="fas fa-user-circle fa-lg"></i></li>
@@ -33,27 +33,27 @@
 	nav.addEventListener("click", (e)=> {
 		
 		let tagName = e.target.tagName;
+		let menuId = e.target.id;
 		
 		if(tagName === "IMG") {
-			location.href = "${rootPath}/"
+			location.href = "${rootPath}/"	
 		}
 		
 		if(tagName === "LI") {
-			let menuText = e.target.textContent;
-			
-			if (menuText === "Search") {
+
+			if (menuId === "search") {
 				location.href = "${rootPath}/search";
-			} else if(menuText === "Map") {
+			} else if(menuId === "map") {
 				location.href = "${rootPath}/map";
-			} else if(menuText === "QnA") {
+			} else if(menuId === "qna") {
 				location.href = "${rootPath}/qna";
-			} else if(menuText === "Login ") {
+			} else if(menuId === "login") {
 				location.href = "${rootPath}/user/login";
-			} else if(menuText === "Join ") {
+			} else if(menuId === "join") {
 				location.href = "${rootPath}/user/join";
-			} else if(menuText === "LogOut") {
+			} else if(menuId === "logout") {
 				location.href = "${rootPath}/user/logout";
-			} else if(e.target.id === "mypage") {
+			} else if(menuId === "mypage") {
 				location.href = "${rootPath}/user/mypage"
 			}
 				
