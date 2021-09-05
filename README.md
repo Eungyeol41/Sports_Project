@@ -12,6 +12,8 @@
 ## 할 일
 ### 지도 API 구현
 * 지도 API 받아서 구현
+  - kakaomap api
+  - naver api (geocode) 사용
 * DB에서 각종 체육시설 위치 받아오기
   - Geocode 사용해서 주소를 좌표로 변환 후 사용
   - 좌표를 이용해서 각 시설 별 마커 찍기
