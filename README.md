@@ -7,9 +7,7 @@
 ## 일정
 1. 깃허브 시작 (2021 - 06 - 07)
 2. UI / UX 발표 (2021 - 06 - 16)
-3. 완성 및 발표 (2021 - 07 - 21)  
-   > 발표 자료 : [GPC - 최종.pptx](https://github.com/Eungyeol41/Sports_Project/files/7111811/GPC.-.pptx)
-
+3. 완성 및 발표 (2021 - 07 - 21)
 
 ## 할 일
 ### 지도 API 구현
