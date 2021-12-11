@@ -46,6 +46,7 @@
 </body>
 
 <script>
+
 	let password = document.querySelector("input#user_pw")
 	let password_ch = document.querySelector("input#password_ch")
 	let name = document.querySelector("input#user_name")
@@ -131,8 +132,10 @@
 			return false;
 		}
 
-		let email_v = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-		if(!email_v.test(email.value)) {
+/*		let email_v = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i; */
+		
+		let email_v = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/i;
+		if(email_v.test(email.value)) {
 			alert("Email 형식으로 입력해주세요")
 			email.focus();
 			return false;

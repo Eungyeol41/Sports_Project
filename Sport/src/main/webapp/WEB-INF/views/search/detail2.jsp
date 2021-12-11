@@ -105,7 +105,9 @@ button:hover {
 	<div class="h2">
 		<h1>상세페이지</h1>
 	</div>
+	
 	<div id="map_view" style="width: 80%; height: 500px;"></div>
+	
 	<form id="insert" method="POST">
 		<div class="table">
 			<table>
