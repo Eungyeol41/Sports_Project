@@ -59,15 +59,13 @@ public class QnAController {
 			return "redirect:/user/login";
 		}
 		
-		QnAVO qnavo = new QnAVO();
-		model.addAttribute("QNA", qnavo);
 		return "/qna/write";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String insert(QnAVO vo) {
 
-		Integer res = qnaService.insert(vo);
+		qnaService.insert(vo);
 		return "redirect:/qna";
 	}
 
@@ -86,7 +84,7 @@ public class QnAController {
 	public String update(Long seq, QnAVO vo) {
 
 		vo.setQna_seq(seq);
-		Integer res = qnaService.update(vo);
+		qnaService.update(vo);
 //		log.debug("update Qna VO {}", vo.toString());
 
 		return "redirect:/qna";
@@ -94,9 +92,8 @@ public class QnAController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(Long seq, QnAVO vo) {
+	public String delete(Long seq) {
 
-		vo.setQna_seq(seq);
 		qnaService.delete(seq);
 //		log.debug("delete seq {}", seq.toString());
 		return "redirect:/qna";

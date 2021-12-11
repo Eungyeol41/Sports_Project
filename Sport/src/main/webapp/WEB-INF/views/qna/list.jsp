@@ -25,59 +25,59 @@
 	;
 </style>
 <style>
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-	
-	body {
-		background-color: white;
-		font-family: "Noto Sans KR", sans-serif;
-		font-family: "Roboto Condensed", sans-serif;
-	}
-	
-	div#search {
-		margin: 10px 0px 10px 0px;
-		display: flex;
-	}
-	
-	select#search {
-		margin-left: 10%;
-		padding: 0px 10px 0px 10px;
-		margin-right: 20px;
-		border: 1px solid black;
-		text-align: center;
-	}
-	
-	tr:hover:not(.first) {
-		background-color: #dedcee;
-		cursor: pointer;
-		color: darkblue;
-	}
-	
-	button#btn_search {
-		margin: 0px 0px 0px 20px;
-	}
-	
-	button#write {
-		margin-left: auto;
-		margin-right: 10%;
-	}
-	
-	table.list {
-		table-layout: fixed;
-	}
-	
-	table.list th:first-child {
-		width: 5%;
-	}
-	
-	table.list td, th {
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-	}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: white;
+	font-family: "Noto Sans KR", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
+}
+
+div#search {
+	margin: 10px 0px 10px 0px;
+	display: flex;
+}
+
+select#search {
+	margin-left: 10%;
+	padding: 0px 10px 0px 10px;
+	margin-right: 20px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+tr:hover:not(.first) {
+	background-color: #dedcee;
+	cursor: pointer;
+	color: darkblue;
+}
+
+button#btn_search {
+	margin: 0px 0px 0px 20px;
+}
+
+button#write {
+	margin-left: auto;
+	margin-right: 10%;
+}
+
+table.list {
+	table-layout: fixed;
+}
+
+table.list th:first-child {
+	width: 5%;
+}
+
+table.list td, th {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 
 table.list td, th {
 	text-overflow: ellipsis;
@@ -107,8 +107,8 @@ th.text br {
 			<option value="title" selected="selected">제목</option>
 			<option value="text">내용</option>
 			<option value="id">ID</option>
-		</select> <input id="in_search" name="keyword" type="search"
-			placeholder="검색하세요">
+		</select>
+		<input id="in_search" name="keyword" type="search" placeholder="검색하세요">
 		<button id="btn_search" type="button">검색</button>
 		<button id="write" type="button">글쓰기</button>
 	</div>
@@ -123,40 +123,36 @@ th.text br {
 				<th>작성시간</th>
 				<th>조회수</th>
 			</tr>
-			<c:choose>
-				<c:when test="${empty RESULT}">
-					<%-- 		<tr>
+
+			<c:if test="${empty RESULT}">
+				<%-- 		<tr>
 					<td colspan="6">데이터가 없음</td>
 				</tr> --%>
-					<c:forEach items="${QNA}" var="qna" varStatus="index">
-						<tr id="list_sec" data-seq="${qna.qna_seq}">
-							<th>${index.count}</th>
-							<th>${qna.qna_title}</th>
-							<th>${qna.qna_name}</th>
-							<th>${qna.qna_id}</th>
-							<th class="text">${qna.qna_text}</th>
-							<th>${qna.qna_date}</th>
-							<th>${qna.qna_count}</th>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:when test="${not empty RESULT}">
-					<c:forEach items="${RESULT}" var="RE" varStatus="index">
-						<tr data-seq="${RE.qna_seq}">
-							<th>${index.count}</th>
-							<th>${RE.qna_title}</th>
-							<th>${RE.qna_name}</th>
-							<th>${RE.qna_id}</th>
-							<th class="text">${RE.qna_text}</th>
-							<th>${qna.qna_date}</th>
-							<th>${qna.qna_count}</th>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-
-				</c:otherwise>
-			</c:choose>
+				<c:forEach items="${QNA}" var="qna" varStatus="index">
+					<tr id="list_sec" data-seq="${qna.qna_seq}">
+						<th>${index.count}</th>
+						<th>${qna.qna_title}</th>
+						<th>${qna.qna_name}</th>
+						<th>${qna.qna_id}</th>
+						<th class="text">${qna.qna_text}</th>
+						<th>${qna.qna_date}</th>
+						<th>${qna.qna_count}</th>
+					</tr>
+				</c:forEach>
+			</c:if>
+			<c:if test="${not empty RESULT}">
+				<c:forEach items="${RESULT}" var="RE" varStatus="index">
+					<tr data-seq="${RE.qna_seq}">
+						<th>${index.count}</th>
+						<th>${RE.qna_title}</th>
+						<th>${RE.qna_name}</th>
+						<th>${RE.qna_id}</th>
+						<th class="text">${RE.qna_text}</th>
+						<th>${qna.qna_date}</th>
+						<th>${qna.qna_count}</th>
+					</tr>
+				</c:forEach>
+			</c:if>
 		</table>
 	</div>
 </body>
